@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Text Search 101</title>
+    <title>Text Search 102</title>
 
     <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
     <meta name="author" content="Hakim El Hattab">
@@ -44,582 +44,425 @@
 
        <section data-markdown>
             <script type="text/template">
-            # Text Search 101
+                # Text Search 102
 
-            Georg M. Sorst, CTO FINDOLOGIC
+                Georg M. Sorst, CTO FINDOLOGIC
 			</script>
         </section>
 
         <section>
-            <div>
-            	<img src="images/findologic-big.png" style="border: none; box-shadow: none;" />
-        	</div>
-            <ul>
-                <li>On-Site Suche für Online-Shops</li>
-                <li>Seit 7 Jahren dabei</li>
-                <li>18 Sprachen, 20 Länder, 20 Millionen Benutzer</li>
-            </ul>
+            <section data-markdown>
+                <script type="text/template">
+                # Agenda
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # I
+                    * Motivation
+                    * Boolean retrieval
+                    * Term-document matrix
+                    * Inverted index
+                    * Querying the index
+                    * Solr Workshop
+                    * Final projects
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # II
+                    * Ranked retrieval
+                    * Text analysis
+                    * Phrase queries
+                    * Inexact retrieval
+                    * Scoring
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # III
+                    * Vector Space Model
+                    * Result evaluation
+                    * Clustering
+                    * Latent semantic indexing
+                </script>
+            </section>
         </section>
 
         <section>
-        	<img src="images/shopman.png" />
+            <section data-markdown>
+                <script type="text/template">
+                    # Motivation
+                </script>
+            </section>
+
+            <section>
+                <img class="stretch" data-src="images/netcraft.png"/>
+            </section>
+
+            <section>
+                <img class="stretch" data-src="images/wikipedia.png"/>
+            </section>
+
+            <section>
+                <img class="stretch" data-src="images/printed-internet.png"/>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # Search is everywhere
+                    * Internet
+                    * eCommerce
+                    * CMS, Blogs
+                    * Intranet
+                    * Academia
+                    * ...
+                </script>
+            </section>
         </section>
 
         <section>
-        	<img src="images/bbq.png" />
+            <section data-markdown>
+                <script type="text/template">
+                    # Boolean retrieval
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    Find all **documents** containing the **terms** and satisfying the conditions:
+
+                    ```
+                    fh AND salzburg
+                    ```
+
+                    ```
+                    mmt OR mma
+                    ```
+
+                    ```
+                    (information AND retrieval) OR search
+                    ```
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # Nomenclature
+                    ## Documents
+                    Books, chapters, pages, web pages, news posts...
+                    ## Document collection, Corpus
+                    All the documents
+                    ## Terms
+                    Like words, but maybe "FH Salzburg" and "A1" as well
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    ```
+                    (information AND retrieval) OR search
+                    ```
+
+                    * <!-- .element: class="fragment" --> \#1: _a book about information retrieval_
+                      * <!-- .element: class="fragment" style="color: green;" --> Match
+                    * <!-- .element: class="fragment" --> \#2: _a book about the search for information_
+                      * <!-- .element: class="fragment" style="color: green;" --> Match
+                    * <!-- .element: class="fragment" --> \#3: _a book about information_
+                      * <!-- .element: class="fragment" style="color: red;" --> No Match
+
+                    Notes:
+                        Audience question
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # Nomenclature
+                    ## Information need
+                    What the user is looking for
+                    ## Query
+                    How the user talks to the computer
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # How to search?
+
+                    1. Grep ![...](images/buch.png) <!-- .element: style="height: 250px" -->
+                    2. Intersect, Union ![...](images/grep.png)
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * Complexity?
+                    * <!-- .element: class="fragment" --> &Omicron;(num terms in corpus)
+
+                    Notes:
+                        Audience question
+                </script>
+            </section>
         </section>
 
         <section>
-        	<img src="images/lan.png" />
+            <section data-markdown>
+                <script type="text/template">
+                    # Term-document matrix
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template" data-separator-notes="^Notes:">
+                    * Aka _incidence matrix_
+                    * Rows = Terms, Columns = Docs
+                    * Cell = 1 if Term in Doc, else 0
+                    * Needs to pre-built
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * \#1: _a book about information retrieval_
+                    * \#2: _a book about the search for information_
+                    * \#3: _a book about information_
+
+                    ***
+
+                    |             | #1 | #2 | #3 |
+                    |-------------|----|----|----|
+                    | **Book**        | 1<!-- .element: class="fragment" data-fragment-index="1" -->  | 1<!-- .element: class="fragment" data-fragment-index="5" -->  | 1<!-- .element: class="fragment" data-fragment-index="9" -->  |
+                    | **Information** | 1<!-- .element: class="fragment" data-fragment-index="2" -->  | 1<!-- .element: class="fragment" data-fragment-index="6" -->  | 1<!-- .element: class="fragment" data-fragment-index="10" -->  |
+                    | **Retrieval**   | 1<!-- .element: class="fragment" data-fragment-index="3" -->  | 0<!-- .element: class="fragment" data-fragment-index="7" -->  | 0<!-- .element: class="fragment" data-fragment-index="11" -->  |
+                    | **Search**      | 0<!-- .element: class="fragment" data-fragment-index="4" -->  | 1<!-- .element: class="fragment" data-fragment-index="8" -->  | 0<!-- .element: class="fragment" data-fragment-index="12" -->  |
+
+                    Notes:
+                    Audience question
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    |             | #1 | #2 | #3 |
+                    |-------------|----|----|----|
+                    | Book        | 1  | 1  | 1  |
+                    | Information | 1  | 1  | 1  |
+                    | Retrieval   | 1  | 0  | 0  |
+                    | Search      | 0  | 1  | 0  |
+
+                    ***
+
+                    * Document vector
+                      * <!-- .element: class="fragment" --> \#1: `(1, 1, 1, 0)`
+                    * Term vector
+                      * <!-- .element: class="fragment" --> _Retrieval_: `(1, 0, 0)`
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * (information AND retrieval) OR search
+                    * = (111 &and; 100) &or; 010 <!-- .element: class="fragment" -->
+                    * = 100 &or; 010 <!-- .element: class="fragment" -->
+                    * = 110 <!-- .element: class="fragment" -->
+                    * = \#1 and \#2 <!-- .element: class="fragment" -->
+
+                    Notes:
+                        Audience question
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * Size: `num(distinct terms)*num(docs)`
+                    * Very sparse (lots of 0s)
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <!-- .element: class="stretch" --> ![...](images/buch-index.png)
+
+                    Notes:
+                </script>
+            </section>
+
         </section>
 
         <section>
-        	<img src="images/trachty.png" />
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Inverted index
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * Store only 1s = Term occurences
+                    * Terms -> Docs
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * \#1: _a book about information retrieval_
+                    * \#2: _a book about the search for information_
+                    * \#3: _a book about information_
+
+                    ***
+
+                    | Term        | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | #1, #2, #3 <!-- .element: class="fragment" --> |
+                    | Information | #1, #2, #3 <!-- .element: class="fragment" --> |
+                    | Retrieval   | #1         <!-- .element: class="fragment" --> |
+                    | Search      | #2         <!-- .element: class="fragment" --> |
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Nomenclature
+
+                    ## Vocabulary / Dictionary / Lexicon
+                    List of terms
+
+                    ## Posting
+                    Document which term occurs in
+
+                    ## Postings list
+                    All documents which term occurs in
+
+                    ## Postings
+                    All postings lists
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Index time
+
+                    * Extract terms from docs
+                    * Sort vocabulary alphabetically
+                    * Sort postings lists by document ID
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Query time
+
+                    * Look up each query term in vocabulary
+                    * Retrieve postings
+                    * Intersect / Union
+
+                    Notes:
+                </script>
+            </section>
+
+            <section>
+                <table>
+                    <tr>
+                        <th>Term</th>
+                        <th>Doc IDs</th>
+                    </tr>
+                    <tr>
+                        <td>Book</td>
+                        <td>#1, #2, #3</td>
+                    </tr>
+                    <tr class="fragment highlight-fl" data-fragment-index="2">
+                        <td>Information</td>
+                        <td>#1, #2, #3</td>
+                    </tr>
+                    <tr>
+                        <td>Retrieval</td>
+                        <td>#1</td>
+                    </tr>
+                    <tr class="fragment highlight-fl" data-fragment-index="3">
+                        <td>Search</td>
+                        <td>#2</td>
+                    </tr>
+                </table>
+
+                <hr/>
+
+                <p class="fragment" data-fragment-index="1"><strong>Query</strong>:
+                    <span class="fragment highlight-fl" data-fragment-index="2">
+                        Information
+                    </span>
+                    <span>AND</span>
+                    <span class="fragment highlight-fl" data-fragment-index="3">
+                        Search
+                    </span>
+                </p>
+
+                <h3 class="fragment fade-in" data-fragment-index="4">
+                    &rarr; #2
+                </h3>
+            </section>
+
+            <!--section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    TODO: Intersect algorithm
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * Keep vocabulary in memory
+                    * Postings may be swapped out
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    ## Why?
+
+                    * Support ad-hoc retrieval
+                    * Support more operators, such as `NEAR`
+                    * Support ranked retrieval
+
+                    Notes:
+                </script>
+            </section-->
         </section>
 
-        <section>
-        	<img src="images/developers.gif" class="stretch" />
-        </section>
-
-        <section>
-            <h1>Warum Suche?</h1>
-
-        </section>
-
-        <section>
-            <img class="stretch" data-src="images/netcraft.png"/>
-        </section>
-
-        <section>
-            <img class="stretch" data-src="images/wikipedia.png"/>
-        </section>
-
-        <section>
-            <img class="stretch" data-src="images/printed-internet.png"/>
-        </section>
-
-       <section data-markdown>
+        <section data-markdown data-separator-notes="^Notes:">
             <script type="text/template">
-            # Suche im eCommerce
-			</script>
-        </section>
+                [Solr Workshop](https://docs.google.com/presentation/d/1z-jFF1teo-6Vpr7jbehygaEPn4_hmaVkUcX6Q4HwsUY/edit)
 
-        <section data-transition="slide-in none-out">
-            <img class="stretch" data-src="images/libro.png"/>
-
-            <p>&nbsp;</p>
-
-            <aside class="notes">
-            Publikum fragen, was das wichtigste im Shop ist?
-            </aside>
-        </section>
-
-        <section data-transition="none-in">
-            <img class="stretch" data-src="images/libro2.png"/>
-
-            <p>&nbsp;</p>
-        </section>
-
-        <section data-transition="none-in slide-out">
-            <img class="stretch" data-src="images/libro3.png"/>
-
-            <p>Gute Suche für 78% der Besucher das Wichtigste</p>
-        </section>
-
-        <section>
-            <h1>Suche ist überall</h1>
-            <ul>
-                <li>Internet</li>
-                <li>eCommerce</li>
-                <li>CMS, Blogs</li>
-                <li>Intranet</li>
-                <li>Wissenschaft</li>
-                <li>...</li>
-            </ul>
-        </section>
-
-        <section>
-            <h1>Wie suchen?</h1>
-            <img class="stretch" data-src="images/buch.png"/>
-
-            <aside class="notes">
-            Publikum fragen, wie man schnell im Buch sucht?
-            </aside>
-        </section>
-
-        <section>
-            <h1>Problem solved</h1>
-            <img class="stretch" data-src="images/buch-index.png"/>
-
-            <aside class="notes">
-            Index muss erstellt werden = zusätzlicher Aufwand
-            </aside>
-        </section>
-
-        <section>
-            <ul>
-                <li>Passende Dokumente zu Worten finden</li>
-                <li>Wort &rarr; Seite / Dokument ID / Artikel ID / URL</li>
-            </ul>
-            <h1 class="fragment">Inverted Index</h1>
-        </section>
-        <section>
-            <img class="stretch" data-src="images/inverted-index.png"/>
-        </section>
-
-        <section>
-            <h1>Warum keine DB?</h1>
-            <p>Viele Performance Killer:</p>
-            <ul>
-                <li>Optimiert für Lesen / Schreiben</li>
-                <li>Schreiben erfordert Locks</li>
-                <li>Normalisierte Daten, JOINs</li>
-                <li>Schlecht für unstrukturierte Daten (=Text)</li>
-            </ul>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            # Search Performance
-
-            * Import: 130M Dokumente in ~28m, 76.000 docs / s [[1]](https://lucidworks.com/blog/2015/06/10/indexing-performance-solr-5-2-now-twice-fast/)
-            * Abfrage: Schnell... sehr schnell (wenn die Caches wirken)
+                Notes:
             </script>
         </section>
 
-        <section data-markdown>
+        <section data-markdown data-separator-notes="^Notes:">
             <script type="text/template">
-            # How do I even search?
+                # Final projects
+
+                Notes:
             </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # Tokenization
-
-                * Text &rarr; Tokens (Worte)
-                * *The quick brown fox* &rarr; `[the, quick, brown, fox]`
-                * Tokens im Index speichern
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # Suchen
-
-                * Tokenization der Suchanfrage
-                * Query Tokens im Index suchen
-                * Es können nur genaue Tokens gesucht werden
-            </script>
-        </section>
-
-        <section>
-        	<p><strong>Dokument #1</strong>: the quick brown fox</p>
-        	<p><strong>Dokument #2</strong>: the slowest green fox</p>
-
-            <table>
-                <tr>
-                    <th colspan="2" style="text-align: center">Index</th>
-                </tr>
-                <tr>
-                    <td>brown</td>
-                    <td>#1</td>
-                </tr>
-                <tr class="fragment highlight-green" data-fragment-index="3">
-                    <td>
-                		fox
-            		</td>
-                    <td>#1, #2</td>
-                </tr>
-                <tr>
-                    <td>green</td>
-                    <td>#2</td>
-                <tr>
-                    <td>the</td>
-                    <td>#1, #2</td>
-                </tr>
-                <tr class="fragment highlight-green" data-fragment-index="2">
-                    <td>quick</td>
-                    <td>#1</td>
-                </tr>
-                <tr>
-                    <td>slowest</td>
-                    <td>#2</td>
-                </tr>
-            </table>
-
-            <p class="fragment" data-fragment-index="1"><strong>Suche</strong>:
-            	<span class="fragment highlight-green" data-fragment-index="2">
-        			quick
-    			</span>
-            	<span class="fragment highlight-green" data-fragment-index="3">
-        			fox
-        		</span>
-        	</p>
-
-        	<h3 class="fragment fade-in" data-fragment-index="4">
-        		&rarr; #1
-        	</h3>
-        </section>
-
-        <section>
-        	<p><strong>Dokument #1</strong>: the quick brown fox</p>
-        	<p><strong>Dokument #2</strong>: the slowest green fox</p>
-
-            <table>
-                <tr>
-                    <th colspan="2" style="text-align: center">Index</th>
-                </tr>
-                <tr>
-                    <td>brown</td>
-                    <td>#1</td>
-                </tr>
-                <tr>
-                    <td>
-                		fox
-            		</td>
-                    <td>#1, #2</td>
-                </tr>
-                <tr>
-                    <td>green</td>
-                    <td>#2</td>
-                <tr>
-                    <td>the</td>
-                    <td>#1, #2</td>
-                </tr>
-                <tr>
-                    <td>quick</td>
-                    <td>#1</td>
-                </tr>
-                <tr class="fragment highlight-green" data-fragment-index="2">
-                    <td>slowest</td>
-                    <td>#2</td>
-                </tr>
-            </table>
-
-            <p class="fragment" data-fragment-index="1"><strong>Suche</strong>:
-            	<span class="fragment highlight-green" data-fragment-index="2">
-        			slowest
-    			</span>
-            	<span class="fragment highlight-red" data-fragment-index="3">
-        			foxes
-        		</span>
-        	</p>
-
-        	<h3 class="fragment fade-in" data-fragment-index="4">
-        		&rarr; kein Ergebnis
-        	</h3>
-        </section>
-
-        <section>
-			<h1>Analysis</h1>
-
-			<ul>
-				<li class="fragment"><em>häuser</em> findet nichts zu <em>haus</em>? <strong class="fragment">Stemming</strong></li>
-                <li class="fragment"><em>apfelsine</em> findet nichts zu <em>orange</em>? <strong class="fragment">Synonyme</strong></li>
-                <li class="fragment"><em>schiff</em> findet nichts zu <em>dampfschiff</em>? <strong class="fragment">Wortauftrennung</strong></li>
-                <li class="fragment"><em>das haus</em> findet nichts zu <em>ein haus</em>? <strong class="fragment">Stopwords</strong></li>
-                <li class="fragment">Sowohl beim Import als auch bei der Suche</li>
-            </ul>
-        </section>
-
-        <section>
-            <table class="stretch">
-                <tr>
-                    <th></th>
-                    <th>Index</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th>Query</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td colspan="5"><span class="fragment" data-fragment-index="1">die schreibtischlampen</span></td>
-                    <td colspan="2"><span class="fragment" data-fragment-index="7">eine leuchte</span></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Tokenization</td>
-                    <td><span class="fragment" data-fragment-index="2">die</span></td>
-                    <td colspan="4"><span class="fragment" data-fragment-index="2">schreibtischlampen</span></td>
-                    <td><span class="fragment" data-fragment-index="8">eine</span></td>
-                    <td><span class="fragment" data-fragment-index="8">leuchte</span></td>
-                </tr>
-                <tr>
-                    <td>Stopword</td>
-                    <td></td>
-                    <td colspan="4"><span class="fragment" data-fragment-index="3">schreibtischlampen</span></td>
-                    <td></td>
-                    <td><span class="fragment" data-fragment-index="9">leuchte</span></td>
-                </tr>
-                <tr>
-                    <td>Wortauftrennung</td>
-                    <td></td>
-                    <td><span class="fragment" data-fragment-index="4">schreib</span></td>
-                    <td><span class="fragment" data-fragment-index="4">tisch</span></td>
-                    <td colspan="2"><span class="fragment" data-fragment-index="4">lampen</span></td>
-                    <td></td>
-                    <td><span class="fragment" data-fragment-index="10">leuchte</span></td>
-                </tr>
-                <tr>
-                    <td>Stemming</td>
-                    <td></td>
-                    <td><span class="fragment" data-fragment-index="5">schreib</span></td>
-                    <td><span class="fragment" data-fragment-index="5">tisch</span></td>
-                    <td colspan="2"><span class="fragment" data-fragment-index="5">lamp</span></td>
-                    <td></td>
-                    <td><span class="fragment" data-fragment-index="11">leucht</span></td>
-                </tr>
-                <tr>
-                    <td>Synonyme<br>(nur Index)</td>
-                    <td></td>
-                    <td><span class="fragment" data-fragment-index="6">schreib</span></td>
-                    <td><span class="fragment" data-fragment-index="6">tisch</span></td>
-                    <td><span class="fragment" data-fragment-index="6">lamp</span></td>
-                    <td><span class="fragment" data-fragment-index="6"><span class="fragment highlight-green"
-                                                                             data-fragment-index="13">leucht</span></span>
-                    </td>
-                    <td></td>
-                    <td><span class="fragment" data-fragment-index="12"><span class="fragment highlight-green"
-                                                                              data-fragment-index="13">leucht</span></span>
-                    </td>
-                </tr>
-            </table>
-
-            <aside class="notes">
-            Führt zu unschärferen Ergebnissen
-            </aside>
-        </section>
-
-        <section>
-        	<h1>Precision vs Recall. Fight!</h1>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            ![precision-recall](images/precision-recall.png)
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            ## Precision
-
-            Sind nur relevante Dokumente in den Ergebnissen?
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            ## Recall
-
-            Sind alle relevanten Dokumente in den Ergebnissen?
-
-            Note:
-            Precision vs Recall niemals korrekt, aber beste Ergebnisse sollten am Anfang stehen &rarr; Ranking
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # Gewichtung
-
-                ![fields](images/fields.png) <!-- .element: class="stretch" -->
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            # TF/IDF
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            ## Term Frequency
-
-            * Wie oft kommt Suchwort im Dokument vor?
-            * Achtung: Suchwort kommt im Text oft gar nicht vor, z.B. Artikel-Beschreibung eines Fahrrads
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            ## Inverse Document Frequency
-            * Wie oft kommt Suchwort im Korpus vor?
-            * IDF nur bei ODER Suche relevant
-            * *brown fox* &rarr; Buch über Tiere wird öfter *brown* als *fox* enthalten
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # What else?
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            # Suchoperatoren
-
-            |  | |
-            |----------------|--------------------------------|
-            | **Phrases** | "brown fox" |
-            | **Fields** | title:fox |
-            | **Wildcard** | bro* |
-            | **Fuzzy** | bron~ |
-            | **Proximity** | "quick fox"~1 |
-            | **Range** | price:[1 TO 5], title:[A to Z] |
-            | **AND / OR / NOT** | fox -brown |
-            | **Grouping** | fox AND (brown OR green) |
-            | | |
-            </script>
-        </section>
-
-        <section>
-            <h1>Levenshtein</h1>
-
-            <table>
-                <tr>
-                    <td>Tier~</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="fragment">1. Ersetze <strong>i</strong> durch <strong>o</strong></span></td>
-                    <td><span class="fragment">Toer</span></td>
-                </tr>
-                <tr>
-                    <td><span class="fragment">2. Streiche <strong>e</strong></span></td>
-                    <td><span>Tor</span></td>
-                </tr>
-            </table>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # Facets
-
-                ![facets](images/facets.png)
-					</script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # Suggest
-
-                ![suggest](images/suggest.png)
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # Suchsoftware
-
-                * Kommerziell
-                    * Enterprise Search
-                    * FINDOLOGIC :)
-                * Open Source
-                    * Solr
-                    * ElasticSearch
-                    * (Lucene)
-                    * (Sphinx)
-					</script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # Solr
-					</script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            # Analyzers
-            ![analyzers](images/analyzers.png) <!-- .element: class="stretch" -->
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # Daten rein
-
-                * POST Requests
-                * Solr Cell (Office, PDF etc.)
-                * DataImportHandler (SQL)
-                * ORM Konnektoren
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # Daten raus
-
-                * GET requests: `…?q=android&start=0&rows=10&sort=price`
-                * XML, JSON, CSV, PHPs, ...
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                # Daten raus
-
-                ![solr-xml](images/solr-xml.png)
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                ## The way of the future
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            ![siri](images/siri.png)
-					</script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                ![knuth](images/knuth.png)
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-                ![google-now](images/google-now.png)
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            ## The way of the future
-
-            * Kontext
-            * Örtlich, zeitlich, persönlich
-            * Searchless Search
-            * Semantik
-            </script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            # Solr Workshop
-
-            4.12.
-					</script>
-        </section>
-
-        <section data-markdown>
-            <script type="text/template">
-            # Danke
-
-            * @piefke_schorsch
-            * g.sorst@findologic.com
-			</script>
         </section>
 
     </div>

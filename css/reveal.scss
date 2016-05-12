@@ -151,6 +151,8 @@ html:-moz-full-screen-ancestor {
 .reveal .slides section .fragment.highlight-current-red,
 .reveal .slides section .fragment.highlight-green,
 .reveal .slides section .fragment.highlight-current-green,
+.reveal .slides section .fragment.highlight-fl,
+.reveal .slides section .fragment.highlight-current-fl,
 .reveal .slides section .fragment.highlight-blue,
 .reveal .slides section .fragment.highlight-current-blue {
 	opacity: 1;
@@ -162,6 +164,9 @@ html:-moz-full-screen-ancestor {
 	.reveal .slides section .fragment.highlight-green.visible {
 		color: #17ff2e;
 	}
+	.reveal .slides section .fragment.highlight-fl.visible {
+		color: #ff8c00;
+	}
 	.reveal .slides section .fragment.highlight-blue.visible {
 		color: #1b91ff;
 	}
@@ -171,6 +176,9 @@ html:-moz-full-screen-ancestor {
 }
 .reveal .slides section .fragment.highlight-current-green.current-fragment {
 	color: #17ff2e;
+}
+.reveal .slides section .fragment.highlight-current-fl.current-fragment {
+	color: #ff8c00;
 }
 .reveal .slides section .fragment.highlight-current-blue.current-fragment {
 	color: #1b91ff;
