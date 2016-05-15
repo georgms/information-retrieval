@@ -59,12 +59,16 @@
 
             <section data-markdown>
                 <script type="text/template">
-                    # I
+                    # [I](#/I)
+
                     * Motivation
                     * Boolean retrieval
                     * Term-document matrix
                     * Inverted index
                     * Querying the index
+
+                    ***
+
                     * Final projects
                     * Solr Workshop
                 </script>
@@ -72,24 +76,39 @@
 
             <section data-markdown>
                 <script type="text/template">
-                    # II
-                    * Ranked retrieval
-                    * Text analysis
+                    # [II](#/II)
+
+                    * Tokenization
                     * Phrase queries
                     * Inexact retrieval
-                    * Scoring
+                    * Weighted zone scoring
+                    * TF-IDF scoring
+
+                    ***
+
+                    * Project status
+                    * Solr Q&A
                 </script>
             </section>
 
             <section data-markdown>
                 <script type="text/template">
-                    # III
+                    # [III](#/III)
+
                     * Vector Space Model
                     * Result evaluation
                     * Clustering
                     * Latent semantic indexing
                 </script>
             </section>
+        </section>
+
+        <section id="I" data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # I
+
+                Notes:
+            </script>
         </section>
 
         <section>
@@ -493,6 +512,226 @@
                 Notes:
             </script>
         </section>
+
+        <section id="II" data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # II
+
+                Notes:
+            </script>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Tokenization
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Tokenization
+
+                    _a book about information retrieval_
+
+                    ```
+                    [a, book, about, information, retrieval]
+                    ```
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Pitfalls
+
+                    * A1
+                    * Salzburgs
+                    * C++
+                    * mail@example.com
+                    * Donaudampfschifffahrt
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    TODO: Analysis example for german
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Nomenclature
+
+                    ## Token <!-- .element: class="fragment" data-fragment-index="1" -->
+                    Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
+
+                    ## Type <!-- .element: class="fragment" data-fragment-index="2" -->
+                    Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
+
+                    ## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
+                    Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
+
+                    Notes:
+                    More on this later
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Ranked retrieval
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Idea
+
+                    * More query term occurences make doc more important
+                    * Less frequent query terms are more important
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Term frequency
+
+                    * Count term occurences in each doc
+                    * Ignore order of terms
+                    * _Bag of words_
+
+                    ![Tag cloud](https://upload.wikimedia.org/wikipedia/commons/5/5b/Word_Cloud_Readers_Survey.jpg)
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # TF
+
+                    * \#1: _a book providing information about information retrieval_
+                    * \#2: _a book about the search for books_
+                    * \#3: _a book about information_
+
+                    ***
+
+                    | Term        | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | #1:1, #2:2, #3:1 <!-- .element: class="fragment" --> |
+                    | Information | #1:2, #3:1 <!-- .element: class="fragment" --> |
+                    | Retrieval   | #1:1         <!-- .element: class="fragment" --> |
+                    | Search      | #2:1         <!-- .element: class="fragment" --> |
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # TF
+
+                    * Not always true
+                    * The Bible does not contain "_the bible_"
+                    * Web spam
+                    * Remove stop words
+                    * Normalize long documents
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Inverse document frequency
+
+                    * Reduce weight for common terms
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # IDF
+
+                    * \#1: _a book providing information about information retrieval_
+                    * \#2: _a book about the search for books_
+                    * \#3: _a book about information_
+
+                    ***
+
+                    | Term        | IDF | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | 0  <!-- .element: class="fragment" --> | #1:1, #2:2, #3:1 |
+                    | Information | 1.5<!-- .element: class="fragment" --> | #1:2, #3:1  |
+                    | Retrieval   | 3  <!-- .element: class="fragment" --> | #1:1          |
+                    | Search      | 3  <!-- .element: class="fragment" --> | #2:1          |
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # TF-IDF Ranking
+
+                    ![tf-idf](images/tf-idf.png)<!-- .element: style="border: none; box-shadow: none;" -->
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    ```
+                    information retrieval search
+                    ```
+
+                    | Term        | IDF | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | 0   | #1:1, #2:2, #3:1 |
+                    | Information | 1.5 | #1:2, #3:1  |
+                    | Retrieval   | 3   | #1:1          |
+                    | Search      | 3   | #2:1          |
+
+
+                    ### 1
+
+                    * `2 * 1.5 + 1 * 3 + 0 * 3 = 6`
+
+                    ### 2
+
+                    * `0 * 1.5 + 0 * 3 + 1 * 3 = 3`
+
+                    ### 3
+
+                    * `1 * 1.5 + 0 * 3 + 0 * 3 = 1.5`
+                    Notes:
+                </script>
+            </section>
+        </section>
+
+        <section id="III" data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # III
+
+                Notes:
+            </script>
+        </section>
+
 
     </div>
 
