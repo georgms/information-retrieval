@@ -536,9 +536,9 @@
 
                     _a book about information retrieval_
 
-                    ```
-                    [a, book, about, information, retrieval]
-                    ```
+                    &darr;
+
+                    `[a, book, about, information, retrieval]`
 
                     Notes:
                 </script>
@@ -546,21 +546,96 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Pitfalls
+                    # Challenge
 
-                    * A1
-                    * Salzburgs
-                    * C++
-                    * mail@example.com
-                    * Donaudampfschifffahrt
+                    * <!-- .element: class="fragment" --> How can _wifi_ find _wi-fi_?
+                    * <!-- .element: class="fragment" --> _Salzburg_  &leftrightarrow; _Salzburg's_?
+                    * <!-- .element: class="fragment" --> _MMT_ &leftrightarrow; _Multimediatechnology_?
+                    * <!-- .element: class="fragment" --> _USA_ &leftrightarrow; _U.S.A._?
 
                     Notes:
                 </script>
             </section>
 
+            <section>
+                TODO
+
+                <table class="stretch">
+                    <tr>
+                        <th></th>
+                        <th>Index</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th>Query</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="7"><span class="fragment" data-fragment-index="1">the wi-fi routers</span></td>
+                        <td colspan="1"><span class="fragment" data-fragment-index="1">wireless</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Tokenization</td>
+                        <td><span class="fragment" data-fragment-index="2">the</span></td>
+                        <td colspan="4"><span class="fragment" data-fragment-index="2">wi-fi</span></td>
+                        <td><span class="fragment" data-fragment-index="2">routers</span></td>
+                        <td><span class="fragment" data-fragment-index="7">wireless</span></td>
+                    </tr>
+                    <tr>
+                        <td>Stop words</td>
+                        <td></td>
+                        <td colspan="4"><span class="fragment" data-fragment-index="3">wi-fi</span></td>
+                        <td><span class="fragment" data-fragment-index="3">routers</span></td>
+                        <td><span class="fragment" data-fragment-index="8">wireless</span></td>
+                    </tr>
+                    <tr>
+                        <td>Word delimiter<br>(Index only)</td>
+                        <td></td>
+                        <td><span class="fragment" data-fragment-index="4">wi-fi</span></td>
+                        <td><span class="fragment" data-fragment-index="4">wi</span></td>
+                        <td><span class="fragment" data-fragment-index="4">fi</span></td>
+                        <td><span class="fragment" data-fragment-index="4">wifi</span></td>
+                        <td><span class="fragment" data-fragment-index="4">routers</span></td>
+                        <td><span class="fragment" data-fragment-index="10">wireless</span></td>
+                    </tr>
+                    <tr>
+                        <td>Stemming</td>
+                        <td></td>
+                        <td><span class="fragment" data-fragment-index="5">wi-fi</span></td>
+                        <td><span class="fragment" data-fragment-index="5">wi</span></td>
+                        <td><span class="fragment" data-fragment-index="5">fi</span></td>
+                        <td><span class="fragment" data-fragment-index="5">wifi</span></td>
+                        <td><span class="fragment" data-fragment-index="5">router</span></td>
+                        <td><span class="fragment" data-fragment-index="10">wireless</span></td>
+                    </tr>
+                    <tr>
+                        <td>Synonyms<br>(Index only)</td>
+                        <td></td>
+                        <td><span class="fragment" data-fragment-index="6">wi-fi</span></td>
+                        <td><span class="fragment" data-fragment-index="6">wi</span></td>
+                        <td><span class="fragment" data-fragment-index="6">fi</span></td>
+                        <td><span class="fragment" data-fragment-index="6">wifi</span></td>
+                        <td><span class="fragment highlight-orange" data-fragment-index="6">router</span></td>
+                        <td><span class="fragment highlight-orange" data-fragment-index="10">wireless</span></td>
+                    </tr>
+                </table>
+
+                <aside class="notes">
+                    Will increase relevance, but reduce precision
+                </aside>
+            </section>
+
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    TODO: Analysis example for german
+                    # Tokenization
+
+                    * Find more relevant results: _wi-fi_ &rarr; _wifi_
+                    * Find more irrelevant results: _cat_ &rarr; _C.A.T._
+                    *
 
                     Notes:
                 </script>
@@ -571,16 +646,327 @@
                     # Nomenclature
 
                     ## Token <!-- .element: class="fragment" data-fragment-index="1" -->
-                    Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * <!-- .element: class="fragment" data-fragment-index="1" --> _der_, _wohnzimmerstuhl_
 
                     ## Type <!-- .element: class="fragment" data-fragment-index="2" -->
-                    Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
+                    * Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
+                    * <!-- .element: class="fragment" data-fragment-index="2" --> _der_, _wohnzimmerstuhl_
 
                     ## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
-                    Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
+                    * Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
+                    * <!-- .element: class="fragment" data-fragment-index="3" --> _stuhl_, _sessel_
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Todo
+
+                    * Stemmer vs Lemmatization
+                    * Lemmatization not worth it
 
                     Notes:
-                    More on this later
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Phrase queries
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Phrase queries
+
+                    ```
+                    "a book about information"
+                    ```
+
+                    * Save term position in index
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vocabulary structure
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vocabulary structure
+
+                    * Dictionary / Hash map
+                    * Search tree
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Dictionary
+
+                    * Calculate hash for each term
+                    * \+ Fast lookup
+                    * \+ Fast insert
+                    * \- Collisions
+                    * \- No prefix lookup
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Binary tree
+
+                    ![binary tree](images/binary-tree.png)<!-- .element: class="stretch" style="border: none; box-shadow: none;" -->
+
+                    http://nlp.stanford.edu/IR-book/
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Binary tree
+
+                    * \+ Fast lookup: `&omicron;(log M)`
+                    * \- Needs to be balanced, slow insertion
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # B-tree
+
+                    ![b-tree](images/b-tree.png)<!-- .element: class="stretch" style="border: none; box-shadow: none;" -->
+
+                    http://nlp.stanford.edu/IR-book/
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # B-tree
+
+                    * \+ Fast lookup: `&omicron;(log M)`
+                    * \- TODO: Needs rebalancing?
+
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Wildcard queries
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Wildcard queries
+
+                    * `mm*`: Comes free with search tree
+                    * `*mm`: Reverse terms, build tree
+                    * `m*m`: Intersect regular and reverse tree
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # K-gram queries
+
+                    `castle`
+
+                    &darr;
+
+                    `$ca, cas, ast, stl, tle, le$`
+
+                    * At index and query time
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # K-gram queries
+
+                    * Expand query. `cas` &rarr; `$ca AND cas AND as$`
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Spelling correction
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Spelling correction
+
+                    * `infomation`
+                    * Find alternatives within distance
+                    * Pick most common one
+                    * Most common in index or
+                    * Most common in query logs
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Spelling correction
+
+                    * Always return results for alternatives or
+                    * Return results for alternatives only when original query not found or
+                    * Return results for alternatives only when count(original query) below threshold or
+                    * Suggest alternative
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Spelling correction
+
+                    * Isolated: Correct each term individually
+                    * Context: Check if correction would find results
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Levenshtein
+
+                    * How many operations to get from word A to B
+                    * Operations can be weighted (f.ex. keyboard distance)
+
+                    Notes:
+                </script>
+            </section>
+
+            <section>
+                <h1>Levenshtein</h1>
+
+                <table>
+                    <tr>
+                        <td>Tier~</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><span class="fragment">1. Replace <strong>i</strong> with <strong>o</strong></span></td>
+                        <td><span class="fragment">Toer</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="fragment">2. Delete <strong>e</strong></span></td>
+                        <td><span>Tor</span></td>
+                    </tr>
+                </table>
+
+                <div class="fragment">
+                    <p>&darr;</p>
+                    <p>Levenshtein distance = 2</p>
+                </div>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Phonetic correction
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Soundex
+
+                    * Encode strings according to their sounds
+                    * `Hermann` &rarr; `H655`
+                    * Index and query encoded strings
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Field weights
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Field weights
+
+                    * Documents have multiple fields
+                    * Match in title > Match in body
+                    * Query terms may occur in different fields
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Weighted index
+
+                    * Store field in postings list
+                    * Sum up scores from all fields
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * Determining weights is hard
+
+                    Notes:
                 </script>
             </section>
         </section>
