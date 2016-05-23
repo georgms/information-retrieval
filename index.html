@@ -534,11 +534,11 @@
                 <script type="text/template">
                     # Tokenization
 
-                    _a book about information retrieval_
+                    > a book about information retrieval <!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    &darr;
+                    &darr; <!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    `[a, book, about, information, retrieval]`
+                    `[a, book, about, information, retrieval]` <!-- .element: class="fragment" data-fragment-index="2" -->
 
                     Notes:
                 </script>
@@ -548,79 +548,134 @@
                 <script type="text/template">
                     # Challenge
 
-                    * <!-- .element: class="fragment" --> How can _wifi_ find _wi-fi_?
-                    * <!-- .element: class="fragment" --> _Salzburg_  &leftrightarrow; _Salzburg's_?
+                    * Inverted index can only find exact tokens <!-- .element: class="fragment" data-fragment-index="1" -->
+
+                    ***
+                    <!-- .element: class="fragment" data-fragment-index="2" -->
+                    | Term        | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | #1, #2, #3  |
+                    | Information | #1, #2, #3  |
+                    | Retrieval   | #1          |
+                    | Search      | #2          |
+                    <!-- .element: class="fragment" data-fragment-index="2" -->
+                    ***
+                    <!-- .element: class="fragment" data-fragment-index="2" -->
+
+                    * <!-- .element: class="fragment" data-fragment-index="3" --> _books_ will not find _book_
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Challenge
+
+                    * <!-- .element: class="fragment" --> How can _books_ find _book_?
+                    * <!-- .element: class="fragment" --> _wi-fi_  &leftrightarrow; _wifi_?
+                    * <!-- .element: class="fragment" --> _Jack's_  &leftrightarrow; _Jack_?
                     * <!-- .element: class="fragment" --> _MMT_ &leftrightarrow; _Multimediatechnology_?
-                    * <!-- .element: class="fragment" --> _USA_ &leftrightarrow; _U.S.A._?
+                    * <!-- .element: class="fragment" --> _U.S.A._ &leftrightarrow; _USA_?
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Text analysis
+
+                    * Analyse docs and query
+                    * Add, remove, change terms
 
                     Notes:
                 </script>
             </section>
 
             <section>
-                TODO
-
                 <table class="stretch">
                     <tr>
-                        <th></th>
-                        <th>Index</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th>Query</th>
+                        <th style="border-right: 1px solid rgb(34, 34, 34);"></th>
+                        <th colspan="7" style="border-right: 1px solid rgb(34, 34, 34);">Index</th>
+                        <th colspan="3">Query</th>
                     </tr>
                     <tr>
-                        <td></td>
-                        <td colspan="7"><span class="fragment" data-fragment-index="1">the wi-fi routers</span></td>
-                        <td colspan="1"><span class="fragment" data-fragment-index="1">wireless</span></td>
-                        <td></td>
+                        <td style="border-right: 1px solid rgb(34, 34, 34);"></td>
+                        <td colspan="7" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="1">a wi-fi router</span></td>
+                        <td colspan="3"><span class="fragment" data-fragment-index="1">The Wireless Routers</span></td>
                     </tr>
                     <tr>
-                        <td>Tokenization</td>
-                        <td><span class="fragment" data-fragment-index="2">the</span></td>
-                        <td colspan="4"><span class="fragment" data-fragment-index="2">wi-fi</span></td>
-                        <td><span class="fragment" data-fragment-index="2">routers</span></td>
-                        <td><span class="fragment" data-fragment-index="7">wireless</span></td>
+                        <td style="border-right: 1px solid rgb(34, 34, 34);">Tokenization</td>
+                        <td><span class="fragment" data-fragment-index="2">a</span></td>
+                        <td><span class="fragment" data-fragment-index="2">wi-fi</span></td>
+                        <td colspan="5" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="2">router</span></td>
+                        <td><span class="fragment" data-fragment-index="9">The</span></td>
+                        <td><span class="fragment" data-fragment-index="9">Wireless</span></td>
+                        <td><span class="fragment" data-fragment-index="9">Routers</span></td>
                     </tr>
                     <tr>
-                        <td>Stop words</td>
-                        <td></td>
-                        <td colspan="4"><span class="fragment" data-fragment-index="3">wi-fi</span></td>
-                        <td><span class="fragment" data-fragment-index="3">routers</span></td>
-                        <td><span class="fragment" data-fragment-index="8">wireless</span></td>
-                    </tr>
-                    <tr>
-                        <td>Word delimiter<br>(Index only)</td>
-                        <td></td>
+                        <td style="border-right: 1px solid rgb(34, 34, 34);">Lowercasing</td>
+                        <td><span class="fragment" data-fragment-index="4">a</span></td>
                         <td><span class="fragment" data-fragment-index="4">wi-fi</span></td>
-                        <td><span class="fragment" data-fragment-index="4">wi</span></td>
-                        <td><span class="fragment" data-fragment-index="4">fi</span></td>
-                        <td><span class="fragment" data-fragment-index="4">wifi</span></td>
-                        <td><span class="fragment" data-fragment-index="4">routers</span></td>
+                        <td colspan="5" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="4">router</span></td>
+                        <td><span class="fragment" data-fragment-index="10">the</span></td>
                         <td><span class="fragment" data-fragment-index="10">wireless</span></td>
+                        <td><span class="fragment" data-fragment-index="10">routers</span></td>
                     </tr>
                     <tr>
-                        <td>Stemming</td>
+                        <td style="border-right: 1px solid rgb(34, 34, 34);">Stop words</td>
                         <td></td>
                         <td><span class="fragment" data-fragment-index="5">wi-fi</span></td>
-                        <td><span class="fragment" data-fragment-index="5">wi</span></td>
-                        <td><span class="fragment" data-fragment-index="5">fi</span></td>
-                        <td><span class="fragment" data-fragment-index="5">wifi</span></td>
-                        <td><span class="fragment" data-fragment-index="5">router</span></td>
-                        <td><span class="fragment" data-fragment-index="10">wireless</span></td>
+                        <td colspan="5" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="5">router</span></td>
+                        <td></td>
+                        <td><span class="fragment" data-fragment-index="11">wireless</span></td>
+                        <td><span class="fragment" data-fragment-index="11">routers</span></td>
                     </tr>
                     <tr>
-                        <td>Synonyms<br>(Index only)</td>
+                        <td style="border-right: 1px solid rgb(34, 34, 34);">Word delimiter<br>(Index only)</td>
                         <td></td>
                         <td><span class="fragment" data-fragment-index="6">wi-fi</span></td>
                         <td><span class="fragment" data-fragment-index="6">wi</span></td>
                         <td><span class="fragment" data-fragment-index="6">fi</span></td>
                         <td><span class="fragment" data-fragment-index="6">wifi</span></td>
-                        <td><span class="fragment highlight-orange" data-fragment-index="6">router</span></td>
-                        <td><span class="fragment highlight-orange" data-fragment-index="10">wireless</span></td>
+                        <td colspan="2" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="6">router</span></td>
+                        <td></td>
+                        <td><span class="fragment" data-fragment-index="12">wireless</span></td>
+                        <td><span class="fragment" data-fragment-index="12">routers</span></td>
+                    </tr>
+                    <tr>
+                        <td style="border-right: 1px solid rgb(34, 34, 34);">Stemming</td>
+                        <td></td>
+                        <td><span class="fragment" data-fragment-index="7">wi-fi</span></td>
+                        <td><span class="fragment" data-fragment-index="7">wi</span></td>
+                        <td><span class="fragment" data-fragment-index="7">fi</span></td>
+                        <td><span class="fragment" data-fragment-index="7">wifi</span></td>
+                        <td colspan="2" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="7">router</span></td>
+                        <td></td>
+                        <td><span class="fragment" data-fragment-index="13">wireless</span></td>
+                        <td><span class="fragment" data-fragment-index="13">router</span></td>
+                    </tr>
+                    <tr>
+                        <td style="border-right: 1px solid rgb(34, 34, 34);">Synonyms<br>wifi &rarr; wireless<br>(Index only)</td>
+                        <td></td>
+                        <td><span class="fragment" data-fragment-index="8">wi-fi</span></td>
+                        <td><span class="fragment" data-fragment-index="8">wi</span></td>
+                        <td><span class="fragment" data-fragment-index="8">fi</span></td>
+                        <td><span class="fragment" data-fragment-index="8">wifi</span></td>
+                        <td><span class="fragment" data-fragment-index="8">
+                            <span class="fragment highlight-fl" data-fragment-index="15">wireless</span>
+                        </span></td>
+                        <td style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="8">
+                            <span class="fragment highlight-fl" data-fragment-index="15">router</span>
+                        </span></td>
+                        <td></td>
+                        <td><span class="fragment" data-fragment-index="14">
+                            <span class="fragment highlight-fl" data-fragment-index="15">wireless</span>
+                        </span></td>
+                        <td><span class="fragment" data-fragment-index="14">
+                            <span class="fragment highlight-fl" data-fragment-index="15">router</span>
+                        </span></td>
                     </tr>
                 </table>
 
@@ -631,11 +686,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Tokenization
-
-                    * Find more relevant results: _wi-fi_ &rarr; _wifi_
-                    * Find more irrelevant results: _cat_ &rarr; _C.A.T._
-                    *
+                    ![analysis](images/analysis.png)
 
                     Notes:
                 </script>
@@ -647,26 +698,30 @@
 
                     ## Token <!-- .element: class="fragment" data-fragment-index="1" -->
                     * Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> _der_, _wohnzimmerstuhl_
+                    * No analysis yet <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * <!-- .element: class="fragment" data-fragment-index="1" --> _the_, _routers_
 
                     ## Type <!-- .element: class="fragment" data-fragment-index="2" -->
                     * Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
-                    * <!-- .element: class="fragment" data-fragment-index="2" --> _der_, _wohnzimmerstuhl_
+                    * <!-- .element: class="fragment" data-fragment-index="2" --> _the_, _routers_
 
                     ## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
                     * Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
-                    * <!-- .element: class="fragment" data-fragment-index="3" --> _stuhl_, _sessel_
+                    * <!-- .element: class="fragment" data-fragment-index="3" --> _router_
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Todo
+                    # Outcome
 
-                    * Stemmer vs Lemmatization
-                    * Lemmatization not worth it
+                    * <!-- .element: class="fragment" --> Find more results: _wireless_ &rarr; _wi-fi_
+                    * <!-- .element: class="fragment" --> Find more imprecise results: _wi-fi_ &rarr; _wireless_
+                    * <!-- .element: class="fragment" --> Miss some results: _to be or not to be_
 
                     Notes:
+                    * Will this find more results?
+                    * Will this find less accurate results?
                 </script>
             </section>
         </section>
@@ -674,12 +729,203 @@
         <section>
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Phrase queries
+                    # Precision & Recall
 
                     Notes:
                 </script>
             </section>
 
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Precision
+
+                    * Are all results relevant?
+
+                    Notes:
+                </script>
+            </section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Recall
+
+                    * Are all relevant documents in the results?
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    ![precision-recall](images/precision-recall.png)
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Precision & Recall
+
+                    * <!-- .element: class="fragment" --> Requires human effort
+                      * Annotated corpus + informations needs
+                    * <!-- .element: class="fragment" --> Will never be 100% both
+                    * <!-- .element: class="fragment" --> Rank results according to relevance
+
+                    Notes:
+                    * How to achieve 100% recall?
+                    * How to achieve 100% precision?
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Ranked retrieval
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Idea
+
+                    ### <!-- .element: class="fragment" --> Multiple matches for query term = more important document
+                    <!-- .element: class="fragment" --> "A shop where **books** are bought and sold is a **book**shop or **book**store. **Books** can also be borrowed from libraries."
+
+                    ### <!-- .element: class="fragment" --> Infrequent terms in corpus are more important
+                    <!-- .element: class="fragment" --> "apple iphone" &rarr; "iphone" more important than "apple"
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Term frequency
+
+                    ###<!-- .element: class="fragment" --> At index time:
+
+                    * <!-- .element: class="fragment" --> Count term occurrences per doc
+                    * <!-- .element: class="fragment" --> Ignore order of terms
+                    * <!-- .element: class="fragment" --> _Bag of words_
+
+                    <!-- .element: class="fragment" --> ![Tag cloud](https://upload.wikimedia.org/wikipedia/commons/5/5b/Word_Cloud_Readers_Survey.jpg)
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # TF
+
+                    * \#1: _a book providing information about information retrieval_
+                    * \#2: _a book about the search for books_
+                    * \#3: _a book about information_
+
+                    ***
+
+                    | Term        | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | #1:1, #2:2, #3:1 <!-- .element: class="fragment" --> |
+                    | Information | #1:2, #3:1 <!-- .element: class="fragment" --> |
+                    | Retrieval   | #1:1         <!-- .element: class="fragment" --> |
+                    | Search      | #2:1         <!-- .element: class="fragment" --> |
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # TF pitfalls
+
+                    * <!-- .element: class="fragment" --> Not always true
+                    * <!-- .element: class="fragment" --> The Bible does not contain "_the bible_"
+                    * <!-- .element: class="fragment" --> Web spam
+                    * <!-- .element: class="fragment" --> Remove stop words
+                    * <!-- .element: class="fragment" --> Normalize long documents
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Inverse document frequency
+
+                    * <!-- .element: class="fragment" --> Rank uncommon terms higher
+                    * <!-- .element: class="fragment" --> Only relevant for OR search
+                    * <!-- .element: class="fragment" --> "linksys router" &rarr; "linksys" more important than "router"
+                    * <!-- .element: class="fragment" --> `idf(t) = num_docs / df(t)`
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # IDF
+
+                    * \#1: _a book providing information about information retrieval_
+                    * \#2: _a book about the search for books_
+                    * \#3: _a book about information_
+
+                    ***
+
+                    | Term        | IDF | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | 1  <!-- .element: class="fragment" --> | #1:1, #2:2, #3:1 |
+                    | Information | 1.5<!-- .element: class="fragment" --> | #1:2, #3:1  |
+                    | Retrieval   | 3  <!-- .element: class="fragment" --> | #1:1          |
+                    | Search      | 3  <!-- .element: class="fragment" --> | #2:1          |
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # TF-IDF Ranking
+
+                    ![tf-idf](images/tf-idf.png)<!-- .element: style="border: none; box-shadow: none;" -->
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    | Term        | IDF | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | 1   | #1:1, #2:2, #3:1 |
+                    | Information | 1.5 | #1:2, #3:1  |
+                    | Retrieval   | 3   | #1:1          |
+                    | Search      | 3   | #2:1          |
+
+                    ```
+                    information retrieval search
+                    ```
+
+                    ### \#1 <!-- .element: class="fragment" -->
+
+                    2 &times; 1.5 + 1 &times; 3 + 0 &times; 3 = 6 <!-- .element: class="fragment" -->
+
+                    ### \#2 <!-- .element: class="fragment" -->
+
+                    0 &times; 1.5 + 0 &times; 3 + 1 &times; 3 = 3 <!-- .element: class="fragment" -->
+
+                    ### \#3 <!-- .element: class="fragment" -->
+
+                    1 &times; 1.5 + 0 &times; 3 + 0 &times; 3 = 1.5 <!-- .element: class="fragment" -->
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
+        <section>
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Phrase queries
@@ -966,145 +1212,6 @@
                 <script type="text/template">
                     * Determining weights is hard
 
-                    Notes:
-                </script>
-            </section>
-        </section>
-
-        <section>
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Ranked retrieval
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Idea
-
-                    * More query term occurences make doc more important
-                    * Less frequent query terms are more important
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Term frequency
-
-                    * Count term occurences in each doc
-                    * Ignore order of terms
-                    * _Bag of words_
-
-                    ![Tag cloud](https://upload.wikimedia.org/wikipedia/commons/5/5b/Word_Cloud_Readers_Survey.jpg)
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # TF
-
-                    * \#1: _a book providing information about information retrieval_
-                    * \#2: _a book about the search for books_
-                    * \#3: _a book about information_
-
-                    ***
-
-                    | Term        | Doc IDs    |
-                    |-------------|------------|
-                    | Book        | #1:1, #2:2, #3:1 <!-- .element: class="fragment" --> |
-                    | Information | #1:2, #3:1 <!-- .element: class="fragment" --> |
-                    | Retrieval   | #1:1         <!-- .element: class="fragment" --> |
-                    | Search      | #2:1         <!-- .element: class="fragment" --> |
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # TF
-
-                    * Not always true
-                    * The Bible does not contain "_the bible_"
-                    * Web spam
-                    * Remove stop words
-                    * Normalize long documents
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Inverse document frequency
-
-                    * Reduce weight for common terms
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # IDF
-
-                    * \#1: _a book providing information about information retrieval_
-                    * \#2: _a book about the search for books_
-                    * \#3: _a book about information_
-
-                    ***
-
-                    | Term        | IDF | Doc IDs    |
-                    |-------------|------------|
-                    | Book        | 0  <!-- .element: class="fragment" --> | #1:1, #2:2, #3:1 |
-                    | Information | 1.5<!-- .element: class="fragment" --> | #1:2, #3:1  |
-                    | Retrieval   | 3  <!-- .element: class="fragment" --> | #1:1          |
-                    | Search      | 3  <!-- .element: class="fragment" --> | #2:1          |
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # TF-IDF Ranking
-
-                    ![tf-idf](images/tf-idf.png)<!-- .element: style="border: none; box-shadow: none;" -->
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    ```
-                    information retrieval search
-                    ```
-
-                    | Term        | IDF | Doc IDs    |
-                    |-------------|------------|
-                    | Book        | 0   | #1:1, #2:2, #3:1 |
-                    | Information | 1.5 | #1:2, #3:1  |
-                    | Retrieval   | 3   | #1:1          |
-                    | Search      | 3   | #2:1          |
-
-
-                    ### 1
-
-                    * `2 * 1.5 + 1 * 3 + 0 * 3 = 6`
-
-                    ### 2
-
-                    * `0 * 1.5 + 0 * 3 + 1 * 3 = 3`
-
-                    ### 3
-
-                    * `1 * 1.5 + 0 * 3 + 0 * 3 = 1.5`
                     Notes:
                 </script>
             </section>
