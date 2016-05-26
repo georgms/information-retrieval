@@ -79,10 +79,13 @@
                     # [II](#/II)
 
                     * Tokenization
-                    * Phrase queries
-                    * Inexact retrieval
-                    * Weighted zone scoring
-                    * TF-IDF scoring
+                    * Precision & Recall
+                    * Ranked Retrieval
+                    * Vocabulary Structure
+                    * Wildcard Queries
+                    * Spelling Correction
+                    * Phonetic Correction
+                    * Field Weights
 
                     ***
 
@@ -554,10 +557,10 @@
                     <!-- .element: class="fragment" data-fragment-index="2" -->
                     | Term        | Doc IDs    |
                     |-------------|------------|
-                    | Book        | #1, #2, #3  |
-                    | Information | #1, #2, #3  |
-                    | Retrieval   | #1          |
-                    | Search      | #2          |
+                    | book        | #1, #2, #3  |
+                    | information | #1, #2, #3  |
+                    | retrieval   | #1          |
+                    | search      | #2          |
                     <!-- .element: class="fragment" data-fragment-index="2" -->
                     ***
                     <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -751,6 +754,7 @@
                     * Are all relevant documents in the results?
 
                     Notes:
+                    * Am Whiteboard machen?
                 </script>
             </section>
 
@@ -767,7 +771,8 @@
                     # Precision & Recall
 
                     * <!-- .element: class="fragment" --> Requires human effort
-                      * Annotated corpus + informations needs
+                      * List of information needs
+                      * Annotated corpus
                     * <!-- .element: class="fragment" --> Will never be 100% both
                     * <!-- .element: class="fragment" --> Rank results according to relevance
 
@@ -835,6 +840,7 @@
                     | Search      | #2:1         <!-- .element: class="fragment" --> |
 
                     Notes:
+                    * Audience participation
                 </script>
             </section>
 
@@ -845,7 +851,6 @@
                     * <!-- .element: class="fragment" --> Not always true
                     * <!-- .element: class="fragment" --> The Bible does not contain "_the bible_"
                     * <!-- .element: class="fragment" --> Web spam
-                    * <!-- .element: class="fragment" --> Remove stop words
                     * <!-- .element: class="fragment" --> Normalize long documents
 
                     Notes:
@@ -858,7 +863,7 @@
 
                     * <!-- .element: class="fragment" --> Rank uncommon terms higher
                     * <!-- .element: class="fragment" --> Only relevant for OR search
-                    * <!-- .element: class="fragment" --> "linksys router" &rarr; "linksys" more important than "router"
+                    * <!-- .element: class="fragment" --> "apple iphone" &rarr; "apple" more important than "iphone"
                     * <!-- .element: class="fragment" --> `idf(t) = num_docs / df(t)`
 
                     Notes:
@@ -883,6 +888,8 @@
                     | Search      | 3  <!-- .element: class="fragment" --> | #2:1          |
 
                     Notes:
+
+                    * idf(t) = 1 is special case
                 </script>
             </section>
 
@@ -948,7 +955,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Dictionary
+                    # Hash table
 
                     ![hash table](images/hash-table.png) <!-- .element: class="stretch" -->
 
@@ -958,13 +965,13 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Dictionary
+                    # Hash table
 
-                    * <!-- .element: class="fragment" --> \+ Fast lookup
-                    * <!-- .element: class="fragment" --> \+ Fast insert
+                    * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(1)
+                    * <!-- .element: class="fragment" --> \+ Fast insert: &Omicron;(1)
                     * <!-- .element: class="fragment" --> \- Collisions
                     * <!-- .element: class="fragment" --> \- Rehashing
-                    * <!-- .element: class="fragment" --> \- High worst case complexity
+                    * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
 
                     Notes:
                     * What is the complexity of lookup / insert? Ο(1)
@@ -987,10 +994,10 @@
                 <script type="text/template">
                     # Binary tree
 
-                    * <!-- .element: class="fragment" --> \+ Fast lookup
-                    * <!-- .element: class="fragment" --> \+ Fast insertion
+                    * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(log n)
+                    * <!-- .element: class="fragment" --> \+ Fast insertion: &Omicron;(log n)
                     * <!-- .element: class="fragment" --> \- Rebalancing
-                    * <!-- .element: class="fragment" --> \- High worst case complexity
+                    * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
 
                     Notes:
                     * What is the lookup / insert complexity? Ο(log n)
@@ -1013,8 +1020,8 @@
                 <script type="text/template">
                     # B-tree
 
-                    * <!-- .element: class="fragment" --> \+ Fast lookup
-                    * <!-- .element: class="fragment" --> \+ Fast insertion
+                    * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(log n)
+                    * <!-- .element: class="fragment" --> \+ Fast insertion: &Omicron;(log n)
                     * <!-- .element: class="fragment" --> \+ No worst case complexity
                     * <!-- .element: class="fragment" --> Less frequent rebalancing
 
@@ -1179,7 +1186,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Find alternatives
+                    # 1. Find alternatives
 
                     <!-- .element: class="fragment" --> `bock`
 
@@ -1273,7 +1280,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Evaluate alternatives
+                    # 2. Evaluate alternatives
 
                     * Isolated
                     * Context
@@ -1286,7 +1293,7 @@
                 <script type="text/template">
                     # Isolated
 
-                    * <!-- .element: class="fragment" --> `seach endine`
+                    * <!-- .element: class="fragment" --> `seach endine`?
                       * <!-- .element: class="fragment" --> &rarr; `peach engine`
                       * <!-- .element: class="fragment" --> &rarr; `search ending`
                       * <!-- .element: class="fragment" --> &rarr; `search engine`
@@ -1304,10 +1311,10 @@
 
                     <hr class="fragment" data-fragment-index="3" />
 
-                    * <!-- .element: class="fragment" data-fragment-index="4" --> `seach endine`
-                      * <!-- .element: class="fragment" data-fragment-index="5" --> &rarr; `peach engine` &rarr; 0 results
-                      <li class="fragment" data-fragment-index="6" >&rarr; `search ending`<!-- .element: class="fragment highlight-fl" data-fragment-index="8" --> &rarr; 5 results</li>
-                      <li class="fragment" data-fragment-index="7" >&rarr; `search engine`<!-- .element: class="fragment highlight-fl" data-fragment-index="8" --> &rarr; 10 results</li>
+                    * <!-- .element: class="fragment" data-fragment-index="4" --> `seach endine`?
+                      * <!-- .element: class="fragment" data-fragment-index="5" --> &rarr; `peach engine`? 0 results
+                      <li class="fragment" data-fragment-index="6" >&rarr; `search ending`<!-- .element: class="fragment highlight-fl" data-fragment-index="8" -->? 5 results</li>
+                      <li class="fragment" data-fragment-index="7" >&rarr; `search engine`<!-- .element: class="fragment highlight-fl" data-fragment-index="8" -->? 10 results</li>
 
                     Notes:
                 </script>
@@ -1326,7 +1333,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Return alternative results
+                    # 3. Return alternative results
 
                     * Feedback
                     * Transparency
@@ -1404,6 +1411,18 @@
                 <script type="text/template">
                     # Spelling correction
 
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->Recall up
+                    * <!-- .element: class="fragment" data-fragment-index="1" --> Precision down
+
+                    Notes:
+                    * What does spelling correction do to recall / precision?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Soundex alternatives
+
                     * Daitch–Mokotoff Soundex
                     * Metaphone
                     * Double Metaphone
@@ -1472,6 +1491,7 @@
                     * <!-- .element: class="fragment" --> `author:shakesbeer`? <span class="fragment">#2</span>
 
                     Notes:
+                    * Audience question
                 </script>
             </section>
 
@@ -1497,6 +1517,7 @@
                       * \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-fl" data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
 
                     Notes:
+                    * Audience question
                 </script>
             </section>
 
