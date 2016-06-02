@@ -1551,6 +1551,43 @@
             </script>
         </section>
 
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Scaling
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    Vertical Scaling / Scaling up (bigger servers)
+                    Horizontal Scaling / Scaling out (more servers)
+
+                    Term-partitioned index
+                    Document-partitioned index
+
+                    Distributed querying
+                    Distributed indexing
+                    Indexing: Replicas -> Leader -> Shard Leader -> Shard Replicas
+                    Automatic leader election, Zookeper
+                    Num shards
+                    -> Num docs in collection
+                    -> Parallelization of individual request
+                    Num replicas
+                    -> resiliency
+                    -> Concurrent requests
+                    Request routing
+                    By ID: _id_ % num(shards)
+                    By manual route (USA!IBM!12345)
+                    Mix of hash and manual route
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
 
     </div>
 
