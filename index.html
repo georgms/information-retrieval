@@ -1557,31 +1557,267 @@
                     # Scaling
 
                     Notes:
+                    * What are the two directions we can scale to?
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    Vertical Scaling / Scaling up (bigger servers)
-                    Horizontal Scaling / Scaling out (more servers)
+                    # Scaling
 
-                    Term-partitioned index
-                    Document-partitioned index
+                    ![scaling](images/scaling.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
-                    Distributed querying
-                    Distributed indexing
-                    Indexing: Replicas -> Leader -> Shard Leader -> Shard Replicas
-                    Automatic leader election, Zookeper
-                    Num shards
-                    -> Num docs in collection
-                    -> Parallelization of individual request
-                    Num replicas
-                    -> resiliency
-                    -> Concurrent requests
-                    Request routing
-                    By ID: _id_ % num(shards)
-                    By manual route (USA!IBM!12345)
-                    Mix of hash and manual route
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Scaling up / Vertical
+
+                    ![scaling up](images/scaling up.png) <!-- .element: style="border: none; box-shadow: none;" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Scaling out / Horizontal
+
+                    ![scaling out](images/scaling out.png) <!-- .element: style="border: none; box-shadow: none;" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Distributed search
+
+                    ![Distributed Search](images/Distributed Search.png) <!-- .element: style="border: none; box-shadow: none;" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Distributed search
+
+                    * Distributed index
+                    * Distributed queries
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Partitioned index
+
+                    * By term
+                    * By doc
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Term-partitioned index
+
+                    <p class="stretch">![Term-partitioned index](images/Term-partitioned index.png) <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Term-partitioned index
+
+                    * \- Uneven distribution
+                    * \- Inter-node communication
+                    * \- Spelling correction
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Document-partitioned index
+
+                    * `node = docID % numNodes`
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Document-partitioned index
+
+                    <p class="stretch">![Document-partitioned index](images/Document-partitioned index.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Distributed query
+
+                    <p class="stretch">![Document-partitioned query](images/Document-partitioned query.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Sharding
+
+                    <p class="stretch">![sharding](images/Sharding.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Shards
+
+                    <canvas class="chart stretch">
+                        <!--
+                        {
+                            "type":"line",
+                            "data":{
+                                "labels":[
+                                    "0",
+                                    "1"
+                                ],
+                                "datasets":[
+                                    {
+                                        "data":[
+                                            "0",
+                                            "1"
+                                        ],
+                                        "label":"",
+                                        "backgroundColor": "#ff8c00"
+                                    }
+                                ]
+                            },
+                            "options":{
+                                "legend": {
+                                    "display": false
+                                },
+                                "responsive":"true",
+                                "scales":{
+                                    "xAxes":[{
+                                        "ticks": {
+                                            "stepSize": 0.1,
+                                            "display": false
+                                        },
+                                        "scaleLabel":{
+                                            "display":true,
+                                            "labelString":"Shards"
+                                        },
+                                        "gridLines": {
+                                            "display": true
+                                        }
+                                    }],
+                                    "yAxes":[{
+                                        "ticks": {
+                                            "stepSize":1,
+                                            "display": false
+                                        },
+                                        "scaleLabel":{
+                                            "display":true,
+                                            "labelString":"Docs / Parallelization"
+                                        },
+                                        "gridLines": {
+                                            "display": true
+                                        }
+                                    }]
+                                }
+                            }
+                        }
+                        -->
+                    </canvas>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Replicas
+
+                    <canvas class="chart stretch">
+                        <!--
+                        {
+                            "type":"line",
+                            "data":{
+                                "labels":[
+                                    "0",
+                                    "1"
+                                ],
+                                "datasets":[
+                                    {
+                                        "data":[
+                                            "0",
+                                            "1"
+                                        ],
+                                        "label":"",
+                                        "backgroundColor": "#ff8c00"
+                                    }
+                                ]
+                            },
+                            "options":{
+                                "legend": {
+                                    "display": false
+                                },
+                                "responsive":"true",
+                                "scales":{
+                                    "xAxes":[{
+                                        "ticks": {
+                                            "stepSize": 0.1,
+                                            "display": false
+                                        },
+                                        "scaleLabel":{
+                                            "display":true,
+                                            "labelString":"Replicas"
+                                        },
+                                        "gridLines": {
+                                            "display": true
+                                        }
+                                    }],
+                                    "yAxes":[{
+                                        "ticks": {
+                                            "stepSize":1,
+                                            "display": false
+                                        },
+                                        "scaleLabel":{
+                                            "display":true,
+                                            "labelString":"Resiliency / Concurrency"
+                                        },
+                                        "gridLines": {
+                                            "display": true
+                                        }
+                                    }]
+                                }
+                            }
+                        }
+                        -->
+                    </canvas>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * Automatic leader election, Zookeper
 
                     Notes:
                 </script>
@@ -1610,6 +1846,17 @@
 
         transition: 'slide', // none/fade/slide/convex/concave/zoom
 
+        anything: [
+            {
+                className: "chart",
+                initialize: (function(container, options){
+                    container.chart = new Chart(container.getContext("2d"), options);
+                    Chart.defaults.global.defaultFontColor = "black";
+                    Chart.defaults.global.defaultFontSize = 50;
+                })
+            }
+        ],
+
         // Optional reveal.js plugins
         dependencies: [
             {
@@ -1635,7 +1882,9 @@
             {src: 'plugin/zoom-js/zoom.js', async: true},
             {src: 'plugin/notes/notes.js', async: true},
             {src: 'socket.io/socket.io.js', async: true},
-            {src: 'plugin/notes-server/client.js', async: true}
+            {src: 'plugin/notes-server/client.js', async: true},
+            { src: 'Chart.min.js' },
+            { src: 'plugin/anything/anything.js' }
         ]
     });
 
