@@ -1557,7 +1557,6 @@
                     # Scaling
 
                     Notes:
-                    * What are the two directions we can scale to?
                 </script>
             </section>
 
@@ -1568,6 +1567,7 @@
                     ![scaling](images/scaling.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
                     Notes:
+                    What are the two directions we can scale to?
                 </script>
             </section>
 
@@ -1583,9 +1583,41 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Scaling up
+
+                    * \+ Easy
+                    * \+ Little overhead (network, hardware)
+                    * \- No fault-tolerance
+                    * \- No parallelization
+                    * \- Scaling limited by hardware
+
+                    <!-- .element: style="list-style-type: none;" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
                     # Scaling out / Horizontal
 
                     ![scaling out](images/scaling out.png) <!-- .element: style="border: none; box-shadow: none;" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Scaling out
+
+                    * \+ Fault-tolerance, resiliency
+                    * \+ Parallelization
+                    * \+ "Unlimited" scaling
+                    * \- Complex
+                    * \- Overhead: Network, Monitoring
+
+                    <!-- .element: style="list-style-type: none;" -->
 
                     Notes:
                 </script>
@@ -1605,7 +1637,7 @@
                 <script type="text/template">
                     # Distributed search
 
-                    * Distributed index
+                    * Partitioned index
                     * Distributed queries
 
                     Notes:
@@ -1616,10 +1648,11 @@
                 <script type="text/template">
                     # Partitioned index
 
-                    * By term
-                    * By doc
+                    * By term <!-- .element: class="fragment" -->
+                    * By doc <!-- .element: class="fragment" -->
 
                     Notes:
+                    What can the index be partitioned by? Think of the Inverted Index?
                 </script>
             </section>
 
@@ -1639,17 +1672,9 @@
 
                     * \- Uneven distribution
                     * \- Inter-node communication
-                    * \- Spelling correction
+                    * \- Hard to update index
 
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Document-partitioned index
-
-                    * `node = docID % numNodes`
+                    <!-- .element: style="list-style-type: none;" -->
 
                     Notes:
                 </script>
@@ -1660,6 +1685,17 @@
                     # Document-partitioned index
 
                     <p class="stretch">![Document-partitioned index](images/Document-partitioned index.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Document-partitioned index
+
+                    * Number of nodes is fixed
+                    * `node(doc) = id(doc) % num(nodes)`
+
                     Notes:
                 </script>
             </section>
@@ -1677,7 +1713,30 @@
                 <script type="text/template">
                     # Sharding
 
-                    <p class="stretch">![sharding](images/Sharding.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    <p class="stretch">![sharding](images/Sharding.svg) <!-- .element: style="border: none; box-shadow: none;" --></p><!-- .element: class="fragment" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Sharding nomenclature
+
+                    ## Shard <!-- .element: class="fragment" -->
+
+                    * Slice of document collection <!-- .element: class="fragment" -->
+
+                    ## Master / Leader / Primary <!-- .element: class="fragment" -->
+
+                    * Distribute requests to Replicas <!-- .element: class="fragment" -->
+                    * Distribute requests to other Masters <!-- .element: class="fragment" -->
+
+                    ## Replica <!-- .element: class="fragment" -->
+
+                    * Contains all documents of shard <!-- .element: class="fragment" -->
+                    * Will actually handle queries <!-- .element: class="fragment" -->
+                    * Can become Master <!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
@@ -1733,7 +1792,73 @@
                                         },
                                         "scaleLabel":{
                                             "display":true,
-                                            "labelString":"Docs / Parallelization"
+                                            "labelString":"Docs"
+                                        },
+                                        "gridLines": {
+                                            "display": true
+                                        }
+                                    }]
+                                }
+                            }
+                        }
+                        -->
+                    </canvas>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Shards
+
+                    <canvas class="chart stretch">
+                        <!--
+                        {
+                            "type":"line",
+                            "data":{
+                                "labels":[
+                                    "0",
+                                    "1"
+                                ],
+                                "datasets":[
+                                    {
+                                        "data":[
+                                            "0",
+                                            "1"
+                                        ],
+                                        "label":"",
+                                        "backgroundColor": "#ff8c00"
+                                    }
+                                ]
+                            },
+                            "options":{
+                                "legend": {
+                                    "display": false
+                                },
+                                "responsive":"true",
+                                "scales":{
+                                    "xAxes":[{
+                                        "ticks": {
+                                            "stepSize": 0.1,
+                                            "display": false
+                                        },
+                                        "scaleLabel":{
+                                            "display":true,
+                                            "labelString":"Shards"
+                                        },
+                                        "gridLines": {
+                                            "display": true
+                                        }
+                                    }],
+                                    "yAxes":[{
+                                        "ticks": {
+                                            "stepSize":1,
+                                            "display": false
+                                        },
+                                        "scaleLabel":{
+                                            "display":true,
+                                            "labelString":"Query Parallelization"
                                         },
                                         "gridLines": {
                                             "display": true
@@ -1799,7 +1924,7 @@
                                         },
                                         "scaleLabel":{
                                             "display":true,
-                                            "labelString":"Resiliency / Concurrency"
+                                            "labelString":"Resiliency"
                                         },
                                         "gridLines": {
                                             "display": true
@@ -1817,11 +1942,70 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    * Automatic leader election, Zookeper
+                    # Replicas
+
+                    <canvas class="chart stretch">
+                        <!--
+                        {
+                            "type":"line",
+                            "data":{
+                                "labels":[
+                                    "0",
+                                    "1"
+                                ],
+                                "datasets":[
+                                    {
+                                        "data":[
+                                            "0",
+                                            "1"
+                                        ],
+                                        "label":"",
+                                        "backgroundColor": "#ff8c00"
+                                    }
+                                ]
+                            },
+                            "options":{
+                                "legend": {
+                                    "display": false
+                                },
+                                "responsive":"true",
+                                "scales":{
+                                    "xAxes":[{
+                                        "ticks": {
+                                            "stepSize": 0.1,
+                                            "display": false
+                                        },
+                                        "scaleLabel":{
+                                            "display":true,
+                                            "labelString":"Replicas"
+                                        },
+                                        "gridLines": {
+                                            "display": true
+                                        }
+                                    }],
+                                    "yAxes":[{
+                                        "ticks": {
+                                            "stepSize":1,
+                                            "display": false
+                                        },
+                                        "scaleLabel":{
+                                            "display":true,
+                                            "labelString":"Concurrency"
+                                        },
+                                        "gridLines": {
+                                            "display": true
+                                        }
+                                    }]
+                                }
+                            }
+                        }
+                        -->
+                    </canvas>
 
                     Notes:
                 </script>
             </section>
+
         </section>
 
 
