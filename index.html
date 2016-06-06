@@ -2033,13 +2033,17 @@
         anything: [
             {
                 className: "chart",
-                initialize: (function(container, options){
+                initialize: (function (container, options) {
                     container.chart = new Chart(container.getContext("2d"), options);
                     Chart.defaults.global.defaultFontColor = "black";
                     Chart.defaults.global.defaultFontSize = 50;
                 })
             }
         ],
+        math: {
+            mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
 
         // Optional reveal.js plugins
         dependencies: [
@@ -2067,8 +2071,9 @@
             {src: 'plugin/notes/notes.js', async: true},
             {src: 'socket.io/socket.io.js', async: true},
             {src: 'plugin/notes-server/client.js', async: true},
-            { src: 'js/Chart.min.js' },
-            { src: 'plugin/anything/anything.js' }
+            {src: 'js/Chart.min.js'},
+            {src: 'plugin/anything/anything.js'},
+            { src: 'plugin/math/math.js', async: true }
         ]
     });
 
