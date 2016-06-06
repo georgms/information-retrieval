@@ -2008,6 +2008,124 @@
 
         </section>
 
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector Space Model
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector Space Model
+
+                    * Calculate similarity between
+                        * queries and docs
+                        * docs and docs
+                        * queries and queries
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector Space Model
+
+                    * Queries / docs are vectors
+                    * Term-document matrix &rarr; document vector
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Document vector
+
+                    |             | #1 | #2 |
+                    |-------------|----|----|
+                    | Book        | 10 | 3  |
+                    | Information | 5  | 2  |
+
+                    ***
+
+                    * $\vec{V}(\\#1)$ = (10, 5)
+                    * $\vec{V}(\\#2)$ = (2, 2)
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector difference
+
+                    $$\textrm{d}(p, q) = \sqrt{(q_1 - q_1)^2 + (q_2 - p_2)^2}$$
+
+                    Notes:
+                </script>
+            </section>
+
+            <section>
+                <h1>Vector Difference</h1>
+
+                \[\begin{aligned}
+                \textrm{d}(\#1, \#2) & = \sqrt{(10 - 3)^2 + (5 - 2)^2} \\
+                & = \sqrt{7^2 + 3^2} \\
+                & = \sqrt{49 + 9} \\
+                & = \sqrt{58} \\
+                & \approx 7.62
+                \end{aligned} \]
+
+                <aside class="notes">
+
+                </aside>
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Cosine similarity
+
+                    $$\textrm{sim}(d_1, d_2) = \frac{ \vec{V}(d_1) \cdot \vec{V}(d_2) }{ |\vec{V}(d_1)| |\vec{V}(d_2)| }$$
+
+                    Notes:
+                </script>
+            </section>
+
+            <section>
+                <h1>Cosine similarity</h1>
+
+                \[\begin{aligned}
+                \textrm{sim}(d_1, d_2) & = \frac{ (10, 5) \cdot (3, 2) }{ |(10, 5)| |3, 2] } \\
+                & = \frac{30 + 10}{\sqrt{10^2 + 5^2} \sqrt{3^2 + 2^2}} \\
+                & = \frac{40}{\sqrt{125} \sqrt{13}} \\
+                & = \frac{40}{40.31} \\
+                & \approx 0.99 \\
+                \end{aligned}\]
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Missing topics
+
+                    * Clustering
+                    * Web search
+                    * Web crawling
+                    * Pagerank
+                    * Evaluation
+                    * Relevance feedback
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
 
     </div>
 
