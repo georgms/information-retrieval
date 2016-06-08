@@ -98,10 +98,11 @@
                 <script type="text/template">
                     # [III](#/III)
 
+                    * Scaling
                     * Vector Space Model
-                    * Result evaluation
-                    * Clustering
-                    * Latent semantic indexing
+                    * Missing Topics
+                    * Feedback
+                    * Final projects
                 </script>
             </section>
         </section>
@@ -2022,9 +2023,9 @@
                     # Vector Space Model
 
                     * Calculate similarity between
-                        * queries and docs
-                        * docs and docs
-                        * queries and queries
+                        * queries and docs <!-- .element: class="fragment" -->
+                        * docs and docs <!-- .element: class="fragment" -->
+                        * queries and queries <!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
@@ -2034,10 +2035,11 @@
                 <script type="text/template">
                     # Vector Space Model
 
-                    * Queries / docs are vectors
-                    * Term-document matrix &rarr; document vector
+                    * Queries / docs are vectors <!-- .element: class="fragment" -->
+                    * Term-document matrix &rarr; document vector <!-- .element: class="fragment" -->
 
                     Notes:
+                    How can a document be a vector?
                 </script>
             </section>
 
@@ -2045,15 +2047,17 @@
                 <script type="text/template">
                     # Document vector
 
-                    |             | #1 | #2 |
-                    |-------------|----|----|
-                    | Book        | 10 | 3  |
-                    | Information | 5  | 2  |
+                    |             | #1 | #2 | #3 |
+                    |-------------|----|----|----|
+                    | Book        | 10 | 3  |  0 |
+                    | Information | 5  | 2  |  1 |
+                    | Retrieval   | 0  | 0  |  2 |
 
                     ***
 
-                    * $\vec{V}(\\#1)$ = (10, 5)
-                    * $\vec{V}(\\#2)$ = (2, 2)
+                    * $\vec{V}(\\#1)$ = (10, 5, 0) <!-- .element: class="fragment" -->
+                    * $\vec{V}(\\#2)$ = (3, 2, 0) <!-- .element: class="fragment" -->
+                    * $\vec{V}(\\#3)$ = (0, 1, 2) <!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
@@ -2061,9 +2065,27 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Vector difference
+                    <p class="stretch">![Vectors](images/Vectors.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector distance
 
                     $$\textrm{d}(p, q) = \sqrt{(q_1 - q_1)^2 + (q_2 - p_2)^2}$$
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector distance
+
+                    <p class="stretch">![Vector distance](images/Vector Distance.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes:
                 </script>
@@ -2088,9 +2110,61 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    <p class="stretch">![Vectors](images/Vectors.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![Vector Similarity](images/Vector Similarity.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section>
+                <h1>Unit vector</h1>
+
+                $$\vec{v} = \frac{\vec{V} }{ |\vec{V}| }$$
+
+                <aside class="notes">
+
+                </aside>
+            </section>
+
+            <section>
+                <h1>Unit vector</h1>
+
+                \[\begin{aligned}
+                \vec{v}(\#1) & = \frac{ \begin{pmatrix}10\\5\end{pmatrix} }{ \sqrt{10^2 + 5^2} } \\ \\
+                & = \frac{ \begin{pmatrix}10\\5\end{pmatrix} }{ 11.18 } \\ \\
+                & = \begin{pmatrix}0.89\\0.45\end{pmatrix}
+                \end{aligned} \]
+
+                <aside class="notes">
+
+                </aside>
+            </section>
+
+            <section>
+                <h1>Unit vector</h1>
+
+                \[\begin{aligned}
+                |\vec{v}(\#1)| & = \sqrt{0.89^2 + 0.45^2} \\
+                & = \sqrt{1} \\
+                & = 1
+                \end{aligned}\]
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
                     # Cosine similarity
 
-                    $$\textrm{sim}(d_1, d_2) = \frac{ \vec{V}(d_1) \cdot \vec{V}(d_2) }{ |\vec{V}(d_1)| |\vec{V}(d_2)| }$$
+                    $$\textrm{sim}(d_1, d_2) = \frac{ \vec{V}(d_1) }{ |\vec{V}(d_1)|} \cdot \frac{\vec{V}(d_2) }{ |\vec{V}(d_2)| } =
+                    \frac{ \vec{V}(d_1) \vec{V}(d_2) }{ |\vec{V}(d_1)| |\vec{V}(d_2)| }$$
 
                     Notes:
                 </script>
@@ -2100,30 +2174,78 @@
                 <h1>Cosine similarity</h1>
 
                 \[\begin{aligned}
-                \textrm{sim}(d_1, d_2) & = \frac{ (10, 5) \cdot (3, 2) }{ |(10, 5)| |3, 2] } \\
+                \textrm{sim}(d_1, d_2) & = \frac{ \begin{pmatrix}10 \\ 5\end{pmatrix} \cdot \begin{pmatrix}3 \\ 2\end{pmatrix} }{ \left|\begin{pmatrix}10 \\ 5\end{pmatrix}\right| \left|\begin{pmatrix}3 \\ 2\end{pmatrix}\right| } \\ \\
                 & = \frac{30 + 10}{\sqrt{10^2 + 5^2} \sqrt{3^2 + 2^2}} \\
                 & = \frac{40}{\sqrt{125} \sqrt{13}} \\
-                & = \frac{40}{40.31} \\
-                & \approx 0.99 \\
+                & = \frac{40}{40.31} \\ \\
+                & \approx 0.99
                 \end{aligned}\]
             </section>
-        </section>
 
-        <section>
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Missing topics
-
-                    * Clustering
-                    * Web search
-                    * Web crawling
-                    * Pagerank
-                    * Evaluation
-                    * Relevance feedback
+                    <p class="stretch">![Vectors](images/Vectors.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes:
                 </script>
             </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Query vector
+
+                    * "*book*"
+                    * $\vec{V}(q) = \begin{pmatrix}1 \\\\ 0\end{pmatrix}$ <!-- .element: class="fragment" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Query vector
+
+                    $$sim(\\#1, q) = \frac{ \begin{pmatrix}10 \\\\ 5\end{pmatrix} \cdot \begin{pmatrix}1 \\\\ 0\end{pmatrix} }{ \left\|\begin{pmatrix}10 \\\\ 5\end{pmatrix}\right\| \left\|\begin{pmatrix}1 \\\\ 0\end{pmatrix}\right\| } = 0.89$$ <!-- .element: class="fragment" -->
+
+                    $$sim(\\#2, q) = \frac{ \begin{pmatrix}3 \\\\ 2\end{pmatrix} \cdot \begin{pmatrix}1 \\\\ 0\end{pmatrix} }{ \left\|\begin{pmatrix}3 \\\\ 2\end{pmatrix}\right\| \left\|\begin{pmatrix}1 \\\\ 0\end{pmatrix}\right\| } = 0.83$$ <!-- .element: class="fragment" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Query vector
+
+                    <p class="stretch">![Query](images/Query Vector.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+        </section>
+
+        <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # Missing topics
+
+                * Clustering
+                * Web search
+                * Web crawling
+                * Pagerank
+                * Search Result Evaluation
+                * Relevance feedback
+
+                Notes:
+            </script>
+        </section>
+
+        <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # Feedback
+
+                Notes:
+            </script>
         </section>
 
 
