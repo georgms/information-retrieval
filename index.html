@@ -404,7 +404,7 @@
                     | Retrieval   | #1         <!-- .element: class="fragment" --> |
                     | Search      | #2         <!-- .element: class="fragment" --> |
 
-                    Notes:
+                    Notes: Audience question
                 </script>
             </section>
 
@@ -432,9 +432,9 @@
                 <script type="text/template">
                     # Index time
 
-                    * Extract terms from docs
-                    * Sort vocabulary alphabetically
-                    * Sort postings lists by document ID
+                    1. Extract terms from docs
+                    2. Sort vocabulary alphabetically
+                    3. Sort postings lists by document ID
 
                     Notes:
                 </script>
@@ -444,9 +444,9 @@
                 <script type="text/template">
                     # Query time
 
-                    * Look up each query term in vocabulary
-                    * Retrieve postings
-                    * Intersect / Union
+                    1. Look up each query term in vocabulary
+                    2. Retrieve postings
+                    3. Intersect / Union
 
                     Notes:
                 </script>
@@ -488,9 +488,18 @@
                     </span>
                 </p>
 
-                <h3 class="fragment fade-in" data-fragment-index="4">
+                <p class="fragment fade-in" data-fragment-index="4">
+                    (#1, #2, #3) AND (#2)
+                </p>
+
+
+                <h3 class="fragment fade-in" data-fragment-index="5">
                     &rarr; #2
                 </h3>
+
+                <aside class="notes">
+                    Audience question
+                </aside>
             </section>
 
             <!--section data-markdown data-separator-notes="^Notes:">
