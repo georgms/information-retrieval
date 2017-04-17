@@ -101,8 +101,25 @@
                     * Scaling
                     * Vector Space Model
                     * Missing Topics
+
+                    ***
+
+                    * Project status
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # [IV](#/IV)
+                    * Web search basics
+                    * Web crawling and indexes
+                    * Link analysis
+
+                    ***
+
                     * Feedback
-                    * Final projects
+                    * Exam
+                    * Project demos
                 </script>
             </section>
         </section>
@@ -2237,8 +2254,468 @@
                 </script>
             </section>
 
+        </section>
+
+        <section id="IV" data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # IV
+
+                Notes:
+            </script>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Web search basics
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Challenges
+
+                    * Authoritativeness
+                        * Facts / lies
+                        * Trustworthy / manipulative sites
+                        * Is subjective
+                    * Unstructured content
+                    * Un-indexable content (images, flash)
+                    * Web spam
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Internet structure
+
+                    ![web graph](images/web graph.png)
+
+                    * Directed graph connected by hyperinks
+                    * Not strongly connected
 
 
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Nomenclature
+
+                    ## In-links / Out-links
+
+                    Incoming / Outgoing links
+
+                    ## In-degree / Out-degree
+
+                    Number of incoming / outgoing links
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Internet structure
+
+                    ![bowtie](images/bowtie.png)
+
+                    Notes:
+                 </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Web search usage
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Query types
+
+                    * Informational: Find information
+                    * Navigational: Find homepage
+                    * Transactional: Find product
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Query syntax
+
+                    * 2-3 keywords
+                    * No boolean operators
+                    * No wildcards
+                    * Maybe phrases
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Conclusion
+
+                    * Don't expect query syntax
+                    * Keep result page lightweight
+
+                    Notes:
+                 </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Economic model
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Economic model
+
+                    * Advertising
+                    * CPM: cost per mil, 1.000 impressions
+                    * CPC: cost per click
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # History
+
+                    * Sponsored search: Display banner of highest bidder for search query
+                        * Goto, Overture
+                    * Organic results + ads
+                        * Google
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Web spam
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Types of web spam
+
+                    * Keyword spam (exploits TF metric)
+                    * Cloaking (show different page for human / crawler)
+                    * Meta tags (
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Counter web spam
+
+                    * Link analysis
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Counter counter web spam
+
+                    * Link spam
+
+                    Notes:
+                 </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Advertising as economic model of internet
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # SEM
+
+                    * Search engine marketing
+                    * Booking banners
+                    * Can also be abused by clicking on competitors banners
+
+                    Notes:
+                 </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Search user intents
+
+                    * Information
+                    * Keep SERP light
+                    Notes:
+                 </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Index size and estimation
+
+                    * Hard to get absolute numbers
+                    * Easier to estimate relative sizes
+                    1. Pick page
+                      * From internet or other search engine
+                    2. See if it is indexed
+
+                    Notes:
+                 </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Duplicate content
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Duplicate content
+
+                    * Probably 40% of all internet
+                    * Fingerprinting not sufficient for near duplicates
+                    * Generate 4-shingles
+                    * Calculate Jaccard coefficient
+                    * Needs lots of storage and pairwise comparison
+                    * Improvements: MinHash, SimHash
+
+                    Notes:
+                 </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Web crawling and indexes
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Web crawler requirements
+
+                    * Robustness: Handle malicious and fault pages
+                    * Politeness: Rate limit
+                    * Distributed, scalable, efficient
+                    * Quality: Focus on "good" pages
+                    * Freshness: Keep index up-to-date
+                    * Extensible: Data formats, protocols
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Crawling
+
+                    1. Start with seed URL
+                    2. Fetch URL
+                    3. Extract text and links
+                    4. Index text
+                    5. Add links to queue
+                    6. Follow links, goto 1
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Crawling challenges
+
+                    * Distribute by host
+                    * Duplicate content check is hard to distribute
+                    * Cache DNS requests, use custom asynchronous DNS resolver
+                    * Link queue is FIFO, bias toward high quality / frequently updates pages
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Distributing indexes
+
+                    * Local index organization, partition by document
+                    * Partition by hash(URL) instead of hash(host)
+
+                    Notes: Why hash(URL) > hash(host)?
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Connectivity servers
+
+                    * Store web graph, in- and out-links
+                    * Support graph queries: in- / out-links, in- / out-degree, traversal
+                    * Build adjacency table TODO: image
+
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # What would Google do?
+
+                    * Provide reliability on software level rather than hardware
+                    * Focus on parallel queries, optimize for high throughput rather than individual performance
+                    * Performance can be achieved by parallelization at CPU or cluster level
+                    * Price/performance > peak performance
+                    * 10s query that can be parallelized takes 1s on 10 nodes
+
+                    ***
+
+                    1. Query index servers: Inverted index, document-partitioned index, returns IDs of hits in order
+                    2. Query document servers: Document-partitioned, snippet
+
+                    ***
+
+                    * Both types of servers replicated behind load balancer
+                    * Try to make queries read-only to avoid consistency issues
+
+                    ***
+
+                    * TODO: images
+
+                    Notes:
+                 </script>
+            </section>
+        </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Link analysis
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Assumption
+
+                    * Link is endorsement of target page
+                    * Idea based on citation analysis
+                    * Anchor text is good description of target page (eg. "computer manufacturer" links to ibm.com)
+                    * Also text surrounding links
+                    * May also be abused with negative link text to competitor
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # PageRank
+
+                    * Rank pages with many in-links higher
+                    * PageRank =~ in-degree
+                    * Probability that random surfer will end up on page
+
+                    ***
+
+                    0. Assume random surfer
+                    1. Randomly walk web graph
+                      * Occasionally teleport
+                      * Use damping factor (=~0.85) to simulate that user will not stop clicking at some point
+                    2. Count how many times page is visited
+
+                    ***
+
+                    * Improvement: Reasonable surfer that ignores links in sidebars etc.
+
+                    $$PR_{i}={\frac  {1-d}{n}}+d\,\sum _{{j\in \{1,\dots ,n\}}}{\frac  {PR_{j}}{c_{j}}}$$
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Specialized PageRanks
+
+                    * Topic PageRank: Teleport only to pages within topic
+                    * Personalized PageRank: Teleport to topics that user is interested in
+
+
+
+                    Notes:
+                 </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Hubs and authorities
+
+                    * Hubs provide links to authorities
+                    * Authorities are authoritative on matter
+                    * Good Hubs link to Authorities
+                    * Good Authorities are linked by Hubs
+                    * HITS (Hyperlink-Induced Topic Search)
+                    * Build subset for topic by
+                      1. Querying web for "topic" = root set
+                      2. Add all in- or out-linked pages from root set = base set
+                      * If root set contains Hub, then base set will contain Authorities
+                      * If root set contains Authorities, then base set will contain Hubs
+
+
+                    Notes:
+                 </script>
+            </section>
         </section>
 
         <section data-markdown data-separator-notes="^Notes:">
@@ -2246,9 +2723,6 @@
                 # Missing topics
 
                 * Clustering
-                * Web search
-                * Web crawling
-                * Pagerank
                 * Search Result Evaluation
                 * Relevance feedback
 
@@ -2281,7 +2755,6 @@
                 Notes:
             </script>
         </section>
-
 
     </div>
 
