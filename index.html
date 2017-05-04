@@ -1315,7 +1315,7 @@
 
                     * <!-- .element: class="fragment" --> Most results
                     * <!-- .element: class="fragment" --> Best results
-                    * <!-- .element: class="fragment" --> Most queries
+                    * <!-- .element: class="fragment" --> Most searched
 
                     Notes:
                 </script>
@@ -1382,7 +1382,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Index <!-- .element: class="fragment" data-fragment-index="1" -->
+                    # Index
 
                     | Term (not in index) | Soundex | Doc IDs |
                     |----------------------------|---------|---------|
@@ -1393,7 +1393,8 @@
 
                     # Query <!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    <span class="fragment" data-fragment-index="2">`Meier` &rarr; `M600`</span>
+                    <p><span class="fragment" data-fragment-index="2">`Meier` &rarr; `M600`</span><span class="fragment" data-fragment-index="3">&rarr; 1, 3, 5</span></p>
+                    <p><span class="fragment" data-fragment-index="4">`Maier` &rarr; `M600` &rarr; 1, 3, 5</span></p>
 
                     Notes:
                 </script>
@@ -1401,7 +1402,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Spelling correction
+                    # Result quality
 
                     * <!-- .element: class="fragment" data-fragment-index="1" -->Recall up
                     * <!-- .element: class="fragment" data-fragment-index="1" --> Precision down
@@ -1450,7 +1451,7 @@
                     | Doc | Author | Title |
                     |-----|-----------------|----------------------------------------------------------|
                     | #1 | Arthur McAuthor | A book providing information about information retrieval |
-                    | #2 | Shakesbeer | A book about the search for arthur |
+                    | #2 | Shakesbeer | A book about the search for King Arthur |
 
                     ***
 
@@ -1479,7 +1480,7 @@
 
                     ***
 
-                    * <!-- .element: class="fragment" --> `title:arthur`? <span class="fragment">#1</span>
+                    * <!-- .element: class="fragment" --> `title:arthur`? <span class="fragment">#2</span>
                     * <!-- .element: class="fragment" --> `author:shakesbeer`? <span class="fragment">#2</span>
 
                     Notes:
@@ -1593,24 +1594,24 @@
                     Found 128 results, showing top 5
 
                     Germany.txt: score 65
-                    austria: 4
-                    germany: 61
+                        austria: 4
+                        germany: 61
 
                     Treaty_of_Versailles.txt: score 37
-                    austria: 10
-                    germany: 27
+                        austria: 10
+                        germany: 27
 
                     Berlin_Wall.txt: score 30
-                    austria: 3
-                    germany: 27
+                        austria: 3
+                        germany: 27
 
                     World_War_I.txt: score 27
-                    austria: 5
-                    germany: 22
+                        austria: 5
+                        germany: 22
 
                     Anti_tobacco_movement_in_Nazi_Germany.txt: score 27
-                    austria: 2
-                    germany: 25
+                        austria: 2
+                        germany: 25
                     ```
                     <!-- .element: class="stretch" -->
 
