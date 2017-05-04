@@ -1023,6 +1023,20 @@
                     Notes:
                 </script>
             </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Meanwhile in the real world...
+
+                    * Solr default is now [BM25](https://en.wikipedia.org/wiki/Okapi_BM25)
+                    * Also on TF-IDF
+                    * Much less descriptive
+
+                    $${\displaystyle {\text{score}}(D,Q)=\sum_{i=1}^{n}{\text{IDF}}(q_i)\cdot {\frac {TF(q_i,D)\cdot (k_1+1)}{TF(q_i,D)+k_1\cdot \left(1-b+b\cdot {\frac {|D|}{\text{avgdl}}}\right)}}}$$ <!-- .element: class="fragment" -->
+
+                    Notes:
+                </script>
+            </section>
         </section>
 
         <section>
