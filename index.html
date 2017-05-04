@@ -86,7 +86,6 @@
                     * Tokenization
                     * Precision & Recall
                     * Ranked Retrieval
-                    * Vocabulary Structure
                     * Wildcard Queries
                     * Spelling Correction
                     * Phonetic Correction
@@ -103,6 +102,7 @@
                 <script type="text/template">
                     # [III](#/III)
 
+                    * Vocabulary Structure
                     * Scaling
                     * Vector Space Model
                     * Missing Topics
@@ -998,113 +998,6 @@
         <section>
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Vocabulary structure
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Vocabulary structure
-
-                    * <!-- .element: class="fragment" --> Dictionary / Hash table
-                    * <!-- .element: class="fragment" --> Search tree
-
-                    Notes:
-                    * Suggestions?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Hash table
-
-                    ![hash table](images/hash-table.png) <!-- .element: class="stretch" -->
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Hash table
-
-                    * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(1)
-                    * <!-- .element: class="fragment" --> \+ Fast insert: &Omicron;(1)
-                    * <!-- .element: class="fragment" --> \- Collisions
-                    * <!-- .element: class="fragment" --> \- Rehashing
-                    * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
-
-                    Notes:
-                    * What is the complexity of lookup / insert? Ο(1)
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Binary tree
-
-                    ![binary tree](images/binary-tree.png)<!-- .element: class="stretch" style="border: none; box-shadow: none;" -->
-
-                    http://nlp.stanford.edu/IR-book/
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Binary tree
-
-                    * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(log n)
-                    * <!-- .element: class="fragment" --> \+ Fast insertion: &Omicron;(log n)
-                    * <!-- .element: class="fragment" --> \- Rebalancing
-                    * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
-
-                    Notes:
-                    * What is the lookup / insert complexity? Ο(log n)
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # B-tree
-
-                    ![b-tree](images/b-tree.png)<!-- .element: class="stretch" style="border: none; box-shadow: none;" -->
-
-                    http://nlp.stanford.edu/IR-book/
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # B-tree
-
-                    * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(log n)
-                    * <!-- .element: class="fragment" --> \+ Fast insertion: &Omicron;(log n)
-                    * <!-- .element: class="fragment" --> \+ No worst case complexity
-                    * <!-- .element: class="fragment" --> Less frequent rebalancing
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Free wildcard queries!
-
-                    Notes:
-                    * Why?
-                </script>
-            </section>
-        </section>
-
-        <section>
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
                     # Wildcard queries
 
                     Notes:
@@ -1603,6 +1496,114 @@
                 Notes:
             </script>
         </section>
+
+        <section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vocabulary structure
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vocabulary structure
+
+                    * <!-- .element: class="fragment" --> Dictionary / Hash table
+                    * <!-- .element: class="fragment" --> Search tree
+
+                    Notes:
+                    * Suggestions?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Hash table
+
+                    ![hash table](images/hash-table.png) <!-- .element: class="stretch" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Hash table
+
+                    * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(1)
+                    * <!-- .element: class="fragment" --> \+ Fast insert: &Omicron;(1)
+                    * <!-- .element: class="fragment" --> \- Collisions
+                    * <!-- .element: class="fragment" --> \- Rehashing
+                    * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
+
+                    Notes:
+                    * What is the complexity of lookup / insert? Ο(1)
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Binary tree
+
+                    ![binary tree](images/binary-tree.png)<!-- .element: class="stretch" style="border: none; box-shadow: none;" -->
+
+                    http://nlp.stanford.edu/IR-book/
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Binary tree
+
+                    * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(log n)
+                    * <!-- .element: class="fragment" --> \+ Fast insertion: &Omicron;(log n)
+                    * <!-- .element: class="fragment" --> \- Rebalancing
+                    * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
+
+                    Notes:
+                    * What is the lookup / insert complexity? Ο(log n)
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # B-tree
+
+                    ![b-tree](images/b-tree.png)<!-- .element: class="stretch" style="border: none; box-shadow: none;" -->
+
+                    http://nlp.stanford.edu/IR-book/
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # B-tree
+
+                    * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(log n)
+                    * <!-- .element: class="fragment" --> \+ Fast insertion: &Omicron;(log n)
+                    * <!-- .element: class="fragment" --> \+ No worst case complexity
+                    * <!-- .element: class="fragment" --> Less frequent rebalancing
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Free wildcard queries!
+
+                    Notes:
+                    * Why?
+                </script>
+            </section>
+        </section>
+
 
         <section>
             <section data-markdown data-separator-notes="^Notes:">
