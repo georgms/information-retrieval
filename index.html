@@ -1933,8 +1933,25 @@
                 <script type="text/template">
                     # Partitioned index
 
-                    * By term <!-- .element: class="fragment" -->
-                    * By doc <!-- .element: class="fragment" -->
+
+                    | Term        | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | #1, #2, #3 |
+                    | Information | #1, #2, #3 |
+                    | Retrieval   | #1         |
+                    | Search      | #2         |
+
+
+                    Notes: Audience question: How to partition?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Partitioned index
+
+                    * By term
+                    * By doc
 
                     Notes:
                     What can the index be partitioned by? Think of the Inverted Index?
@@ -2335,13 +2352,12 @@
                     |-------------|----|----|----|
                     | Book        | 10 | 3  |  0 |
                     | Information | 5  | 2  |  1 |
-                    | Retrieval   | 0  | 0  |  2 |
 
                     ***
 
-                    * $\vec{V}(\\#1)$ = (10, 5, 0) <!-- .element: class="fragment" -->
-                    * $\vec{V}(\\#2)$ = (3, 2, 0) <!-- .element: class="fragment" -->
-                    * $\vec{V}(\\#3)$ = (0, 1, 2) <!-- .element: class="fragment" -->
+                    * $\vec{V}(\\#1)$ = (10, 5) <!-- .element: class="fragment" -->
+                    * $\vec{V}(\\#2)$ = (3, 2) <!-- .element: class="fragment" -->
+                    * $\vec{V}(\\#3)$ = (0, 1) <!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
@@ -2349,9 +2365,12 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    * $\vec{V}(\\#1)$ = (10, 5)
+                    * $\vec{V}(\\#2)$ = (3, 2)
+
                     <p class="stretch">![Vectors](images/Vectors.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
 
-                    Notes:
+                    Notes: Audience question: Are the docs similar?
                 </script>
             </section>
 
@@ -2394,6 +2413,9 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    * $\vec{V}(\\#1)$ = (10, 5)
+                    * $\vec{V}(\\#2)$ = (3, 2)
+
                     <p class="stretch">![Vectors](images/Vectors.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes:
@@ -2493,7 +2515,7 @@
 
                     <p class="stretch">![Query](images/Query Vector.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
 
-                    Notes:
+                    Notes: Audience question: Which doc is a better match?
                 </script>
             </section>
 
@@ -2514,8 +2536,6 @@
         <section id="IV" data-markdown data-separator-notes="^Notes:">
             <script type="text/template">
                 # IV
-
-                ![under construction](images/under-construction.gif)
 
                 Notes:
             </script>
@@ -2706,11 +2726,11 @@
 
                     ## Page quality
 
-                    * Expertise
-                    * Authoritativeness
-                    * Trustworthiness
-                    * Spam
-                    * Duplicate content
+                    * Expertise <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Authoritativeness <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Trustworthiness <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Spam <!-- .element: class="fragment" data-fragment-index="2" -->
+                    * Duplicate content <!-- .element: class="fragment" data-fragment-index="3" -->
 
                     Notes:
                  </script>
@@ -2722,8 +2742,8 @@
 
                     ## Result quality
 
-                    * User intent
-                    * Misspellings
+                    * User intent <!-- .element: class="fragment" data-fragment-index="" -->
+                    * Misspellings <!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
                 </script>
@@ -2905,7 +2925,7 @@
                 <script type="text/template">
                     # Distributed indexes
 
-                    * Local index organization, partition by document
+                    * Document-partitioned
                     * Partition by `hash(URL)` instead of `host`
 
                     Notes:
