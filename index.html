@@ -810,6 +810,76 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Stop words
+
+                    * Add no meaning: *table* should find *a table* and * the table*
+                    * Inflate index size
+                    * Manually curated list
+                    * [Default english stop words for Solr](https://github.com/apache/lucene-solr/blob/master/solr/example/files/conf/lang/stopwords_en.txt)
+                    * Start with top terms in collection
+                    * Can be domain-specific
+                      * Eg. *doctor*, *patient* in medical documents
+
+                    Notes:
+                    * What could be the problem with stop words?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                  # Stop words, but...
+
+                  * *The Police* will find *police car*
+                  * *The President of Austria* will find *President of United States visits Austria*
+                  * *To be or not to be* will find everything / nothing
+
+                  Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stop words in real life
+
+                    * Index size not an issue anymore
+                    * Solr: Stop words are optional, but increase score
+                      * *The Police* will find *police car*, but rank *The Police*  higher
+                    * No special handling when query consists only of stopwords
+                      * *To be or not to be* searches for `[to, be, or, not]`
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stemming
+
+                    * Chop off word ending, mostly algorithmic
+                    * Good: *housing*, *houses*, *house* will all match *hous*
+                    * Bad: *organization*, *organs* will both match *organ*
+                    * Most popular stemmer: Porter
+                    * Snowball provides a stemmer DSL
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Lemmatization
+
+                    * Determine root based on linguistic rules
+                    * Keeps word type eg. *saw* will become *saw* or *see*
+                    * Can generate inflections, eg. what's the plural of *house*?
+                    * Benefits of lemmatization over stemming doubtful
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
                     # Nomenclature
 
                     ## Token <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -914,6 +984,23 @@
                     * How to achieve 100% precision?
                 </script>
             </section>
+        </section>
+
+        <section>
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Phrase queries
+
+              * *Stanford University* should not match *The inventor Stanford Ovshinsky never went to university*
+              * Positional index: Store position per document
+              * Supports phrase gaps: *barack obama* matches *barack hussein obama*
+              * Complexity increases from &Omicron;(num documents) to &Omicron;(num tokens)
+              * When querying start with least common term because this has smallest number of postings
+              * Speed up query with biword, triword index since they can satisfy lots of phrase queries, eg. *firstname lastname*, *three letter acronym*
+
+              Notes:
+            </script>
+          </section>
         </section>
 
         <section>
@@ -1079,7 +1166,7 @@
                 <script type="text/template">
                     # Meanwhile in the real world...
 
-                    * Solr default is now [BM25](https://en.wikipedia.org/wiki/Okapi_BM25)
+                    * Solr default is now [Okapi BM25](https://en.wikipedia.org/wiki/Okapi_BM25)
                     * Also based on TF-IDF
                     * Much less descriptive
 
@@ -1753,7 +1840,7 @@
 
                     * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(1)
                     * <!-- .element: class="fragment" --> \+ Fast insert: &Omicron;(1)
-                    * <!-- .element: class="fragment" --> \- Collisions
+                      * <!-- .element: class="fragment" --> \- Collisions
                     * <!-- .element: class="fragment" --> \- Rehashing
                     * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
 
@@ -2533,6 +2620,208 @@
 
         </section>
 
+        <section>
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # Support vector machines and machine learning on documents
+
+                * Learn to improve result ranking
+
+                Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # Why?
+
+                * Getting field weights right is hard
+                * Maybe even have different weights per group or user
+                  * Men vs Women
+                  * XBox vs Playstation
+                  * Austrians vs Germans
+
+                Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # How?
+
+                * Obtain result clickstream, ie. `(query, document)` pairs
+                * Use one half for training, one half for validation
+                * Formulate equation `f(query, document) = weights`
+                * Solve equation for weights
+                * Validate quality
+                Notes:
+            </script>
+          </section>
+        </section>
+
+        <section>
+          <section id="svm" data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # Support Vector Machines
+
+                * Provides classification for exactly two classes
+                * Spam or Ham
+                * Cat or dog
+                * Search result or not
+
+                Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              <p class="stretch>">![SVM separable](images/Svm_intro.svg) <!-- .element: style="width: 60%; border: none; box-shadow: none;" --></p>
+              Von Ennepetaler86 - Eigenes Werk, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=11523156
+
+              * Data must be linearly separable
+              * Choose separator with largest margin
+              * Points close to separator are uncertain
+              * Larger margin = More certainty
+              * (Data points on margin are the *support vectors*)
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Separator properties
+
+              * Separator has one dimension less than data:
+                * Data defined by one dimension: point
+                * Two dimensions: line
+                * Three dimensions: plane
+                * Four dimensions: No idea
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Not linearly separable data
+
+              TODO: Image of not linearly separable data
+
+              * Soft-margin
+              * Kernel trick
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Soft-margin
+
+              * Data is often unreliable
+              * A few outliers can be ignored
+              * Every outlier costs a penalty
+              * Optimization problem: Large margin vs low penalty
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Kernel trick
+
+              ![SVM Kernel trick](images/SVM kernel trick.png)
+
+              * Project data into a higher dimension
+              * Higher dimension may provide linear separability
+              * Kernel function K must be continuous, symmetric, and have a positive def-
+inite gram matrix
+
+              Notes:
+            </script>
+          </section>
+        </section>
+
+        <section>
+          <section id="feature_engineering" data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Feature engineering
+
+              * Crucial for good results
+              * Human task
+              * Data often comes from multiple sources
+                * Web logs, Google Analytics, database
+
+              Notes:
+            </script>
+          </section>
+
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Search features
+
+              * Document-based
+                * Freshness, rating, price
+              * User-based
+                * Gender, age, favorite brand
+              * User behavior-based
+                * Looked at product before? Visited category? Query score?
+              * Must be mapped on numeric scale, can be 1/0
+              Notes:
+            </script>
+          </section>
+
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              ```
+                x*Query score
+              + y*Freshness
+              + z*Visited category?
+              + ...
+              _____________________
+              = Score / Rank
+              ```
+
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              |  | Document 1 | Document 2 |  |  |
+              |--------------------|------------|------------|---|---|
+              | x*Query score | x*1.5 | x*1.2 |  |  |
+              | y*Freshness | y*57 days | y*2 years |  |  |
+              | z*Visited category | z*1 | z*0  |  |  |
+              | **Score / Rank** | **0,5 / 1** | **0,3 / 2** |  |  |
+            </script>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Solr
+
+              TODO: Image of regular Solr search pipeline
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Solr
+
+              TODO: Image of Solr LTR pipeline
+
+              Notes:
+            </script>
+          </section>
+        </section>
+
         <section id="IV" data-markdown data-separator-notes="^Notes:">
             <script type="text/template">
                 # IV
@@ -2655,7 +2944,7 @@
 
                     [Google Search Quality Evaluator Guidelines](https://www.google.com/insidesearch/howsearchworks/assets/searchqualityevaluatorguidelines.pdf)
 
-                    Notes: 
+                    Notes:
                 </script>
             </section>
 
@@ -3118,7 +3407,7 @@
                 <script type="text/template">
                     [Pagerank visualization](http://bl.ocks.org/emeeks/raw/f448eef177b5fe94b1c0/)
 
-                    Notes: 
+                    Notes:
                 </script>
             </section>
 
