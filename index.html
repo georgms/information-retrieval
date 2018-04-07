@@ -69,7 +69,6 @@
                     ***
 
                     * Final projects
-                    * [Solr Workshop](#/solr_workshop)
                     * [Homework I](#/homework_1)
                 </script>
             </section>
@@ -83,17 +82,13 @@
                     ***
 
                     * [Tokenization](#/tokenization)
+                    * [Stop Words](#/stop_words)
+                    * [Stemming](#/stemming)
                     * [Precision & Recall](#/precision_recall)
-                    * [Ranked Retrieval](#/ranked_retrieval)
-                    * [Wildcard Queries](#/wildcard_queries)
-                    * [Spelling Correction](#/spelling_correction)
-                    * [Phonetic Correction](#/phonetic_correction)
-                    * [Field Weights](#/field_weights)
 
                     ***
 
-                    * Project status
-                    * Solr Q&A
+                    * [Solr Workshop](https://tiny.cc/solr-workshop)
                     * [Homework II](#/homework_2)
                 </script>
             </section>
@@ -103,11 +98,16 @@
                     # [III](#/III)
 
                     * [Vocabulary Structure](#/vocabulary_structure)
-                    * [Scaling](#/scaling)
-                    * [Vector Space Model](#/vector_space_model)
+                    * [Wildcard Queries](#/wildcard_queries)
+                    * [Spelling Correction](#/spelling_correction)
+                    * [Phonetic Correction](#/phonetic_correction)
+                    * [Phrase Queries](#/phrase_queries)
 
                     ***
 
+                    * [Homework II](#/homework_2)
+
+                    * Final projects
                     * Project status
                 </script>
             </section>
@@ -115,6 +115,26 @@
             <section data-markdown>
                 <script type="text/template">
                     # [IV](#/IV)
+
+                    * [Ranked Retrieval](#/ranked_retrieval)
+                    * [Field Weights](#/field_weights)
+                    * [TF-IDF](#/tf_idf)
+                    * [BM25](#/bm25)
+                    * [Vector Space Model](#/vector_space_model)
+                    * [Scaling](#/scaling)
+
+                    ***
+
+                    * Missing Topics
+                    * Feedback
+                    * Exam
+                    * Project demos
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # [V](#/V)
                     * [Web search usage](#/web_search_usage)
                     * [Web search challenges](#/web_search_challenges)
                     * [Web crawling](#/web_crawling)
@@ -168,6 +188,25 @@
                     * Intranet
                     * Academia
                     * ...
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # Challenges
+
+                    * High result quality
+                    * User friendly
+                    * Fast, scaleable
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # Outlook
+
+                    * BYOG (Build your own Google)
+                    * Understand fundamental search data structures and algorithms
                 </script>
             </section>
         </section>
@@ -232,7 +271,7 @@
                 </script>
             </section>
 
-            <section data-markdown>
+            <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Nomenclature
 
@@ -245,6 +284,10 @@
                     How the user talks to the computer <!-- .element: class="fragment" data-fragment-index="3" -->
 
                     `(information AND retrieval) OR search` <!-- .element: class="fragment" data-fragment-index="4" -->
+
+                    Notes:
+                    If no special syntax for query is required than it is easier to express information need.
+                    See semantic search, voice etc.
                 </script>
             </section>
 
@@ -278,7 +321,9 @@
                 <script type="text/template">
                     # Complexity?
 
-                    &Omicron;(num terms in corpus) <!-- .element: class="fragment" -->
+                    Search every query term as a string in every document: <!-- .element: class="fragment" -->
+
+                    &Omicron;(num query terms * lenght of documents) <!-- .element: class="fragment" -->
 
                     Notes:
                     Audience question
@@ -402,10 +447,26 @@
 
                     | Term        | Doc IDs    |
                     |-------------|------------|
-                    | Book        | #1, #2, #3 <!-- .element: class="fragment" --> |
-                    | Information | #1, #2, #3 <!-- .element: class="fragment" --> |
-                    | Retrieval   | #1         <!-- .element: class="fragment" --> |
-                    | Search      | #2         <!-- .element: class="fragment" --> |
+                    |             |            |
+
+                    Notes: Do on whiteboard
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * \#1: _a book about information retrieval_
+                    * \#2: _a book about the search for information_
+                    * \#3: _a book about information_
+
+                    ***
+
+                    | Term        | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | #1, #2, #3 |
+                    | Information | #1, #2, #3 |
+                    | Retrieval   | #1         |
+                    | Search      | #2         |
 
                     Notes: Audience question
                 </script>
@@ -543,14 +604,6 @@
             </script>
         </section>
 
-        <section id="solr_workshop" data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                [Solr Workshop](https://tiny.cc/solr-workshop)
-
-                Notes:
-            </script>
-        </section>
-
         <section>
             <section id="homework_1" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
@@ -602,19 +655,20 @@
                 <script type="text/template">
                     # Homework
 
-                    * Built inverted index from text files
+                    * Built **inverted index** from text files
                     * Query using implicit AND
                     * Command-line interface
                     * Read docs on startup
                         * *.txt in directory
+                        * Just once, not for every query
                     * Ask for query
                         * Display list of matching filenames
                         * Ask for next query
                     * Keep in mind that the programm should also work with millions of files
-                    * Your favorite **open-source** programming language
+                    * Your favorite **open-source** programming language (so I can run the program)
                     * Use [1.txt](files/1.txt), [2.txt](files/2.txt), [3.txt](files/3.txt)
                     * Provide instructions on how to run (including version, dependencies etc.)
-                    * **Deadline**: 03.05.2017 23:59:59
+                    * **Deadline**: 18.04.2018 11:59:59
 
                     Notes:
                  </script>
@@ -807,6 +861,16 @@
                     Notes:
                 </script>
             </section>
+        </section>
+
+        <section>
+            <section id="stop_words">
+                <script type="text/template">
+                    # Tokenization
+
+                    Notes:
+                </script>
+            </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
@@ -846,6 +910,15 @@
                       * *The Police* will find *police car*, but rank *The Police*  higher
                     * No special handling when query consists only of stopwords
                       * *To be or not to be* searches for `[to, be, or, not]`
+
+                    Notes:
+                </script>
+            </section>
+
+        <section>
+            <section id="stemming">
+                <script type="text/template">
+                    # Tokenization
 
                     Notes:
                 </script>
