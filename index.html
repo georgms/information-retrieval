@@ -736,7 +736,129 @@
                 </script>
             </section>
 
-            <section>
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										# Nomenclature
+
+										## Token <!-- .element: class="fragment" data-fragment-index="1" -->
+										* Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
+										* No analysis yet <!-- .element: class="fragment" data-fragment-index="1" -->
+										* <!-- .element: class="fragment" data-fragment-index="1" --> _the_, _routers_
+
+										## Type <!-- .element: class="fragment" data-fragment-index="2" -->
+										* Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
+										* <!-- .element: class="fragment" data-fragment-index="2" --> _the_, _routers_
+
+										## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
+										* Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
+										* <!-- .element: class="fragment" data-fragment-index="3" --> _router_
+								</script>
+						</section>
+
+        </section>
+
+        <section id="stop_words_section">
+            <section id="stop_words" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stop Words
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stop words
+
+                    * Add no meaning: *table* should find *a table* and * the table*
+                    * Inflate index size
+                    * Manually curated list
+                    * [Default english stop words for Solr](https://github.com/apache/lucene-solr/blob/master/solr/example/files/conf/lang/stopwords_en.txt)
+                    * Start with top terms in collection
+                    * Can be domain-specific
+                      * Eg. *doctor*, *patient* in medical documents
+
+                    Notes:
+                    * What could be the problem with stop words?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                  # Stop words, but...
+
+                  * *The Police* will find *police car*
+                  * *The President of Austria* will find *President of United States visits Austria*
+                  * *To be or not to be* will find everything / nothing
+
+                  Notes:
+									* How to handle this better?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stop words in real life
+
+                    * Index size not an issue anymore
+                    * Solr: Stop words are optional, but increase score
+                      * *The Police* will find *police car*, but rank *The Police* higher
+                    * No special handling when query consists only of stopwords
+                      * *To be or not to be* searches for `[to, be, or, not]`
+
+                    Notes:
+                </script>
+            </section>
+				</section>
+
+        <section id="stemming_section">
+            <section id="stemming" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stemming
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stemming
+
+                    * Chop off word ending, mostly algorithmic
+                    * Good: *housing*, *houses*, *house* will all match *hous*
+                    * Bad: *organization*, *organs* will both match *organ*
+                    * Most popular stemmer: Porter
+                    * Snowball provides a stemmer DSL
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Lemmatization
+
+                    * Determine root based on linguistic rules
+                    * Keeps word type eg. *saw* will become *saw* or *see*
+                    * Can generate inflections, eg. what's the plural of *house*?
+                    * Benefits of lemmatization over stemming doubtful
+
+                    Notes:
+                </script>
+            </section>
+				</section>
+
+				<section id="tokenization_example_section">
+
+					<section id="tokenization_example" data-markdown data-separator-notes="^Notes:">
+							<script type="text/template">
+									# Tokenization Example
+
+									Notes:
+							</script>
+					</section>
+
+						<section>
                 <table class="stretch">
                     <tr>
                         <th style="border-right: 1px solid rgb(34, 34, 34);"></th>
@@ -834,129 +956,21 @@
                     Notes:
                 </script>
             </section>
-        </section>
 
-        <section id="stop_words_section">
-            <section id="stop_words">
-                <script type="text/template">
-                    # Stop Words
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										# Outcome
 
-                    Notes:
-                </script>
-            </section>
+										* <!-- .element: class="fragment" --> Find more results: _wireless_ &rarr; _wi-fi_
+										* <!-- .element: class="fragment" --> Find more imprecise results: _wi-fi_ &rarr; _wireless_
+										* <!-- .element: class="fragment" --> Miss some results: _to be or not to be_
 
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Stop words
+										Notes:
+										* Will this find more results?
+										* Will this find less accurate results?
+								</script>
+						</section>
 
-                    * Add no meaning: *table* should find *a table* and * the table*
-                    * Inflate index size
-                    * Manually curated list
-                    * [Default english stop words for Solr](https://github.com/apache/lucene-solr/blob/master/solr/example/files/conf/lang/stopwords_en.txt)
-                    * Start with top terms in collection
-                    * Can be domain-specific
-                      * Eg. *doctor*, *patient* in medical documents
-
-                    Notes:
-                    * What could be the problem with stop words?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                  # Stop words, but...
-
-                  * *The Police* will find *police car*
-                  * *The President of Austria* will find *President of United States visits Austria*
-                  * *To be or not to be* will find everything / nothing
-
-                  Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Stop words in real life
-
-                    * Index size not an issue anymore
-                    * Solr: Stop words are optional, but increase score
-                      * *The Police* will find *police car*, but rank *The Police*  higher
-                    * No special handling when query consists only of stopwords
-                      * *To be or not to be* searches for `[to, be, or, not]`
-
-                    Notes:
-                </script>
-            </section>
-				</section>
-
-        <section id="stemming_section">
-            <section id="stemming">
-                <script type="text/template">
-                    # Stemming
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Stemming
-
-                    * Chop off word ending, mostly algorithmic
-                    * Good: *housing*, *houses*, *house* will all match *hous*
-                    * Bad: *organization*, *organs* will both match *organ*
-                    * Most popular stemmer: Porter
-                    * Snowball provides a stemmer DSL
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Lemmatization
-
-                    * Determine root based on linguistic rules
-                    * Keeps word type eg. *saw* will become *saw* or *see*
-                    * Can generate inflections, eg. what's the plural of *house*?
-                    * Benefits of lemmatization over stemming doubtful
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Nomenclature
-
-                    ## Token <!-- .element: class="fragment" data-fragment-index="1" -->
-                    * Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
-                    * No analysis yet <!-- .element: class="fragment" data-fragment-index="1" -->
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> _the_, _routers_
-
-                    ## Type <!-- .element: class="fragment" data-fragment-index="2" -->
-                    * Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
-                    * <!-- .element: class="fragment" data-fragment-index="2" --> _the_, _routers_
-
-                    ## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
-                    * Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
-                    * <!-- .element: class="fragment" data-fragment-index="3" --> _router_
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Outcome
-
-                    * <!-- .element: class="fragment" --> Find more results: _wireless_ &rarr; _wi-fi_
-                    * <!-- .element: class="fragment" --> Find more imprecise results: _wi-fi_ &rarr; _wireless_
-                    * <!-- .element: class="fragment" --> Miss some results: _to be or not to be_
-
-                    Notes:
-                    * Will this find more results?
-                    * Will this find less accurate results?
-                </script>
-            </section>
         </section>
 
         <section id="precision_recall_section">
