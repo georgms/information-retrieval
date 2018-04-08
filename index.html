@@ -70,7 +70,6 @@
                     ***
 
                     * [Solr Workshop](https://tiny.cc/solr-workshop)
-                    * [Homework II](#/homework_2)
                 </script>
             </section>
 
@@ -106,6 +105,7 @@
 
                     ***
 
+                    * [Homework: TF-IDF](#/homework_tf_idf)
                     * Missing Topics
                     * Feedback
                     * Exam
@@ -1739,6 +1739,99 @@
             </section>
         </section>
 
+				<section id="homework_tf_idf_section">
+
+						<section id="homework_tf_idf" data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										# Homework
+
+										Implement TF scoring
+
+										Notes:
+								</script>
+						</section>
+
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										```
+										Enter query, empty to quit:
+										? salzburg
+										Found 28 results, showing top 5
+
+										Archbishopric_of_Salzburg.txt: score 22
+												salzburg: 22
+
+										Herbert_von_Karajan.txt: score 6
+												salzburg: 6
+
+										Wolfgang_Amadeus_Mozart.txt: score 6
+												salzburg: 6
+
+										Salzburg_Austria.txt: score 2
+												salzburg: 2
+
+										Alfons_Schuhbeck.txt: score 2
+												salzburg: 2
+										```
+										<!-- .element: class="stretch" -->
+
+										Notes:
+								</script>
+						</section>
+
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										```
+										Enter query, empty to quit:
+										? austria germany
+										Found 128 results, showing top 5
+
+										Germany.txt: score 65
+												austria: 4
+												germany: 61
+
+										Treaty_of_Versailles.txt: score 37
+												austria: 10
+												germany: 27
+
+										Berlin_Wall.txt: score 30
+												austria: 3
+												germany: 27
+
+										World_War_I.txt: score 27
+												austria: 5
+												germany: 22
+
+										Anti_tobacco_movement_in_Nazi_Germany.txt: score 27
+												austria: 2
+												germany: 25
+										```
+										<!-- .element: class="stretch" -->
+
+										Notes:
+								</script>
+						</section>
+
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										# Homework
+
+										* Optionally build on first homework
+										* Add TF scoring
+										* Display top 5 results
+										* For each result show total score and per-term score
+										* Bonus points
+											* Implement TF normalization
+											* Parallelize indexing
+										* Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
+										* Provide instructions on how to run (including version, dependencies etc.)
+										* **Deadline**: 17.05.2017 23:59:59
+
+										Notes:
+								</script>
+						</section>
+				</section>
+
         <section data-markdown data-separator-notes="^Notes:">
             <script type="text/template">
                 # Project status
@@ -1761,99 +1854,6 @@
 
                 Notes:
             </script>
-        </section>
-
-        <section id="homework_2_section">
-
-            <section id="homework_2" data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Homework
-
-                    Implement TF scoring
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    ```
-                    Enter query, empty to quit:
-                    ? salzburg
-                    Found 28 results, showing top 5
-
-                    Archbishopric_of_Salzburg.txt: score 22
-                        salzburg: 22
-
-                    Herbert_von_Karajan.txt: score 6
-                        salzburg: 6
-
-                    Wolfgang_Amadeus_Mozart.txt: score 6
-                        salzburg: 6
-
-                    Salzburg_Austria.txt: score 2
-                        salzburg: 2
-
-                    Alfons_Schuhbeck.txt: score 2
-                        salzburg: 2
-                    ```
-                    <!-- .element: class="stretch" -->
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    ```
-                    Enter query, empty to quit:
-                    ? austria germany
-                    Found 128 results, showing top 5
-
-                    Germany.txt: score 65
-                        austria: 4
-                        germany: 61
-
-                    Treaty_of_Versailles.txt: score 37
-                        austria: 10
-                        germany: 27
-
-                    Berlin_Wall.txt: score 30
-                        austria: 3
-                        germany: 27
-
-                    World_War_I.txt: score 27
-                        austria: 5
-                        germany: 22
-
-                    Anti_tobacco_movement_in_Nazi_Germany.txt: score 27
-                        austria: 2
-                        germany: 25
-                    ```
-                    <!-- .element: class="stretch" -->
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Homework
-
-                    * Optionally build on first homework
-                    * Add TF scoring
-                    * Display top 5 results
-                    * For each result show total score and per-term score
-                    * Bonus points
-                      * Implement TF normalization
-                      * Parallelize indexing
-                    * Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
-                    * Provide instructions on how to run (including version, dependencies etc.)
-                    * **Deadline**: 17.05.2017 23:59:59
-
-                    Notes:
-                </script>
-            </section>
         </section>
 
         <section id="III" data-markdown data-separator-notes="^Notes:">
