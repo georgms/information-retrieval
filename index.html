@@ -1,47 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<head>
-    <meta charset="utf-8">
+		<title>Text Search 102</title>
 
-    <title>Text Search 102</title>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/findologic.css">
 
-    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-    <meta name="author" content="Hakim El Hattab">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/findologic.css" id="theme">
-
-    <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
-
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
-
-    <!--[if lt IE 9]>
-    <script src="lib/js/html5shiv.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-
-<div class="reveal">
-
-    <!-- Any section element inside of this container is displayed as a slide -->
-    <div class="slides">
-
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
         <section data-markdown>
             <script type="text/template">
                 # Text Search 102
@@ -68,9 +50,7 @@
 
                     ***
 
-                    * Final projects
-                    * [Solr Workshop](#/solr_workshop)
-                    * [Homework I](#/homework_1)
+                    * [Homework: Inverted Index](#/homework_inverted_index)
                 </script>
             </section>
 
@@ -83,18 +63,13 @@
                     ***
 
                     * [Tokenization](#/tokenization)
+                    * [Stop Words](#/stop_words)
+                    * [Stemming](#/stemming)
                     * [Precision & Recall](#/precision_recall)
-                    * [Ranked Retrieval](#/ranked_retrieval)
-                    * [Wildcard Queries](#/wildcard_queries)
-                    * [Spelling Correction](#/spelling_correction)
-                    * [Phonetic Correction](#/phonetic_correction)
-                    * [Field Weights](#/field_weights)
 
                     ***
 
-                    * Project status
-                    * Solr Q&A
-                    * [Homework II](#/homework_2)
+                    * [Solr Workshop](https://tiny.cc/solr-workshop)
                 </script>
             </section>
 
@@ -103,11 +78,16 @@
                     # [III](#/III)
 
                     * [Vocabulary Structure](#/vocabulary_structure)
-                    * [Scaling](#/scaling)
-                    * [Vector Space Model](#/vector_space_model)
+                    * [Wildcard Queries](#/wildcard_queries)
+                    * [Spelling Correction](#/spelling_correction)
+                    * [Phonetic Correction](#/phonetic_correction)
+                    * [Phrase Queries](#/phrase_queries)
 
                     ***
 
+                    * [Homework II](#/homework_2)
+
+                    * Final projects
                     * Project status
                 </script>
             </section>
@@ -115,6 +95,27 @@
             <section data-markdown>
                 <script type="text/template">
                     # [IV](#/IV)
+
+                    * [Ranked Retrieval](#/ranked_retrieval)
+                    * [Field Weights](#/field_weights)
+                    * [TF-IDF](#/tf_idf)
+                    * [BM25](#/bm25)
+                    * [Vector Space Model](#/vector_space_model)
+                    * [Scaling](#/scaling)
+
+                    ***
+
+                    * [Homework: TF-IDF](#/homework_tf_idf)
+                    * Missing Topics
+                    * Feedback
+                    * Exam
+                    * Project demos
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # [V](#/V)
                     * [Web search usage](#/web_search_usage)
                     * [Web search challenges](#/web_search_challenges)
                     * [Web crawling](#/web_crawling)
@@ -140,7 +141,7 @@
             </script>
         </section>
 
-        <section>
+        <section id="motivation_section">
             <section id="motivation" data-markdown>
                 <script type="text/template">
                     # Motivation
@@ -170,9 +171,28 @@
                     * ...
                 </script>
             </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # Challenges
+
+                    * High result quality
+                    * User friendly
+                    * Fast, scaleable
+                </script>
+            </section>
+
+            <section data-markdown>
+                <script type="text/template">
+                    # Outlook
+
+                    * BYOG (Build your own Google)
+                    * Understand fundamental search data structures and algorithms
+                </script>
+            </section>
         </section>
 
-        <section>
+        <section id="boolean_retrieval_section">
             <section id="boolean_retrieval" data-markdown>
                 <script type="text/template">
                     # Boolean retrieval
@@ -232,7 +252,7 @@
                 </script>
             </section>
 
-            <section data-markdown>
+            <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Nomenclature
 
@@ -245,6 +265,10 @@
                     How the user talks to the computer <!-- .element: class="fragment" data-fragment-index="3" -->
 
                     `(information AND retrieval) OR search` <!-- .element: class="fragment" data-fragment-index="4" -->
+
+                    Notes:
+                    If no special syntax for query is required than it is easier to express information need.
+                    See semantic search, voice etc.
                 </script>
             </section>
 
@@ -278,7 +302,9 @@
                 <script type="text/template">
                     # Complexity?
 
-                    &Omicron;(num terms in corpus) <!-- .element: class="fragment" -->
+                    Search every query term as a string in every document: <!-- .element: class="fragment" -->
+
+                    &Omicron;(num query terms * lenght of documents) <!-- .element: class="fragment" -->
 
                     Notes:
                     Audience question
@@ -286,7 +312,7 @@
             </section>
         </section>
 
-        <section>
+        <section id="term_document_matrix_section">
             <section id="term_document_matrix" data-markdown>
                 <script type="text/template" data-separator-notes="^Notes:">
                     # Term-document matrix
@@ -374,7 +400,7 @@
 
         </section>
 
-        <section>
+        <section id="inverted_index_section">
             <section id="inverted_index" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Inverted index
@@ -402,10 +428,26 @@
 
                     | Term        | Doc IDs    |
                     |-------------|------------|
-                    | Book        | #1, #2, #3 <!-- .element: class="fragment" --> |
-                    | Information | #1, #2, #3 <!-- .element: class="fragment" --> |
-                    | Retrieval   | #1         <!-- .element: class="fragment" --> |
-                    | Search      | #2         <!-- .element: class="fragment" --> |
+                    |             |            |
+
+                    Notes: Do on whiteboard
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * \#1: _a book about information retrieval_
+                    * \#2: _a book about the search for information_
+                    * \#3: _a book about information_
+
+                    ***
+
+                    | Term        | Doc IDs    |
+                    |-------------|------------|
+                    | Book        | #1, #2, #3 |
+                    | Information | #1, #2, #3 |
+                    | Retrieval   | #1         |
+                    | Search      | #2         |
 
                     Notes: Audience question
                 </script>
@@ -535,28 +577,12 @@
             </section-->
         </section>
 
-        <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                # Final projects
-
-                Notes:
-            </script>
-        </section>
-
-        <section id="solr_workshop" data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                [Solr Workshop](https://tiny.cc/solr-workshop)
-
-                Notes:
-            </script>
-        </section>
-
-        <section>
-            <section id="homework_1" data-markdown data-separator-notes="^Notes:">
+        <section id="homework_inverted_index_section">
+            <section id="homework_inverted_index" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Homework
 
-                    Implement boolean retrieval
+                    Implement boolean retrieval using inverted index
 
                     Notes:
                 </script>
@@ -602,19 +628,20 @@
                 <script type="text/template">
                     # Homework
 
-                    * Built inverted index from text files
+                    * Built **inverted index** from text files
                     * Query using implicit AND
                     * Command-line interface
                     * Read docs on startup
                         * *.txt in directory
+                        * Just once, not for every query
                     * Ask for query
                         * Display list of matching filenames
                         * Ask for next query
                     * Keep in mind that the programm should also work with millions of files
-                    * Your favorite **open-source** programming language
+                    * Your favorite **open-source** programming language (so I can run the program)
                     * Use [1.txt](files/1.txt), [2.txt](files/2.txt), [3.txt](files/3.txt)
                     * Provide instructions on how to run (including version, dependencies etc.)
-                    * **Deadline**: 03.05.2017 23:59:59
+                    * **Deadline**: 18.04.2018 11:59:59
 
                     Notes:
                  </script>
@@ -629,7 +656,7 @@
             </script>
         </section>
 
-        <section>
+        <section id="tokenization_section">
             <section id="tokenization" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Tokenization
@@ -709,7 +736,129 @@
                 </script>
             </section>
 
-            <section>
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										# Nomenclature
+
+										## Token <!-- .element: class="fragment" data-fragment-index="1" -->
+										* Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
+										* No analysis yet <!-- .element: class="fragment" data-fragment-index="1" -->
+										* <!-- .element: class="fragment" data-fragment-index="1" --> _the_, _routers_
+
+										## Type <!-- .element: class="fragment" data-fragment-index="2" -->
+										* Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
+										* <!-- .element: class="fragment" data-fragment-index="2" --> _the_, _routers_
+
+										## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
+										* Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
+										* <!-- .element: class="fragment" data-fragment-index="3" --> _router_
+								</script>
+						</section>
+
+        </section>
+
+        <section id="stop_words_section">
+            <section id="stop_words" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stop Words
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stop words
+
+                    * Add no meaning: *table* should find *a table* and * the table*
+                    * Inflate index size
+                    * Manually curated list
+                    * [Default english stop words for Solr](https://github.com/apache/lucene-solr/blob/master/solr/example/files/conf/lang/stopwords_en.txt)
+                    * Start with top terms in collection
+                    * Can be domain-specific
+                      * Eg. *doctor*, *patient* in medical documents
+
+                    Notes:
+                    * What could be the problem with stop words?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                  # Stop words, but...
+
+                  * *The Police* will find *police car*
+                  * *The President of Austria* will find *President of United States visits Austria*
+                  * *To be or not to be* will find everything / nothing
+
+                  Notes:
+									* How to handle this better?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stop words in real life
+
+                    * Index size not an issue anymore
+                    * Solr: Stop words are optional, but increase score
+                      * *The Police* will find *police car*, but rank *The Police* higher
+                    * No special handling when query consists only of stopwords
+                      * *To be or not to be* searches for `[to, be, or, not]`
+
+                    Notes:
+                </script>
+            </section>
+				</section>
+
+        <section id="stemming_section">
+            <section id="stemming" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stemming
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Stemming
+
+                    * Chop off word ending, mostly algorithmic
+                    * Good: *housing*, *houses*, *house* will all match *hous*
+                    * Bad: *organization*, *organs* will both match *organ*
+                    * Most popular stemmer: Porter
+                    * Snowball provides a stemmer DSL
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Lemmatization
+
+                    * Determine root based on linguistic rules
+                    * Keeps word type eg. *saw* will become *saw* or *see*
+                    * Can generate inflections, eg. what's the plural of *house*?
+                    * Benefits of lemmatization over stemming doubtful
+
+                    Notes:
+                </script>
+            </section>
+				</section>
+
+				<section id="tokenization_example_section">
+
+					<section id="tokenization_example" data-markdown data-separator-notes="^Notes:">
+							<script type="text/template">
+									# Tokenization Example
+
+									Notes:
+							</script>
+					</section>
+
+						<section>
                 <table class="stretch">
                     <tr>
                         <th style="border-right: 1px solid rgb(34, 34, 34);"></th>
@@ -808,41 +957,23 @@
                 </script>
             </section>
 
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Nomenclature
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										# Outcome
 
-                    ## Token <!-- .element: class="fragment" data-fragment-index="1" -->
-                    * Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
-                    * No analysis yet <!-- .element: class="fragment" data-fragment-index="1" -->
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> _the_, _routers_
+										* <!-- .element: class="fragment" --> Find more results: _wireless_ &rarr; _wi-fi_
+										* <!-- .element: class="fragment" --> Find more imprecise results: _wi-fi_ &rarr; _wireless_
+										* <!-- .element: class="fragment" --> Miss some results: _to be or not to be_
 
-                    ## Type <!-- .element: class="fragment" data-fragment-index="2" -->
-                    * Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
-                    * <!-- .element: class="fragment" data-fragment-index="2" --> _the_, _routers_
+										Notes:
+										* Will this find more results?
+										* Will this find less accurate results?
+								</script>
+						</section>
 
-                    ## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
-                    * Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
-                    * <!-- .element: class="fragment" data-fragment-index="3" --> _router_
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Outcome
-
-                    * <!-- .element: class="fragment" --> Find more results: _wireless_ &rarr; _wi-fi_
-                    * <!-- .element: class="fragment" --> Find more imprecise results: _wi-fi_ &rarr; _wireless_
-                    * <!-- .element: class="fragment" --> Miss some results: _to be or not to be_
-
-                    Notes:
-                    * Will this find more results?
-                    * Will this find less accurate results?
-                </script>
-            </section>
         </section>
 
-        <section>
+        <section id="precision_recall_section">
             <section id="precision_recall" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Precision & Recall
@@ -916,7 +1047,24 @@
             </section>
         </section>
 
-        <section>
+        <section id="phrase_queries_section">
+          <section id="phrase_queries" data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Phrase queries
+
+              * *Stanford University* should not match *The inventor Stanford Ovshinsky never went to university*
+              * Positional index: Store position per document
+              * Supports phrase gaps: *barack obama* matches *barack hussein obama*
+              * Complexity increases from &Omicron;(num documents) to &Omicron;(num tokens)
+              * When querying start with least common term because this has smallest number of postings
+              * Speed up query with biword, triword index since they can satisfy lots of phrase queries, eg. *firstname lastname*, *three letter acronym*
+
+              Notes:
+            </script>
+          </section>
+        </section>
+
+        <section id="ranked_retrieval_section">
             <section id="ranked_retrieval" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Ranked retrieval
@@ -1079,7 +1227,7 @@
                 <script type="text/template">
                     # Meanwhile in the real world...
 
-                    * Solr default is now [BM25](https://en.wikipedia.org/wiki/Okapi_BM25)
+                    * Solr default is now [Okapi BM25](https://en.wikipedia.org/wiki/Okapi_BM25)
                     * Also based on TF-IDF
                     * Much less descriptive
 
@@ -1090,7 +1238,7 @@
             </section>
         </section>
 
-        <section>
+        <section id="wildcard_queries_section">
             <section id="wildcard_queries" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Wildcard queries
@@ -1206,7 +1354,7 @@
             </section>
         </section>
 
-        <section>
+        <section id="spelling_correction_section">
             <section id="spelling_correction" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Spelling correction
@@ -1422,7 +1570,7 @@
             </section>
         </section>
 
-        <section>
+        <section id="phonetic_correction_section">
             <section id="phonetic_correction" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Phonetic correction
@@ -1490,7 +1638,7 @@
             </section>
         </section>
 
-        <section>
+        <section id="field_weights_section">
             <section id="field_weights" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Field weights
@@ -1591,6 +1739,99 @@
             </section>
         </section>
 
+				<section id="homework_tf_idf_section">
+
+						<section id="homework_tf_idf" data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										# Homework
+
+										Implement TF scoring
+
+										Notes:
+								</script>
+						</section>
+
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										```
+										Enter query, empty to quit:
+										? salzburg
+										Found 28 results, showing top 5
+
+										Archbishopric_of_Salzburg.txt: score 22
+												salzburg: 22
+
+										Herbert_von_Karajan.txt: score 6
+												salzburg: 6
+
+										Wolfgang_Amadeus_Mozart.txt: score 6
+												salzburg: 6
+
+										Salzburg_Austria.txt: score 2
+												salzburg: 2
+
+										Alfons_Schuhbeck.txt: score 2
+												salzburg: 2
+										```
+										<!-- .element: class="stretch" -->
+
+										Notes:
+								</script>
+						</section>
+
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										```
+										Enter query, empty to quit:
+										? austria germany
+										Found 128 results, showing top 5
+
+										Germany.txt: score 65
+												austria: 4
+												germany: 61
+
+										Treaty_of_Versailles.txt: score 37
+												austria: 10
+												germany: 27
+
+										Berlin_Wall.txt: score 30
+												austria: 3
+												germany: 27
+
+										World_War_I.txt: score 27
+												austria: 5
+												germany: 22
+
+										Anti_tobacco_movement_in_Nazi_Germany.txt: score 27
+												austria: 2
+												germany: 25
+										```
+										<!-- .element: class="stretch" -->
+
+										Notes:
+								</script>
+						</section>
+
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+										# Homework
+
+										* Optionally build on first homework
+										* Add TF scoring
+										* Display top 5 results
+										* For each result show total score and per-term score
+										* Bonus points
+											* Implement TF normalization
+											* Parallelize indexing
+										* Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
+										* Provide instructions on how to run (including version, dependencies etc.)
+										* **Deadline**: 17.05.2017 23:59:59
+
+										Notes:
+								</script>
+						</section>
+				</section>
+
         <section data-markdown data-separator-notes="^Notes:">
             <script type="text/template">
                 # Project status
@@ -1615,99 +1856,6 @@
             </script>
         </section>
 
-        <section>
-
-            <section id="homework_2" data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Homework
-
-                    Implement TF scoring
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    ```
-                    Enter query, empty to quit:
-                    ? salzburg
-                    Found 28 results, showing top 5
-
-                    Archbishopric_of_Salzburg.txt: score 22
-                        salzburg: 22
-
-                    Herbert_von_Karajan.txt: score 6
-                        salzburg: 6
-
-                    Wolfgang_Amadeus_Mozart.txt: score 6
-                        salzburg: 6
-
-                    Salzburg_Austria.txt: score 2
-                        salzburg: 2
-
-                    Alfons_Schuhbeck.txt: score 2
-                        salzburg: 2
-                    ```
-                    <!-- .element: class="stretch" -->
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    ```
-                    Enter query, empty to quit:
-                    ? austria germany
-                    Found 128 results, showing top 5
-
-                    Germany.txt: score 65
-                        austria: 4
-                        germany: 61
-
-                    Treaty_of_Versailles.txt: score 37
-                        austria: 10
-                        germany: 27
-
-                    Berlin_Wall.txt: score 30
-                        austria: 3
-                        germany: 27
-
-                    World_War_I.txt: score 27
-                        austria: 5
-                        germany: 22
-
-                    Anti_tobacco_movement_in_Nazi_Germany.txt: score 27
-                        austria: 2
-                        germany: 25
-                    ```
-                    <!-- .element: class="stretch" -->
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Homework
-
-                    * Optionally build on first homework
-                    * Add TF scoring
-                    * Display top 5 results
-                    * For each result show total score and per-term score
-                    * Bonus points
-                      * Implement TF normalization
-                      * Parallelize indexing
-                    * Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
-                    * Provide instructions on how to run (including version, dependencies etc.)
-                    * **Deadline**: 17.05.2017 23:59:59
-
-                    Notes:
-                </script>
-            </section>
-        </section>
-
         <section id="III" data-markdown data-separator-notes="^Notes:">
             <script type="text/template">
                 # III
@@ -1716,7 +1864,7 @@
             </script>
         </section>
 
-        <section>
+        <section id="vocabulary_structure_section">
             <section id="vocabulary_structure" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Vocabulary structure
@@ -1753,7 +1901,7 @@
 
                     * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(1)
                     * <!-- .element: class="fragment" --> \+ Fast insert: &Omicron;(1)
-                    * <!-- .element: class="fragment" --> \- Collisions
+                      * <!-- .element: class="fragment" --> \- Collisions
                     * <!-- .element: class="fragment" --> \- Rehashing
                     * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
 
@@ -1824,7 +1972,7 @@
         </section>
 
 
-        <section>
+        <section id="scaling_section">
             <section id="scaling" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Scaling
@@ -2310,7 +2458,7 @@
 
         </section>
 
-        <section>
+        <section id="vector_space_model_section">
             <section id="vector_space_model" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Vector Space Model
@@ -2533,6 +2681,205 @@
 
         </section>
 
+        <section id="machine_learning_section">
+          <section id="machine_learning" data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # Support vector machines and machine learning on documents
+
+                * Learn to improve result ranking
+
+                Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # Why?
+
+                * Getting field weights right is hard
+                * Maybe even have different weights per group or user
+                  * Men vs Women
+                  * XBox vs Playstation
+                  * Austrians vs Germans
+
+                Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # How?
+
+                * Obtain result clickstream, ie. `(query, document)` pairs
+                * Use one half for training, one half for validation
+                * Formulate equation `f(query, document) = weights`
+                * Solve equation for weights
+                * Validate quality
+                Notes:
+            </script>
+          </section>
+        </section>
+
+        <section id="svm_section">
+          <section id="svm" data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+                # Support Vector Machines
+
+                * Provides classification for exactly two classes
+                * Spam or Ham
+                * Cat or dog
+                * Search result or not
+
+                Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              <p class="stretch>">![SVM separable](images/Svm_intro.svg) <!-- .element: style="width: 60%; border: none; box-shadow: none;" --></p>
+              Von Ennepetaler86 - Eigenes Werk, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=11523156
+
+              * Data must be linearly separable
+              * Choose separator with largest margin
+              * Points close to separator are uncertain
+              * Larger margin = More certainty
+              * (Data points on margin are the *support vectors*)
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Separator properties
+
+              * Separator has one dimension less than data:
+                * Data defined by one dimension: point
+                * Two dimensions: line
+                * Three dimensions: plane
+                * Four dimensions: No idea
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Not linearly separable data
+
+              TODO: Image of not linearly separable data
+
+              * Soft-margin
+              * Kernel trick
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Soft-margin
+
+              * Data is often unreliable
+              * A few outliers can be ignored
+              * Every outlier costs a penalty
+              * Optimization problem: Large margin vs low penalty
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Kernel trick
+
+              ![SVM Kernel trick](images/SVM kernel trick.png)
+
+              * Project data into a higher dimension
+              * Higher dimension may provide linear separability
+              * Kernel function K must be continuous, symmetric, and have a positive definite gram matrix
+
+              Notes:
+            </script>
+          </section>
+        </section>
+
+        <section id="feature_engineering_section">
+          <section id="feature_engineering" data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Feature engineering
+
+              * Crucial for good results
+              * Human task
+              * Data often comes from multiple sources
+                * Web logs, Google Analytics, database
+
+              Notes:
+            </script>
+          </section>
+
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Search features
+
+              * Document-based
+                * Freshness, rating, price
+              * User-based
+                * Gender, age, favorite brand
+              * User behavior-based
+                * Looked at product before? Visited category? Query score?
+              * Must be mapped on numeric scale, can be 1/0
+              Notes:
+            </script>
+          </section>
+
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              ```
+                x*Query score
+              + y*Freshness
+              + z*Visited category?
+              + ...
+              _____________________
+              = Score / Rank
+              ```
+
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              |  | Document 1 | Document 2 |  |  |
+              |--------------------|------------|------------|---|---|
+              | x*Query score | x*1.5 | x*1.2 |  |  |
+              | y*Freshness | y*57 days | y*2 years |  |  |
+              | z*Visited category | z*1 | z*0  |  |  |
+              | **Score / Rank** | **0,5 / 1** | **0,3 / 2** |  |  |
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Solr
+
+              TODO: Image of regular Solr search pipeline
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Solr
+
+              TODO: Image of Solr LTR pipeline
+
+              Notes:
+            </script>
+          </section>
+        </section>
+
         <section id="IV" data-markdown data-separator-notes="^Notes:">
             <script type="text/template">
                 # IV
@@ -2541,7 +2888,7 @@
             </script>
         </section>
 
-        <section>
+        <section id="web_search_usage_section">
             <section id="web_search_usage" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Web search usage
@@ -2655,7 +3002,7 @@
 
                     [Google Search Quality Evaluator Guidelines](https://www.google.com/insidesearch/howsearchworks/assets/searchqualityevaluatorguidelines.pdf)
 
-                    Notes: 
+                    Notes:
                 </script>
             </section>
 
@@ -2698,7 +3045,7 @@
             </section>
         </section>
 
-        <section>
+        <section id="web_search_challenges_section">
             <section id="web_search_challenges" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Web search challenges
@@ -2835,7 +3182,7 @@
             </section>
         </section>
 
-        <section>
+        <section id="web_crawling_section">
             <section id="web_crawling" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Web crawling
@@ -2956,7 +3303,7 @@
             </section>
         </section>
 
-        <section>
+        <section id="google_section">
             <section id="google" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # What would Google do?
@@ -3021,7 +3368,7 @@
             </section>
         </section>
 
-        <section>
+        <section id="web_spam_section">
             <section id="web_spam" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Web spam
@@ -3053,7 +3400,7 @@
             </section>
         </section>
 
-        <section>
+        <section id="link_analysis_section">
             <section id="link_analysis" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Link analysis
@@ -3118,7 +3465,7 @@
                 <script type="text/template">
                     [Pagerank visualization](http://bl.ocks.org/emeeks/raw/f448eef177b5fe94b1c0/)
 
-                    Notes: 
+                    Notes:
                 </script>
             </section>
 
@@ -3175,20 +3522,18 @@
                 Notes:
             </script>
         </section>
+			</div>
+		</div>
 
-    </div>
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
 
-</div>
-
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
-
-<script>
-
-    // Full list of configuration options available at:
-    // https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-        controls: true,
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+controls: true,
         progress: true,
         history: true,
         center: true,
@@ -3219,42 +3564,21 @@
             mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js',
             config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
         },
-
-        // Optional reveal.js plugins
-        dependencies: [
-            {
-                src: 'lib/js/classList.js', condition: function () {
-                return !document.body.classList;
-            }
-            },
-            {
-                src: 'plugin/markdown/marked.js', condition: function () {
-                return !!document.querySelector('[data-markdown]');
-            }
-            },
-            {
-                src: 'plugin/markdown/markdown.js', condition: function () {
-                return !!document.querySelector('[data-markdown]');
-            }
-            },
-            {
-                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
-            },
-            {src: 'plugin/zoom-js/zoom.js', async: true},
-            {src: 'plugin/notes/notes.js', async: true},
-            {src: 'socket.io/socket.io.js', async: true},
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+{src: 'plugin/zoom-js/zoom.js', async: true},
+{src: 'socket.io/socket.io.js', async: true},
             {src: 'plugin/notes-server/client.js', async: true},
             {src: 'js/Chart.min.js'},
             {src: 'js/d3.min.js'},
             {src: 'js/function-plot.js'},
             {src: 'plugin/anything/anything.js'},
             { src: 'plugin/math/math.js', async: true }
-        ]
-    });
-
-</script>
-
-</body>
+				]
+			});
+		</script>
+	</body>
 </html>
