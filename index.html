@@ -263,11 +263,11 @@
                     ```
 
                     * <!-- .element: class="fragment" --> \#1: _a book about information retrieval_
-                    * <!-- .element: class="fragment" style="color: green;" --> Match
+                      * <!-- .element: class="fragment" style="color: green;" --> Match
                     * <!-- .element: class="fragment" --> \#2: _a book about the search for information_
-                    * <!-- .element: class="fragment" style="color: green;" --> Match
+                      * <!-- .element: class="fragment" style="color: green;" --> Match
                     * <!-- .element: class="fragment" --> \#3: _a book about information_
-                    * <!-- .element: class="fragment" style="color: red;" --> No Match
+                      * <!-- .element: class="fragment" style="color: red;" --> No Match
 
                     Notes:
                     Audience question
@@ -324,9 +324,15 @@
                 <script type="text/template">
                     # Complexity?
 
+                    ## Grep
+
                     Search every query term as a string in every document: <!-- .element: class="fragment" -->
 
-                    &Omicron;(num query terms * lenght of documents) <!-- .element: class="fragment" -->
+                    &Omicron;(num query terms * total length of all documents) <!-- .element: class="fragment" -->
+
+                    ## Intersect
+
+                    &Omicron;(query term with lowest number of matches) <!-- .element: class="fragment" -->
 
                     Notes:
                     Audience question
@@ -340,8 +346,8 @@
                     # Term-document matrix
 
                     * <!-- .element: class="fragment" data-fragment-index="1" --> Aka _incidence matrix_
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> Rows = Terms, Columns = Docs
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> Cell = 1 if Term in Doc, else 0
+                    * <!-- .element: class="fragment" data-fragment-index="1" --> Rows &rarr; Terms, Columns &rarr; Docs
+                    * <!-- .element: class="fragment" data-fragment-index="1" --> Cell &rarr; If term in doc: 1, else: 0
                     * <!-- .element: class="fragment" data-fragment-index="1" --> Needs to pre-built
                 </script>
             </section>
@@ -395,6 +401,8 @@
                     * = 100 &or; 010 <!-- .element: class="fragment" -->
                     * = 110 <!-- .element: class="fragment" -->
                     * = \#1 and \#2 <!-- .element: class="fragment" -->
+                      * \#1: _a book about information retrieval_ <!-- .element: class="fragment" -->
+                      * \#2: _a book about the search for information_ <!-- .element: class="fragment" -->
 
                     Notes:
                     Audience question
@@ -425,7 +433,9 @@
         <section id="inverted_index_section">
             <section id="inverted_index" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Inverted index
+                    # Inverted index*
+
+                    \* This will be your homework
 
                     Notes:
                 </script>
@@ -433,6 +443,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    * Same information as Term-document matrix, but
                     * Store only 1s = Term occurences
                     * Terms -> Docs
 
@@ -450,26 +461,10 @@
 
                     | Term        | Doc IDs    |
                     |-------------|------------|
-                    |             |            |
-
-                    Notes: Do on whiteboard
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    * \#1: _a book about information retrieval_
-                    * \#2: _a book about the search for information_
-                    * \#3: _a book about information_
-
-                    ***
-
-                    | Term        | Doc IDs    |
-                    |-------------|------------|
-                    | Book        | #1, #2, #3 |
-                    | Information | #1, #2, #3 |
-                    | Retrieval   | #1         |
-                    | Search      | #2         |
+                    | Book        | #1, #2, #3 <!-- .element: class="fragment" --> |
+                    | Information | #1, #2, #3 <!-- .element: class="fragment" --> |
+                    | Retrieval   | #1         <!-- .element: class="fragment" --> |
+                    | Search      | #2         <!-- .element: class="fragment" --> |
 
                     Notes: Audience question
                 </script>
@@ -662,8 +657,9 @@
                     * Keep in mind that the programm should also work with millions of files
                     * Your favorite **open-source** programming language (so I can run the program)
                     * Use [1.txt](files/1.txt), [2.txt](files/2.txt), [3.txt](files/3.txt)
-                    * Provide instructions on how to run (including version, dependencies etc.)
-                    * **Deadline**: 18.04.2018 11:59:59
+                    * Provide instructions on how to run (including dependencies etc.)
+                    * Provide link to Git repo
+                    * **Deadline**: 27.04.2018 11:59:59
 
                     Notes:
                  </script>
@@ -3591,8 +3587,8 @@ controls: true,
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-{src: 'plugin/zoom-js/zoom.js', async: true},
-{src: 'socket.io/socket.io.js', async: true},
+          {src: 'plugin/zoom-js/zoom.js', async: true},
+          {src: 'node_modules/socket.io.js', async: true},
             {src: 'plugin/notes-server/client.js', async: true},
             {src: 'js/Chart.min.js'},
             {src: 'js/d3.min.js'},
