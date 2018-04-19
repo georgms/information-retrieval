@@ -49,9 +49,6 @@
                     * [Boolean retrieval](#/boolean_retrieval)
                     * [Term-document matrix](#/term_document_matrix)
                     * [Inverted index](#/inverted_index)
-
-                    ***
-
                     * [Homework: Inverted Index](#/homework_inverted_index)
                 </script>
             </section>
@@ -322,13 +319,13 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Complexity?
+                    # Complexity
 
                     ## Grep
 
                     Search every query term as a string in every document: <!-- .element: class="fragment" -->
 
-                    &Omicron;(num query terms * total length of all documents) <!-- .element: class="fragment" -->
+                    &Omicron;(num query terms &times; total length of all documents) <!-- .element: class="fragment" -->
 
                     ## Intersect
 
@@ -411,12 +408,18 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Size
+										# Complexity
 
-                    * `num(distinct terms)*num(docs)`
-                    * Very sparse (lots of 0s)
+										## Time
 
-                    Notes:
+										* &Omicron;(num query terms) &times; intersect complexity <!-- .element: class="fragment" -->
+
+										## Size
+
+										* num(distinct terms) &times; num(docs) <!-- .element: class="fragment" -->
+										* Very sparse (lots of 0s) <!-- .element: class="fragment" -->
+
+										Notes:
                 </script>
             </section>
 
@@ -563,6 +566,21 @@
                     Audience question
                 </aside>
             </section>
+
+						<section data-markdown data-separator-notes="^Notes:">
+								<script type="text/template">
+									# Complexity
+
+									## Time
+
+									* &Omicron;(num query terms &times; postings list length) <!-- .element: class="fragment" -->
+									* Improvement: Does not depend on number of documents  <!-- .element: class="fragment" -->
+
+									## Size
+
+									* vocabulary + postings <!-- .element: class="fragment" -->
+								</script>
+						</section>
 
             <!--section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
