@@ -858,28 +858,49 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Stemming
+										# Stemming
 
-                    * Chop off word ending, mostly algorithmic
-                    * Good: *housing*, *houses*, *house* will all match *hous*
-                    * Bad: *organization*, *organs* will both match *organ*
-                    * Most popular stemmer: Porter
-                    * Snowball provides a stemmer DSL
+										* Reduce word endings to find common stem
+										* *housing*, *houses*, *house* &rarr; *hous*
+										* Heuristic approach, not linguistic
+										* May find common stem for unrelated words:
+											* *organization*, *organs* &rarr; *organ*
 
-                    Notes:
+										Notes:
+                </script>
+            </section>
+
+						<section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+									# Porter Stemmer
+
+									Implemented in Snowball Stemming DSL
+
+									## Step 1 of 5
+
+									| Match | Replace | Example                            |
+									|-------|---------|------------------------------------|
+									| SSES  | SS      | caresses &rarr; caress             |
+									| IES   | I       | ponies &rarr; poni, ties &rarr; ti |
+									| SS    | SS      | caress &rarr; caress               |
+									| S     | (empty) | cats &rarr; cat                    |
+
+
+									Notes:
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Lemmatization
+									# Lemmatization
 
-                    * Determine root based on linguistic rules
-                    * Keeps word type eg. *saw* will become *saw* or *see*
-                    * Can generate inflections, eg. what's the plural of *house*?
-                    * Benefits of lemmatization over stemming doubtful
+									* Determine root based on linguistic rules
+									* Keeps type of word:
+										* *A saw* &rarr; *saw*, *I saw* &rarr; *see*
+									* Can generate inflections, eg. what's the plural of *house*?
+									* Benefits of lemmatization over stemming doubtful
 
-                    Notes:
+									Notes:
                 </script>
             </section>
 				</section>
