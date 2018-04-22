@@ -1,29 +1,29 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Text Search 102</title>
+    <title>Text Search 102</title>
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/findologic.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/findologic.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
         <section data-markdown>
             <script type="text/template">
                 # Text Search 102
@@ -408,18 +408,18 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-										# Complexity
+                    # Complexity
 
-										## Time
+                    ## Time
 
-										* &Omicron;(num query terms &times; num documents &times; num distinct terms)  <!-- .element: class="fragment" -->
+                    * &Omicron;(num query terms &times; num documents &times; num distinct terms)  <!-- .element: class="fragment" -->
 
-										## Size
+                    ## Size
 
-										* num(distinct terms) &times; num(docs) <!-- .element: class="fragment" -->
-										* Very sparse (lots of 0s) <!-- .element: class="fragment" -->
+                    * num(distinct terms) &times; num(docs) <!-- .element: class="fragment" -->
+                    * Very sparse (lots of 0s) <!-- .element: class="fragment" -->
 
-										Notes:
+                    Notes:
                 </script>
             </section>
 
@@ -567,20 +567,20 @@
                 </aside>
             </section>
 
-						<section data-markdown data-separator-notes="^Notes:">
-								<script type="text/template">
-									# Complexity
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                  # Complexity
 
-									## Time
+                  ## Time
 
-									* &Omicron;(num query terms &times; postings list length) <!-- .element: class="fragment" -->
-									* Improvement: Does not depend on number of documents  <!-- .element: class="fragment" -->
+                  * &Omicron;(num query terms &times; postings list length) <!-- .element: class="fragment" -->
+                  * Improvement: Does not depend on number of documents  <!-- .element: class="fragment" -->
 
-									## Size
+                  ## Size
 
-									* vocabulary + postings <!-- .element: class="fragment" -->
-								</script>
-						</section>
+                  * vocabulary + postings <!-- .element: class="fragment" -->
+                </script>
+            </section>
 
             <!--section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
@@ -772,24 +772,24 @@
                 </script>
             </section>
 
-						<section data-markdown data-separator-notes="^Notes:">
-								<script type="text/template">
-										# Nomenclature
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Nomenclature
 
-										## Token <!-- .element: class="fragment" data-fragment-index="1" -->
-										* Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
-										* No analysis yet <!-- .element: class="fragment" data-fragment-index="1" -->
-										* <!-- .element: class="fragment" data-fragment-index="1" --> _the_, _routers_
+                    ## Token <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * No analysis yet <!-- .element: class="fragment" data-fragment-index="1" -->
+                    * <!-- .element: class="fragment" data-fragment-index="1" --> _the_, _routers_
 
-										## Type <!-- .element: class="fragment" data-fragment-index="2" -->
-										* Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
-										* <!-- .element: class="fragment" data-fragment-index="2" --> _the_, _routers_
+                    ## Type <!-- .element: class="fragment" data-fragment-index="2" -->
+                    * Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
+                    * <!-- .element: class="fragment" data-fragment-index="2" --> _the_, _routers_
 
-										## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
-										* Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
-										* <!-- .element: class="fragment" data-fragment-index="3" --> _router_
-								</script>
-						</section>
+                    ## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
+                    * Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
+                    * <!-- .element: class="fragment" data-fragment-index="3" --> _router_
+                </script>
+            </section>
 
         </section>
 
@@ -828,7 +828,7 @@
                   * *To be or not to be* will find everything / nothing
 
                   Notes:
-									* How to handle this better?
+                  * How to handle this better?
                 </script>
             </section>
 
@@ -845,7 +845,7 @@
                     Notes:
                 </script>
             </section>
-				</section>
+        </section>
 
         <section id="stemming_section">
             <section id="stemming" data-markdown data-separator-notes="^Notes:">
@@ -858,64 +858,64 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-										# Stemming
+                    # Stemming
 
-										* Reduce word endings to find common stem
-										* *housing*, *houses*, *house* &rarr; *hous*
-										* Heuristic approach, not linguistic
-										* May find common stem for unrelated words:
-											* *organization*, *organs* &rarr; *organ*
+                    * Reduce word endings to find common stem
+                    * *housing*, *houses*, *house* &rarr; *hous*
+                    * Heuristic approach, not linguistic
+                    * May find common stem for unrelated words:
+                      * *organization*, *organs* &rarr; *organ*
 
-										Notes:
-                </script>
-            </section>
-
-						<section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-									# Porter Stemmer
-
-									Implemented in Snowball Stemming DSL
-
-									## Step 1 of 5
-
-									| Match | Replace | Example                            |
-									|-------|---------|------------------------------------|
-									| SSES  | SS      | caresses &rarr; caress             |
-									| IES   | I       | ponies &rarr; poni, ties &rarr; ti |
-									| SS    | SS      | caress &rarr; caress               |
-									| S     | (empty) | cats &rarr; cat                    |
-
-
-									Notes:
+                    Notes:
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-									# Lemmatization
+                  # Porter Stemmer
 
-									* Determine root based on linguistic rules
-									* Keeps type of word:
-										* *A saw* &rarr; *saw*, *I saw* &rarr; *see*
-									* Can generate inflections, eg. what's the plural of *house*?
-									* Benefits of lemmatization over stemming doubtful
+                  Implemented in Snowball Stemming DSL
 
-									Notes:
+                  ## Step 1 of 5
+
+                  | Match | Replace | Example                            |
+                  |-------|---------|------------------------------------|
+                  | SSES  | SS      | caresses &rarr; caress             |
+                  | IES   | I       | ponies &rarr; poni, ties &rarr; ti |
+                  | SS    | SS      | caress &rarr; caress               |
+                  | S     | (empty) | cats &rarr; cat                    |
+
+
+                  Notes:
                 </script>
             </section>
-				</section>
 
-				<section id="tokenization_example_section">
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                  # Lemmatization
 
-					<section id="tokenization_example" data-markdown data-separator-notes="^Notes:">
-							<script type="text/template">
-									# Tokenization Example
+                  * Determine root based on linguistic rules
+                  * Keeps type of word:
+                    * *A saw* &rarr; *saw*, *I saw* &rarr; *see*
+                  * Can generate inflections, eg. what's the plural of *house*?
+                  * Benefits of lemmatization over stemming doubtful
 
-									Notes:
-							</script>
-					</section>
+                  Notes:
+                </script>
+            </section>
+        </section>
 
-						<section>
+        <section id="tokenization_example_section">
+
+          <section id="tokenization_example" data-markdown data-separator-notes="^Notes:">
+              <script type="text/template">
+                  # Tokenization Example
+
+                  Notes:
+              </script>
+          </section>
+
+            <section>
                 <table class="stretch">
                     <tr>
                         <th style="border-right: 1px solid rgb(34, 34, 34);"></th>
@@ -1008,19 +1008,19 @@
                 </script>
             </section>
 
-						<section data-markdown data-separator-notes="^Notes:">
-								<script type="text/template">
-										# Outcome
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Outcome
 
-										* <!-- .element: class="fragment" --> Find more results: _wireless_ &rarr; _wi-fi_
-										* <!-- .element: class="fragment" --> Find more imprecise results: _wi-fi_ &rarr; _wireless_
-										* <!-- .element: class="fragment" --> Miss some results: _to be or not to be_
+                    * <!-- .element: class="fragment" --> Find more results: _wireless_ &rarr; _wi-fi_
+                    * <!-- .element: class="fragment" --> Find more imprecise results: _wi-fi_ &rarr; _wireless_
+                    * <!-- .element: class="fragment" --> Miss some results: _to be or not to be_
 
-										Notes:
-										* Will this find more results?
-										* Will this find less accurate results?
-								</script>
-						</section>
+                    Notes:
+                    * Will this find more results?
+                    * Will this find less accurate results?
+                </script>
+            </section>
 
         </section>
 
@@ -1790,98 +1790,98 @@
             </section>
         </section>
 
-				<section id="homework_tf_idf_section">
+        <section id="homework_tf_idf_section">
 
-						<section id="homework_tf_idf" data-markdown data-separator-notes="^Notes:">
-								<script type="text/template">
-										# Homework
+            <section id="homework_tf_idf" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Homework
 
-										Implement TF scoring
+                    Implement TF scoring
 
-										Notes:
-								</script>
-						</section>
+                    Notes:
+                </script>
+            </section>
 
-						<section data-markdown data-separator-notes="^Notes:">
-								<script type="text/template">
-										```
-										Enter query, empty to quit:
-										? salzburg
-										Found 28 results, showing top 5
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    ```
+                    Enter query, empty to quit:
+                    ? salzburg
+                    Found 28 results, showing top 5
 
-										Archbishopric_of_Salzburg.txt: score 22
-												salzburg: 22
+                    Archbishopric_of_Salzburg.txt: score 22
+                        salzburg: 22
 
-										Herbert_von_Karajan.txt: score 6
-												salzburg: 6
+                    Herbert_von_Karajan.txt: score 6
+                        salzburg: 6
 
-										Wolfgang_Amadeus_Mozart.txt: score 6
-												salzburg: 6
+                    Wolfgang_Amadeus_Mozart.txt: score 6
+                        salzburg: 6
 
-										Salzburg_Austria.txt: score 2
-												salzburg: 2
+                    Salzburg_Austria.txt: score 2
+                        salzburg: 2
 
-										Alfons_Schuhbeck.txt: score 2
-												salzburg: 2
-										```
-										<!-- .element: class="stretch" -->
+                    Alfons_Schuhbeck.txt: score 2
+                        salzburg: 2
+                    ```
+                    <!-- .element: class="stretch" -->
 
-										Notes:
-								</script>
-						</section>
+                    Notes:
+                </script>
+            </section>
 
-						<section data-markdown data-separator-notes="^Notes:">
-								<script type="text/template">
-										```
-										Enter query, empty to quit:
-										? austria germany
-										Found 128 results, showing top 5
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    ```
+                    Enter query, empty to quit:
+                    ? austria germany
+                    Found 128 results, showing top 5
 
-										Germany.txt: score 65
-												austria: 4
-												germany: 61
+                    Germany.txt: score 65
+                        austria: 4
+                        germany: 61
 
-										Treaty_of_Versailles.txt: score 37
-												austria: 10
-												germany: 27
+                    Treaty_of_Versailles.txt: score 37
+                        austria: 10
+                        germany: 27
 
-										Berlin_Wall.txt: score 30
-												austria: 3
-												germany: 27
+                    Berlin_Wall.txt: score 30
+                        austria: 3
+                        germany: 27
 
-										World_War_I.txt: score 27
-												austria: 5
-												germany: 22
+                    World_War_I.txt: score 27
+                        austria: 5
+                        germany: 22
 
-										Anti_tobacco_movement_in_Nazi_Germany.txt: score 27
-												austria: 2
-												germany: 25
-										```
-										<!-- .element: class="stretch" -->
+                    Anti_tobacco_movement_in_Nazi_Germany.txt: score 27
+                        austria: 2
+                        germany: 25
+                    ```
+                    <!-- .element: class="stretch" -->
 
-										Notes:
-								</script>
-						</section>
+                    Notes:
+                </script>
+            </section>
 
-						<section data-markdown data-separator-notes="^Notes:">
-								<script type="text/template">
-										# Homework
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Homework
 
-										* Optionally build on first homework
-										* Add TF scoring
-										* Display top 5 results
-										* For each result show total score and per-term score
-										* Bonus points
-											* Implement TF normalization
-											* Parallelize indexing
-										* Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
-										* Provide instructions on how to run (including version, dependencies etc.)
-										* **Deadline**: 17.05.2017 23:59:59
+                    * Optionally build on first homework
+                    * Add TF scoring
+                    * Display top 5 results
+                    * For each result show total score and per-term score
+                    * Bonus points
+                      * Implement TF normalization
+                      * Parallelize indexing
+                    * Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
+                    * Provide instructions on how to run (including version, dependencies etc.)
+                    * **Deadline**: 17.05.2017 23:59:59
 
-										Notes:
-								</script>
-						</section>
-				</section>
+                    Notes:
+                </script>
+            </section>
+        </section>
 
         <section data-markdown data-separator-notes="^Notes:">
             <script type="text/template">
@@ -3573,17 +3573,17 @@
                 Notes:
             </script>
         </section>
-			</div>
-		</div>
+      </div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
 controls: true,
         progress: true,
         history: true,
@@ -3615,11 +3615,11 @@ controls: true,
             mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js',
             config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
         },
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
           {src: 'plugin/zoom-js/zoom.js', async: true},
           {src: 'node_modules/socket.io.js', async: true},
             {src: 'plugin/notes-server/client.js', async: true},
@@ -3628,8 +3628,8 @@ controls: true,
             {src: 'js/function-plot.js'},
             {src: 'plugin/anything/anything.js'},
             { src: 'plugin/math/math.js', async: true }
-				]
-			});
-		</script>
-	</body>
+        ]
+      });
+    </script>
+  </body>
 </html>
