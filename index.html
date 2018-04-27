@@ -380,9 +380,9 @@
                     ***
 
                     * Document vector
-                    * <!-- .element: class="fragment" --> \#1: `(1, 1, 1, 0)`
+                        * <!-- .element: class="fragment" --> \#1: `(1, 1, 1, 0)`
                     * Term vector
-                    * <!-- .element: class="fragment" --> _Retrieval_: `(1, 0, 0)`
+                        * <!-- .element: class="fragment" --> _Retrieval_: `(1, 0, 0)`
 
                     Notes:
                 </script>
@@ -397,8 +397,8 @@
                     * = 100 &or; 010 <!-- .element: class="fragment" -->
                     * = 110 <!-- .element: class="fragment" -->
                     * = \#1 and \#2 <!-- .element: class="fragment" -->
-                    * \#1: _a book about information retrieval_ <!-- .element: class="fragment" -->
-                    * \#2: _a book about the search for information_ <!-- .element: class="fragment" -->
+                        * <!-- .element: class="fragment" --> \#1: _a book about information retrieval_
+                        * <!-- .element: class="fragment" --> \#2: _a book about the search for information_
 
                     Notes:
                     Audience question
@@ -877,13 +877,14 @@
 
                     ## Step 1 of 5
 
-                    | Match | Replace | Example                            |
+                    | Match | Replace | Example |
                     |-------|---------|------------------------------------|
-                    | SSES  | SS      | caresses &rarr; caress             |
-                    | IES   | I       | ponies &rarr; poni, ties &rarr; ti |
-                    | SS    | SS      | caress &rarr; caress               |
-                    | S     | (empty) | cats &rarr; cat                    |
+                    | SSES | SS | caresses &rarr; caress |
+                    | IES | I |  ponies &rarr; poni ties &rarr; ti |
+                    | SS | SS  | caress &rarr; caress |
+                    | S | <empty> | cats &rarr; cat |
 
+                    … and so on
 
                     Notes:
                 </script>
@@ -895,7 +896,7 @@
 
                     * Determine root based on linguistic rules
                     * Keeps type of word:
-                    * *A saw* &rarr; *saw*, *I saw* &rarr; *see*
+                        * *A saw* &rarr; *saw*, *I saw* &rarr; *see*
                     * Can generate inflections, eg. what's the plural of *house*?
                     * Benefits of lemmatization over stemming doubtful
 
@@ -1151,7 +1152,7 @@
                 <script type="text/template">
                     # I: Term frequency
 
-                    ###<!-- .element: class="fragment" --> At index time:
+                    ### <!-- .element: class="fragment" --> At index time:
 
                     * <!-- .element: class="fragment" --> Count term occurrences per doc
                     * <!-- .element: class="fragment" --> Ignore order of terms
@@ -1193,7 +1194,7 @@
                     * <!-- .element: class="fragment" --> Not always true
                     * <!-- .element: class="fragment" --> The Bible does not contain "_the bible_"
                     * <!-- .element: class="fragment" --> Web spam
-                    * <!-- .element: class="fragment" --> Normalize long documents
+                    * <!-- .element: class="fragment" --> Long documents have higher TF
 
                     Notes:
                 </script>
@@ -1337,21 +1338,17 @@
 
                     `"information retrieval"`
 
-                    1. Fetch postings for each query term:
-                    * *information*: #1:[2, 3], #2:[5], #3:[2]
-                    * *retriev*: #1:[1, 4], #2:[2]
-                    2. Calculate term pair distances per document, eg. `retrieval - information`:
-                    * #1:[1, 4] - #1:[2, 3]
-                    * [**1**, <span style="color: lightgray;">4</span>] - [**2**, <span
-                            style="color: lightgray;">3</span>] = -1 != 1
-                    * [**1**, <span style="color: lightgray;">4</span>] - [<span
-                            style="color: lightgray;">2</span>, **3**] = -2 != 1
-                    * [<span style="color: lightgray;">1</span>, **4**] - [**2**, <span
-                            style="color: lightgray;">3</span>] = 2 != 1
-                    * [<span style="color: lightgray;">1</span>, **4**] - [<span
-                            style="color: lightgray;">2</span>, **3**] = 1 &rarr; match
-                    * #2:[2] - #2:[5]
-                    * [**2**] - [**5**] = -3 != 1
+                    1. <!-- .element: class="fragment" --> Fetch postings for each query term:
+                        * <!-- .element: class="fragment" --> *information*: #1:[2, 3], #2:[5], #3:[2]
+                        * <!-- .element: class="fragment" --> *retriev*: #1:[1, 4], #2:[2]
+                    2. <!-- .element: class="fragment" --> Calculate term pair distances per document, eg. `retrieval - information`:
+                        * <!-- .element: class="fragment" --> #1:[1, 4] - #1:[2, 3]
+                            * <!-- .element: class="fragment" --> [**1**, <span style="color: lightgray;">4</span>] - [**2**, <span style="color: lightgray;">3</span>] = -1 != 1
+                            * <!-- .element: class="fragment" --> [**1**, <span style="color: lightgray;">4</span>] - [<span style="color: lightgray;">2</span>, **3**] = -2 != 1
+                            * <!-- .element: class="fragment" --> [<span style="color: lightgray;">1</span>, **4**] - [**2**, <span style="color: lightgray;">3</span>] = 2 != 1
+                            * <!-- .element: class="fragment" --> [<span style="color: lightgray;">1</span>, **4**] - [<span style="color: lightgray;">2</span>, **3**] = 1 &rarr; match
+                        * <!-- .element: class="fragment" --> #2:[2] - #2:[5]
+                            * <!-- .element: class="fragment" --> [**2**] - [**5**] = -3 != 1
 
                 </script>
             </section>
@@ -1492,15 +1489,6 @@
                     Notes:
                 </script>
             </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Free wildcard queries!
-
-                    Notes:
-                    * Why?
-                </script>
-            </section>
         </section>
 
         <section id="wildcard_queries_section">
@@ -1535,7 +1523,7 @@
                     # Wildcard queries
 
                     ##### <!-- .element: class="fragment" --> `salz*`
-                    <!-- .element: class="fragment" --> Comes free with search tree (later)
+                    <!-- .element: class="fragment" --> Comes free with search tree
 
                     ##### <!-- .element: class="fragment" --> `*burg`
                     <!-- .element: class="fragment" --> Build index with reversed terms
@@ -1607,14 +1595,12 @@
 
                     |   | Term | Doc IDs |
                     |---|------|---------|
-                    |   | $se <!-- .element: class="fragment highlight-fl" data-fragment-index="1" -->  |
-                    <span>1</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" -->, 2, 3 |
+                    |   | $se <!-- .element: class="fragment highlight-fl" data-fragment-index="1" -->  | <span>1</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" -->, 2, 3 |
                     |   | arc  | 1       |
                     |   | ch$  | 1, 8    |
                     |   | ear  | 1, 7    |
                     |   | rch  | 1       |
-                    |   | sea <!-- .element: class="fragment highlight-fl" data-fragment-index="2" --> |
-                    <span>1</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" -->, 5, 9 |
+                    |   | sea <!-- .element: class="fragment highlight-fl" data-fragment-index="2" --> | <span>1</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" -->, 5, 9 |
 
                     Notes:
                 </script>
@@ -1626,7 +1612,7 @@
                 <script type="text/template">
                     # Spelling correction
 
-                    *Palystation, Xboy, Witch*
+                    *Palystation, Xboy, Wiii*
 
                     Notes:
                 </script>
