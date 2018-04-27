@@ -1,6 +1,6 @@
 <!doctype html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -14,16 +14,16 @@
 
     <!-- Printing and PDF exports -->
     <script>
-      var link = document.createElement( 'link' );
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-      document.getElementsByTagName( 'head' )[0].appendChild( link );
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
     </script>
-  </head>
-  <body>
-    <div class="reveal">
-      <div class="slides">
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
         <section data-markdown>
             <script type="text/template">
                 # Text Search 102
@@ -131,18 +131,18 @@
             </section>
         </section>
 
-				<section id="org" data-markdown>
-          <script type="text/template">
-            # Org
+        <section id="org" data-markdown>
+            <script type="text/template">
+                # Org
 
-            * It’s "Sie" and "Georg"
-            * Close laptops
-            * Answering questions is relevant for the grade
-            * Ask questions right away
-            * Link to slides via mail
-            * Final project: Find data set, build search
-            * Who will be my timekeeper?
-          </script>
+                * It’s "Sie" and "Georg"
+                * Close laptops
+                * Answering questions is relevant for the grade
+                * Ask questions right away
+                * Link to slides via mail
+                * Final project: Find data set, build search
+                * Who will be my timekeeper?
+            </script>
         </section>
 
         <section id="I" data-markdown data-separator-notes="^Notes:">
@@ -154,9 +154,9 @@
         </section>
 
         <section id="semantic_web">
-          <h1>Semantic Web</h1>
+            <h1>Semantic Web</h1>
 
-          <img class="fragment" data-src="images/soundsgood.jpg"/>
+            <img class="fragment" data-src="images/soundsgood.jpg"/>
         </section>
 
         <section id="motivation_section">
@@ -259,11 +259,11 @@
                     ```
 
                     * <!-- .element: class="fragment" --> \#1: _a book about information retrieval_
-                      * <!-- .element: class="fragment" style="color: green;" --> Match
+                    * <!-- .element: class="fragment" style="color: green;" --> Match
                     * <!-- .element: class="fragment" --> \#2: _a book about the search for information_
-                      * <!-- .element: class="fragment" style="color: green;" --> Match
+                    * <!-- .element: class="fragment" style="color: green;" --> Match
                     * <!-- .element: class="fragment" --> \#3: _a book about information_
-                      * <!-- .element: class="fragment" style="color: red;" --> No Match
+                    * <!-- .element: class="fragment" style="color: red;" --> No Match
 
                     Notes:
                     Audience question
@@ -380,9 +380,9 @@
                     ***
 
                     * Document vector
-                      * <!-- .element: class="fragment" --> \#1: `(1, 1, 1, 0)`
+                    * <!-- .element: class="fragment" --> \#1: `(1, 1, 1, 0)`
                     * Term vector
-                      * <!-- .element: class="fragment" --> _Retrieval_: `(1, 0, 0)`
+                    * <!-- .element: class="fragment" --> _Retrieval_: `(1, 0, 0)`
 
                     Notes:
                 </script>
@@ -397,8 +397,8 @@
                     * = 100 &or; 010 <!-- .element: class="fragment" -->
                     * = 110 <!-- .element: class="fragment" -->
                     * = \#1 and \#2 <!-- .element: class="fragment" -->
-                      * \#1: _a book about information retrieval_ <!-- .element: class="fragment" -->
-                      * \#2: _a book about the search for information_ <!-- .element: class="fragment" -->
+                    * \#1: _a book about information retrieval_ <!-- .element: class="fragment" -->
+                    * \#2: _a book about the search for information_ <!-- .element: class="fragment" -->
 
                     Notes:
                     Audience question
@@ -568,16 +568,16 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                  # Complexity
+                    # Complexity
 
-                  ## Time
+                    ## Time
 
-                  * &Omicron;(num query terms &times; postings list length) <!-- .element: class="fragment" -->
-                  * Improvement: Does not depend on number of documents  <!-- .element: class="fragment" -->
+                    * &Omicron;(num query terms &times; postings list length) <!-- .element: class="fragment" -->
+                    * Improvement: Does not depend on number of documents  <!-- .element: class="fragment" -->
 
-                  ## Size
+                    ## Size
 
-                  * vocabulary + postings <!-- .element: class="fragment" -->
+                    * vocabulary + postings <!-- .element: class="fragment" -->
                 </script>
             </section>
 
@@ -666,11 +666,11 @@
                     * Query using implicit AND
                     * Command-line interface
                     * Read docs on startup
-                        * *.txt in directory
-                        * Just once, not for every query
+                    * *.txt in directory
+                    * Just once, not for every query
                     * Ask for query
-                        * Display list of matching filenames
-                        * Ask for next query
+                    * Display list of matching filenames
+                    * Ask for next query
                     * Keep in mind that the programm should also work with millions of files
                     * Your favorite **open-source** programming language (so I can run the program)
                     * Use [1.txt](files/1.txt), [2.txt](files/2.txt), [3.txt](files/3.txt)
@@ -679,7 +679,7 @@
                     * **Deadline**: 28.04.2018 11:59:59
 
                     Notes:
-                 </script>
+                </script>
             </section>
         </section>
 
@@ -811,7 +811,7 @@
                     * [Default english stop words for Solr](https://github.com/apache/lucene-solr/blob/master/solr/example/files/conf/lang/stopwords_en.txt)
                     * Start with top terms in collection
                     * Can be domain-specific
-                      * Eg. *doctor*, *patient* in medical documents
+                    * Eg. *doctor*, *patient* in medical documents
 
                     Notes:
                     * What could be the problem with stop words?
@@ -820,14 +820,14 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                  # Stop words, but...
+                    # Stop words, but...
 
-                  * *The Police* will find *police car*
-                  * *The President of Austria* will find *President of United States visits Austria*
-                  * *To be or not to be* will find everything / nothing
+                    * *The Police* will find *police car*
+                    * *The President of Austria* will find *President of United States visits Austria*
+                    * *To be or not to be* will find everything / nothing
 
-                  Notes:
-                  * How to handle this better?
+                    Notes:
+                    * How to handle this better?
                 </script>
             </section>
 
@@ -837,9 +837,9 @@
 
                     * Index size not an issue anymore
                     * Solr: Stop words are optional, but increase score
-                      * *The Police* will find *police car*, but rank *The Police* higher
+                    * *The Police* will find *police car*, but rank *The Police* higher
                     * No special handling when query consists only of stopwords
-                      * *To be or not to be* searches for `[to, be, or, not]`
+                    * *To be or not to be* searches for `[to, be, or, not]`
 
                     Notes:
                 </script>
@@ -863,7 +863,7 @@
                     * *housing*, *houses*, *house* &rarr; *hous*
                     * Heuristic approach, not linguistic
                     * May find common stem for unrelated words:
-                      * *organization*, *organs* &rarr; *organ*
+                    * *organization*, *organs* &rarr; *organ*
 
                     Notes:
                 </script>
@@ -871,48 +871,48 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                  # Porter Stemmer
+                    # Porter Stemmer
 
-                  Implemented in Snowball Stemming DSL
+                    Implemented in Snowball Stemming DSL
 
-                  ## Step 1 of 5
+                    ## Step 1 of 5
 
-                  | Match | Replace | Example                            |
-                  |-------|---------|------------------------------------|
-                  | SSES  | SS      | caresses &rarr; caress             |
-                  | IES   | I       | ponies &rarr; poni, ties &rarr; ti |
-                  | SS    | SS      | caress &rarr; caress               |
-                  | S     | (empty) | cats &rarr; cat                    |
+                    | Match | Replace | Example                            |
+                    |-------|---------|------------------------------------|
+                    | SSES  | SS      | caresses &rarr; caress             |
+                    | IES   | I       | ponies &rarr; poni, ties &rarr; ti |
+                    | SS    | SS      | caress &rarr; caress               |
+                    | S     | (empty) | cats &rarr; cat                    |
 
 
-                  Notes:
+                    Notes:
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                  # Lemmatization
+                    # Lemmatization
 
-                  * Determine root based on linguistic rules
-                  * Keeps type of word:
+                    * Determine root based on linguistic rules
+                    * Keeps type of word:
                     * *A saw* &rarr; *saw*, *I saw* &rarr; *see*
-                  * Can generate inflections, eg. what's the plural of *house*?
-                  * Benefits of lemmatization over stemming doubtful
+                    * Can generate inflections, eg. what's the plural of *house*?
+                    * Benefits of lemmatization over stemming doubtful
 
-                  Notes:
+                    Notes:
                 </script>
             </section>
         </section>
 
         <section id="tokenization_example_section">
 
-          <section id="tokenization_example" data-markdown data-separator-notes="^Notes:">
-              <script type="text/template">
-                  # Tokenization Example
+            <section id="tokenization_example" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Tokenization Example
 
-                  Notes:
-              </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
             <section>
                 <table class="stretch">
@@ -923,14 +923,18 @@
                     </tr>
                     <tr>
                         <td style="border-right: 1px solid rgb(34, 34, 34);"></td>
-                        <td colspan="7" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="1">A Wi-Fi Router</span></td>
+                        <td colspan="7" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment"
+                                                                                               data-fragment-index="1">A Wi-Fi Router</span>
+                        </td>
                         <td colspan="2"><span class="fragment" data-fragment-index="1">wireless routers</span></td>
                     </tr>
                     <tr>
                         <td style="border-right: 1px solid rgb(34, 34, 34);">Tokenization</td>
                         <td><span class="fragment" data-fragment-index="2">A</span></td>
                         <td><span class="fragment" data-fragment-index="2">Wi-Fi</span></td>
-                        <td colspan="5" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="2">Router</span></td>
+                        <td colspan="5" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment"
+                                                                                               data-fragment-index="2">Router</span>
+                        </td>
                         <td><span class="fragment" data-fragment-index="9">wireless</span></td>
                         <td><span class="fragment" data-fragment-index="9">routers</span></td>
                     </tr>
@@ -938,7 +942,9 @@
                         <td style="border-right: 1px solid rgb(34, 34, 34);">Lowercasing</td>
                         <td><span class="fragment" data-fragment-index="4">a</span></td>
                         <td><span class="fragment" data-fragment-index="4">wi-fi</span></td>
-                        <td colspan="5" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="4">router</span></td>
+                        <td colspan="5" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment"
+                                                                                               data-fragment-index="4">router</span>
+                        </td>
                         <td><span class="fragment" data-fragment-index="10">wireless</span></td>
                         <td><span class="fragment" data-fragment-index="10">routers</span></td>
                     </tr>
@@ -946,7 +952,9 @@
                         <td style="border-right: 1px solid rgb(34, 34, 34);">Stop words</td>
                         <td></td>
                         <td><span class="fragment" data-fragment-index="5">wi-fi</span></td>
-                        <td colspan="5" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="5">router</span></td>
+                        <td colspan="5" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment"
+                                                                                               data-fragment-index="5">router</span>
+                        </td>
                         <td><span class="fragment" data-fragment-index="11">wireless</span></td>
                         <td><span class="fragment" data-fragment-index="11">routers</span></td>
                     </tr>
@@ -957,7 +965,9 @@
                         <td><span class="fragment" data-fragment-index="6">wi</span></td>
                         <td><span class="fragment" data-fragment-index="6">fi</span></td>
                         <td><span class="fragment" data-fragment-index="6">wifi</span></td>
-                        <td colspan="2" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="6">router</span></td>
+                        <td colspan="2" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment"
+                                                                                               data-fragment-index="6">router</span>
+                        </td>
                         <td><span class="fragment" data-fragment-index="12">wireless</span></td>
                         <td><span class="fragment" data-fragment-index="12">routers</span></td>
                     </tr>
@@ -968,12 +978,16 @@
                         <td><span class="fragment" data-fragment-index="7">wi</span></td>
                         <td><span class="fragment" data-fragment-index="7">fi</span></td>
                         <td><span class="fragment" data-fragment-index="7">wifi</span></td>
-                        <td colspan="2" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="7">router</span></td>
+                        <td colspan="2" style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment"
+                                                                                               data-fragment-index="7">router</span>
+                        </td>
                         <td><span class="fragment" data-fragment-index="13">wireless</span></td>
                         <td><span class="fragment" data-fragment-index="13">router</span></td>
                     </tr>
                     <tr>
-                        <td style="border-right: 1px solid rgb(34, 34, 34);">Synonyms<br>wifi &rarr; wireless<br>(Index only)</td>
+                        <td style="border-right: 1px solid rgb(34, 34, 34);">Synonyms<br>wifi &rarr; wireless<br>(Index
+                            only)
+                        </td>
                         <td></td>
                         <td><span class="fragment" data-fragment-index="8">wi-fi</span></td>
                         <td><span class="fragment" data-fragment-index="8">wi</span></td>
@@ -982,7 +996,8 @@
                         <td><span class="fragment" data-fragment-index="8">
                             <span class="fragment highlight-fl" data-fragment-index="15">wireless</span>
                         </span></td>
-                        <td style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="8">
+                        <td style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment"
+                                                                                   data-fragment-index="8">
                             <span class="fragment highlight-fl" data-fragment-index="15">router</span>
                         </span></td>
                         <td><span class="fragment" data-fragment-index="14">
@@ -1080,7 +1095,7 @@
                     Notes:
 
                     * Audience participation
-                 </script>
+                </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -1098,107 +1113,111 @@
         </section>
 
         <section id="phrase_queries_section">
-          <section id="phrase_queries" data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Phrase queries
+            <section id="phrase_queries" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Phrase queries
 
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Phrase queries
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Phrase queries
 
-              * <!-- .element: class="fragment" --> Search for names and concepts: `"fh salzburg"`, `"mountain bike"`
-              * <!-- .element: class="fragment" --> Well accepted by users
-              * <!-- .element: class="fragment" --> But: `"fh salzburg"` should not match *In Salzburg there is a University and a FH*
-              * <!-- .element: class="fragment" --> Needs more advanced index
+                    * <!-- .element: class="fragment" --> Search for names and concepts: `"fh salzburg"`, `"mountain bike"`
+                    * <!-- .element: class="fragment" --> Well accepted by users
+                    * <!-- .element: class="fragment" --> But: `"fh salzburg"` should not match *In Salzburg there is a University and a FH*
+                    * <!-- .element: class="fragment" --> Needs more advanced index
 
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Positional index
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Positional index
 
-              * \#1: _retrieving more information about information retrieval_
-              * \#2: _searching and retrieving a book about the search for information_
-              * \#3: _a book about information_
+                    * \#1: _retrieving more information about information retrieval_
+                    * \#2: _searching and retrieving a book about the search for information_
+                    * \#3: _a book about information_
 
-              ***
+                    ***
 
-              | Terms (no stopwords)        | Doc IDs    |
-              |-------------|------------|
-              | book        | #2:[3], #3:[1] <!-- .element: class="fragment" --> |
-              | information | #1:[2, 3], #2:[5], #3:[2] <!-- .element: class="fragment" --> |
-              | retriev     | #1:[1, 4], #2:[2]         <!-- .element: class="fragment" --> |
-              | search      | #2:[1, 4]         <!-- .element: class="fragment" --> |
+                    | Terms (no stopwords)        | Doc IDs    |
+                    |-------------|------------|
+                    | book        | #2:[3], #3:[1] <!-- .element: class="fragment" --> |
+                    | information | #1:[2, 3], #2:[5], #3:[2] <!-- .element: class="fragment" --> |
+                    | retriev     | #1:[1, 4], #2:[2]         <!-- .element: class="fragment" --> |
+                    | search      | #2:[1, 4]         <!-- .element: class="fragment" --> |
 
-              Notes: Audience question
-            </script>
-          </section>
+                    Notes: Audience question
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Intersection algorithm
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Intersection algorithm
 
-              `"information retrieval"`
+                    `"information retrieval"`
 
-              1. Fetch postings for each query term:
-                * *information*: #1:[2, 3], #2:[5], #3:[2]
-                * *retriev*: #1:[1, 4], #2:[2]
-              2. Calculate term pair distances per document, eg. `retrieval - information`:
-                * #1:[1, 4] - #1:[2, 3]
-                  * [**1**, <span style="color: lightgray;">4</span>] - [**2**, <span style="color: lightgray;">3</span>] = -1 != 1
-                  * [**1**, <span style="color: lightgray;">4</span>] - [<span style="color: lightgray;">2</span>, **3**] = -2 != 1
-                  * [<span style="color: lightgray;">1</span>, **4**] - [**2**, <span style="color: lightgray;">3</span>] = 2 != 1
-                  * [<span style="color: lightgray;">1</span>, **4**] - [<span style="color: lightgray;">2</span>, **3**] = 1 &rarr; match
-                * #2:[2] - #2:[5]
-                  * [**2**] - [**5**] = -3 != 1
+                    1. Fetch postings for each query term:
+                    * *information*: #1:[2, 3], #2:[5], #3:[2]
+                    * *retriev*: #1:[1, 4], #2:[2]
+                    2. Calculate term pair distances per document, eg. `retrieval - information`:
+                    * #1:[1, 4] - #1:[2, 3]
+                    * [**1**, <span style="color: lightgray;">4</span>] - [**2**, <span
+                            style="color: lightgray;">3</span>] = -1 != 1
+                    * [**1**, <span style="color: lightgray;">4</span>] - [<span
+                            style="color: lightgray;">2</span>, **3**] = -2 != 1
+                    * [<span style="color: lightgray;">1</span>, **4**] - [**2**, <span
+                            style="color: lightgray;">3</span>] = 2 != 1
+                    * [<span style="color: lightgray;">1</span>, **4**] - [<span
+                            style="color: lightgray;">2</span>, **3**] = 1 &rarr; match
+                    * #2:[2] - #2:[5]
+                    * [**2**] - [**5**] = -3 != 1
 
-            </script>
-          </section>
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Positional index
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Positional index
 
-              Supports phrase gaps: `"dwayne johnson"~2` matches *dwayne the rock johnson*
+                    Supports phrase gaps: `"dwayne johnson"~2` matches *dwayne the rock johnson*
 
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Biword index
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Biword index
 
-              * Speed up common phrase queries
-              * Index terms in pairs, eg.
-                * *Study at FH Salzburg* &rarr; [*study at*, *at FH*, *FH Salzburg*]
-              * Fast lookup of *fh salzburg*
+                    * Speed up common phrase queries
+                    * Index terms in pairs, eg.
+                    * *Study at FH Salzburg* &rarr; [*study at*, *at FH*, *FH Salzburg*]
+                    * Fast lookup of *fh salzburg*
 
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Complexity
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Complexity
 
-              ## Space
+                    ## Space
 
-              num terms &times; num docs &times; average term frequency <!-- .element: class="fragment" -->
+                    num terms &times; num docs &times; average term frequency <!-- .element: class="fragment" -->
 
-              ## Time
+                    ## Time
 
-              &Omicron;(num query terms &times; num documents &times; num distinct terms &times; average term frequency) <!-- .element: class="fragment" -->
+                    &Omicron;(num query terms &times; num documents &times; num distinct terms &times; average term frequency) <!-- .element: class="fragment" -->
 
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
         </section>
 
         <section id="ranked_retrieval_section">
@@ -1216,7 +1235,9 @@
 
                     ### <!-- .element: class="fragment" --> Multiple matches for query term = more important document
 
-                    <blockquote class="fragment">A shop where **books** are bought and sold is a **book**shop or **book**store. **Books** can also be borrowed from libraries.</blockquote>
+                    <blockquote class="fragment">A shop where **books** are bought and sold is a **book**shop or
+                        **book**store. **Books** can also be borrowed from libraries.
+                    </blockquote>
 
                     Notes:
                 </script>
@@ -1479,12 +1500,14 @@
 
                     |   | Term | Doc IDs |
                     |---|------|---------|
-                    |   | $se <!-- .element: class="fragment highlight-fl" data-fragment-index="1" -->  | <span>1</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" -->, 2, 3 |
+                    |   | $se <!-- .element: class="fragment highlight-fl" data-fragment-index="1" -->  |
+                    <span>1</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" -->, 2, 3 |
                     |   | arc  | 1       |
                     |   | ch$  | 1, 8    |
                     |   | ear  | 1, 7    |
                     |   | rch  | 1       |
-                    |   | sea <!-- .element: class="fragment highlight-fl" data-fragment-index="2" --> | <span>1</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" -->, 5, 9 |
+                    |   | sea <!-- .element: class="fragment highlight-fl" data-fragment-index="2" --> |
+                    <span>1</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" -->, 5, 9 |
 
                     Notes:
                 </script>
@@ -1626,9 +1649,9 @@
                     # Isolated
 
                     * <!-- .element: class="fragment" --> `seach endine`?
-                      * <!-- .element: class="fragment" --> &rarr; `peach engine`
-                      * <!-- .element: class="fragment" --> &rarr; `search ending`
-                      * <!-- .element: class="fragment" --> &rarr; `search engine`
+                    * <!-- .element: class="fragment" --> &rarr; `peach engine`
+                    * <!-- .element: class="fragment" --> &rarr; `search ending`
+                    * <!-- .element: class="fragment" --> &rarr; `search engine`
 
                     Notes:
                 </script>
@@ -1641,19 +1664,23 @@
                     * <!-- .element: class="fragment" data-fragment-index="1" --> Find alternatives for every misspelled query term &rarr; collations
                     * <!-- .element: class="fragment" data-fragment-index="2" --> Search for collation and evaluate results
 
-                    <hr class="fragment" data-fragment-index="3" />
+                    <hr class="fragment" data-fragment-index="3"/>
 
                     * <!-- .element: class="fragment" data-fragment-index="4" --> `seach endine`?
-                      * <!-- .element: class="fragment" data-fragment-index="5" --> `seach` &rarr; `peach, search`
-                      * <!-- .element: class="fragment" data-fragment-index="6" --> `endine` &rarr; `ending, engine`
+                    * <!-- .element: class="fragment" data-fragment-index="5" --> `seach` &rarr; `peach, search`
+                    * <!-- .element: class="fragment" data-fragment-index="6" --> `endine` &rarr; `ending, engine`
 
-                    <hr class="fragment" data-fragment-index="7" />
+                    <hr class="fragment" data-fragment-index="7"/>
 
                     * <!-- .element: class="fragment" data-fragment-index="8" --> `seach endine`?
-                      * <!-- .element: class="fragment" data-fragment-index="9" --> &rarr; `peach engine`? 0 results
-                      * <!-- .element: class="fragment" data-fragment-index="10" --> &rarr; `peach ending`? 0 results
-                      <li class="fragment" data-fragment-index="11" >&rarr; `search ending`<!-- .element: class="fragment highlight-fl" data-fragment-index="13" -->? 5 results</li>
-                      <li class="fragment" data-fragment-index="12" >&rarr; `search engine`<!-- .element: class="fragment highlight-fl" data-fragment-index="13" -->? 10 results</li>
+                    * <!-- .element: class="fragment" data-fragment-index="9" --> &rarr; `peach engine`? 0 results
+                    * <!-- .element: class="fragment" data-fragment-index="10" --> &rarr; `peach ending`? 0 results
+                    <li class="fragment" data-fragment-index="11">&rarr; `search ending`
+                        <!-- .element: class="fragment highlight-fl" data-fragment-index="13" --> ? 5 results
+                    </li>
+                    <li class="fragment" data-fragment-index="12">&rarr; `search engine`
+                        <!-- .element: class="fragment highlight-fl" data-fragment-index="13" --> ? 10 results
+                    </li>
 
                     Notes:
                 </script>
@@ -1736,14 +1763,18 @@
 
                     | Term (not in index) | Soundex | Doc IDs |
                     |----------------------------|---------|---------|
-                    | _<span class="fragment highlight-fl" data-fragment-index="3">meier</span>, maier, mayer, meyer_ | <span class="fragment highlight-fl" data-fragment-index="3">M600</span> | <span class="fragment highlight-fl" data-fragment-index="3">1, 3, 5</span> |
+                    | _<span class="fragment highlight-fl" data-fragment-index="3">meier</span>, maier, mayer, meyer_ |
+                    <span class="fragment highlight-fl" data-fragment-index="3">M600</span> | <span
+                            class="fragment highlight-fl" data-fragment-index="3">1, 3, 5</span> |
                     | _müller, mueller_ | M460 | 2, 4, 6 |
                     | _goethe, göthe_ | G300 | 7, 8, 9 |
                     <!-- .element: class="fragment" data-fragment-index="1" -->
 
                     # Query <!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    <p><span class="fragment" data-fragment-index="2">`Meier` &rarr; `M600`</span><span class="fragment" data-fragment-index="3">&rarr; 1, 3, 5</span></p>
+                    <p><span class="fragment" data-fragment-index="2">`Meier` &rarr; `M600`</span><span class="fragment"
+                                                                                                        data-fragment-index="3">&rarr; 1, 3, 5</span>
+                    </p>
                     <p><span class="fragment" data-fragment-index="4">`Maier` &rarr; `M600` &rarr; 1, 3, 5</span></p>
 
                     Notes:
@@ -1844,8 +1875,14 @@
 
                     | Term | Doc IDs |
                     |-------------|-------------------------------|
-                    | <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">arthur</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Author</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
-                    | <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">book</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Title</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
+                    | <span class="fragment highlight-current-fl" data-fragment-index="3"><span
+                            class="fragment highlight-current-fl" data-fragment-index="5">arthur</span></span> | <span
+                            class="fragment highlight-current-fl" data-fragment-index="3">#1:Author</span>, <span
+                            class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
+                    | <span class="fragment highlight-current-fl" data-fragment-index="3"><span
+                            class="fragment highlight-current-fl" data-fragment-index="5">book</span></span> | <span
+                            class="fragment highlight-current-fl" data-fragment-index="3">#1:Title</span>, <span
+                            class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
                     | ... |
 
                     ***
@@ -1856,8 +1893,13 @@
                     ***
 
                     * <!-- .element: class="fragment" data-fragment-index="1" --> `arthur book`?
-                      * \#1 &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="3">author + title = 10 + 1 = **11**</span></span>
-                      * \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-fl" data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
+                    * \#1 &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment"
+                                                                                                   data-fragment-index="3"><span
+                            class="fragment highlight-current-fl" data-fragment-index="3">author + title = 10 + 1 = **11**</span></span>
+                    * \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment"
+                                                                                                   data-fragment-index="5"><span
+                            class="fragment highlight-current-fl"
+                            data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
 
                     Notes:
                     * Audience question
@@ -1896,19 +1938,19 @@
                     Found 28 results, showing top 5
 
                     Archbishopric_of_Salzburg.txt: score 22
-                        salzburg: 22
+                    salzburg: 22
 
                     Herbert_von_Karajan.txt: score 6
-                        salzburg: 6
+                    salzburg: 6
 
                     Wolfgang_Amadeus_Mozart.txt: score 6
-                        salzburg: 6
+                    salzburg: 6
 
                     Salzburg_Austria.txt: score 2
-                        salzburg: 2
+                    salzburg: 2
 
                     Alfons_Schuhbeck.txt: score 2
-                        salzburg: 2
+                    salzburg: 2
                     ```
                     <!-- .element: class="stretch" -->
 
@@ -1924,24 +1966,24 @@
                     Found 128 results, showing top 5
 
                     Germany.txt: score 65
-                        austria: 4
-                        germany: 61
+                    austria: 4
+                    germany: 61
 
                     Treaty_of_Versailles.txt: score 37
-                        austria: 10
-                        germany: 27
+                    austria: 10
+                    germany: 27
 
                     Berlin_Wall.txt: score 30
-                        austria: 3
-                        germany: 27
+                    austria: 3
+                    germany: 27
 
                     World_War_I.txt: score 27
-                        austria: 5
-                        germany: 22
+                    austria: 5
+                    germany: 22
 
                     Anti_tobacco_movement_in_Nazi_Germany.txt: score 27
-                        austria: 2
-                        germany: 25
+                    austria: 2
+                    germany: 25
                     ```
                     <!-- .element: class="stretch" -->
 
@@ -1958,8 +2000,8 @@
                     * Display top 5 results
                     * For each result show total score and per-term score
                     * Bonus points
-                      * Implement TF normalization
-                      * Parallelize indexing
+                    * Implement TF normalization
+                    * Parallelize indexing
                     * Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
                     * Provide instructions on how to run (including version, dependencies etc.)
                     * **Deadline**: 17.05.2017 23:59:59
@@ -1975,9 +2017,9 @@
 
                 * Any questions?
                 * Requirements:
-                  * At least one facet (filter)
-                  * Case insensitive search
-                  * Search multiple fields with different weights
+                * At least one facet (filter)
+                * Case insensitive search
+                * Search multiple fields with different weights
 
                 Notes:
             </script>
@@ -2038,7 +2080,7 @@
 
                     * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(1)
                     * <!-- .element: class="fragment" --> \+ Fast insert: &Omicron;(1)
-                      * <!-- .element: class="fragment" --> \- Collisions
+                    * <!-- .element: class="fragment" --> \- Collisions
                     * <!-- .element: class="fragment" --> \- Rehashing
                     * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
 
@@ -2247,7 +2289,8 @@
                 <script type="text/template">
                     # Term-partitioned index
 
-                    <p class="stretch">![Term-partitioned index](images/Term-partitioned index.png) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    <p class="stretch">![Term-partitioned index](images/Term-partitioned index.png)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes:
                 </script>
@@ -2271,7 +2314,8 @@
                 <script type="text/template">
                     # Document-partitioned index
 
-                    <p class="stretch">![Document-partitioned index](images/Document-partitioned index.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    <p class="stretch">![Document-partitioned index](images/Document-partitioned index.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
                     Notes:
                 </script>
             </section>
@@ -2291,7 +2335,8 @@
                 <script type="text/template">
                     # Distributed query
 
-                    <p class="stretch">![Document-partitioned query](images/Document-partitioned query.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    <p class="stretch">![Document-partitioned query](images/Document-partitioned query.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
                     Notes:
                 </script>
             </section>
@@ -2300,7 +2345,8 @@
                 <script type="text/template">
                     # Sharding
 
-                    <p class="stretch">![sharding](images/Sharding.svg) <!-- .element: style="border: none; box-shadow: none;" --></p><!-- .element: class="fragment" -->
+                    <p class="stretch">![sharding](images/Sharding.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p><!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
@@ -2609,9 +2655,9 @@
                     # Vector Space Model
 
                     * Calculate similarity between
-                        * queries and docs <!-- .element: class="fragment" -->
-                        * docs and docs <!-- .element: class="fragment" -->
-                        * queries and queries <!-- .element: class="fragment" -->
+                    * queries and docs <!-- .element: class="fragment" -->
+                    * docs and docs <!-- .element: class="fragment" -->
+                    * queries and queries <!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
@@ -2653,7 +2699,8 @@
                     * $\vec{V}(\\#1)$ = (10, 5)
                     * $\vec{V}(\\#2)$ = (3, 2)
 
-                    <p class="stretch">![Vectors](images/Vectors.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    <p class="stretch">![Vectors](images/Vectors.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes: Audience question: Are the docs similar?
                 </script>
@@ -2673,7 +2720,8 @@
                 <script type="text/template">
                     # Vector distance
 
-                    <p class="stretch">![Vector distance](images/Vector Distance.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    <p class="stretch">![Vector distance](images/Vector Distance.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes:
                 </script>
@@ -2701,7 +2749,8 @@
                     * $\vec{V}(\\#1)$ = (10, 5)
                     * $\vec{V}(\\#2)$ = (3, 2)
 
-                    <p class="stretch">![Vectors](images/Vectors.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    <p class="stretch">![Vectors](images/Vectors.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes:
                 </script>
@@ -2709,7 +2758,8 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    <p class="stretch">![Vector Similarity](images/Vector Similarity.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    <p class="stretch">![Vector Similarity](images/Vector Similarity.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes:
                 </script>
@@ -2765,7 +2815,9 @@
                 <h1>Cosine similarity</h1>
 
                 \[\begin{aligned}
-                \textrm{sim}(d_1, d_2) & = \frac{ \begin{pmatrix}10 \\ 5\end{pmatrix} \cdot \begin{pmatrix}3 \\ 2\end{pmatrix} }{ \left|\begin{pmatrix}10 \\ 5\end{pmatrix}\right| \left|\begin{pmatrix}3 \\ 2\end{pmatrix}\right| } \\ \\
+                \textrm{sim}(d_1, d_2) & = \frac{ \begin{pmatrix}10 \\ 5\end{pmatrix} \cdot \begin{pmatrix}3 \\
+                2\end{pmatrix} }{ \left|\begin{pmatrix}10 \\ 5\end{pmatrix}\right| \left|\begin{pmatrix}3 \\
+                2\end{pmatrix}\right| } \\ \\
                 & = \frac{30 + 10}{\sqrt{10^2 + 5^2} \sqrt{3^2 + 2^2}} \\
                 & = \frac{40}{\sqrt{125} \sqrt{13}} \\
                 & = \frac{40}{40.31} \\ \\
@@ -2787,7 +2839,8 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    <p class="stretch">![Vectors](images/Vectors.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    <p class="stretch">![Vectors](images/Vectors.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes:
                     What does the query vector look like?
@@ -2798,7 +2851,8 @@
                 <script type="text/template">
                     # Query vector
 
-                    <p class="stretch">![Query](images/Query Vector.svg) <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    <p class="stretch">![Query](images/Query Vector.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes: Audience question: Which doc is a better match?
                 </script>
@@ -2819,202 +2873,203 @@
         </section>
 
         <section id="machine_learning_section">
-          <section id="machine_learning" data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                # Support vector machines and machine learning on documents
+            <section id="machine_learning" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Support vector machines and machine learning on documents
 
-                * Learn to improve result ranking
+                    * Learn to improve result ranking
 
-                Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                # Why?
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Why?
 
-                * Getting field weights right is hard
-                * Maybe even have different weights per group or user
-                  * Men vs Women
-                  * XBox vs Playstation
-                  * Austrians vs Germans
+                    * Getting field weights right is hard
+                    * Maybe even have different weights per group or user
+                    * Men vs Women
+                    * XBox vs Playstation
+                    * Austrians vs Germans
 
-                Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                # How?
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # How?
 
-                * Obtain result clickstream, ie. `(query, document)` pairs
-                * Use one half for training, one half for validation
-                * Formulate equation `f(query, document) = weights`
-                * Solve equation for weights
-                * Validate quality
-                Notes:
-            </script>
-          </section>
+                    * Obtain result clickstream, ie. `(query, document)` pairs
+                    * Use one half for training, one half for validation
+                    * Formulate equation `f(query, document) = weights`
+                    * Solve equation for weights
+                    * Validate quality
+                    Notes:
+                </script>
+            </section>
         </section>
 
         <section id="svm_section">
-          <section id="svm" data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                # Support Vector Machines
+            <section id="svm" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Support Vector Machines
 
-                * Provides classification for exactly two classes
-                * Spam or Ham
-                * Cat or dog
-                * Search result or not
+                    * Provides classification for exactly two classes
+                    * Spam or Ham
+                    * Cat or dog
+                    * Search result or not
 
-                Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              <p class="stretch>">![SVM separable](images/Svm_intro.svg) <!-- .element: style="width: 60%; border: none; box-shadow: none;" --></p>
-              Von Ennepetaler86 - Eigenes Werk, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=11523156
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch>">![SVM separable](images/Svm_intro.svg)
+                        <!-- .element: style="width: 60%; border: none; box-shadow: none;" --></p>
+                    Von Ennepetaler86 - Eigenes Werk, CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=11523156
 
-              * Data must be linearly separable
-              * Choose separator with largest margin
-              * Points close to separator are uncertain
-              * Larger margin = More certainty
-              * (Data points on margin are the *support vectors*)
+                    * Data must be linearly separable
+                    * Choose separator with largest margin
+                    * Points close to separator are uncertain
+                    * Larger margin = More certainty
+                    * (Data points on margin are the *support vectors*)
 
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Separator properties
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Separator properties
 
-              * Separator has one dimension less than data:
-                * Data defined by one dimension: point
-                * Two dimensions: line
-                * Three dimensions: plane
-                * Four dimensions: No idea
+                    * Separator has one dimension less than data:
+                    * Data defined by one dimension: point
+                    * Two dimensions: line
+                    * Three dimensions: plane
+                    * Four dimensions: No idea
 
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Not linearly separable data
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Not linearly separable data
 
-              TODO: Image of not linearly separable data
+                    TODO: Image of not linearly separable data
 
-              * Soft-margin
-              * Kernel trick
-              Notes:
-            </script>
-          </section>
+                    * Soft-margin
+                    * Kernel trick
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Soft-margin
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Soft-margin
 
-              * Data is often unreliable
-              * A few outliers can be ignored
-              * Every outlier costs a penalty
-              * Optimization problem: Large margin vs low penalty
+                    * Data is often unreliable
+                    * A few outliers can be ignored
+                    * Every outlier costs a penalty
+                    * Optimization problem: Large margin vs low penalty
 
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Kernel trick
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Kernel trick
 
-              ![SVM Kernel trick](images/SVM kernel trick.png)
+                    ![SVM Kernel trick](images/SVM kernel trick.png)
 
-              * Project data into a higher dimension
-              * Higher dimension may provide linear separability
-              * Kernel function K must be continuous, symmetric, and have a positive definite gram matrix
+                    * Project data into a higher dimension
+                    * Higher dimension may provide linear separability
+                    * Kernel function K must be continuous, symmetric, and have a positive definite gram matrix
 
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
         </section>
 
         <section id="feature_engineering_section">
-          <section id="feature_engineering" data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Feature engineering
+            <section id="feature_engineering" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Feature engineering
 
-              * Crucial for good results
-              * Human task
-              * Data often comes from multiple sources
-                * Web logs, Google Analytics, database
+                    * Crucial for good results
+                    * Human task
+                    * Data often comes from multiple sources
+                    * Web logs, Google Analytics, database
 
-              Notes:
-            </script>
-          </section>
-
-
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Search features
-
-              * Document-based
-                * Freshness, rating, price
-              * User-based
-                * Gender, age, favorite brand
-              * User behavior-based
-                * Looked at product before? Visited category? Query score?
-              * Must be mapped on numeric scale, can be 1/0
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
 
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              ```
-                x*Query score
-              + y*Freshness
-              + z*Visited category?
-              + ...
-              _____________________
-              = Score / Rank
-              ```
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Search features
 
-            </script>
-          </section>
+                    * Document-based
+                    * Freshness, rating, price
+                    * User-based
+                    * Gender, age, favorite brand
+                    * User behavior-based
+                    * Looked at product before? Visited category? Query score?
+                    * Must be mapped on numeric scale, can be 1/0
+                    Notes:
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              |  | Document 1 | Document 2 |  |  |
-              |--------------------|------------|------------|---|---|
-              | x*Query score | x*1.5 | x*1.2 |  |  |
-              | y*Freshness | y*57 days | y*2 years |  |  |
-              | z*Visited category | z*1 | z*0  |  |  |
-              | **Score / Rank** | **0,5 / 1** | **0,3 / 2** |  |  |
-            </script>
-          </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Solr
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    ```
+                    x*Query score
+                    + y*Freshness
+                    + z*Visited category?
+                    + ...
+                    _____________________
+                    = Score / Rank
+                    ```
 
-              TODO: Image of regular Solr search pipeline
+                </script>
+            </section>
 
-              Notes:
-            </script>
-          </section>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    |  | Document 1 | Document 2 |  |  |
+                    |--------------------|------------|------------|---|---|
+                    | x*Query score | x*1.5 | x*1.2 |  |  |
+                    | y*Freshness | y*57 days | y*2 years |  |  |
+                    | z*Visited category | z*1 | z*0  |  |  |
+                    | **Score / Rank** | **0,5 / 1** | **0,3 / 2** |  |  |
+                </script>
+            </section>
 
-          <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-              # Solr
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Solr
 
-              TODO: Image of Solr LTR pipeline
+                    TODO: Image of regular Solr search pipeline
 
-              Notes:
-            </script>
-          </section>
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Solr
+
+                    TODO: Image of Solr LTR pipeline
+
+                    Notes:
+                </script>
+            </section>
         </section>
 
         <section id="IV" data-markdown data-separator-notes="^Notes:">
@@ -3217,7 +3272,7 @@
                     * Duplicate content <!-- .element: class="fragment" data-fragment-index="3" -->
 
                     Notes:
-                 </script>
+                </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -3243,7 +3298,7 @@
                     * Not strongly connected
 
                     Notes:
-                 </script>
+                </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -3259,7 +3314,7 @@
                     Number of incoming / outgoing links
 
                     Notes:
-                 </script>
+                </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -3269,8 +3324,8 @@
                     ![web graph](images/web graph.png)
 
                     * B
-                        * In-degree: *3* <!-- .element: class="fragment" data-fragment-index="" -->
-                        * Out-degree: *1* <!-- .element: class="fragment" data-fragment-index="" -->
+                    * In-degree: *3* <!-- .element: class="fragment" data-fragment-index="" -->
+                    * Out-degree: *1* <!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes: Audience question
                 </script>
@@ -3315,7 +3370,7 @@
                     ![bowtie](images/bowtie.png)<!-- .element: class="stretch" -->
 
                     Notes:
-                 </script>
+                </script>
             </section>
         </section>
 
@@ -3511,7 +3566,7 @@
                     # Web spam
 
                     Notes:
-                 </script>
+                </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -3523,7 +3578,7 @@
                     * Meta tags
 
                     Notes:
-                 </script>
+                </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -3533,7 +3588,7 @@
                     * Link analysis
 
                     Notes:
-                 </script>
+                </script>
             </section>
         </section>
 
@@ -3556,7 +3611,7 @@
                     * Similar to citation analysis
 
                     Notes:
-                 </script>
+                </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -3564,11 +3619,11 @@
                     # Link info
 
                     * Anchor text describes target page
-                      * "[computer manufacturer](http://lenovo.com)" &rarr; lenovo.com
+                    * "[computer manufacturer](http://lenovo.com)" &rarr; lenovo.com
                     * Also text surrounding links
-                      * "Find funny cat pics [here](http://icanhascheezburger.com)"
+                    * "Find funny cat pics [here](http://icanhascheezburger.com)"
                     * May also be abused
-                      * "[evil empire](http://www.korea-dpr.com/)"
+                    * "[evil empire](http://www.korea-dpr.com/)"
 
                     Notes:
                 </script>
@@ -3590,8 +3645,8 @@
 
                     1. Assume random surfer
                     2. Randomly walk web graph
-                      * No out-links &rarr; teleport
-                      * 15% chance that user opens random page
+                    * No out-links &rarr; teleport
+                    * 15% chance that user opens random page
                     3. Count how many times page is visited
 
                     $$\sum \text{pagerank} = 1$$
@@ -3616,7 +3671,7 @@
                     * Ads
 
                     Notes:
-                 </script>
+                </script>
             </section>
         </section>
 
@@ -3659,18 +3714,18 @@
                 Notes:
             </script>
         </section>
-      </div>
     </div>
+</div>
 
-    <script src="lib/js/head.min.js"></script>
-    <script src="js/reveal.js"></script>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
 
-    <script>
-      // More info about config & dependencies:
-      // - https://github.com/hakimel/reveal.js#configuration
-      // - https://github.com/hakimel/reveal.js#dependencies
-      Reveal.initialize({
-controls: true,
+<script>
+    // More info about config & dependencies:
+    // - https://github.com/hakimel/reveal.js#configuration
+    // - https://github.com/hakimel/reveal.js#dependencies
+    Reveal.initialize({
+        controls: true,
         progress: true,
         history: true,
         center: true,
@@ -3690,9 +3745,9 @@ controls: true,
             },
             {
                 className: "plot",
-                defaults: {grid:true},
-                initialize: (function(container, options) {
-                    options.target = "#"+container.id;
+                defaults: {grid: true},
+                initialize: (function (container, options) {
+                    options.target = "#" + container.id;
                     functionPlot(options);
                 })
             }
@@ -3702,20 +3757,24 @@ controls: true,
             config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
         },
         dependencies: [
-          { src: 'plugin/markdown/marked.js' },
-          { src: 'plugin/markdown/markdown.js' },
-          { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-          {src: 'plugin/zoom-js/zoom.js', async: true},
-          {src: 'node_modules/socket.io.js', async: true},
+            {src: 'plugin/markdown/marked.js'},
+            {src: 'plugin/markdown/markdown.js'},
+            {src: 'plugin/notes/notes.js', async: true},
+            {
+                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'node_modules/socket.io.js', async: true},
             {src: 'plugin/notes-server/client.js', async: true},
             {src: 'js/Chart.min.js'},
             {src: 'js/d3.min.js'},
             {src: 'js/function-plot.js'},
             {src: 'plugin/anything/anything.js'},
-            { src: 'plugin/math/math.js', async: true }
+            {src: 'plugin/math/math.js', async: true}
         ]
-      });
-    </script>
-  </body>
+    });
+</script>
+</body>
 </html>
