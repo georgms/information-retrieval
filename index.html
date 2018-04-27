@@ -1102,12 +1102,99 @@
             <script type="text/template">
               # Phrase queries
 
-              * *Stanford University* should not match *The inventor Stanford Ovshinsky never went to university*
-              * Positional index: Store position per document
-              * Supports phrase gaps: *barack obama* matches *barack hussein obama*
-              * Complexity increases from &Omicron;(num documents) to &Omicron;(num tokens)
-              * When querying start with least common term because this has smallest number of postings
-              * Speed up query with biword, triword index since they can satisfy lots of phrase queries, eg. *firstname lastname*, *three letter acronym*
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Phrase queries
+
+              * <!-- .element: class="fragment" --> Search for names and concepts: `"fh salzburg"`, `"mountain bike"`
+              * <!-- .element: class="fragment" --> Well accepted by users
+              * <!-- .element: class="fragment" --> But: `"fh salzburg"` should not match *In Salzburg there is a University and a FH*
+              * <!-- .element: class="fragment" --> Needs more advanced index
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Positional index
+
+              * \#1: _retrieving more information about information retrieval_
+              * \#2: _searching and retrieving a book about the search for information_
+              * \#3: _a book about information_
+
+              ***
+
+              | Terms (no stopwords)        | Doc IDs    |
+              |-------------|------------|
+              | book        | #2:[3], #3:[1] <!-- .element: class="fragment" --> |
+              | information | #1:[2, 3], #2:[5], #3:[2] <!-- .element: class="fragment" --> |
+              | retriev     | #1:[1, 4], #2:[2]         <!-- .element: class="fragment" --> |
+              | search      | #2:[1, 4]         <!-- .element: class="fragment" --> |
+
+              Notes: Audience question
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Intersection algorithm
+
+              `"information retrieval"`
+
+              1. Fetch postings for each query term:
+                * *information*: #1:[2, 3], #2:[5], #3:[2]
+                * *retriev*: #1:[1, 4], #2:[2]
+              2. Calculate term pair distances per document, eg. `retrieval - information`:
+                * #1:[1, 4] - #1:[2, 3]
+                  * [**1**, <span style="color: lightgray;">4</span>] - [**2**, <span style="color: lightgray;">3</span>] = -1 != 1
+                  * [**1**, <span style="color: lightgray;">4</span>] - [<span style="color: lightgray;">2</span>, **3**] = -2 != 1
+                  * [<span style="color: lightgray;">1</span>, **4**] - [**2**, <span style="color: lightgray;">3</span>] = 2 != 1
+                  * [<span style="color: lightgray;">1</span>, **4**] - [<span style="color: lightgray;">2</span>, **3**] = 1 &rarr; match
+                * #2:[2] - #2:[5]
+                  * [**2**] - [**5**] = -3 != 1
+
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Positional index
+
+              Supports phrase gaps: `"dwayne johnson"~2` matches *dwayne the rock johnson*
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Biword index
+
+              * Speed up common phrase queries
+              * Index terms in pairs, eg.
+                * *Study at FH Salzburg* &rarr; [*study at*, *at FH*, *FH Salzburg*]
+              * Fast lookup of *fh salzburg*
+
+              Notes:
+            </script>
+          </section>
+
+          <section data-markdown data-separator-notes="^Notes:">
+            <script type="text/template">
+              # Complexity
+
+              ## Space
+
+              num terms &times; num docs &times; average term frequency <!-- .element: class="fragment" -->
+
+              ## Time
+
+              &Omicron;(num query terms &times; num documents &times; num distinct terms &times; average term frequency) <!-- .element: class="fragment" -->
 
               Notes:
             </script>
