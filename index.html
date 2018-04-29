@@ -1917,108 +1917,7 @@
             </section>
         </section>
 
-        <section id="field_weights_section">
-            <section id="field_weights" data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Field weights
 
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Field weights
-
-                    ![field weights](images/fields.png)
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Weighted index
-
-                    | Doc | Author | Title |
-                    |-----|-----------------|----------------------------------------------------------|
-                    | #1 | Arthur McAuthor | A book providing information about information retrieval |
-                    | #2 | Shakesbeer | A book about the search for King Arthur |
-
-                    ***
-
-                    | Term | Doc IDs |
-                    |-------------|-------------------------------|
-                    | arthur | #1:Author, #2:Title |
-                    | book | #1:Title, #2:Title |
-                    | information | #1:Title |
-                    | mcauthor | #1:Author |
-                    | shakesbeer | #2:Author |
-                    | ... |
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Field queries
-
-                    | Term | Doc IDs |
-                    |-------------|-------------------------------|
-                    | arthur | #1:Author, #2:Title |
-                    | shakesbeer | #2:Author |
-                    | ... |
-
-                    ***
-
-                    * <!-- .element: class="fragment" --> `title:arthur`?
-                        * <!-- .element: class="fragment" --> #2
-                    * <!-- .element: class="fragment" --> `author:shakesbeer`?
-                        * <!-- .element: class="fragment" --> #2
-
-                    Notes:
-                    * Audience question
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Field weights
-
-                    | Term | Doc IDs |
-                    |-------------|-------------------------------|
-                    | <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">arthur</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Author</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
-                    | <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">book</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Title</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
-                    | ... |
-
-                    ***
-
-                    * `weight(author) = 10`
-                    * `weight(title) = 1`
-
-                    ***
-
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> `arthur book`?
-                        * \#1 &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="3">author + title = 10 + 1 = **11**</span></span>
-                        * \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-fl" data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
-
-                    Notes:
-                    * Audience question
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Field weights
-
-                    * Determining weights is hard
-                    * Use annotated corpus
-
-                    Notes:
-                </script>
-            </section>
-        </section>
 
         <section id="homework_tf_idf_section">
 
@@ -2026,7 +1925,7 @@
                 <script type="text/template">
                     # Homework
 
-                    Implement TF scoring
+                    Implement TF-IDF scoring
 
                     Notes:
                 </script>
@@ -2145,6 +2044,351 @@
             </script>
         </section>
 
+        <section id="field_weights_section">
+            <section id="field_weights" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Field weights
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Field weights
+
+                    ![field weights](images/fields.png)
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Weighted index
+
+                    | Doc | Author | Title |
+                    |-----|-----------------|----------------------------------------------------------|
+                    | #1 | Arthur McAuthor | A book providing information about information retrieval |
+                    | #2 | Shakesbeer | A book about the search for King Arthur |
+
+                    ***
+
+                    | Term | Doc IDs |
+                    |-------------|-------------------------------|
+                    | arthur | #1:Author, #2:Title |
+                    | book | #1:Title, #2:Title |
+                    | information | #1:Title |
+                    | mcauthor | #1:Author |
+                    | shakesbeer | #2:Author |
+                    | ... |
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Field queries
+
+                    | Term | Doc IDs |
+                    |-------------|-------------------------------|
+                    | arthur | #1:Author, #2:Title |
+                    | shakesbeer | #2:Author |
+                    | ... |
+
+                    ***
+
+                    * <!-- .element: class="fragment" --> `title:arthur`?
+                        * <!-- .element: class="fragment" --> #2
+                    * <!-- .element: class="fragment" --> `author:shakesbeer`?
+                        * <!-- .element: class="fragment" --> #2
+
+                    Notes:
+                    * Audience question
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Field weights
+
+                    | Term | Doc IDs |
+                    |-------------|-------------------------------|
+                    | <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">arthur</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Author</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
+                    | <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">book</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Title</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
+                    | ... |
+
+                    ***
+
+                    * `weight(author) = 10`
+                    * `weight(title) = 1`
+
+                    ***
+
+                    * <!-- .element: class="fragment" data-fragment-index="1" --> `arthur book`?
+                        * \#1 &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="3">author + title = 10 + 1 = **11**</span></span>
+                        * \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-fl" data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
+
+                    Notes:
+                    * Audience question
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Field weights
+
+                    * Determining weights is hard
+                    * Use annotated corpus and machine learning
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
+        <section id="vector_space_model_section">
+            <section id="vector_space_model" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector Space Model
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector Space Model
+
+                    * Calculate similarity between
+                    * queries and docs <!-- .element: class="fragment" -->
+                    * docs and docs <!-- .element: class="fragment" -->
+                    * queries and queries <!-- .element: class="fragment" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector Space Model
+
+                    * Queries / docs are vectors <!-- .element: class="fragment" -->
+                    * Term-document matrix &rarr; document vector <!-- .element: class="fragment" -->
+
+                    Notes:
+                    How can a document be a vector?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Document vector
+
+                    |             | #1 | #2 | #3 |
+                    |-------------|----|----|----|
+                    | Book        | 10 | 3  |  0 |
+                    | Information | 5  | 2  |  1 |
+
+                    ***
+
+                    * $\vec{V}(\\#1)$ = (10, 5) <!-- .element: class="fragment" -->
+                    * $\vec{V}(\\#2)$ = (3, 2) <!-- .element: class="fragment" -->
+                    * $\vec{V}(\\#3)$ = (0, 1) <!-- .element: class="fragment" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * $\vec{V}(\\#1)$ = (10, 5)
+                    * $\vec{V}(\\#2)$ = (3, 2)
+
+                    <p class="stretch">![Vectors](images/Vectors.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes: Audience question: Are the docs similar?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector distance
+
+                    <p class="stretch">![Vector distance](images/Vector Distance.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector distance
+
+                    $$\textrm{d}(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}$$
+
+                    Notes:
+                </script>
+            </section>
+
+            <section>
+                <h1>Vector distance</h1>
+
+                \[\begin{aligned}
+                \textrm{d}(\#1, \#2) & = \sqrt{(10 - 3)^2 + (5 - 2)^2} \\
+                & = \sqrt{7^2 + 3^2} \\
+                & = \sqrt{49 + 9} \\
+                & = \sqrt{58} \\
+                & \approx 7.62
+                \end{aligned} \]
+
+                <aside class="notes">
+
+                </aside>
+            </section>
+
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * Documents look similar but vector distance is pretty big
+                    * <!-- .element: class="fragment" --> Vector distance does not consider document size
+                    * <!-- .element: class="fragment" --> Need a better measure that accounts for longer documents
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * $\vec{V}(\\#1)$ = (10, 5)
+                    * $\vec{V}(\\#2)$ = (3, 2)
+
+                    <p class="stretch">![Vectors](images/Vectors.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![Vector Similarity](images/Vector Similarity.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section>
+                <h1>Unit vector</h1>
+
+                $$\vec{v} = \frac{\vec{V} }{ |\vec{V}| }$$
+
+                <aside class="notes">
+
+                </aside>
+            </section>
+
+            <section>
+                <h1>Unit vector</h1>
+
+                \[\begin{aligned}
+                \vec{v}(\#1) & = \frac{ \begin{pmatrix}10\\5\end{pmatrix} }{ \sqrt{10^2 + 5^2} } \\ \\
+                & = \frac{ \begin{pmatrix}10\\5\end{pmatrix} }{ 11.18 } \\ \\
+                & = \begin{pmatrix}0.89\\0.45\end{pmatrix}
+                \end{aligned} \]
+
+                <aside class="notes">
+
+                </aside>
+            </section>
+
+            <section>
+                <h1>Unit vector</h1>
+
+                \[\begin{aligned}
+                |\vec{v}(\#1)| & = \sqrt{0.89^2 + 0.45^2} \\
+                & = \sqrt{1} \\
+                & = 1
+                \end{aligned}\]
+
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Cosine similarity
+
+                    $$\textrm{sim}(d_1, d_2) = \frac{ \vec{V}(d_1) }{ |\vec{V}(d_1)|} \cdot \frac{\vec{V}(d_2) }{ |\vec{V}(d_2)| } =
+                    \frac{ \vec{V}(d_1) \vec{V}(d_2) }{ |\vec{V}(d_1)| |\vec{V}(d_2)| }$$
+
+                    ****
+                    
+                    * 1.0 means equality (same vector direction)
+                    * 0.0 means maximum difference (90° between vectors)
+
+                    Notes: Why can't there be more than 90° difference?
+                </script>
+            </section>
+
+            <section>
+                <h1>Cosine similarity</h1>
+
+                \[\begin{aligned}
+                \textrm{sim}(d_1, d_2) & = \frac{ \begin{pmatrix}10 \\ 5\end{pmatrix} \cdot \begin{pmatrix}3 \\
+                2\end{pmatrix} }{ \left|\begin{pmatrix}10 \\ 5\end{pmatrix}\right| \left|\begin{pmatrix}3 \\
+                2\end{pmatrix}\right| } \\ \\
+                & = \frac{30 + 10}{\sqrt{10^2 + 5^2} \sqrt{3^2 + 2^2}} \\
+                & = \frac{40}{\sqrt{125} \sqrt{13}} = \frac{40}{40.31} \\
+                & \approx 0.99
+                \end{aligned}\]
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Query vector
+
+                    * "*book*"
+                    * $\vec{V}(q) = \begin{pmatrix}1 \\\\ 0\end{pmatrix}$ <!-- .element: class="fragment" -->
+
+                    Notes:
+                    What does the query vector look like?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![Vectors](images/Vectors.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                    What does the query vector look like?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Query vector
+
+                    <p class="stretch">![Query](images/Query Vector.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes: Audience question: Which doc is a better match?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Query vector
+
+                    $$sim(\\#1, q) = \frac{ \begin{pmatrix}10 \\\\ 5\end{pmatrix} \cdot \begin{pmatrix}1 \\\\ 0\end{pmatrix} }{ \left\|\begin{pmatrix}10 \\\\ 5\end{pmatrix}\right\| \left\|\begin{pmatrix}1 \\\\ 0\end{pmatrix}\right\| } = 0.89$$ <!-- .element: class="fragment" -->
+
+                    $$sim(\\#2, q) = \frac{ \begin{pmatrix}3 \\\\ 2\end{pmatrix} \cdot \begin{pmatrix}1 \\\\ 0\end{pmatrix} }{ \left\|\begin{pmatrix}3 \\\\ 2\end{pmatrix}\right\| \left\|\begin{pmatrix}1 \\\\ 0\end{pmatrix}\right\| } = 0.83$$ <!-- .element: class="fragment" -->
+
+                    Notes:
+                </script>
+            </section>
+
+        </section>
 
         <section id="scaling_section">
             <section id="scaling" data-markdown data-separator-notes="^Notes:">
@@ -2629,237 +2873,6 @@
                         }
                         -->
                     </canvas>
-
-                    Notes:
-                </script>
-            </section>
-
-        </section>
-
-        <section id="vector_space_model_section">
-            <section id="vector_space_model" data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Vector Space Model
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Vector Space Model
-
-                    * Calculate similarity between
-                    * queries and docs <!-- .element: class="fragment" -->
-                    * docs and docs <!-- .element: class="fragment" -->
-                    * queries and queries <!-- .element: class="fragment" -->
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Vector Space Model
-
-                    * Queries / docs are vectors <!-- .element: class="fragment" -->
-                    * Term-document matrix &rarr; document vector <!-- .element: class="fragment" -->
-
-                    Notes:
-                    How can a document be a vector?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Document vector
-
-                    |             | #1 | #2 | #3 |
-                    |-------------|----|----|----|
-                    | Book        | 10 | 3  |  0 |
-                    | Information | 5  | 2  |  1 |
-
-                    ***
-
-                    * $\vec{V}(\\#1)$ = (10, 5) <!-- .element: class="fragment" -->
-                    * $\vec{V}(\\#2)$ = (3, 2) <!-- .element: class="fragment" -->
-                    * $\vec{V}(\\#3)$ = (0, 1) <!-- .element: class="fragment" -->
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    * $\vec{V}(\\#1)$ = (10, 5)
-                    * $\vec{V}(\\#2)$ = (3, 2)
-
-                    <p class="stretch">![Vectors](images/Vectors.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes: Audience question: Are the docs similar?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Vector distance
-
-                    $$\textrm{d}(p, q) = \sqrt{(q_1 - p_1)^2 + (q_2 - p_2)^2}$$
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Vector distance
-
-                    <p class="stretch">![Vector distance](images/Vector Distance.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-                </script>
-            </section>
-
-            <section>
-                <h1>Vector Difference</h1>
-
-                \[\begin{aligned}
-                \textrm{d}(\#1, \#2) & = \sqrt{(10 - 3)^2 + (5 - 2)^2} \\
-                & = \sqrt{7^2 + 3^2} \\
-                & = \sqrt{49 + 9} \\
-                & = \sqrt{58} \\
-                & \approx 7.62
-                \end{aligned} \]
-
-                <aside class="notes">
-
-                </aside>
-
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    * $\vec{V}(\\#1)$ = (10, 5)
-                    * $\vec{V}(\\#2)$ = (3, 2)
-
-                    <p class="stretch">![Vectors](images/Vectors.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    <p class="stretch">![Vector Similarity](images/Vector Similarity.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-                </script>
-            </section>
-
-            <section>
-                <h1>Unit vector</h1>
-
-                $$\vec{v} = \frac{\vec{V} }{ |\vec{V}| }$$
-
-                <aside class="notes">
-
-                </aside>
-            </section>
-
-            <section>
-                <h1>Unit vector</h1>
-
-                \[\begin{aligned}
-                \vec{v}(\#1) & = \frac{ \begin{pmatrix}10\\5\end{pmatrix} }{ \sqrt{10^2 + 5^2} } \\ \\
-                & = \frac{ \begin{pmatrix}10\\5\end{pmatrix} }{ 11.18 } \\ \\
-                & = \begin{pmatrix}0.89\\0.45\end{pmatrix}
-                \end{aligned} \]
-
-                <aside class="notes">
-
-                </aside>
-            </section>
-
-            <section>
-                <h1>Unit vector</h1>
-
-                \[\begin{aligned}
-                |\vec{v}(\#1)| & = \sqrt{0.89^2 + 0.45^2} \\
-                & = \sqrt{1} \\
-                & = 1
-                \end{aligned}\]
-
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Cosine similarity
-
-                    $$\textrm{sim}(d_1, d_2) = \frac{ \vec{V}(d_1) }{ |\vec{V}(d_1)|} \cdot \frac{\vec{V}(d_2) }{ |\vec{V}(d_2)| } =
-                    \frac{ \vec{V}(d_1) \vec{V}(d_2) }{ |\vec{V}(d_1)| |\vec{V}(d_2)| }$$
-
-                    Notes:
-                </script>
-            </section>
-
-            <section>
-                <h1>Cosine similarity</h1>
-
-                \[\begin{aligned}
-                \textrm{sim}(d_1, d_2) & = \frac{ \begin{pmatrix}10 \\ 5\end{pmatrix} \cdot \begin{pmatrix}3 \\
-                2\end{pmatrix} }{ \left|\begin{pmatrix}10 \\ 5\end{pmatrix}\right| \left|\begin{pmatrix}3 \\
-                2\end{pmatrix}\right| } \\ \\
-                & = \frac{30 + 10}{\sqrt{10^2 + 5^2} \sqrt{3^2 + 2^2}} \\
-                & = \frac{40}{\sqrt{125} \sqrt{13}} \\
-                & = \frac{40}{40.31} \\ \\
-                & \approx 0.99
-                \end{aligned}\]
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Query vector
-
-                    * "*book*"
-                    * $\vec{V}(q) = \begin{pmatrix}1 \\\\ 0\end{pmatrix}$ <!-- .element: class="fragment" -->
-
-                    Notes:
-                    What does the query vector look like?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    <p class="stretch">![Vectors](images/Vectors.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-                    What does the query vector look like?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Query vector
-
-                    <p class="stretch">![Query](images/Query Vector.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes: Audience question: Which doc is a better match?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Query vector
-
-                    $$sim(\\#1, q) = \frac{ \begin{pmatrix}10 \\\\ 5\end{pmatrix} \cdot \begin{pmatrix}1 \\\\ 0\end{pmatrix} }{ \left\|\begin{pmatrix}10 \\\\ 5\end{pmatrix}\right\| \left\|\begin{pmatrix}1 \\\\ 0\end{pmatrix}\right\| } = 0.89$$ <!-- .element: class="fragment" -->
-
-                    $$sim(\\#2, q) = \frac{ \begin{pmatrix}3 \\\\ 2\end{pmatrix} \cdot \begin{pmatrix}1 \\\\ 0\end{pmatrix} }{ \left\|\begin{pmatrix}3 \\\\ 2\end{pmatrix}\right\| \left\|\begin{pmatrix}1 \\\\ 0\end{pmatrix}\right\| } = 0.83$$ <!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
