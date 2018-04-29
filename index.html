@@ -1368,9 +1368,20 @@
                     # Biword index
 
                     * Speed up common phrase queries
-                    * Index terms in pairs, eg.
-                    * *Study at FH Salzburg* &rarr; [*study at*, *at FH*, *FH Salzburg*]
-                    * Fast lookup of *fh salzburg*
+                    * Auxiliary index
+                    * Index term pairs
+                    * Fast lookup of term pairs
+
+                    #1: "Study at FH Salzburg"
+
+                    &darr;
+
+
+                    | Term        | Doc IDs |
+                    |-------------|---------|
+                    | study at    | #1      |
+                    | at fh       | #1      |
+                    | fh salzburg | #1      |
 
                     Notes:
                 </script>
