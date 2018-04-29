@@ -1440,10 +1440,13 @@
                     # Hash table
 
                     * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(1)
+                        * <!-- .element: class="fragment" --> Calculate hash, follow pointer
                     * <!-- .element: class="fragment" --> \+ Fast insert: &Omicron;(1)
                     * <!-- .element: class="fragment" --> \- Collisions
                     * <!-- .element: class="fragment" --> \- Rehashing
                     * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
+                        * <!-- .element: class="fragment" --> When all values have the same hash
+                    * <!-- .element: class="fragment" --> \- No prefix search
 
                     Notes:
                     * What is the complexity of lookup / insert? Ο(1)
@@ -1467,9 +1470,12 @@
                     # Binary tree
 
                     * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(log n)
+                        * <!-- .element: class="fragment" --> Average height of tree
                     * <!-- .element: class="fragment" --> \+ Fast insertion: &Omicron;(log n)
+                    * <!-- .element: class="fragment" --> \+ Supports prefix search
                     * <!-- .element: class="fragment" --> \- Rebalancing
                     * <!-- .element: class="fragment" --> \- High worst case complexity: &Omicron;(n)
+                        * <!-- .element: class="fragment" --> When tree is completely unbalanced
 
                     Notes:
                     * What is the lookup / insert complexity? Ο(log n)
@@ -1493,8 +1499,11 @@
                     # B-tree
 
                     * <!-- .element: class="fragment" --> \+ Fast lookup: &Omicron;(log n)
+                        * <!-- .element: class="fragment" --> Average height of tree
                     * <!-- .element: class="fragment" --> \+ Fast insertion: &Omicron;(log n)
                     * <!-- .element: class="fragment" --> \+ No worst case complexity
+                        * <!-- .element: class="fragment" --> Due to rebalancing
+                    * <!-- .element: class="fragment" --> \+ Supports prefix search
                     * <!-- .element: class="fragment" --> Less frequent rebalancing
 
                     Notes:
