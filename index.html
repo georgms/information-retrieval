@@ -2729,20 +2729,24 @@
                 </script>
             </section>
 
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Calculate weights
+            <section>
+                <h1>Calculate weights</h1>
 
-                    $$f(\text{query}, \text{document}, \text{weights}) = \text{rank}$$
+                <p>$$f(\text{query}, \text{document}, \text{weights}) = \text{rank}$$</p>
 
-                    Solve for *weights*:
+                <div class="fragment">
+                    <h3>Solve for <em>weights</em>:</h3>
 
-                    * $f(\text{iphone}, \text{iPhone 8}, \text{weights}) = 2$
-                    * $f(\text{iphone}, \text{iPhone X}, \text{weights}) = 3$
-                    * $f(\text{iphone}, \text{iPhone cover}, \text{weights}) = 1$
+                    \[\begin{aligned}
+                    &f(\text{iphone}, \text{iPhone 8}, \text{weights}) &= 2\\
+                    &f(\text{iphone}, \text{iPhone X}, \text{weights}) &= 3\\
+                    &f(\text{iphone}, \text{iPhone cover}, \text{weights}) &= 1\\
+                    \end{aligned}\]
+                </div>
 
-                    Notes:
-                </script>
+                <aside class="notes">
+
+                </aside>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -2763,10 +2767,10 @@
                 <script type="text/template">
                     # Features
 
-                    * Keyword / field relevance, using TF-IDF
+                    * Keyword / field relevance, using TF-IDF<!-- .element: class="fragment" data-fragment-index="" -->
                         * Query: *iphone*, title: *iPhone X* &rarr; 1
                         * Query: *iphone*, title: *Samsung Galaxy* &rarr; 0
-                    * Other attributes
+                    * Other attributes<!-- .element: class="fragment" data-fragment-index="" -->
                         * Product age
                         * Number of sales
                         * …
@@ -2777,10 +2781,72 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Extract features
+                    # Defining features
 
                     * Requires human effort
                     * Less is more
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Feature Store
+
+                    ```json
+                    [{
+                        "name":"documentRecency",
+                        "class":"org.apache.solr.ltr.feature.SolrFeature",
+                        "params":{"q":"{!func}recip( ms(NOW,last_updated_dt), 3.16e-11, 1, 1)"},
+                        "store":"wikipedia"
+                    }, {
+                        "name":"popularity",
+                        "class":"org.apache.solr.ltr.feature.FieldValueFeature",
+                        "params":{"field":"popularity_score_d"},
+                        "store":"wikipedia"
+                    }, {
+                        "name":"totalScore",
+                        "class":"org.apache.solr.ltr.feature.SolrFeature",
+                        "params":{"q":"{!edismax qf=\"title_txt_en headings_txt_en categories_txts_en opening_text_txt_en text_txt_en\"}${text}"},
+                        "store":"wikipedia"
+                    }, {
+                        "name":"titleScore",
+                        "class":"org.apache.solr.ltr.feature.SolrFeature",
+                        "params":{"q":"{!edismax qf=\"title_txt_en\"}${text}"},
+                        "store":"wikipedia"
+                    }, {
+                        "name":"exactTitle",
+                        "class":"org.apache.solr.ltr.feature.SolrFeature",
+                        "params":{"q":"{!df=\"title_exact_s_lower\"}${text}"},
+                        "store":"wikipedia"
+                    }]
+                    ```
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Feature Extraction
+
+                    Query: *iphone x*
+
+                    ```json
+                    [{
+                        "title_txt_en": "IPhone X",
+                        "[features]": "documentRecency:0.94301736 popularity:1.2207552E-5 totalScore:22.804134 titleScore:17.452236 exactTitle:11.403795 headingsScore:0.0 categoriesScore:0.0 openingScore:22.804134 textScore:19.482597"
+                    },
+                    {
+                        "title_txt_en": "OS X Mountain Lion",
+                        "[features]": "documentRecency:0.59085584 popularity:3.140487E-6 totalScore:19.74273 titleScore:5.4706 exactTitle:0.0 headingsScore:0.0 categoriesScore:8.784399 openingScore:8.180487 textScore:17.705677"
+                    },
+                    {
+                        "title_txt_en": "IPhone",
+                        "[features]": "documentRecency:0.97925586 popularity:6.251065E-5 totalScore:16.994913 titleScore:12.235063 exactTitle:0.0 headingsScore:0.0 categoriesScore:0.0 openingScore:15.402786 textScore:15.681499"
+                    }]
+                    ```
 
                     Notes:
                 </script>
@@ -2802,22 +2868,29 @@
                 </script>
             </section>
 
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Result
+            <section>
+                <h1>Re-Rank Formula</h1>
 
-                    Re-Rank formula, eg.
-
-                    $$5 \times \text{title relevance} + 3.1 \times \text{body relevance} + 4.3 \times \text{product age} + 2.2 \times \text{number of sales}$$
-
-                    Notes:
-                </script>
+                \[\begin{aligned}
+                  5   &\times \text{title relevance}\\
+                + 3.1 &\times \text{body relevance}\\
+                + 4.3 &\times \text{product age}\\
+                + 2.2 &\times \text{number of sales}
+                \end{aligned} \]
             </section>
         </section>
 
         <section id="ltr_evaluation_section">
 
             <section id="ltr_evaluation" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Result Evaluation
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # DCG
 
@@ -2833,11 +2906,12 @@
                     | 1       | 1             | 2            |  0.5 |
                     | $\sum$  |               |              |  7.9 |
 
-                    More results &rarr; higher DCG &rarr; normalize
+                    More results &rarr; higher DCG &rarr; normalize<!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
                 </script>
             </section>
+
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
@@ -2870,7 +2944,7 @@
 
                     $7.9 \div 9.4 = 0.8$
 
-                    Perfect ranking: $1.0$
+                    Perfect ranking: $1.0$<!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
                 </script>
@@ -2935,27 +3009,25 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    | Rank | QID | Color=Red:Value | Color=Blue:Value | FeatureN:ValueN | Comment |
+                    | Rank | QID | Color=Red | Color=Blue | FeatureN:ValueN | Comment |
                     |------|----------|------------------|-------------------|-----------------|-------------------------------|
-                    | 4 | qid:1 | 1:0 | 2:1 | 3:0 | # Blue shirt, user likes blue |
-                    | 3 | qid:1 | 1:1 | 2:0 | 3:1 | # Red shirt, user likes red |
-                    | 2 | qid:1 | 1:1 | 2:0 | 3:0 | # Red shirt, user likes blue |
-                    | 1 | qid:1 | 1:0 | 2:1 | 3:1 | # Blue shirt, user likes red |
+                    | 3 | qid:1 | 1:<span style="color: red;">1</span> | 2:0 | 3:1 | # Red shirt, user likes red |
+                    | 2 | qid:1 | 1:<span style="color: red;">1</span> | 2:0 | 3:0 | # Red shirt, user likes blue |
+                    | 1 | qid:1 | 1:0 | 2:<span style="color: blue;">1</span> | 3:2 | # Blue shirt, user likes red |
+                    | 4 | qid:1 | 1:0 | 2:<span style="color: blue;">1</span> | 3:0 | # Blue shirt, user likes blue |
 
                     Notes:
                 </script>
             </section>
 
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Result
+            <section>
+                <h1>Re-Rank Formula</h1>
 
-                    Re-Rank formula, eg.
-
-                    $$5 \times \text{title relevance} + 4.3 \times \text{product age} + 3.5 \times \text{user's favorite color}$$
-
-                    Notes:
-                </script>
+                \[\begin{aligned}
+                5 &\times \text{title relevance}\\
+                + 4.3 &\times \text{product age}\\
+                + 3.5 &\times \text{user's favorite color}
+                \end{aligned} \]
             </section>
         </section>
 
