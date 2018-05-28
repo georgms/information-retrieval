@@ -2,3 +2,5 @@
 .idea/
 css/reveal.css.map
 node_modules/
+solr-vagrant/.vagrant
+solr-vagrant/*.log
