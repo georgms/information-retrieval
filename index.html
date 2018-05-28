@@ -2551,6 +2551,7 @@
                     * \- Uneven distribution
                     * \- Inter-node communication
                     * \- Hard to update index
+                    * \- No query parallelization
 
                     <!-- .element: style="list-style-type: none;" -->
 
@@ -2625,65 +2626,10 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Shards
+                    # More shards
 
-                    <canvas class="chart stretch">
-                        <!--
-                        {
-                            "type":"line",
-                            "data":{
-                                "labels":[
-                                    "0",
-                                    "1"
-                                ],
-                                "datasets":[
-                                    {
-                                        "data":[
-                                            "0",
-                                            "1"
-                                        ],
-                                        "label":"",
-                                        "backgroundColor": "#ff8c00"
-                                    }
-                                ]
-                            },
-                            "options":{
-                                "legend": {
-                                    "display": false
-                                },
-                                "responsive":"true",
-                                "scales":{
-                                    "xAxes":[{
-                                        "ticks": {
-                                            "stepSize": 0.1,
-                                            "display": false
-                                        },
-                                        "scaleLabel":{
-                                            "display":true,
-                                            "labelString":"Shards"
-                                        },
-                                        "gridLines": {
-                                            "display": true
-                                        }
-                                    }],
-                                    "yAxes":[{
-                                        "ticks": {
-                                            "stepSize":1,
-                                            "display": false
-                                        },
-                                        "scaleLabel":{
-                                            "display":true,
-                                            "labelString":"Docs"
-                                        },
-                                        "gridLines": {
-                                            "display": true
-                                        }
-                                    }]
-                                }
-                            }
-                        }
-                        -->
-                    </canvas>
+                    * More docs<!-- .element: class="fragment" -->
+                    * Better query parallelization<!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
@@ -2691,197 +2637,10 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Shards
+                    # More Replicas
 
-                    <canvas class="chart stretch">
-                        <!--
-                        {
-                            "type":"line",
-                            "data":{
-                                "labels":[
-                                    "0",
-                                    "1"
-                                ],
-                                "datasets":[
-                                    {
-                                        "data":[
-                                            "0",
-                                            "1"
-                                        ],
-                                        "label":"",
-                                        "backgroundColor": "#ff8c00"
-                                    }
-                                ]
-                            },
-                            "options":{
-                                "legend": {
-                                    "display": false
-                                },
-                                "responsive":"true",
-                                "scales":{
-                                    "xAxes":[{
-                                        "ticks": {
-                                            "stepSize": 0.1,
-                                            "display": false
-                                        },
-                                        "scaleLabel":{
-                                            "display":true,
-                                            "labelString":"Shards"
-                                        },
-                                        "gridLines": {
-                                            "display": true
-                                        }
-                                    }],
-                                    "yAxes":[{
-                                        "ticks": {
-                                            "stepSize":1,
-                                            "display": false
-                                        },
-                                        "scaleLabel":{
-                                            "display":true,
-                                            "labelString":"Query Parallelization"
-                                        },
-                                        "gridLines": {
-                                            "display": true
-                                        }
-                                    }]
-                                }
-                            }
-                        }
-                        -->
-                    </canvas>
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Replicas
-
-                    <canvas class="chart stretch">
-                        <!--
-                        {
-                            "type":"line",
-                            "data":{
-                                "labels":[
-                                    "0",
-                                    "1"
-                                ],
-                                "datasets":[
-                                    {
-                                        "data":[
-                                            "0",
-                                            "1"
-                                        ],
-                                        "label":"",
-                                        "backgroundColor": "#ff8c00"
-                                    }
-                                ]
-                            },
-                            "options":{
-                                "legend": {
-                                    "display": false
-                                },
-                                "responsive":"true",
-                                "scales":{
-                                    "xAxes":[{
-                                        "ticks": {
-                                            "stepSize": 0.1,
-                                            "display": false
-                                        },
-                                        "scaleLabel":{
-                                            "display":true,
-                                            "labelString":"Replicas"
-                                        },
-                                        "gridLines": {
-                                            "display": true
-                                        }
-                                    }],
-                                    "yAxes":[{
-                                        "ticks": {
-                                            "stepSize":1,
-                                            "display": false
-                                        },
-                                        "scaleLabel":{
-                                            "display":true,
-                                            "labelString":"Resiliency"
-                                        },
-                                        "gridLines": {
-                                            "display": true
-                                        }
-                                    }]
-                                }
-                            }
-                        }
-                        -->
-                    </canvas>
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Replicas
-
-                    <canvas class="chart stretch">
-                        <!--
-                        {
-                            "type":"line",
-                            "data":{
-                                "labels":[
-                                    "0",
-                                    "1"
-                                ],
-                                "datasets":[
-                                    {
-                                        "data":[
-                                            "0",
-                                            "1"
-                                        ],
-                                        "label":"",
-                                        "backgroundColor": "#ff8c00"
-                                    }
-                                ]
-                            },
-                            "options":{
-                                "legend": {
-                                    "display": false
-                                },
-                                "responsive":"true",
-                                "scales":{
-                                    "xAxes":[{
-                                        "ticks": {
-                                            "stepSize": 0.1,
-                                            "display": false
-                                        },
-                                        "scaleLabel":{
-                                            "display":true,
-                                            "labelString":"Replicas"
-                                        },
-                                        "gridLines": {
-                                            "display": true
-                                        }
-                                    }],
-                                    "yAxes":[{
-                                        "ticks": {
-                                            "stepSize":1,
-                                            "display": false
-                                        },
-                                        "scaleLabel":{
-                                            "display":true,
-                                            "labelString":"Concurrency"
-                                        },
-                                        "gridLines": {
-                                            "display": true
-                                        }
-                                    }]
-                                }
-                            }
-                        }
-                        -->
-                    </canvas>
+                    * Better resiliency<!-- .element: class="fragment" -->
+                    * Better concurrency<!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
