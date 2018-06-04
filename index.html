@@ -2648,6 +2648,230 @@
 
         </section>
 
+        <section id="classification_section">
+            <section id="classification" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Text Classification
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # What?
+
+                    * Assign document to class(es)
+
+                    Notes:
+                </script>
+            </section>
+
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Why?
+
+                    * Standing queries (Google alerts with concepts)
+                    * Spam filter
+                    * Webspam detection
+                    * Language detection
+                    * Sentiment detection
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # How?
+
+                    * Make humans do it
+                        * Does not scale with amount of data
+                        * Does not scale with domain experts needed
+                    * Make machines do it
+                        * Needs a lot of data
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Supervised learning
+
+                    * Train with training documents
+                        * Manually classified documents
+                    * Test with test documents
+                        * Manually classified documents
+                    * Predict class of new documents
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Classification
+
+                    * Less features = easier problem
+                    * Class membership can be
+                        * Single (one-of, multinomial, polytomous, multiclass, single-label)
+                        * Multiple (any-of, multilabel, multivalue)
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Naive Bayes
+
+                    * Naive = Assume features are independent
+                        * Features: (gender, size) are not independent<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Does not predict class, just which class has greater probability
+                    * Robust to concept drift ("Bhutan" -> "Myanmar") and noise ("unusual" documents)
+                    * Efficient and effective
+
+                    Notes:
+
+                    * Example for correlated features?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Naive Bayes
+
+                    * Prios per class: Documents per class / Total documents
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Feature Selection
+
+                    * Speed up training
+                    * Reduce noise
+                    * Mutual information (MI)
+                        * How much information deos term contain about class?
+                        * 1 if it occurs only in docs of class, 0 if it occurs aliquot in class and non-class docs
+                    * Frequency based
+                        * Select most common terms per class
+                        * Can decrease accuracy as most common terms may not contain much info about class
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Feature Selection
+
+                    * Speed up training
+                    * Reduce noise
+                    * Mutual information (MI)
+                    * How much information deos term contain about class?
+                    * 1 if it occurs only in docs of class, 0 if it occurs aliquot in class and non-class docs
+                    * Frequency based
+                    * Select most common terms per class
+                    * Can decrease accuracy as most common terms may not contain much info about class
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
+        <section id="vector_space_classification_section">
+            <section id="vector_space_classification" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector Space Classification
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector Space Classification
+
+                    * Represent document as vector
+                    * Documents with same class form contiguous non-overlapping regions in vector space
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Rocchio Classification
+
+                    * Computer center of mass / centroid for class
+                    * Assign documents to class of nearest centroid
+                    * Works only if all classes are spheres with similar radii
+                        * Ie. not for classes with multiple distinct clusters or non-spherical clusters or different radii
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # k Nearest Neighbor (kNN)
+
+                    * Assign document to class of the majority of the k nearest neighors
+                    * $k = 1$: Closest neighbor
+                    * Usually $k = 3$ or $k = 5$
+                    * Can be weighted by distance to neighbor
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Linear Separability
+
+                    * Can draw hyperplane between classes
+                        * Hyperplane in 2D space: line
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Confusion Matrix
+
+                    * Contains true class / assigned class to spot errors
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Nomenclature
+
+                    ## Learning Method
+
+                    * Computes classifier
+
+                    ## Classifier
+
+                    * Determines class per document
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Bias / Variance tradeoff
+
+                    * Bias: Expected vs actual probability
+                    * Variance: Difference of classifiers per training set
+                        * If high: Prone to overfitting
+                        * Corresponds to memory of learning method, eg. number of independent parameters
+                    * Rocchio: High bias, low variance
+                    * kNN: Low bias, high variance
+
+
+                </script>
+            </section>
+        </section>
+
         <section id="machine_learning_section">
             <section id="machine_learning" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
