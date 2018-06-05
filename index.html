@@ -2709,9 +2709,25 @@
                 <script type="text/template">
                     # Supervised learning
 
-                    ![Supervised Learning](images/supervised-learning.png)
+                    <p class="stretch">![Supervised Learning](images/Supervised Learning.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Nomenclature
+
+                    ## Learning Method
+
+                    * Computes classifier
+
+                    ## Classifier
+
+                    * Determines class of document
+
                 </script>
             </section>
 
@@ -2733,9 +2749,10 @@
                     # Naive Bayes
 
                     * Naive = Assumes features are independent
-                        * Features: (gender, size) are not independent<!-- .element: class="fragment" data-fragment-index="1" -->
-                    * Does not predict class, just which class has greater probability
-                    * Robust to concept drift ("Bhutan" -> "Myanmar") and noise ("unusual" documents)
+                        * Features: (gender, height) are not independent<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Predicts probability for class
+                    * Robust to concept drift ("Bhutan" -> "Myanmar")
+                    * Robust to noise ("unusual" documents)
                     * Efficient and effective
 
                     Notes:
@@ -2754,7 +2771,7 @@
 
                     $$P(\text{spam} | \text{content})$$
 
-                    This probability is not known.
+                    This probability is not known
 
                     Notes:
                 </script>
@@ -2804,43 +2821,16 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Naive Bayes
-
-                    * Prios per class: Documents per class / Total documents
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
                     # Feature Selection
 
                     * Speed up training
                     * Reduce noise
                     * Mutual information (MI)
-                        * How much information deos term contain about class?
+                        * How much information does term contain about class?
                         * 1 if it occurs only in docs of class, 0 if it occurs aliquot in class and non-class docs
                     * Frequency based
                         * Select most common terms per class
                         * Can decrease accuracy as most common terms may not contain much info about class
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Feature Selection
-
-                    * Speed up training
-                    * Reduce noise
-                    * Mutual information (MI)
-                    * How much information deos term contain about class?
-                    * 1 if it occurs only in docs of class, 0 if it occurs aliquot in class and non-class docs
-                    * Frequency based
-                    * Select most common terms per class
-                    * Can decrease accuracy as most common terms may not contain much info about class
 
                     Notes:
                 </script>
@@ -2856,10 +2846,31 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Vector Space Classification
+                    Represent document as vector
 
-                    * Represent document as vector
-                    * Documents with same class form contiguous non-overlapping regions in vector space
+                    <p class="stretch">![Vectors](images/Vectors.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * Documents with same class in same region
+                    * Regions are continuous, non-overlapping
+
+                    <p class="stretch">![Vector Space Classification](images/Vector Space Classification.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector Space Classifier Types
+
+                    * Linear: Can draw hyperplane between classes
+                        * 1D hyperplane: point
+                        * 2D hyperplane: line
+                    * Non-Linear
                 </script>
             </section>
 
@@ -2867,10 +2878,19 @@
                 <script type="text/template">
                     # Rocchio Classification
 
-                    * Computer center of mass / centroid for class
-                    * Assign documents to class of nearest centroid
-                    * Works only if all classes are spheres with similar radii
-                        * Ie. not for classes with multiple distinct clusters or non-spherical clusters or different radii
+                    1. Compute center of mass / centroid for class
+                    2. Assign documents to class of nearest centroid
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![Rocchio](images/Rocchio.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+
+                    What is the class of the new document?
                 </script>
             </section>
 
@@ -2887,11 +2907,59 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Linear Separability
+                    <p class="stretch">![kNN](images/kNN.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
 
-                    * Can draw hyperplane between classes
-                        * Hyperplane in 2D space: line
+                    Notes:
 
+                    What's the class?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Vector Space Classifier Types
+
+                    * Linear: Can draw hyperplane between classes
+                        * 1D hyperplane: point
+                        * 2D hyperplane: line
+                    * Non-Linear: Opposite of linear
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![Rocchio](images/Rocchio.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Linear?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Rocchio: Linear
+
+                    <p class="stretch">![Rocchio Linear](images/Rocchio Linear.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![kNN](images/kNN.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Linear?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # kNN: Non-Linear
+
+                    <p class="stretch">![kNN Non-Linear](images/kNN Non-Linear.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
                 </script>
             </section>
 
@@ -2899,22 +2967,11 @@
                 <script type="text/template">
                     # Confusion Matrix
 
-                    * Contains true class / assigned class to spot errors
-
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Nomenclature
-
-                    ## Learning Method
-
-                    * Computes classifier
-
-                    ## Classifier
-
-                    * Determines class per document
+                    | Assigned class \ True class | Class 1 | Class 2 | Class 3 |
+                    |-----------------------------|---------|---------|---------|
+                    | Class 1 | 35 | 2 | 5 |
+                    | Class 2 | 4 | 33 | 2 |
+                    | Class 3 | 1 | 20 | 15 |
 
                 </script>
             </section>
@@ -2923,14 +2980,12 @@
                 <script type="text/template">
                     # Bias / Variance tradeoff
 
-                    * Bias: Expected vs actual probability
-                    * Variance: Difference of classifiers per training set
-                        * If high: Prone to overfitting
-                        * Corresponds to memory of learning method, eg. number of independent parameters
+                    * Bias:
+                        * Expected vs actual prediction
+                    * Variance:
+                        * Difference of classifiers per training set
                     * Rocchio: High bias, low variance
                     * kNN: Low bias, high variance
-
-
                 </script>
             </section>
         </section>
