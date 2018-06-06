@@ -2722,11 +2722,11 @@
 
                     ## Learning Method
 
-                    * Computes classifier
+                    Computes classifier
 
                     ## Classifier
 
-                    * Determines class of document
+                    Determines class of document
 
                 </script>
             </section>
@@ -2737,6 +2737,12 @@
 
                     * Single / one-of
                     * Multiple / any-of
+
+                    # Classifiers
+
+                    * One class: Belongs to class or not
+                    * Two class: Belongs to either class
+                    * Multi class: Belongs to one or more classes
 
                     Notes:
                 </script>
@@ -2749,8 +2755,8 @@
                     # Naive Bayes
 
                     * Naive = Assumes features are independent
-                        * Features: (gender, height) are not independent<!-- .element: class="fragment" data-fragment-index="1" -->
-                    * Predicts probability for class
+                        * Features: (peanut, butter) are not independent<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Predicts probability for class, not class
                     * Robust to concept drift ("Bhutan" -> "Myanmar")
                     * Robust to noise ("unusual" documents)
                     * Efficient and effective
@@ -2785,7 +2791,8 @@
                 \\
                 P(\text{content}) &= \frac{\text{Number of mails with this contents}}{\text{Total number of mails}}\\
                 \\
-                P(\text{content} | \text{spam}) &= \text{Probability that spam mail contains this content}\\
+                P(\text{content} = c | \text{spam}) &= \text{Probability that spam mail contains this content}\\
+                &= \prod_{t \in c} P(\text{t} | \text{spam}) = \prod_{t \in c} \frac{|t_{spam}| + 1}{|c_{spam}| + |c|}
                 \end{aligned}\]
             </section>
 
@@ -2818,19 +2825,45 @@
                     Notes:
                 </script>
             </section>
+        </section>
 
-            <section data-markdown data-separator-notes="^Notes:">
+        <section id="feature_selection_section">
+            <section id="feature_selection"data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Feature Selection
 
-                    * Speed up training
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    * Do not use all terms for training
+                    * Less terms = better training and runtime performance
                     * Reduce noise
-                    * Mutual information (MI)
-                        * How much information does term contain about class?
-                        * 1 if it occurs only in docs of class, 0 if it occurs aliquot in class and non-class docs
-                    * Frequency based
-                        * Select most common terms per class
-                        * Can decrease accuracy as most common terms may not contain much info about class
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Mutual information (MI)
+
+                    * How much information does term contain about class?
+                    * 1 if it occurs only in docs of class
+                    * 0 if it occurs in all documents with equal distribution
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Frequency based
+
+                    * Select most common terms per class
+                    * Most common terms may not contain much info about class (think stop words)
 
                     Notes:
                 </script>
@@ -2860,17 +2893,6 @@
 
                     <p class="stretch">![Vector Space Classification](images/Vector Space Classification.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Vector Space Classifier Types
-
-                    * Linear: Can draw hyperplane between classes
-                        * 1D hyperplane: point
-                        * 2D hyperplane: line
-                    * Non-Linear
                 </script>
             </section>
 
@@ -2918,6 +2940,74 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Support Vector Machines (SVM)
+
+                    * Find class separator hyperplane with maximum margin
+                    * Larger margin = more confident decision
+                    Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![SVM Possibilities](images/SVM Possibilities.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![SVM Solution](images/SVM Solution.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # SVM Outliers
+
+                    * Outlier could be noise
+                    * Ignore for greater margin
+                    * Pay penalty
+
+                    <p class="stretch">![SVM Outliers](images/SVM Outliers.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    What if data cannot be linearly separated?
+
+                    <p class="stretch">![SVM not separable](images/SVM not separable.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # SVM Kernel Trick
+
+                    Transform to higher dimension
+
+                    <p class="stretch">![SVM Kernel Trick](images/SVM Kernel Trick.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+                    Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
                     # Vector Space Classifier Types
 
                     * Linear: Can draw hyperplane between classes
@@ -2932,7 +3022,7 @@
                     <p class="stretch">![Rocchio](images/Rocchio.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
 
-                    Linear?
+                    Linear? *Yes*<!-- .element: class="fragment" data-fragment-index="" -->
                 </script>
             </section>
 
@@ -2950,7 +3040,7 @@
                     <p class="stretch">![kNN](images/kNN.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
 
-                    Linear?
+                    Linear? *No*<!-- .element: class="fragment" data-fragment-index="" -->
                 </script>
             </section>
 
@@ -2960,6 +3050,19 @@
 
                     <p class="stretch">![kNN Non-Linear](images/kNN Non-Linear.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # SVM
+
+                    <p class="stretch">![SVM Solution](images/SVM Solution.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Linear? *Yes*<!-- .element: class="fragment" data-fragment-index="" -->
+                    Notes:
+
                 </script>
             </section>
 
@@ -2978,14 +3081,46 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Bias / Variance tradeoff
+                    # Bias-Variance trade-off
 
-                    * Bias:
-                        * Expected vs actual prediction
-                    * Variance:
-                        * Difference of classifiers per training set
-                    * Rocchio: High bias, low variance
-                    * kNN: Low bias, high variance
+                    How does classifier change per training set?
+
+                    * High bias:
+                        * Consistent, but inaccurate
+                        * Underfitting, cannot learn true signal
+                    * High variance:
+                        * Accurate, but inconsistent
+                        * Overfitting, memorize noise
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![Rocchio Linear](images/Rocchio Linear.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    * Bias: *high*<!-- .element: class="fragment" data-fragment-index="" -->
+                    * Variance: *low*<!-- .element: class="fragment" data-fragment-index="" -->
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![kNN Non-Linear](images/kNN Non-Linear.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    * Bias: *low*<!-- .element: class="fragment" data-fragment-index="" -->
+                    * Variance: *high*<!-- .element: class="fragment" data-fragment-index="" -->
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![SVM Solution](images/SVM Solution.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    * Bias: *high*<!-- .element: class="fragment" data-fragment-index="" -->
+                    * Variance: *low*<!-- .element: class="fragment" data-fragment-index="" -->
                 </script>
             </section>
         </section>
