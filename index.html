@@ -3125,6 +3125,117 @@
             </section>
         </section>
 
+        <section id="clustering_section">
+            <section id="clustering" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Clustering
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # What?
+
+                    * Classes are not known
+                    * Assign similar documents to same class / cluster
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Why?
+
+                    * Show similar documents<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Cluster search results<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Exploratory browsing<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * News aggregation<!-- .element: class="fragment" data-fragment-index="1" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # How?
+
+                    * Minimize target function
+                        * Eg. distance to centroid
+                    * Unsupervised learning
+                        * No labeled documents available
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Types of clustering
+
+                    * *Hard*: Document belongs to exactly one cluster
+                    * *Soft*: Document can belong to multiple clusters with varying degrees
+                    * *Flat*: One level of clusters
+                    * *Hierarchical*: Sub-clusters
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # K-Means
+
+                    1. Set $K$ random centroids
+                    2. Assign each document to nearest centroid
+                    3. Move centroids to minimize distance to documents
+                    4. Terminate or goto 2
+
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    <p class="stretch">![K-Means](images/K-Means.png)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    <span style="font-size: x-small">© 2008 Cambridge University Press</span>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Termination
+
+                    * Centroids do not move<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Assignment do not change<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Sum of distances does not decrease<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Sum of distances is below threshold<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * After $n$ iterations<!-- .element: class="fragment" data-fragment-index="1" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # K-Means disadvantages
+
+                    * Can get stuck on local minimum
+                    * Can build singleton clusters for outliers
+                    * Can build empty clusters
+
+                    Notes:
+                </script>
+            </section>
+        </section>
+
         <section id="machine_learning_section">
             <section id="machine_learning" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
