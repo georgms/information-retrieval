@@ -2777,7 +2777,7 @@
 
                     $$P(\text{spam} | \text{content})$$
 
-                    This probability is not known
+                    This probability is not known.
 
                     Notes:
                 </script>
@@ -2789,15 +2789,24 @@
                 \[\begin{aligned}
                 P(\text{spam}) &= \frac{\text{Number of spam mails}}{\text{Total number of mails}}\\
                 \\
-                P(\text{content}) &= \frac{\text{Number of mails with this contents}}{\text{Total number of mails}}\\
+                P(\text{content}) &= \frac{\text{Number of mails with this content / these terms}}{\text{Total number of mails}}\\
                 \\
-                P(\text{content} = c | \text{spam}) &= \text{Probability that spam mail contains this content}\\
-                &= \prod_{t \in c} P(\text{t} | \text{spam}) = \prod_{t \in c} \frac{|t_{spam}| + 1}{|c_{spam}| + |c|}
+                P(\text{term}|\text{spam}) &= \frac{\text{Term frequency in spam docs} + 1}{\text{Spam vocabulary size} + \text{Total vocabulary size}}\\
+                \\
+                P(\text{content}|\text{spam}) &= \prod_{\text{term } \in \text{ content}} P(\text{term}|\text{spam})
                 \end{aligned}\]
             </section>
 
             <section>
                 <h1>Bayes Theorem</h1>
+
+                \[\begin{aligned}
+                    P(\text{spam} | \text{content}) &= \text{Probability that spam mail contains this content}\\
+                    &= \frac{P(\text{spam}) \times \prod_{\text{term } \in \text{ content}} tf(\text{term}, \text{doc}) \times P(\text{term} | \text{spam})}{P(\text{content})}\\
+                \end{aligned}\]
+            </section>
+
+            <section>
 
                 \[\begin{aligned}
                 P(\text{spam} | \text{content}) &= \frac{P(\text{spam}) \times P(\text{content} | \text{spam})}{P(\text{content})}\\
