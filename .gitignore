@@ -1,6 +1,14 @@
-# Created by .ignore support plugin (hsz.mobi)
 .idea/
-css/reveal.css.map
+*.iml
+*.iws
+*.eml
+out/
+.DS_Store
+.svn
+log/*.log
+tmp/**
 node_modules/
-solr-vagrant/.vagrant
-solr-vagrant/*.log
+package-lock.json
+.sass-cache
+css/reveal.min.css
+js/reveal.min.js
