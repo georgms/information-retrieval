@@ -35,7 +35,7 @@
             </script>
         </section>
 
-        <section>
+        <section id="toc">
             <h2>Table of Contents</h2>
             <nav id="presentable-toc" class="revealjs"></nav>
         </section>
@@ -120,6 +120,14 @@
                 </script>
             </section>
 
+            <section data-markdown>
+                # Information Retrieval
+
+                > Information retrieval (IR) is the activity of obtaining information system resources relevant to an information need from a collection.
+
+                > Web search engines are the most visible IR applications.
+            </section>
+
             <section>
                 <img class="stretch" data-src="images/netcraft.png"/>
             </section>
@@ -150,7 +158,7 @@
 
                     * High result quality
                     * User friendly
-                    * Fast, scaleable
+                    * Fast, scalable
                 </script>
             </section>
 
@@ -168,6 +176,8 @@
             <section id="boolean_retrieval" data-markdown>
                 <script type="text/template">
                     # Boolean retrieval
+
+                    `AND`, `OR`, `NOT`
                 </script>
             </section>
 
@@ -181,6 +191,10 @@
 
                     ```
                     mmt OR mma
+                    ```
+
+                    ```
+                    mmt AND NOT mma
                     ```
 
                     ```
@@ -212,12 +226,9 @@
                     (information AND retrieval) OR search
                     ```
 
-                    * <!-- .element: class="fragment" --> \#1: _a book about information retrieval_
-                    * <!-- .element: class="fragment" style="color: green;" --> Match
-                    * <!-- .element: class="fragment" --> \#2: _a book about the search for information_
-                    * <!-- .element: class="fragment" style="color: green;" --> Match
-                    * <!-- .element: class="fragment" --> \#3: _a book about information_
-                    * <!-- .element: class="fragment" style="color: red;" --> No Match
+                    * <!-- .element: class="fragment" --> \#1: _a book about information retrieval_ <span>&rarr; Match</span><!-- .element: class="fragment" style="color: green;" -->
+                    * <!-- .element: class="fragment" --> \#2: _a book about the search for information_ <span>&rarr; Match</span><!-- .element: class="fragment" style="color: green;" -->
+                    * <!-- .element: class="fragment" --> \#3: _a book about information_ <span>&rarr; No Match</span><!-- .element: class="fragment" style="color: red;" -->
 
                     Notes:
                     Audience question
@@ -700,8 +711,8 @@
                     * Query using implicit AND
                     * Command-line interface
                     * Read docs on startup
-                    * *.txt in directory
-                    * Just once, not for every query
+                        * *.txt in directory
+                        * Just once, not for every query
                     * Ask for query
                     * Display list of matching filenames
                     * Ask for next query
@@ -710,19 +721,11 @@
                     * Use [1.txt](files/1.txt), [2.txt](files/2.txt), [3.txt](files/3.txt)
                     * Provide instructions on how to run (including dependencies etc.)
                     * Provide link to Git repo
-                    * **Deadline**: 28.04.2018 11:59:59
+                    * Deadline: **26.03.2019 11:59:59**
 
                     Notes:
                 </script>
             </section>
-        </section>
-
-        <section id="II" data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                # II
-
-                Notes:
-            </script>
         </section>
 
         <section id="tokenization_section">
@@ -914,7 +917,7 @@
                     | Match | Replace | Example |
                     |-------|---------|------------------------------------|
                     | SSES | SS | caresses &rarr; caress |
-                    | IES | I |  ponies &rarr; poni ties &rarr; ti |
+                    | IES | I |  ponies &rarr; poni, ties &rarr; ti |
                     | SS | SS  | caress &rarr; caress |
                     | S | <empty> | cats &rarr; cat |
 
@@ -2209,7 +2212,7 @@
                     # Vector Space Model
 
                     * Queries / docs are vectors <!-- .element: class="fragment" -->
-                    * Term-document matrix &rarr; document vector <!-- .element: class="fragment" -->
+                    * Term-document Matrix &rarr; document vector <!-- .element: class="fragment" -->
 
                     Notes:
                     How can a document be a vector?
@@ -4400,12 +4403,6 @@
                     });
                 }
             },
-            {
-                src: 'js/toc-progress.js', async: true, callback: function () {
-                    toc_progress.initialize();
-                    toc_progress.create();
-                }
-            }
         ]
     });
 </script>
