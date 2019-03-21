@@ -280,12 +280,37 @@
 
                     &Omicron;(num query terms &times; total length of all documents) <!-- .element: class="fragment" -->
 
+                    ## Union
+
+                    Merge result lists: <!-- .element: class="fragment" -->
+
+                    &Omicron;(1) <!-- .element: class="fragment" -->
+
                     ## Intersect
 
-                    &Omicron;(query term with lowest number of matches) <!-- .element: class="fragment" -->
+                    Compare every result from one list with every result from the other: <!-- .element: class="fragment" -->
+
+                    &Omicron;(query term with highest number of matches) <!-- .element: class="fragment" -->
 
                     Notes:
                     Audience question
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Grep complexity
+
+                    * &Omicron;(num query terms &times; total length of all documents)
+                    * Can take really long
+
+                    ## <!-- .element: class="fragment" data-fragment-index="1" --> Example
+
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 10GB bytes = **20 billion string comparisons**
+
+                    Notes:
+                    How can this be improved?
                 </script>
             </section>
         </section>
@@ -293,7 +318,9 @@
         <section id="term_document_matrix_section">
             <section id="term_document_matrix" data-markdown>
                 <script type="text/template" data-separator-notes="^Notes:">
-                    # Term-document matrix
+                    # Term-document Matrix
+
+                    Reduce complexity of `grep` operation
 
                     * <!-- .element: class="fragment" data-fragment-index="1" --> Aka _incidence matrix_
                     * <!-- .element: class="fragment" data-fragment-index="1" --> Rows &rarr; Terms, Columns &rarr; Docs
@@ -346,6 +373,8 @@
                 <script type="text/template">
                     # How to query
 
+                    Replace every term in query with term vector
+
                     * (information AND retrieval) OR search
                     * = (111 &and; 100) &or; 010 <!-- .element: class="fragment" -->
                     * = 100 &or; 010 <!-- .element: class="fragment" -->
@@ -361,20 +390,57 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Complexity
+                    # Time complexity
 
-                    ## Time
+                    &Omicron;(num query terms &times; num documents &times; num distinct terms)
 
-                    * &Omicron;(num query terms &times; num documents &times; num distinct terms)  <!-- .element: class="fragment" -->
+                    ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
 
-                    ## Size
-
-                    * num(distinct terms) &times; num(docs) <!-- .element: class="fragment" -->
-                    * Very sparse (lots of 0s) <!-- .element: class="fragment" -->
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 10GB bytes = **20 billion string comparisons**
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->Term-Document Matrix: 2 query terms &times; 5M articles &times; 100M distinct terms = **1.000.000 billion lookups**
 
                     Notes:
                 </script>
             </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Time complexity with hashes
+
+                    &Omicron;(num query terms &times; 1 &times; 1)
+
+                    ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
+
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 10GB bytes = **20 billion string comparisons**
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->Term-Document Matrix: 2 query terms &times; 1 &times; 1 = **2 lookups**
+
+                    Notes:
+                </script>
+            </section>
+
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Size
+
+                    num(distinct terms) &times; num(docs)
+
+                    ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
+
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->100M distinct terms &times; 5M articles = 500.000.000.000.000 cells = **500 petabyte**
+
+                    ----
+
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->How can the size be decreased?
+                    * <!-- .element: class="fragment" data-fragment-index="3" -->Very sparse (lots of 0s)
+
+                    Notes:
+                </script>
+            </section>
+
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
@@ -399,9 +465,9 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    * Same information as Term-document matrix, but
+                    * Same information as Term-document Matrix, but
                     * Store only 1s = Term occurences
-                    * Terms -> Docs
+                    * Terms &rarr; List of docs
 
                     Notes:
                 </script>
@@ -522,16 +588,30 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Complexity
+                    # Time complexity
 
-                    ## Time
+                    * &Omicron;(num query terms)
+                    * Improvement: Does not depend on number of documents
 
-                    * &Omicron;(num query terms &times; postings list length) <!-- .element: class="fragment" -->
-                    * Improvement: Does not depend on number of documents  <!-- .element: class="fragment" -->
+                    ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
 
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->Term-Document Matrix: 2 query terms &times; 1 &times; 1 = **2 lookups**
+                    * <!-- .element: class="fragment" data-fragment-index="12 -->Inverted Index: 2 query terms &times; 1 &times; 1 = **2 lookups**
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
                     ## Size
 
-                    * vocabulary + postings <!-- .element: class="fragment" -->
+                    * num(distinct terms) &times; num(average postings list length)
+
+                    ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
+
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->Term-Document Matrix: 100M distinct terms &times; 5M articles = 500.000.000.000.000 cells = **500 petabyte**
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->Inverted Index: 100M distinct terms &times; 10K postings per terms = **1 petabyte**
                 </script>
             </section>
 
