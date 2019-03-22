@@ -266,7 +266,21 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # How to search?
+                    # Grep
+
+                    Find *book*  in \#1: _a book about information retrieval_
+
+                    * <!-- .element: class="fragment fade-in-then-out" data-fragment-index="1" --><span>a bo</span><!-- .element: class="fragment highlight-fl" data-fragment-index="1" -->ok about information retrieval
+                    * <!-- .element: class="fragment fade-in-then-out" data-fragment-index="2" -->a<span> boo</span><!-- .element: class="fragment highlight-fl" data-fragment-index="2" -->k about information retrieval
+                    * <!-- .element: class="fragment" data-fragment-index="3" -->a <span>book</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" --> about information retrieval <span>&rarr; Match</span><!-- .element: class="fragment" style="color: green;" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Intersect / Union
 
                     * <!-- .element: class="fragment" data-fragment-index="1" --> \#1: _a book about information retrieval_
                     * <!-- .element: class="fragment" data-fragment-index="1" --> \#2: _a book about the search for information_
@@ -317,8 +331,8 @@
 
                     ## <!-- .element: class="fragment" data-fragment-index="1" --> Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 10GB bytes = **20 billion string comparisons**
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 10GB = **20 billion string comparisons**
 
                     Notes:
                     How can this be improved?
@@ -331,12 +345,12 @@
                 <script type="text/template" data-separator-notes="^Notes:">
                     # Term-document Matrix
 
-                    Reduce complexity of `grep` operation
+                    Reduce time complexity of `grep` operation
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> Aka _incidence matrix_
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> Rows &rarr; Terms, Columns &rarr; Docs
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> Cell &rarr; If term in doc: 1, else: 0
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> Needs to pre-built
+                    * Aka _incidence matrix_
+                    * Terms &rarr; Rows, Docs &rarr; Columns
+                    * Cell &rarr; If term in doc: 1, else: 0
+                    * Needs to pre-built
                 </script>
             </section>
 
@@ -407,9 +421,9 @@
 
                     ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 10GB bytes = **20 billion string comparisons**
-                    * <!-- .element: class="fragment" data-fragment-index="2" -->Term-Document Matrix: 2 query terms &times; 5M articles &times; 100M distinct terms = **1.000.000 billion lookups**
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 10GB = **20 billion string comparisons**
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->Term-Document Matrix: 2 query terms &times; 5M articles &times; 1M distinct terms = **10 trillion lookups**
 
                     Notes:
                 </script>
@@ -423,8 +437,8 @@
 
                     ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 10GB bytes = **20 billion string comparisons**
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 10GB = **20 billion string comparisons**
                     * <!-- .element: class="fragment" data-fragment-index="1" -->Term-Document Matrix: 2 query terms &times; 1 &times; 1 = **2 lookups**
 
                     Notes:
@@ -436,12 +450,12 @@
                 <script type="text/template">
                     # Size
 
-                    num(distinct terms) &times; num(docs)
+                    num(distinct terms) &times; num(docs) bits
 
                     ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->100M distinct terms &times; 5M articles = 500.000.000.000.000 cells = **500 petabyte**
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->1M distinct terms &times; 5M articles = 5.000.000.000.000 cells = **5 terrabit**
 
                     ----
 
@@ -606,7 +620,7 @@
 
                     ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
                     * <!-- .element: class="fragment" data-fragment-index="1" -->Term-Document Matrix: 2 query terms &times; 1 &times; 1 = **2 lookups**
                     * <!-- .element: class="fragment" data-fragment-index="12 -->Inverted Index: 2 query terms &times; 1 &times; 1 = **2 lookups**
                 </script>
@@ -620,9 +634,9 @@
 
                     ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 100M distinct terms
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->Term-Document Matrix: 100M distinct terms &times; 5M articles = 500.000.000.000.000 cells = **500 petabyte**
-                    * <!-- .element: class="fragment" data-fragment-index="2" -->Inverted Index: 100M distinct terms &times; 10K postings per terms = **1 petabyte**
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->Term-Document Matrix: 1M distinct terms &times; 5M articles = 5.000.000.000.000 cells = **5 terrabit**
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->Inverted Index: 1M distinct terms &times; 10K postings per terms &times; 4 bytes per document ID = 40.000.000.000 = **40 gigabytes**
                 </script>
             </section>
 
@@ -763,21 +777,16 @@
                 <script type="text/template">
                     # Challenge
 
-                    * Inverted index can only find exact tokens <!-- .element: class="fragment" data-fragment-index="1" -->
+                    Inverted index can only find exact tokens
 
-                    ***
-                    <!-- .element: class="fragment" data-fragment-index="2" -->
                     | Term        | Doc IDs    |
                     |-------------|------------|
                     | book        | #1, #2, #3  |
                     | information | #1, #2, #3  |
                     | retrieval   | #1          |
                     | search      | #2          |
-                    <!-- .element: class="fragment" data-fragment-index="2" -->
-                    ***
-                    <!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    * <!-- .element: class="fragment" data-fragment-index="3" --> _e-book_ will not find _book_
+                     _e-book_ will return no results!
 
                     Notes:
                 </script>
@@ -896,11 +905,11 @@
                 <script type="text/template">
                     # Stemming
 
-                    * Reduce word endings to find common stem
-                    * *housing*, *houses*, *house* &rarr; *hous*
+                    * Reduce word endings to find common stem:
+                        * *housing*, *houses*, *house* &rarr; *hous*
                     * Heuristic approach, not linguistic
                     * May find common stem for unrelated words:
-                    * *organization*, *organs* &rarr; *organ*
+                        * *organization*, *organs* &rarr; *organ*
 
                     Notes:
                 </script>
@@ -1110,6 +1119,7 @@
 
                     Notes:
                     * Am Whiteboard machen?
+                    * How to evaluate?
                 </script>
             </section>
 
@@ -1117,18 +1127,20 @@
                 <script type="text/template">
                     # Evaluation
 
-                    * Requires human effort <!-- .element: class="fragment" data-fragment-index="1" -->
-                    * Annotated corpus: <!-- .element: class="fragment" data-fragment-index="2" -->
+                    * Requires human effort
+                    * Annotated corpus:
 
-                    | Document / Information Need | Smartphone | Apple Smartphone | Smartphone Accessory |
-                    |-----------------------------|------------|------------------|----------------------|
-                    | Apple iPhone 7 | ✓ <!-- .element: class="fragment" data-fragment-index="4" --> | ✓ <!-- .element: class="fragment" data-fragment-index="4" --> | - <!-- .element: class="fragment" data-fragment-index="4" --> |
-                    | Samsung Galaxy S7 | ✓ <!-- .element: class="fragment" data-fragment-index="5" --> | - <!-- .element: class="fragment" data-fragment-index="5" --> | - <!-- .element: class="fragment" data-fragment-index="5" --> |
-                    | Cover for Samsung Galaxy S7 | - <!-- .element: class="fragment" data-fragment-index="6" --> | - <!-- .element: class="fragment" data-fragment-index="6" --> | ✓ <!-- .element: class="fragment" data-fragment-index="6" --> |
-                    | Battery pack | - <!-- .element: class="fragment" data-fragment-index="7" --> | - <!-- .element: class="fragment" data-fragment-index="7" --> | ✓ <!-- .element: class="fragment" data-fragment-index="7" --> |
-                    <!-- .element: class="fragment" data-fragment-index="3" -->
+                    ----
 
-                    * Augment with click logs <!-- .element: class="fragment" data-fragment-index="8" -->
+                    | Information Need | iPhone X | Galaxy S10 | Cover for Galaxy S10 | Battery Pack |
+                    |-------------------------------------------|----------|------------|----------------------|--------------|
+                    | smartphone | ✓ | ✓ | - | - |
+                    | apple smartphone | ✓ | - | - | - |
+                    | smartphone accessory | - | - | ✓ | ✓ |
+
+                    ----
+
+                    * Augment with click-stream logs
 
                     Notes:
 
@@ -1234,6 +1246,7 @@
                     * <!-- .element: class="fragment" --> Long documents have higher TF
 
                     Notes:
+                    Audience question
                 </script>
             </section>
 
