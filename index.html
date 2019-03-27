@@ -1254,13 +1254,28 @@
                 <script type="text/template">
                     # II: Inverse document frequency
 
+                    * <!-- .element: class="fragment" --> Searching apple.com for `apple OR iphone`
+                        * fewer documents with `iphone` than `apple`
+                        * `iphone` more important
                     * <!-- .element: class="fragment" --> Rank uncommon terms higher
                     * <!-- .element: class="fragment" --> Only relevant for OR search
-                    * <!-- .element: class="fragment" --> "apple iphone" &rarr; "iphone" more important than "apple"
-                    * <!-- .element: class="fragment" --> `idf(t) = num_docs / df(t)`
+                    * <!-- .element: class="fragment" --> Store value per term
 
                     Notes:
+                    * Why is it only relevant for OR search?
+                    * Why is it stored per term?
                 </script>
+            </section>
+
+            <section>
+                <h1>Inverse Document Frequency</h1>
+                $$\text{idf}(\text{term}) = \frac{\text{num_docs}}{\text{document_frequency}(\text{term})}$$
+
+                <h2>Example</h2>
+                \[\begin{aligned}
+                \text{idf}(\text{apple}) & = \frac{10}{9} & = 1.1 \\
+                \text{idf}(\text{iphone}) & = \frac{10}{2} & = 5
+                \end{aligned} \]
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -1290,8 +1305,10 @@
                 <script type="text/template">
                     # TF-IDF Ranking
 
-                    ![tf-idf](images/tf-idf.png)<!-- .element: style="border: none; box-shadow: none;" -->
+                    $$\text{score}(\text{query}, \text{document}) = \sum_{\text{term} \in \text{query}} \left( \text{tf}(\text{term}, \text{document}) \times \text{idf}(\text{term}) \right)$$
+
                     Notes:
+                    * Explain formula in human-speak.
                 </script>
             </section>
 
@@ -1330,7 +1347,7 @@
 
                     * Solr default is now [Okapi BM25](https://en.wikipedia.org/wiki/Okapi_BM25)
                     * Also based on TF-IDF
-                    * Much less descriptive
+                    * Much less descriptive:
 
                     $${\displaystyle {\text{score}}(D,Q)=\sum_{i=1}^{n}{\text{IDF}}(q_i)\cdot {\frac {TF(q_i,D)\cdot (k_1+1)}{TF(q_i,D)+k_1\cdot \left(1-b+b\cdot {\frac {|D|}{\text{avgdl}}}\right)}}}$$ <!-- .element: class="fragment" -->
 
@@ -1355,9 +1372,10 @@
                     * <!-- .element: class="fragment" --> Search for names and concepts: `"fh salzburg"`, `"mountain bike"`
                     * <!-- .element: class="fragment" --> Well accepted by users
                     * <!-- .element: class="fragment" --> But: `"fh salzburg"` should not match *In Salzburg there is a University and a FH*
-                    * <!-- .element: class="fragment" --> Needs more advanced index
+                    * <!-- .element: class="fragment" --> Needs more advanced index with positional information
 
                     Notes:
+                    * Can the current index handle this?
                 </script>
             </section>
 
@@ -1397,9 +1415,12 @@
                             * <!-- .element: class="fragment" --> [**1**, <span style="color: lightgray;">4</span>] - [<span style="color: lightgray;">2</span>, **3**] = -2 != 1
                             * <!-- .element: class="fragment" --> [<span style="color: lightgray;">1</span>, **4**] - [**2**, <span style="color: lightgray;">3</span>] = 2 != 1
                             * <!-- .element: class="fragment" --> [<span style="color: lightgray;">1</span>, **4**] - [<span style="color: lightgray;">2</span>, **3**] = 1 &rarr; match
+                                * <!-- .element: class="fragment" --> #1: retrieving more information about *information retrieval*
                         * <!-- .element: class="fragment" --> #2:[2] - #2:[5]
                             * <!-- .element: class="fragment" --> [**2**] - [**5**] = -3 != 1
 
+                    Notes:
+                    * Can this used proximity regardless of order, eg. match "retrieval information" as well?
                 </script>
             </section>
 
@@ -1432,22 +1453,6 @@
                     | study at    | #1      |
                     | at fh       | #1      |
                     | fh salzburg | #1      |
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Complexity
-
-                    ## Space
-
-                    num terms &times; num docs &times; average term frequency <!-- .element: class="fragment" -->
-
-                    ## Time
-
-                    &Omicron;(num query terms &times; num documents &times; num distinct terms &times; average term frequency) <!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
@@ -1576,35 +1581,68 @@
                 <script type="text/template">
                     # Wildcard queries
 
-                    <!-- .element: class="fragment" --> Expand query:
+                    Expand query:
 
-                    <!-- .element: class="fragment" --> `i*`
+                    `i*`
 
-                    <!-- .element: class="fragment" --> &darr;
+                    &darr;
 
-                    <!-- .element: class="fragment" --> `iPhone OR  iPad OR iPod`
+                    | Term | Documents |
+                    |--------|------------|
+                    | galaxy | #2, #4 |
+                    | **iphone** | #2, #3 |
+                    | **ipad** | #2, #3, #4 |
+                    | lumia | #1 |
+
+                    &darr;
+
+                    `iphone OR ipad`
 
                     Notes:
+                    * How to get prefix queries?
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Wildcard queries
+                    # `salz*`
 
-                    ##### <!-- .element: class="fragment" --> `salz*`
-                    <!-- .element: class="fragment" --> Comes free with search tree
+                    Comes free with search tree
 
-                    ##### <!-- .element: class="fragment" --> `*burg`
-                    <!-- .element: class="fragment" --> Build index with reversed terms
-
-                    ##### <!-- .element: class="fragment" --> `sal*urg`
-                    <!-- .element: class="fragment" --> Intersect regular and reverse tree
+                    ![Search Tree Forward](images/Search Tree Forward.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
                     Notes:
-                    * How to get prefix wildcard queries?
+                    * How to get suffix queries?
                 </script>
             </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # `*burg`
+
+                    Build index with reversed terms
+
+                    ![Search Tree Reversed](images/Search Tree Reversed.png) <!-- .element: style="border: none; box-shadow: none;" -->
+
+                    Notes:
+                    * How to infix queries?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # `sal*urg`
+
+                    Intersect regular and reverse tree
+
+                    ![Search Tree Intersect](images/Search Tree Intersect.png) <!-- .element: style="border: none; box-shadow: none;" -->
+
+                    Notes:
+
+                </script>
+            </section>
+
+
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
