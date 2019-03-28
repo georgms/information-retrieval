@@ -99,6 +99,7 @@
             ## Let's play a game – rules:
 
             1. You know your names
+            2. I have a list of all names. It's not in alphabetical order and I cannot reorder it.
             2. You cannot say your name
             3. You can only say *yes* or *no* when asked for a name
 
@@ -1826,8 +1827,7 @@
                 <script type="text/template">
                     # Levenshtein
 
-                    * Expensive
-                    * Cannot be precomputed
+                    * Expensive: Cannot be precomputed
                     * `num(query terms) × num(vocabulary terms)`
 
                     Notes:
@@ -2092,6 +2092,7 @@
                     * Bonus points:
                         * Implement TF normalization
                         * Parallelize indexing
+                        * Surprise me
                     * Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
                     * Provide instructions on how to run (including version, dependencies etc.)
                     * **Deadline**: 07.05.2018 11:59:59
@@ -2099,38 +2100,6 @@
                     Notes:
                 </script>
             </section>
-        </section>
-
-        <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                # Project status
-
-                * Any questions?
-                * Requirements:
-                * At least one facet (filter)
-                * Case insensitive search
-                * Search multiple fields with different weights
-
-                Notes:
-            </script>
-        </section>
-
-        <section data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                # Solr
-
-                Any questions?
-
-                Notes:
-            </script>
-        </section>
-
-        <section id="III" data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                # III
-
-                Notes:
-            </script>
         </section>
 
         <section id="field_weights_section">
@@ -2249,7 +2218,8 @@
                 <script type="text/template">
                     # Vector Space Model
 
-                    * Calculate similarity between
+                    Calculate similarity between
+
                     * queries and docs <!-- .element: class="fragment" -->
                     * docs and docs <!-- .element: class="fragment" -->
                     * queries and queries <!-- .element: class="fragment" -->
