@@ -2522,6 +2522,8 @@
                     # Scaling
 
                     Notes:
+
+                    Scaling reasons?
                 </script>
             </section>
 
@@ -2555,6 +2557,8 @@
                     ![scaling up](images/scaling up.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
                     Notes:
+
+                    (Dis-)Advantages of Scaling up?
                 </script>
             </section>
 
@@ -2581,6 +2585,8 @@
                     ![scaling out](images/scaling out.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
                     Notes:
+
+                    (Dis-)Advantages of Scaling out?
                 </script>
             </section>
 
@@ -2623,7 +2629,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Partitioned index
+                    # Non-Partitioned index
 
 
                     | Term        | Doc IDs    |
@@ -2646,7 +2652,7 @@
                     * By doc
 
                     Notes:
-                    What can the index be partitioned by? Think of the Inverted Index?
+                    How can the index be partitioned? Think of the Inverted Index.
                 </script>
             </section>
 
@@ -2658,6 +2664,8 @@
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
 
                     Notes:
+
+                    (Dis-)Advantages of Term-partitioned index?
                 </script>
             </section>
 
@@ -2665,10 +2673,10 @@
                 <script type="text/template">
                     # Term-partitioned index
 
+                    * \+ Single term queries are easy
                     * \- Uneven distribution
-                    * \- Inter-node communication
+                    * \- Heavy inter-node communication
                     * \- Hard to update index
-                    * \- No query parallelization
 
                     <!-- .element: style="list-style-type: none;" -->
 
@@ -2683,6 +2691,8 @@
                     <p class="stretch">![Document-partitioned index](images/Document-partitioned index.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
                     Notes:
+
+                    (Dis-)Advantages of Term-partitioned index?
                 </script>
             </section>
 
@@ -2690,8 +2700,26 @@
                 <script type="text/template">
                     # Document-partitioned index
 
+                    * \+ Even distribution
+                    * \+ Little inter-node communication
+                    * \+ Easy to update index
+                    * \+ Completely independent partial indices
+                    * \- Even single query terms are complex
+
+                    <!-- .element: style="list-style-type: none;" -->
+
+                    Notes:
+                </script>
+            </section>
+
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Document-partitioned index
+
                     * Number of nodes is fixed
-                    * `node(doc) = id(doc) % num(nodes)`
+                    * $\text{node}(\text{doc}) = \text{id}(\text{doc}) \, \% \, \text{num}(\text{nodes})$
+                    * $\text{node}(\text{#4}) = 4 \, \% \, 3 = 1$
 
                     Notes:
                 </script>
@@ -2703,8 +2731,34 @@
 
                     <p class="stretch">![Document-partitioned query](images/Document-partitioned query.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+
                     Notes:
+
+                    What is the performance improvement?
                 </script>
+            </section>
+
+            <section data-markdown>
+                <textarea data-template>
+                    # Performance improvement
+
+                    $$\text{Distributed query time} \approx \frac{\text{Non-distributed query time}}{\text{Number of nodes}}$$<!--
+                    .element: class="fragment" -->
+
+                </textarea>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <textarea data-template>
+                    # Further improvements
+
+                    * Handle more traffic
+                    * Handle failure
+
+                    Notes:
+                    How?
+                </textarea>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -2722,20 +2776,20 @@
                 <script type="text/template">
                     # Sharding nomenclature
 
-                    ## Shard <!-- .element: class="fragment" -->
+                    ## Shard <!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    * Slice of document collection <!-- .element: class="fragment" -->
+                    * Slice of document collection <!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    ## Master / Leader / Primary <!-- .element: class="fragment" -->
+                    ## Master / Leader / Primary <!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    * Distribute requests to Replicas <!-- .element: class="fragment" -->
-                    * Distribute requests to other Masters <!-- .element: class="fragment" -->
+                    * Distribute requests to Replicas <!-- .element: class="fragment" data-fragment-index="2" -->
+                    * Distribute requests to other Masters <!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    ## Replica <!-- .element: class="fragment" -->
+                    ## Replica <!-- .element: class="fragment" data-fragment-index="3" -->
 
-                    * Contains all documents of shard <!-- .element: class="fragment" -->
-                    * Will actually handle queries <!-- .element: class="fragment" -->
-                    * Can become Master <!-- .element: class="fragment" -->
+                    * Contains all documents of shard <!-- .element: class="fragment" data-fragment-index="3" -->
+                    * Will actually handle queries <!-- .element: class="fragment" data-fragment-index="3" -->
+                    * Can become Master <!-- .element: class="fragment" data-fragment-index="3" -->
 
                     Notes:
                 </script>
@@ -2745,8 +2799,10 @@
                 <script type="text/template">
                     # More shards
 
-                    * More docs<!-- .element: class="fragment" -->
-                    * Better query parallelization<!-- .element: class="fragment" -->
+                    * More docs
+                    * Better query parallelization
+                        * A single query is faster
+                        * $\text{Shards} \times 2 \approx \text{Index} \div 2 \approx \text{Performance} \times 2$
 
                     Notes:
                 </script>
@@ -2756,8 +2812,10 @@
                 <script type="text/template">
                     # More Replicas
 
-                    * Better resiliency<!-- .element: class="fragment" -->
-                    * Better concurrency<!-- .element: class="fragment" -->
+                    * Better resiliency
+                    * Better concurrency
+                        * More queries can be handled in parallel
+                        * $\text{Replicas} \times 2 \approx \text{Parallel queries} \times 2$
 
                     Notes:
                 </script>
@@ -2786,6 +2844,8 @@
                         * …
 
                     Notes:
+
+                    * What are use cases?
                 </script>
             </section>
 
@@ -2794,15 +2854,13 @@
                 <script type="text/template">
                     # Why?
 
-                    * Standing queries (Google Alerts)<!-- .element: class="fragment" data-fragment-index="1" -->
-                    * Spam filter<!-- .element: class="fragment" data-fragment-index="1" -->
-                    * Webspam detection<!-- .element: class="fragment" data-fragment-index="1" -->
-                    * Language detection<!-- .element: class="fragment" data-fragment-index="1" -->
-                    * Sentiment detection<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Standing queries (Google Alerts)
+                    * Spam filter
+                    * Webspam detection
+                    * Language detection
+                    * Sentiment detection
 
                     Notes:
-
-                    * What are use cases?
                 </script>
             </section>
 
@@ -2810,14 +2868,14 @@
                 <script type="text/template">
                     # How?
 
-                    * Make humans do it<!-- .element: class="fragment" data-fragment-index="" -->
-                        * Needs domain experts<!-- .element: class="fragment" data-fragment-index="" -->
-                        * Does not scale with amount of data<!-- .element: class="fragment" data-fragment-index="" -->
-                    * Make machines do it<!-- .element: class="fragment" data-fragment-index="" -->
-                        * Needs lots of data<!-- .element: class="fragment" data-fragment-index="" -->
+                    * Make humans do it<!-- .element: class="fragment" data-fragment-index="1" -->
+                        * Needs domain experts<!-- .element: class="fragment" data-fragment-index="1" -->
+                        * Does not scale with amount of data<!-- .element: class="fragment" data-fragment-index="1" -->
+                    * Make machines do it<!-- .element: class="fragment" data-fragment-index="2" -->
+                        * Needs lots of data<!-- .element: class="fragment" data-fragment-index="2" -->
 
                     Notes:
-
+                    * How?
                     * What's the issue with humans doing it?
                 </script>
             </section>
@@ -2853,15 +2911,21 @@
                     # Class membership
 
                     * Single / one-of
+                        * Spam<!-- .element: class="fragment" data-fragment-index="1" -->
                     * Multiple / any-of
+                        * Language<!-- .element: class="fragment" data-fragment-index="2" -->
 
                     # Classifiers
 
                     * One class: Belongs to class or not
-                    * Two class: Belongs to either class
-                    * Multi class: Belongs to one or more classes
+                        * Spam<!-- .element: class="fragment" data-fragment-index="3" -->
+                    * Two class: Belongs to one of two class
+                        * Positive or negative sentiment<!-- .element: class="fragment" data-fragment-index="4" -->
+                    * Multi class: Belongs to one of many classes
+                        * Language<!-- .element: class="fragment" data-fragment-index="5" -->
 
                     Notes:
+                    Examples?
                 </script>
             </section>
         </section>
@@ -2886,13 +2950,23 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Naive Bayes Challenge
+
+                    Probability of A if B:
+
+                    $$P(A | B)$$
+
                     Probability that document belongs to class:
 
                     $$P(\text{class} | \text{document})$$
 
-                    Probability that mail with content is spam:
+                    Probability that mail with $\text{\$term}$ is spam:
 
-                    $$P(\text{spam} | \text{content})$$
+                    $$P(\text{spam} | \text{\$term})$$
+
+                    Probability that mail with term $\text{viagra}$ is spam:
+
+                    $$P(\text{spam} | \text{viagra})$$
 
                     This probability is not known.
 
@@ -2901,16 +2975,18 @@
             </section>
 
             <section>
-                <p>Known:</p>
+                <h1>Known:</h1>
+
+                <p>Based on training data.</p>
 
                 \[\begin{aligned}
                 P(\text{spam}) &= \frac{\text{Number of spam mails}}{\text{Total number of mails}}\\
                 \\
-                P(\text{content}) &= \frac{\text{Number of mails with this content / these terms}}{\text{Total number of mails}}\\
+                P(\text{viagra}) &= \frac{\text{Number of mails with term $viagra$}}{\text{Total number of mails}}\\
                 \\
-                P(\text{term}|\text{spam}) &= \frac{\text{Term frequency in spam docs} + 1}{\text{Spam vocabulary size} + \text{Total vocabulary size}}\\
+                P(\text{viagra}|\text{spam}) &= \frac{\text{Number of mails with term $viagra$}}{\text{Number of spam mails}}\\
                 \\
-                P(\text{content}|\text{spam}) &= \prod_{\text{term } \in \text{ content}} P(\text{term}|\text{spam})
+                P(\text{\$content}|\text{spam}) &= \prod_{\text{\$term } \in \text{ \$content}} P(\text{\$term}|\text{spam})
                 \end{aligned}\]
             </section>
 
@@ -2918,25 +2994,25 @@
                 <h1>Bayes Theorem</h1>
 
                 \[\begin{aligned}
-                    P(\text{spam} | \text{content}) &= \text{Probability that spam mail contains this content}\\
-                    &= \frac{P(\text{spam}) \times \prod_{\text{term } \in \text{ content}} tf(\text{term}, \text{doc}) \times P(\text{term} | \text{spam})}{P(\text{content})}\\
+                    P(\text{spam} | \text{\$content}) &= \text{Probability that mail with this content is spam}\\
+                    &= \frac{P(\text{spam}) \times P(\text{\$content} | \text{spam})}{P(\text{\$content})}\\
                 \end{aligned}\]
             </section>
 
             <section>
 
                 \[\begin{aligned}
-                P(\text{spam} | \text{content}) &= \frac{P(\text{spam}) \times P(\text{content} | \text{spam})}{P(\text{content})}\\
+                P(\text{spam} | \text{\$content}) &= \frac{P(\text{spam}) \times P(\text{\$content} | \text{spam})}{P(\text{\$content})}\\
                 \\
-                P(\text{ham} | \text{content}) &= \frac{P(\text{ham}) \times P(\text{content} | \text{ham})}{P(\text{content})}
+                P(\text{ham} | \text{\$content}) &= \frac{P(\text{ham}) \times P(\text{\$content} | \text{ham})}{P(\text{\$content})}
                 \end{aligned}\]
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    Mail is spam if $P(\text{spam} | \text{content}) > P(\text{ham} | \text{content})$ so
+                    Mail is spam if $P(\text{spam} | \text{\$content}) > P(\text{ham} | \text{\$content})$ so
 
-                    $$\text{Spam:} \frac{P(\text{spam} | \text{content})}{P(\text{ham} | \text{content})} = \frac{P(\text{spam}) \times P(\text{content} | \text{spam})}{P(\text{ham}) \times P(\text{content} | \text{ham})} > 1$$
+                    $$\text{Spam:} \frac{P(\text{spam} | \text{\$content})}{P(\text{ham} | \text{\$content})} = \frac{P(\text{spam}) \times P(\text{\$content} | \text{spam})}{P(\text{ham}) \times P(\text{\$content} | \text{ham})} > 1$$
 
                     Notes:
                 </script>
