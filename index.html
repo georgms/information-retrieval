@@ -2931,6 +2931,11 @@
         </section>
 
         <section id="naive_bayes_section">
+            <section data-markdown>
+                <textarea data-template>
+                    # Naive Bayes Classficiation
+                </textarea>
+            </section>
             <section id="naive_bayes" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Basic Probability
@@ -2962,6 +2967,7 @@
                     88\%$$<!-- .element: class="fragment" -->
 
                     Notes:
+                    Audience questions
                 </script>
             </section>
 
@@ -2978,7 +2984,9 @@
 
                     $$P(\text{winter}) = \frac{\text{Days in winter}}{\text{Days in the year}} = \frac{90}{365} =
                     25\%$$<!-- .element: class="fragment" -->
+
                     Notes:
+                    Audience questions
                 </script>
             </section>
 
@@ -3001,19 +3009,19 @@
                 <textarea data-template>
                     # Bayes for text classification
 
-                    Probability that document belongs to class:
+                    Probability that document belongs to class:<!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    $$P(\text{class} | \text{document})$$
+                    $$P(\text{class} | \text{document})$$<!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    Probability that mail with $\text{\$term}$ is spam:
+                    Probability that mail with $\text{\$term}$ is spam:<!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    $$P(\text{spam} | \text{\$term})$$
+                    $$P(\text{spam} | \text{\$term})$$<!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    Probability that mail with term $\text{viagra}$ is spam:
+                    Probability that mail with term $\text{viagra}$ is spam:<!-- .element: class="fragment" data-fragment-index="3" -->
 
-                    $$P(\text{spam} | \text{viagra})$$
+                    $$P(\text{spam} | \text{viagra})$$<!-- .element: class="fragment" data-fragment-index="3" -->
 
-                    This probability is not known.
+                    This probability is not known.<!-- .element: class="fragment" data-fragment-index="4" -->
                 </textarea>
             </section>
 
@@ -3099,6 +3107,8 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Why?
+
                     * Do not use all terms for training
                     * Less terms = better training and runtime performance
                     * Reduce noise
@@ -3114,6 +3124,7 @@
                     * How much information does term contain about class?
                     * 1 if it occurs only in docs of class
                     * 0 if it occurs in all documents with equal distribution
+                    * Between 0 and 1 if it occurs in some docs
 
                     Notes:
                 </script>
@@ -3140,7 +3151,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    Represent document as vector
+                    # Document as vector
 
                     <p class="stretch">![Vectors](images/Vectors.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
@@ -3168,6 +3179,8 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Rocchio Classification
+
                     <p class="stretch">![Rocchio](images/Rocchio.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
 
@@ -3190,6 +3203,8 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # k Nearest Neighbor (kNN)
+
                     <p class="stretch">![kNN](images/kNN.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
 
@@ -3203,7 +3218,10 @@
                 <script type="text/template">
                     # Support Vector Machines (SVM)
 
-                    * Find class separator hyperplane with maximum margin
+                    * Separate documents into two classes
+                    * Draw a _line_ between the two classes
+                    * Infinite number of lines possible
+                    * Use the one with largest margin
                     * Larger margin = more confident decision
                     Notes:
 
@@ -3271,12 +3289,24 @@
                 <script type="text/template">
                     # Vector Space Classifier Types
 
-                    * Linear: Can draw hyperplane between classes
+                    * Linear: Border between classes is a _line_
                         * 1D hyperplane: point
                         * 2D hyperplane: line
+                        * 3D hyperplane: plane
                     * Non-Linear: Opposite of linear
                 </script>
             </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # How to determine linearity?
+
+                    1. Classify new document
+                    2. Do this many times
+                    3. Look at border. Is it a _line_?
+                </script>
+            </section>
+
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
@@ -3331,11 +3361,10 @@
                 <script type="text/template">
                     # Confusion Matrix
 
-                    | Assigned class \ True class | Class 1 | Class 2 | Class 3 |
-                    |-----------------------------|---------|---------|---------|
-                    | Class 1 | 35 | 2 | 5 |
-                    | Class 2 | 4 | 33 | 2 |
-                    | Class 3 | 1 | 20 | 15 |
+                    | &darr; Assigned class \ True class &rarr; | Spam | Ham |
+                    |-----------------------------|------|-----|
+                    | Spam | 35<!-- .element: style="background-color: GreenYellow;" --> | 2<!-- .element: style="background-color: GreenYellow;" --> |
+                    | Ham | 10<!-- .element: style="background-color: OrangeRed;" --> | 33<!-- .element: style="background-color: GreenYellow;" --> |
 
                 </script>
             </section>
@@ -3935,11 +3964,13 @@
 
                     Majority of search traffic
 
-                    * *computer science*
-                    * *salzburg sights*
-                    * *lolcats*
+                    * "computer science" <!-- .element: class="fragment" data-fragment-index="" -->
+                    * "salzburg sights" <!-- .element: class="fragment" data-fragment-index="" -->
+                    * "lolcats" <!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
+
+                    Examples?
                 </script>
             </section>
 
@@ -3951,11 +3982,13 @@
 
                     Clear facts
 
-                    * *how old is sebastian kurz*
-                    * *5 usd in eur*
-                    * *capitol of austria*
+                    * "how old is sebastian kurz" <!-- .element: class="fragment" data-fragment-index="" -->
+                    * "5 usd in eur" <!-- .element: class="fragment" data-fragment-index="" -->
+                    * "capitol of austria" <!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
+
+                    Examples?
                 </script>
             </section>
 
@@ -3965,11 +3998,13 @@
 
                     ## Go
 
-                    * *fh salzburg homepage*
-                    * *youtube*
-                    * *apple.com*
+                    * "fh salzburg homepage" <!-- .element: class="fragment" data-fragment-index="" -->
+                    * "youtube" <!-- .element: class="fragment" data-fragment-index="" -->
+                    * "apple.com" <!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
+
+                    Examples?
                 </script>
             </section>
 
@@ -3979,11 +4014,13 @@
 
                     ## Do
 
-                    * *buy iphone 7*
-                    * *flight to salzburg*
-                    * *viagra*
+                    * "buy iphone 7" <!-- .element: class="fragment" data-fragment-index="" -->
+                    * "flight to salzburg" <!-- .element: class="fragment" data-fragment-index="" -->
+                    * "viagra" <!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
+
+                    Examples?
                 </script>
             </section>
 
@@ -3993,11 +4030,13 @@
 
                     ## Visit-in-person
 
-                    * *pizza place*
-                    * *bike repair*
-                    * *fh salzburg*
+                    * "pizza place" <!-- .element: class="fragment" data-fragment-index="" -->
+                    * "bike repair" <!-- .element: class="fragment" data-fragment-index="" -->
+                    * "fh salzburg" <!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
+
+                    Examples?
                 </script>
             </section>
 
@@ -4006,10 +4045,14 @@
                     # Interpretation
 
                     * Often subjective
-                    * *iphone*: Informational or transactional?
-                    * *libro*: Navigational or visit-in-person?
+                    * "iphone"<!-- .element: class="fragment" data-fragment-index="" -->
+                        * Informational or transactional?<!-- .element: class="fragment" data-fragment-index="" -->
+                    * "libro"<!-- .element: class="fragment" data-fragment-index="" -->
+                        * Navigational or visit-in-person?<!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
+
+                    Audience question
                 </script>
             </section>
 
@@ -4053,7 +4096,7 @@
                 <script type="text/template">
                     # Conclusion
 
-                    * Don't expect query syntax
+                    * Don't require query syntax
                     * High precision on first result page
                     * Keep result page lightweight
 
