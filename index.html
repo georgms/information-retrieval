@@ -3526,6 +3526,16 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Supervised Learning Example
+
+                    ![Man Woman Classifier](images/Man Woman Classifier.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
                     # Nomenclature
 
                     ## Learning Method
@@ -3610,12 +3620,12 @@
 
                     Probability that it will snow:<!-- .element: class="fragment" -->
 
-                    $$P(\text{snow}) = \frac{\text{Days with snow}}{\text{Days in the year}} = \frac{17}{365} =
+                    $$P(\text{snow}) = \frac{\text{Days with snow per year}}{\text{Days in the year}} = \frac{17}{365} =
                     5\%$$<!-- .element: class="fragment" -->
 
                     Probability of winter:<!-- .element: class="fragment" -->
 
-                    $$P(\text{winter}) = \frac{\text{Days in winter}}{\text{Days in the year}} = \frac{90}{365} =
+                    $$P(\text{winter}) = \frac{\text{Days in winter per year}}{\text{Days in the year}} = \frac{90}{365} =
                     25\%$$<!-- .element: class="fragment" -->
 
                     Notes:
@@ -3646,13 +3656,9 @@
 
                     $$P(\text{class} | \text{document})$$<!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    Probability that mail with $\text{\$term}$ is spam:<!-- .element: class="fragment" data-fragment-index="2" -->
+                    Probability that mail with $\text{\$content}$ is spam:<!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    $$P(\text{spam} | \text{\$term})$$<!-- .element: class="fragment" data-fragment-index="2" -->
-
-                    Probability that mail with term $\text{viagra}$ is spam:<!-- .element: class="fragment" data-fragment-index="3" -->
-
-                    $$P(\text{spam} | \text{viagra})$$<!-- .element: class="fragment" data-fragment-index="3" -->
+                    $$P(\text{spam} | \text{\$content})$$<!-- .element: class="fragment" data-fragment-index="2" -->
 
                     This probability is not known.<!-- .element: class="fragment" data-fragment-index="4" -->
                 </textarea>
@@ -3662,9 +3668,12 @@
                 <h1>Bayes Theorem</h1>
 
                 \[\begin{aligned}
-                P(\text{spam} | \text{viagra}) &= \text{Probability that mail with term $viagra$ is spam}\\
-                &= \frac{P(\text{spam}) \times P(\text{viagra} | \text{spam})}{P(\text{viagra})}\\
+                P(\text{spam} | \text{\$content}) &= \text{Probability that mail with $\text{\$content}$ is spam}\\
+                &= \frac{P(\text{spam}) \times P(\text{\$content} | \text{spam})}{P(\text{\$content})}\\
                 \end{aligned}\]
+                <aside class="notes">
+                    How to calculate these probabilities?
+                </aside>
             </section>
 
             <section>
@@ -3675,27 +3684,27 @@
                 \[\begin{aligned}
                 P(\text{spam}) &= \frac{\text{Number of spam mails}}{\text{Total number of mails}}\\
                 \\
-                P(\text{viagra}) &= \frac{\text{Number of mails with term $viagra$}}{\text{Total number of mails}}\\
+                P(\text{\$content} | \text{spam}) &= \prod_{\$term \in \$content} P(\text{\$term} | \text{spam})\\
+                &= P(\text{\$term1} | \text{spam}) \times P(\text{\$term2} | \text{spam}) \times …\\
                 \\
-                P(\text{viagra}|\text{spam}) &= \frac{\text{Number of mails with term $viagra$}}{\text{Number of spam mails}}\\
+                P(\text{\$term} | \text{spam}) &= \frac{\text{Occurrences of \$term in Spam} + 1}{\text{Unique words in Spam} + \text{Total unique words}}
                 \end{aligned}\]
             </section>
 
             <section>
                 \[\begin{aligned}
-                P(\text{spam} | \text{viagra}) &= \frac{P(\text{spam}) \times P(\text{viagra} | \text{spam})}{P(\text{viagra})}\\
+                P(\text{spam} | \text{\$content}) &= \frac{P(\text{spam}) \times P(\text{\$content} | \text{spam})}{P(\text{\$content})}\\
                 \\
-                P(\text{ham} | \text{viagra}) &= \frac{P(\text{ham}) \times P(\text{viagra} | \text{ham})}{P(\text{viagra})}\\
-                &= 1 - P(\text{spam} | \text{viagra})
+                P(\text{ham} | \text{\$content}) &= \frac{P(\text{ham}) \times P(\text{\$content} | \text{ham})}{P(\text{\$content})}\\
                 \end{aligned}\]
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    Mail is spam if $P(\text{spam} | \text{viagra}) > P(\text{ham} | \text{viagra})$ so
+                    If $P(\text{spam} | \text{\$content}) > P(\text{ham} | \text{\$content})$ then mail is spam, so:
 
-                    $$\text{Spam:} \frac{P(\text{spam} | \text{viagra})}{P(\text{ham} | \text{viagra})} = \frac{P(\text{spam}) \times
-                    P(\text{viagra} | \text{spam})}{P(\text{ham}) \times P(\text{viagra} | \text{ham})} > 1$$
+                    $$\text{Spam:} \frac{P(\text{spam} | \text{\$content})}{P(\text{ham} | \text{\$content})} = \frac{P(\text{spam}) \times
+                    P(\text{\$content} | \text{spam})}{P(\text{ham}) \times P(\text{\$content} | \text{ham})} > 1$$
 
                     Notes:
                 </script>
@@ -3706,9 +3715,9 @@
                     # Naive Bayes
 
                     * Naive = Assumes features are independent
-                        * Features: (peanut, butter) are not independent<!-- .element: class="fragment" data-fragment-index="1" -->
+                        * Features: ("rolex", "replica") are not independent
                     * Predicts probability for class, not class
-                    * Robust to concept drift ("Bhutan" -> "Myanmar")
+                    * Robust to concept drift ("viagra" &rarr; "cialis")
                     * Robust to noise ("unusual" documents)
                     * Efficient and effective
 
@@ -3747,28 +3756,17 @@
                     * Reduce noise
 
                     Notes:
+                    Ideas?
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Mutual information (MI)
+                    # Text analysis
 
-                    * How much information does term contain about class?
-                    * 1 if it occurs only in docs of class
-                    * 0 if it occurs in all documents with equal distribution
-                    * Between 0 and 1 if it occurs in some docs
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Frequency based
-
-                    * Select most common terms per class
-                    * Most common terms may not contain much info about class (think stop words)
+                    * Stopwords
+                    * Stemming
+                    * N-Grams, word sequences
 
                     Notes:
                 </script>
@@ -3793,9 +3791,6 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    * Documents with same class in same region
-                    * Regions are continuous, non-overlapping
-
                     <p class="stretch">![Vector Space Classification](images/Vector Space Classification.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
                 </script>
@@ -3830,7 +3825,6 @@
                     * Assign document to class of the majority of the k nearest neighors
                     * $k = 1$: Closest neighbor
                     * Usually $k = 3$ or $k = 5$
-                    * Can be weighted by distance to neighbor
                 </script>
             </section>
 
@@ -3943,16 +3937,16 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Rocchio Classification: Linear?
+
                     <p class="stretch">![Rocchio](images/Rocchio.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Linear? *Yes*<!-- .element: class="fragment" data-fragment-index="" -->
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Rocchio: Linear
+                    # Rocchio Classification: Linear
 
                     <p class="stretch">![Rocchio Linear](images/Rocchio Linear.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
@@ -3961,10 +3955,10 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # kNN: Linear?
+
                     <p class="stretch">![kNN](images/kNN.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Linear? *No*<!-- .element: class="fragment" data-fragment-index="" -->
                 </script>
             </section>
 
@@ -4001,6 +3995,27 @@
 
                 </script>
             </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Overfitting
+
+                    ![Overfitting](images/Man Woman Classifier Overfitting.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Underfitting
+
+                    ![Underfitting](images/Man Woman Classifier Underfitting.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+
+                    Notes:
+                </script>
+            </section>
+
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
