@@ -2156,6 +2156,7 @@
                         * This means **OR** search
                     * Display top 5 results
                     * For each result show total score and per-term score
+                        * Total score is sum of per-term scores
                     * Bonus points:
                         * Implement TF normalization
                         * Parallelize indexing
@@ -3687,7 +3688,7 @@
                 P(\text{\$content} | \text{spam}) &= \prod_{\$term \in \$content} P(\text{\$term} | \text{spam})\\
                 &= P(\text{\$term1} | \text{spam}) \times P(\text{\$term2} | \text{spam}) \times …\\
                 \\
-                P(\text{\$term} | \text{spam}) &= \frac{\text{Occurrences of \$term in Spam} + 1}{\text{Unique words in Spam} + \text{Total unique words}}
+                P(\text{\$term} | \text{spam}) &= \frac{\text{Document frequency of \$term in Spam} + 1}{\text{Unique words in Spam} + \text{Total unique words}}
                 \end{aligned}\]
             </section>
 
