@@ -3563,7 +3563,7 @@
 
                     * One class: Belongs to class or not
                         * Spam<!-- .element: class="fragment" data-fragment-index="3" -->
-                    * Two class: Belongs to one of two class
+                    * Two class: Belongs to one of two classes
                         * Positive or negative sentiment<!-- .element: class="fragment" data-fragment-index="4" -->
                     * Multi class: Belongs to one of many classes
                         * Language<!-- .element: class="fragment" data-fragment-index="5" -->
@@ -3801,6 +3801,8 @@
                 <script type="text/template">
                     # Rocchio Classification
 
+                    Supports multiple classes
+
                     1. Compute center of mass / centroid for class
                     2. Assign documents to class of nearest centroid
                 </script>
@@ -3822,6 +3824,8 @@
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # k Nearest Neighbor (kNN)
+
+                    Supports multiple classes
 
                     * Assign document to class of the majority of the k nearest neighors
                     * $k = 1$: Closest neighbor
@@ -3846,11 +3850,11 @@
                 <script type="text/template">
                     # Support Vector Machines (SVM)
 
+                    Supports exactly two classes
+
                     * Separate documents into two classes
-                    * Draw a _line_ between the two classes
-                    * Infinite number of lines possible
-                    * Use the one with largest margin
-                    * Larger margin = more confident decision
+                    * By drawing a _line_ between the two classes
+
                     Notes:
 
                 </script>
@@ -3858,17 +3862,57 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Which _line_?
+
                     <p class="stretch">![SVM Possibilities](images/SVM Possibilities.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
+
                     Notes:
 
+                    Audience question. Which line and why?
+                </script>
+            </section>
+
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Hyperplane
+
+                    * 1 dimensional: point
+                    * 2 dimensional: line
+                    * 3 dimensional: plane
+
+                    Notes:
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Which hyperplane?
+
+                    Choose hyperplane with largest margin:
+
+                    Larger margin
+
+                    &darr;
+
+                    More wiggle room for both classes
+
+                    &darr;
+
+                    More confident decision
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Hyperplane with largest margin
+
                     <p class="stretch">![SVM Solution](images/SVM Solution.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
+
                     Notes:
 
                 </script>
@@ -3878,12 +3922,32 @@
                 <script type="text/template">
                     # SVM Outliers
 
-                    * Outlier could be noise
-                    * Ignore for greater margin
-                    * Pay penalty
+                    <p class="stretch">![SVM Outliers](images/SVM Outliers Problem.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Outliers decrease margin
 
                     <p class="stretch">![SVM Outliers](images/SVM Outliers.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # SVM Outliers
+
+                    * Outliers could be noise
+                    * Ignore for greater margin
+                    * Pay penalty for each outlier
+
                     Notes:
 
                 </script>
@@ -3891,7 +3955,18 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    What if data cannot be linearly separated?
+                    # SVM Outliers
+
+                    <p class="stretch">![SVM Outliers](images/SVM Outliers Solved.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Linearly inseparable data
 
                     <p class="stretch">![SVM not separable](images/SVM not separable.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
@@ -3915,23 +3990,36 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Vector Space Classifier Types
+                    # Which classifier to use?
 
-                    * Linear: Border between classes is a _line_
-                        * 1D hyperplane: point
-                        * 2D hyperplane: line
-                        * 3D hyperplane: plane
-                    * Non-Linear: Opposite of linear
+                    * Is the problem linear?
+                    * Can a hyperplane separate the classes?
+
+                    <p class="stretch">![Linear Non-Linear](images/Linear Non-Linear.svg)
+                        <!-- .element: style="border: none; box-shadow: none;" --></p>
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # How to determine linearity?
+                    # Classifier types
+
+                    * Linear classifier: Separates classes with hyperplane
+                    * Non-Linear classifier: Opposite
+                    * Linear classifier is more robust
+                    * But cannot solve non-linear problems
+
+                    Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Is classifier linear?
 
                     1. Classify new document
                     2. Do this many times
-                    3. Look at border. Is it a _line_?
+                    3. Is border between classes a hyperplane?
                 </script>
             </section>
 
@@ -3981,18 +4069,6 @@
 
                     Linear? *Yes*<!-- .element: class="fragment" data-fragment-index="" -->
                     Notes:
-
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Confusion Matrix
-
-                    | &darr; Assigned class \ True class &rarr; | Spam | Ham |
-                    |-----------------------------|------|-----|
-                    | Spam | 35<!-- .element: style="background-color: GreenYellow;" --> | 2<!-- .element: style="background-color: GreenYellow;" --> |
-                    | Ham | 10<!-- .element: style="background-color: OrangeRed;" --> | 33<!-- .element: style="background-color: GreenYellow;" --> |
 
                 </script>
             </section>
