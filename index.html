@@ -4462,14 +4462,14 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    | Rank | Query ID | Title rel.:Value | Age:Value | FeatureN:ValueN | Comment        |
+                    | Rank | Query | Title relevance | Age | FeatureN | Comment        |
                     |------|----------|-----------------|-----------------|-----------------|----------------|
-                    | 2    | qid:1    | 1:0.2             | 2:0.3             | 3:1             | # iPhone 8     |
-                    | 3    | qid:1    | 1:1.3             | 2:0.9             | 3:0             | # iPhone X     |
-                    | 1    | qid:1    | 1:0.1             | 2:1.2             | 3:0             | # iPhone cover |
-                    | 3    | qid:2    | 1:3.3             | 2:3.5             | 3:1             |                |
-                    | 2    | qid:2    | 1:1.0             | 2:1.1             | 3:1             |                |
-                    | 1    | qid:2    | 1:0.5             | 2:1.2             | 3:1             |                |
+                    | 2    | *iphone*    | 0.2             | 0.3             | 1             | # iPhone 8     |
+                    | 3    | *iphone*    | 1.3             | 0.9             | 0             | # iPhone X     |
+                    | 1    | *iphone*    | 0.1             | 1.2             | 0             | # iPhone cover |
+                    | 3    | *galaxy*    | 3.3             | 3.5             | 1             |                |
+                    | 2    | *galaxy*    | 1.0             | 1.1             | 1             |                |
+                    | 1    | *galaxy*    | 0.5             | 1.2             | 1             |                |
 
                     Notes:
                 </script>
@@ -4620,12 +4620,12 @@
                 <script type="text/template">
                     # Obtain result clicks
 
-                    | Query | Document   | Favorite color | Frequency | Rank |
-                    |-------|------------|----------------|-----------|------|
-                    | shirt | Red shirt  | red            | 5         | 3    |
-                    | shirt | Red shirt  | blue           | 2         | 2    |
-                    | shirt | Blue shirt | red            | 1         | 1    |
-                    | shirt | Blue shirt | blue           | 8         | 4    |
+                    | Query | Favorite color | Document   | Frequency | Rank |
+                    |-------|----------------|------------|-----------|------|
+                    | shirt | red            | Red shirt  | 5         | 3    |
+                    | shirt | blue           | Red shirt  | 2         | 2    |
+                    | shirt | red            | Blue shirt | 1         | 1    |
+                    | shirt | blue           | Blue shirt | 8         | 4    |
 
                     Notes:
                 </script>
@@ -4633,12 +4633,12 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    | Rank | QID | Color=Red | Color=Blue | FeatureN:ValueN | Comment |
-                    |------|----------|------------------|-------------------|-----------------|-------------------------------|
-                    | 3 | qid:1 | 1:<span style="color: red;">1</span> | 2:0 | 3:1 | # Red shirt, user likes red |
-                    | 2 | qid:1 | 1:<span style="color: red;">1</span> | 2:0 | 3:0 | # Red shirt, user likes blue |
-                    | 1 | qid:1 | 1:0 | 2:<span style="color: blue;">1</span> | 3:2 | # Blue shirt, user likes red |
-                    | 4 | qid:1 | 1:0 | 2:<span style="color: blue;">1</span> | 3:0 | # Blue shirt, user likes blue |
+                    | Rank | Query | Is Favorite Color | FeatureN | Comment |
+                    |------|-------|-------------------|-----------------|-------------------------------|
+                    | 3 | *red* | 1 | 1 | # Red shirt, user likes red |
+                    | 2 | *red* | 0 | 0 | # Red shirt, user likes blue |
+                    | 1 | *blue* | 0 | 2 | # Blue shirt, user likes red |
+                    | 4 | *blue* | 1 | 0 | # Blue shirt, user likes blue |
 
                     Notes:
                 </script>
@@ -4653,14 +4653,6 @@
                 + 3.5 &\times \text{user's favorite color}
                 \end{aligned} \]
             </section>
-        </section>
-
-        <section id="IV" data-markdown data-separator-notes="^Notes:">
-            <script type="text/template">
-                # IV
-
-                Notes:
-            </script>
         </section>
 
         <section data-markdown data-separator-notes="^Notes:">
