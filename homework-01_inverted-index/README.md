@@ -16,6 +16,12 @@ npm install
 npm run prettier
 ```
 
+# Start CLI
+
+```bash
+npm run cli
+```
+
 # Run tests
 
 ```bash

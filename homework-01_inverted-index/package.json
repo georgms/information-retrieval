@@ -1,28 +1,30 @@
 {
-  "name": "homework-01_inverted-index",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "prettier": "prettier --write **/*.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/georgms/textsearch102.git"
-  },
-  "author": "Georg M. Sorst <g.sorst@findologic.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/georgms/textsearch102/issues"
-  },
-  "homepage": "https://github.com/georgms/textsearch102#readme",
-  "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "babel-jest": "^25.1.0",
-    "glob": "^7.1.6",
-    "jest": "^25.1.0",
-    "prettier": "^1.19.1"
-  }
+    "name": "homework-01_inverted-index",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "prettier": "prettier --write **/*.{js,json}",
+        "cli": "npx babel-node cli.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/georgms/textsearch102.git"
+    },
+    "author": "Georg M. Sorst <g.sorst@findologic.com>",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/georgms/textsearch102/issues"
+    },
+    "homepage": "https://github.com/georgms/textsearch102#readme",
+    "devDependencies": {
+        "@babel/core": "^7.8.4",
+        "@babel/node": "^7.8.4",
+        "@babel/preset-env": "^7.8.4",
+        "babel-jest": "^25.1.0",
+        "glob": "^7.1.6",
+        "jest": "^25.1.0",
+        "prettier": "^1.19.1"
+    }
 }
