@@ -333,6 +333,10 @@ body {
   visibility: visible;
 }
 
+.reveal .slides section .highlight-fl {
+  color: #ff8c00;
+}
+
 .reveal .slides section .fragment.highlight-fl.visible {
   color: #ff8c00;
 }
