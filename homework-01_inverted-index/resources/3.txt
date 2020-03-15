@@ -1,1 +1,1 @@
-This is about text-search and information retrieval.
+This is about text-search and an information retrieval example.

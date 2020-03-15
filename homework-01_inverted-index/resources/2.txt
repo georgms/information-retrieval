@@ -1,1 +1,1 @@
-This is another text with more than one word.
+This is another example text with more than two fine words.
