@@ -1423,6 +1423,7 @@
                     * <!-- .element: class="fragment" --> Needs more advanced index with positional information
 
                     Notes:
+                    * How could we implement this?
                     * Can the current index handle this?
                 </script>
             </section>
@@ -1458,17 +1459,18 @@
                         * <!-- .element: class="fragment" --> *information*: #1:[2, 3], #2:[5], #3:[2]
                         * <!-- .element: class="fragment" --> *retriev*: #1:[1, 4], #2:[2]
                     2. <!-- .element: class="fragment" --> Calculate term pair distances per document, eg. `retrieval - information`:
-                        * <!-- .element: class="fragment" --> #1:[1, 4] - #1:[2, 3]
+                        * <!-- .element: class="fragment" --> _#1: retrieving more information about information retrieval_ &rarr; _retrieval_:[1, 4] - _information_:[2, 3]
                             * <!-- .element: class="fragment" --> [**1**, <span style="color: lightgray;">4</span>] - [**2**, <span style="color: lightgray;">3</span>] = -1 != 1
                             * <!-- .element: class="fragment" --> [**1**, <span style="color: lightgray;">4</span>] - [<span style="color: lightgray;">2</span>, **3**] = -2 != 1
                             * <!-- .element: class="fragment" --> [<span style="color: lightgray;">1</span>, **4**] - [**2**, <span style="color: lightgray;">3</span>] = 2 != 1
                             * <!-- .element: class="fragment" --> [<span style="color: lightgray;">1</span>, **4**] - [<span style="color: lightgray;">2</span>, **3**] = 1 &rarr; match
                                 * <!-- .element: class="fragment" --> #1: retrieving more information about *information retrieval*
-                        * <!-- .element: class="fragment" --> #2:[2] - #2:[5]
+                        * <!-- .element: class="fragment" --> _searching and retrieving a book about the search for information_ &rarr; _retrieval_:[2] - _information_:[5]
                             * <!-- .element: class="fragment" --> [**2**] - [**5**] = -3 != 1
 
                     Notes:
                     * Can this used proximity regardless of order, eg. match "retrieval information" as well?
+                    * Can this support phrase gaps, ie. `information … retrieval`?
                 </script>
             </section>
 
@@ -1479,6 +1481,7 @@
                     Supports phrase gaps: `"dwayne johnson"~2` matches *dwayne the rock johnson*
 
                     Notes:
+                    * The most common case is to search for two consecutive words. The intersection algorithm is a bit expensive. Can we speed this up?
                 </script>
             </section>
 
@@ -1537,6 +1540,7 @@
                     <!-- .element: style="font-size: small;" --> By Jorge Stolfi - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=6471238
 
                     Notes:
+                    * What is the complexity of lookup / insert? Does it get slower with more entries?
                 </script>
             </section>
 
@@ -1549,10 +1553,8 @@
                     * \+ Fast insert: &Omicron;(1)
                     * \- Hash collisions
                         * Worst case complexity: &Omicron;(n)
-                    * \- No prefix search
 
                     Notes:
-                    * What is the complexity of lookup / insert? Ο(1)
                 </script>
             </section>
 
@@ -1603,7 +1605,9 @@
                     }
                 </script>
 
-                <p>Lookup: &Omicron;(log n). Here: $log_2(4) = 2 = \text{height of tree}$</p>
+                <aside class="notes">
+                    What is the lookup / insert complexity? Does it get slower with more entries? How much? Ο(log n)
+                </aside>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -1618,7 +1622,6 @@
                         * Eg. Binary Tree (in-memory), B-Tree (on disk)
 
                     Notes:
-                    * What is the lookup / insert complexity? Ο(log n)
                 </script>
             </section>
         </section>
@@ -1656,7 +1659,7 @@
                     `iphone OR ipad`
 
                     Notes:
-                    * How to get prefix queries?
+                    * How to get prefix queries, ie. `salz*`? Think of search tree.
                 </script>
             </section>
 
@@ -1696,6 +1699,10 @@
                         ]
                     }
                 </script>
+
+                <aside class="notes">
+                    How to get suffix search, ie. `*burg`?
+                </aside>
             </section>
 
             <section>
@@ -1734,6 +1741,10 @@
                         ]
                     }
                 </script>
+
+                <aside class="notes">
+                    How to get infix search, ie. `sal*urg`?
+                </aside>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -1765,9 +1776,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # N-gram queries
-
-                    ### At index time
+                    # N-gram index
 
                     |   | Term | Doc IDs |
                     |---|------|---------|
@@ -1779,14 +1788,13 @@
                     |   | sea  | 1, 5, 9 |
 
                     Notes:
+                    * Can the original contents be reconstructed from the index?
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # N-gram queries
-
-                    ### At query time
 
                     <!-- .element: class="fragment" --> Expand query
 
@@ -2011,6 +2019,7 @@
                     * Transparency
 
                     Notes:
+                    * How does this affect precision and recall?
                 </script>
             </section>
 
@@ -2081,6 +2090,7 @@
                     <p><span class="fragment" data-fragment-index="4">`Maier` &rarr; `M600` &rarr; 1, 3, 5</span></p>
 
                     Notes:
+                    * How does this affect precision and recall?
                 </script>
             </section>
 
@@ -2092,7 +2102,6 @@
                     * <!-- .element: class="fragment" data-fragment-index="1" --> Precision down
 
                     Notes:
-                    * What does spelling correction do to recall / precision?
                 </script>
             </section>
 
