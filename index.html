@@ -2217,7 +2217,7 @@
         <section id="field_weights_section">
             <section id="field_weights" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Field weights
+                    # Use document structure for ranking
 
                     Notes:
                 </script>
@@ -2225,17 +2225,29 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Field weights
+                    # Document structure
 
-                    ![field weights](images/fields.png)
+                    ![Document Structure](images/Document Structure.png)
 
                     Notes:
+                    How can we exploit this information for ranking purposes?
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Weighted index
+                # Field weights
+
+                ![Document Structure](images/Document Structure with Field Weights.png)
+
+                Notes:
+                How can we determine the field weights?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Index with Fields
 
                     | Doc | Author | Title |
                     |-----|-----------------|----------------------------------------------------------|
@@ -2246,36 +2258,15 @@
 
                     | Term | Doc IDs |
                     |-------------|-------------------------------|
-                    | arthur | #1:Author, #2:Title |
-                    | book | #1:Title, #2:Title |
-                    | information | #1:Title |
-                    | mcauthor | #1:Author |
-                    | shakesbeer | #2:Author |
+                    | arthur | #1:Author, #2:Title<!-- .element: class="fragment" --> |
+                    | book | #1:Title, #2:Title<!-- .element: class="fragment" --> |
+                    | information | #1:Title<!-- .element: class="fragment" --> |
+                    | mcauthor | #1:Author<!-- .element: class="fragment" --> |
+                    | shakesbeer | #2:Author<!-- .element: class="fragment" --> |
                     | ... |
 
                     Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Field queries
-
-                    | Term | Doc IDs |
-                    |-------------|-------------------------------|
-                    | arthur | #1:Author, #2:Title |
-                    | shakesbeer | #2:Author |
-                    | ... |
-
-                    ***
-
-                    * <!-- .element: class="fragment" --> `title:arthur`?
-                        * <!-- .element: class="fragment" --> #2
-                    * <!-- .element: class="fragment" --> `author:shakesbeer`?
-                        * <!-- .element: class="fragment" --> #2
-
-                    Notes:
-                    * Audience question
+                    Audience question
                 </script>
             </section>
 
@@ -2313,6 +2304,29 @@
                     * Use annotated corpus and machine learning
 
                     Notes:
+                    What else can be done with field info? -> Field queries!
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Field queries
+
+                | Term | Doc IDs |
+                |-------------|-------------------------------|
+                | arthur | #1:Author, #2:Title |
+                | shakesbeer | #2:Author |
+                | ... |
+
+                ***
+
+                * <!-- .element: class="fragment" --> `title:arthur`?
+                    * <!-- .element: class="fragment" --> #2
+                * <!-- .element: class="fragment" --> `author:shakesbeer`?
+                    * <!-- .element: class="fragment" --> #2
+
+                Notes:
+                * Audience question
                 </script>
             </section>
         </section>
