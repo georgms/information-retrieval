@@ -63,11 +63,18 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
-    apt update
-    apt install -y wget default-jre
+  config.vm.provision "shell", privileged: false, inline: <<-SHELL
+    sudo apt update
+    sudo apt install -y wget default-jre
     wget http://mirror.klaus-uwe.me/apache/lucene/solr/8.5.1/solr-8.5.1.tgz
     tar -zxf solr-8.5.1.tgz
     chown -R vagrant:vagrant solr-8.5.1
+    echo -e "vagrant hard nofile 65000\nvagrant hard nproc 65000" | sudo tee /etc/security/limits.d/solr.conf >/dev/null
+  SHELL
+
+  config.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL
+    ulimit -n 65000
+    ulimit -u 65000
+    ./solr-8.5.1/bin/solr -e techproducts
   SHELL
 end
