@@ -3728,17 +3728,17 @@
 
                     Probability that it will snow in winter:<!-- .element: class="fragment" -->
 
-                    $$P(\text{snow} | \text{winter}) = \frac{\text{Days with snow in winter}}{\text{Days in winter}} = \frac{15}{90} =
+                    $$P(\text{snow in winter} | \text{winter}) = \frac{\text{Days with snow in winter}}{\text{Days in winter}} = \frac{15}{90} =
                     16\%$$<!-- .element: class="fragment" -->
 
                     Probability that it will snow in summer:<!-- .element: class="fragment" -->
 
-                    $$P(\text{snow} | \text{summer}) = \frac{\text{Days with snow in summer}}{\text{Days in summer}} = \frac{0}{90} =
+                    $$P(\text{snow in summer} | \text{summer}) = \frac{\text{Days with snow in summer}}{\text{Days in summer}} = \frac{0}{90} =
                     0\%$$<!-- .element: class="fragment" -->
 
                     Probability that it's winter if it snows:<!-- .element: class="fragment" -->
 
-                    $$P(\text{winter} | \text{snow}) = \frac{\text{Days with snow in winter}}{\text{Days with snow all year}} =
+                    $$P(\text{snow in winter} | \text{snow all year}) = \frac{\text{Days with snow in winter}}{\text{Days with snow all year}} =
                     \frac{15}{17} =
                     88\%$$<!-- .element: class="fragment" -->
 
@@ -3793,7 +3793,9 @@
 
                     $$P(\text{spam} | \text{\$content})$$<!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    This probability is not known.<!-- .element: class="fragment" data-fragment-index="4" -->
+                    This probability is not known.<!-- .element: class="fragment" data-fragment-index="3" -->
+
+                    ($\text{\$content}$ can just be a bag of words) <!-- .element: class="fragment" data-fragment-index="3" -->
                 </textarea>
             </section>
 
@@ -3809,18 +3811,58 @@
                 </aside>
             </section>
 
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Training data
+
+                    | Class | Content |
+                    |-|-|
+                    | ham | What you doing?how are you? |
+                    | ham | Ok lar... Joking wif u oni... |
+                    | ham | dun say so early hor... U c already then say... |
+                    | ham | MY NO. IN LUTON 0125698789 RING ME IF UR AROUND! H* |
+                    | ham | Siva is in hostel aha:-. |
+                    | ham | Cos i was out shopping wif darren jus now n i called him 2 ask wat present he wan lor. Then he started guessing who i was wif n he finally guessed darren lor. |
+                    | spam | FreeMsg: Txt: CALL to No: 86888 & claim your reward of 3 hours talk time to use from your phone now! ubscribe6GBP/ mnth inc 3hrs 16 stop?txtStop |
+                    | spam | Sunshine Quiz! Win a super Sony DVD recorder if you canname the capital of Australia? Text MQUIZ to 82277. B |
+                    | spam | URGENT! Your Mobile No 07808726822 was awarded a L2 000 Bonus Caller Prize on 02/09/03! This is our 2nd attempt to contact YOU! Call 0871-872-9758 BOX95QU |
+                    <!-- .element: style="font-size: smaller;" -->
+                </script>
+            </section>
+
             <section>
                 <h1>Known:</h1>
 
                 <p>Based on training data.</p>
 
                 \[\begin{aligned}
-                P(\text{spam}) &= \frac{\text{Number of spam mails}}{\text{Total number of mails}}\\
-                \\
+                P(\text{spam}) &= \frac{\text{Number of spam mails}}{\text{Total number of mails}} = \frac{3}{9}
+                \end{aligned}\]
+            </section>
+
+            <section>
+                <h1>Known:</h1>
+
+                <p>Based on training data.</p>
+
+                \[\begin{aligned}
                 P(\text{\$content} | \text{spam}) &= \prod_{\$term \in \$content} P(\text{\$term} | \text{spam})\\
-                &= P(\text{\$term1} | \text{spam}) \times P(\text{\$term2} | \text{spam}) \times …\\
+                &= P(\text{\$term}_1 | \text{spam}) \times P(\text{\$term}_2 | \text{spam}) \times …\\
                 \\
                 P(\text{\$term} | \text{spam}) &= \frac{\text{Document frequency of \$term in Spam} + 1}{\text{Unique words in Spam} + \text{Total unique words}}
+                \end{aligned}\]
+            </section>
+
+            <section>
+                <h1>Known:</h1>
+
+                <p>Based on training data.</p>
+
+                \[\begin{aligned}
+                P(\text{\$content}) &= \prod_{\$term \in \$content} P(\text{\$term})\\
+                &= P(\text{\$term}_1) \times P(\text{\$term}_2) \times …\\
+                \\
+                P(\text{\$term}) &= \frac{\text{Document frequency of \$term} + 1}{\text{Total unique words}}
                 \end{aligned}\]
             </section>
 
