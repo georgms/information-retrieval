@@ -60,7 +60,7 @@
                     # Me
 
                     * Georg M. Sorst
-                    * CTO for 7 years @ FINDOLOGIC GmbH
+                    * CTO @ [FINDOLOGIC GmbH](https://findologic.com)
                     * One of DACH's biggest search and navigation solution providers
                 </script>
             </section>
@@ -73,7 +73,7 @@
 
             <section id="career" data-markdown>
                 <script type="text/template">
-                    # Career @ ![FINDOLOGIC](images/findologic-big.png)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+                    # Career @ ![FINDOLOGIC](images/findologic.png)<!-- .element: class="stretch" style="height: 100px; border: none; box-shadow: none; vertical-align: middle;" -->
 
                     * Internship, thesis, full time
                     * Buzzwords:
@@ -90,13 +90,13 @@
                 <script type="text/template">
                     # Org
 
-                    * Close laptops for full attention
-                    * Answering questions is relevant for the grade, and helps your fellow students too
-                    * Ask questions right away
-                    * Final
-                    * Final project: Find data set, build search
-                    *
-                    * Who will be my timekeeper?
+                    * Please turn on your cameras. Otherwise it's so boring to talk into my computer.
+                    * I will pick random people to answer questions during the lecture. This helps up to stay awake.
+                    * Have a question? Too slow? Too fast? Let me know right away!
+                    * Break every ~45 minutes. Who will be my timekeeper?
+                    * I will record the lecture. Ok?
+                    * Some coding homeworks during the semester.
+                    * Final project: Find data set, build search.
                 </script>
             </section>
         </section>
@@ -134,7 +134,7 @@
             </section>
 
             <section>
-                <img class="stretch" data-src="images/netcraft.png"/>
+                <img class="stretch" data-src="images/Num websites.jpeg"/>
             </section>
 
             <section>
@@ -171,8 +171,10 @@
                 <script type="text/template">
                     # Outlook
 
-                    * BYOG (Build your own Google)
                     * Understand fundamental search data structures and algorithms
+                    * BYOG (Build your own Google)
+                    * Use Solr to build search-enabled applications
+                    * Further topics: Clustering, word embeddings, text classification, …
                 </script>
             </section>
         </section>
@@ -247,7 +249,7 @@
                     ## Information need <!-- .element: class="fragment" data-fragment-index="1" -->
                     What the user is looking for <!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    _"learn about information retrieval and search"_ <!-- .element: class="fragment" data-fragment-index="2" -->
+                    _"I want to learn about information retrieval and search"_ <!-- .element: class="fragment" data-fragment-index="2" -->
 
                     ## Query <!-- .element: class="fragment" data-fragment-index="3" -->
                     How the user talks to the computer <!-- .element: class="fragment" data-fragment-index="3" -->
@@ -286,6 +288,7 @@
                     3. <!-- .element: class="fragment" data-fragment-index="3" -->a <span>book</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" --> about information retrieval <span>&rarr; Match</span><!-- .element: class="fragment" style="color: green;" -->
 
                     Notes:
+                    Audience question
                 </script>
             </section>
 
@@ -358,6 +361,9 @@
                     <!-- .element: class="fragment" data-fragment-index="1" -->
 
                     ![...](images/grep.png) <!-- .element: class="fragment" data-fragment-index="2" -->
+
+                    Notes:
+                    Audience question
                 </script>
             </section>
 
@@ -393,15 +399,29 @@
                     # Grep complexity
 
                     * &Omicron;(num query terms &times; total length of all documents)
-                    * Can take really long
+                    * Can take reaaally long
 
                     ## <!-- .element: class="fragment" data-fragment-index="1" --> Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 10GB = **20 billion string comparisons**
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 12GB = **24 billion string comparisons**
+
+
 
                     Notes:
                     How can this be improved?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Grep disadvantages
+
+                    * Does *books* match *book*?
+                        * <!-- .element: class="fragment" -->Cannot deal with singular / plural, *books* does not match *book*.
+
+                    Notes:
+                    Audience question
                 </script>
             </section>
         </section>
@@ -417,7 +437,7 @@
                     * Rows: Distinct query terms
                     * Columns: Documents
                     * Fields: If term in doc 1, else 0
-                    * Needs to pre-processed
+                    * Documents need to be pre-processed
                 </script>
             </section>
 
@@ -458,6 +478,7 @@
                         * <!-- .element: class="fragment" --> _Retrieval_: `(1, 0, 0)`
 
                     Notes:
+                    Audience question
                 </script>
             </section>
 
@@ -488,9 +509,9 @@
 
                     ## <!-- .element: class="fragment" data-fragment-index="2" -->Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
-                    * <!-- .element: class="fragment" data-fragment-index="2" -->grep: 2 query terms &times; 10GB = **20 billion string comparisons**
-                    * <!-- .element: class="fragment" data-fragment-index="3" -->Term-Document Matrix: 2 query terms &times; 1M distinct terms = **2M lookups**
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->grep: 2 query terms &times; 12GB = **24 billion string comparisons**
+                    * <!-- .element: class="fragment" data-fragment-index="3" -->Term-Document Matrix: 2 query terms &times; 1.2M distinct terms = **2.4M lookups**
 
                     Notes:
                     Audience question
@@ -505,8 +526,8 @@
 
                     ## <!-- .element: class="fragment" data-fragment-index="2" -->Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
-                    * <!-- .element: class="fragment" data-fragment-index="2" -->1M distinct terms &times; 5M articles = 5.000.000.000.000 cells = **5 terrabit**
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->1.2M distinct terms &times; 6M articles = 7.200.000.000.000 cells = 7.2 terrabit = **900 gigabyte**
 
                     That's way too large! How can the size be decreased?<!-- .element: class="fragment" data-fragment-index="2" -->
 
@@ -675,9 +696,9 @@
 
                     ## <!-- .element: class="fragment" data-fragment-index="1" -->Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
-                    * <!-- .element: class="fragment" data-fragment-index="1" -->Term-Document Matrix: 2 query terms &times; 1M distinct terms = **2M lookups**
-                    * <!-- .element: class="fragment" data-fragment-index="2" -->Inverted Index: 2 query terms &times; 1M distinct terms = **2M lookups**
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="1" -->Term-Document Matrix: 2 query terms &times; 1.2M distinct terms = **2.4M lookups**
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->Inverted Index: 2 query terms &times; 1.2M distinct terms = **2.4M lookups**
                 </script>
             </section>
 
@@ -689,9 +710,9 @@
 
                     ## <!-- .element: class="fragment" data-fragment-index="2" -->Example
 
-                    * <!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 5M articles, 10B characters, 1M distinct terms
-                    * <!-- .element: class="fragment" data-fragment-index="2" -->Term-Document Matrix: 1M distinct terms &times; 5M articles = 5.000.000.000.000 cells = **5 terrabit**
-                    * <!-- .element: class="fragment" data-fragment-index="3" -->Inverted Index: 1M distinct terms &times; 10K postings per terms &times; 4 bytes per document ID = 40.000.000.000 bytes = **40 gigabytes**
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
+                    * <!-- .element: class="fragment" data-fragment-index="2" -->Term-Document Matrix: 1.2M distinct terms &times; 6M articles = 7.200.000.000.000 cells = 7.2 terrabit = **900 gigabyte**
+                    * <!-- .element: class="fragment" data-fragment-index="3" -->Inverted Index: 1.2M distinct terms &times; 10K postings per terms &times; 4 bytes per document ID = 48.000.000.000 bytes = **48 gigabyte**
                 </script>
             </section>
 
