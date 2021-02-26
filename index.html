@@ -104,14 +104,14 @@
         <section id="you" data-markdown data-separator-notes="^Notes:">
             # Getting to know you
 
-            I want to learn your names
+            I want to learn your names and how you look like.
 
             ## Let's play a game – rules:
 
-            1. You know your names
+            1. You know your names.
             2. I have a list of all names. It's not in alphabetical order and I cannot reorder it.
-            2. You cannot say your name
-            3. You can only say *yes* or *no* when asked for a name
+            2. You cannot say your name.
+            3. You can only say *yes* or *no* when asked something.
 
             Notes:
             * How long does it take if I just try every name on everyone?
@@ -313,7 +313,7 @@
 
                 1. *a book about information retrieval*
                 2. *a book about the search for information*
-                3. *a book about information*
+                3. *a book about retrieving information*
 
                 Notes:
                 </script>
@@ -324,25 +324,26 @@
                 <script type="text/template">
                 # Generate result lists
 
-                **Query term: *information*** &rarr; [#1, #2, #3]
+                **Query term: *information*** &rarr; <span>[#1, #2, #3]</span><!-- .element: class="fragment" data-fragment-index="1" -->
 
-                1. *a book about <span>information</span><!-- .element: class="highlight-fl" --> retrieval*
-                2. *a book about the search for <span>information</span><!-- .element: class="highlight-fl" -->*
-                3. *a book about <span>information</span><!-- .element: class="highlight-fl" -->*
+                * #1 *a book about information retrieval*
+                * #2 *a book about the search for information*
+                * #3 *a book about retrieving information*
 
-                **Query term: *retrieval*** &rarr; [#1]
+                **Query term: *retrieval*** &rarr; <span>[#1]</span><!-- .element: class="fragment" data-fragment-index="2" -->
 
-                1. *a book about information <span>retrieval</span><!-- .element: class="highlight-fl" -->*
-                2. *a book about the search for information*
-                3. *a book about information*
+                * #1 *a book about information retrieval*
+                * #2 *a book about the search for information*
+                * #3 *a book about retrieving information*
 
-                **Query term: *search*** &rarr; [#2]
+                **Query term: *search*** &rarr; <span>[#2]</span><!-- .element: class="fragment" data-fragment-index="3" -->
 
-                1. *a book about information retrieval*
-                2. *a book about the <span>search</span><!-- .element: class="highlight-fl" --> for information*
-                3. *a book about information*
+                * #1 *a book about information retrieval*
+                * #2 *a book about the search for information*
+                * #3 *a book about retrieving information*
 
                 Notes:
+                Audience question
                 </script>
             </section>
 
@@ -353,7 +354,7 @@
 
                     * <!-- .element: class="fragment" data-fragment-index="1" --> \#1: _a book about information retrieval_
                     * <!-- .element: class="fragment" data-fragment-index="1" --> \#2: _a book about the search for information_
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> \#3: _a book about information_
+                    * <!-- .element: class="fragment" data-fragment-index="1" --> \#3: _a book about retrieving information_
 
                     ```
                     (information AND retrieval) OR search
