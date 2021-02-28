@@ -296,20 +296,19 @@
                 <script type="text/template">
                 # Generate result lists
 
-                For every query term in every document
+                ## For every query term…
 
-                ## Query
                 ```
                 (information AND retrieval) OR search
                 ```
 
-                #### Query terms
+                &darr;
 
                 1. *information*
                 2. *retrieval*
                 3. *search*
 
-                ## Documents
+                ## …in every document
 
                 1. *a book about information retrieval*
                 2. *a book about the search for information*
@@ -370,6 +369,31 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                # Complexity
+
+                * [Big &Omicron; notation](https://en.wikipedia.org/wiki/Big_O_notation)
+                * Describe time or space complexity of algorithms and data structures
+                * Which inputs influence their runtime and memory requirements?
+                * Look at worst case
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Time complexity examples
+
+                *How many loops do you need?*
+
+                | Big &Omicron; | Name | Example | Explanation |
+                |-|-|-|-|
+                | Ο(1) | Constant | Odd or even number? | No loop |
+                | Ο(n) | Linear | Calculate array sum | Iterate over all values |
+                | Ο(n²) | Quadratic | Find duplicates in unsorted array | Compare every value against every other value |
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
                     # Complexity
 
                     ## Grep
@@ -380,15 +404,15 @@
 
                     ## Union
 
-                    Merge result lists: <!-- .element: class="fragment" -->
+                    Merge result lists (without duplicates): <!-- .element: class="fragment" -->
 
-                    &Omicron;(1) <!-- .element: class="fragment" -->
+                    &Omicron;(number of results) <!-- .element: class="fragment" -->
 
                     ## Intersect
 
                     Compare every result from one list with every result from the other: <!-- .element: class="fragment" -->
 
-                    &Omicron;(query term with highest number of matches) <!-- .element: class="fragment" -->
+                    &Omicron;(number of results) <!-- .element: class="fragment" -->
 
                     Notes:
                     Audience question
