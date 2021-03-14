@@ -1251,7 +1251,7 @@
 
                     Notes:
                     * How to achieve 100% recall?
-                    * How to achieve 100% precision?
+                    * What could be criterias for ranking results?
                 </script>
             </section>
         </section>
@@ -1284,7 +1284,7 @@
                     # Idea II
 
                     ### <!-- .element: class="fragment" --> Infrequent terms in corpus are more important
-                    <!-- .element: class="fragment" --> `apple iphone` &rarr; `iphone` more important than `apple` when searching apple.com
+                    <!-- .element: class="fragment" --> Searching apple.com for `apple iphone`: `iphone` more important than `apple`
 
 
                     Notes:
@@ -1390,8 +1390,8 @@
                     | Search      | 3  <!-- .element: class="fragment" --> | #2:1          |
 
                     Notes:
-
                     * idf(t) = 1 is special case
+                    * Audience participation
                 </script>
             </section>
 
@@ -1437,6 +1437,47 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                # TF-IDF issues
+
+                $TF(\text{query}, \text{document})$
+
+                ## Term saturation
+
+                $$\frac{TF(\text{cat}, \text{cat} \times 1)}{TF(\text{cat}, \text{cat} \times 2)} = \frac{TF(\text{cat}, \text{cat} \times 100)}{TF(\text{cat}, \text{cat} \times 200)}$$
+
+                Notes:
+                * Who can explain what the formula means and why this is an issue?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # TF-IDF issues
+
+                ## Multi-term queries
+
+                $$TF(\text{cat OR dog}, \text{cat cat}) = TF(\text{cat OR dog}, \text{cat dog})$$
+
+                Notes:
+                * Who can explain what the formula means and why this is an issue?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # TF-IDF issues
+
+                ## Document length
+
+                $$TF(\text{cat}, \text{cat}) = TF(\text{cat}, \text{cat dog mouse})$$
+
+                Notes:
+                * Who can explain what the formula means and why this is an issue?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
                     # Meanwhile in the real world...
 
                     * Solr default is now [Okapi BM25](https://en.wikipedia.org/wiki/Okapi_BM25)
@@ -1465,7 +1506,7 @@
 
                     * <!-- .element: class="fragment" --> Search for names and concepts: `"fh salzburg"`, `"mountain bike"`
                     * <!-- .element: class="fragment" --> Well accepted by users
-                    * <!-- .element: class="fragment" --> But: `"fh salzburg"` should not match *In Salzburg there is a University and a FH*
+                    * <!-- .element: class="fragment" --> `"fh salzburg"` should not match `In Salzburg there is a University and in Vienna there is an FH`
                     * <!-- .element: class="fragment" --> Needs more advanced index with positional information
 
                     Notes:
