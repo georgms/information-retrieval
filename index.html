@@ -101,7 +101,7 @@
             </section>
         </section>
 
-        <section id="you" data-markdown data-separator-notes="^Notes:">
+        <section id="getting_to_know_you" data-markdown data-separator-notes="^Notes:">
             # Getting to know you
 
             I want to learn your names and how you look like.
@@ -1434,8 +1434,104 @@
                     Notes:
                 </script>
             </section>
+        </section>
+
+        <section id="homework_tf_idf_section">
+
+            <section id="homework_tf_idf" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Homework
+
+                Implement TF-IDF scoring
+
+                Notes:
+                </script>
+            </section>
 
             <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                ```
+                Enter query, empty to quit: salzburg
+                Found 28 results, showing top 5
+
+                Archbishopric_of_Salzburg.txt: 39629.857142857145
+                salzburg: 39629.857142857145
+
+                Herbert_von_Karajan.txt: 10808.142857142857
+                salzburg: 10808.142857142857
+
+                Wolfgang_Amadeus_Mozart.txt: 10808.142857142857
+                salzburg: 10808.142857142857
+
+                Alfons_Schuhbeck.txt: 3602.714285714286
+                salzburg: 3602.714285714286
+
+                Carl_Maria_von_Weber.txt: 3602.714285714286
+                salzburg: 3602.714285714286
+                ```
+                <!-- .element: class="stretch" -->
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                ```
+                Enter query, empty to quit: austria germany
+                Found 1713 results, showing top 5
+
+                Anschluss.txt: 3891.5421630618653
+                austria: 3729.5704225352115
+                germany: 161.97174052665383
+
+                Austria.txt: 3794.359118745873
+                austria: 3729.5704225352115
+                germany: 64.78869621066153
+
+                Germany.txt: 2686.44960062236
+                austria: 710.3943661971831
+                germany: 1976.0552344251766
+
+                Treaty_of_Versailles.txt: 2650.6333143368884
+                austria: 1775.9859154929577
+                germany: 874.6473988439307
+
+                Prussia.txt: 1858.6827548463548
+                austria: 1243.1901408450703
+                germany: 615.4926140012846
+                ```
+                <!-- .element: class="stretch" -->
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Homework
+
+                * [Use the provided setup](https://gitlab.mediacube.at/information-retrieval/homework-2-tf-idf-scoring), make sure to read `README.md`
+                * Implement TF-IDF scoring
+                * This means **OR** search
+                * Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
+                * Ensure that the provided test cases run successfully (see README.md)
+                * Use the provided CLI to manually test your application (see README.md)
+                * Displays top 5 results
+                * For each result show total score and per-term score
+                * The sum of all term scores must equal the total score
+                * Bonus points:
+                * Implement TF normalization
+                * Parallelize indexing
+                * Surprise me
+
+                Notes:
+                </script>
+            </section>
+        </section>
+
+        <section id="tf_idf_issues_section">
+            <section id="tf_idf_issues" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                 # TF-IDF issues
 
@@ -1443,7 +1539,7 @@
 
                 ## Term saturation
 
-                $$\frac{TF(\text{cat}, \text{cat} \times 1)}{TF(\text{cat}, \text{cat} \times 2)} = \frac{TF(\text{cat}, \text{cat} \times 100)}{TF(\text{cat}, \text{cat} \times 200)}$$
+                $$\frac{TF(\text{cat}, \text{cat} \times 5)}{TF(\text{cat}, \text{cat} \times 10)} = \frac{TF(\text{cat}, \text{cat} \times 100)}{TF(\text{cat}, \text{cat} \times 200)}$$
 
                 Notes:
                 * Who can explain what the formula means and why this is an issue?
@@ -1487,6 +1583,124 @@
                     $${\displaystyle {\text{score}}(D,Q)=\sum_{i=1}^{n}{\text{IDF}}(q_i)\cdot {\frac {TF(q_i,D)\cdot (k_1+1)}{TF(q_i,D)+k_1\cdot \left(1-b+b\cdot {\frac {|D|}{\text{avgdl}}}\right)}}}$$ <!-- .element: class="fragment" -->
 
                     Notes:
+                </script>
+            </section>
+        </section>
+
+        <section id="field_weights_section">
+            <section id="field_weights" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Use document structure for ranking
+
+                Notes:
+                How can we exploit the document structure to improve ranking? Think of a typical Wikipedia article.
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Document structure
+
+                ![Document Structure](images/Document Structure.png)
+
+                Notes:
+                How can we exploit this information for ranking purposes?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Field weights
+
+                ![Document Structure](images/Document Structure with Field Weights.png)
+
+                Notes:
+                How can we determine the field weights?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Index with Fields
+
+                | Doc | Author | Title |
+                |-----|-----------------|----------------------------------------------------------|
+                | #1 | Arthur McAuthor | A book providing information about information retrieval |
+                | #2 | Shakesbeer | A book about the search for King Arthur |
+
+                ***
+
+                | Term | Doc IDs |
+                |-------------|-------------------------------|
+                | arthur | #1:Author, #2:Title<!-- .element: class="fragment" --> |
+                | book | #1:Title, #2:Title<!-- .element: class="fragment" --> |
+                | information | #1:Title<!-- .element: class="fragment" --> |
+                | mcauthor | #1:Author<!-- .element: class="fragment" --> |
+                | shakesbeer | #2:Author<!-- .element: class="fragment" --> |
+                | ... |
+
+                Notes:
+                Audience question
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Field weights
+
+                | Term | Doc IDs |
+                |-------------|-------------------------------|
+                | <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">arthur</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Author</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
+                | <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">book</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Title</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
+                | ... |
+
+                ***
+
+                * `weight(author) = 10`
+                * `weight(title) = 1`
+
+                ***
+
+                * <!-- .element: class="fragment" data-fragment-index="1" --> `arthur book`?
+                * \#1 &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="3">author + title = 10 + 1 = **11**</span></span>
+                * \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-fl" data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
+
+                Notes:
+                * Audience question
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Field weights
+
+                * Determining weights is hard
+                * Use annotated corpus and machine learning
+
+                Notes:
+                What else can be done with field info? -> Field queries!
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Field queries
+
+                | Term | Doc IDs |
+                |-------------|-------------------------------|
+                | arthur | #1:Author, #2:Title |
+                | shakesbeer | #2:Author |
+                | ... |
+
+                ***
+
+                * <!-- .element: class="fragment" --> `title:arthur`?
+                    * <!-- .element: class="fragment" --> #2
+                * <!-- .element: class="fragment" --> `author:shakesbeer`?
+                    * <!-- .element: class="fragment" --> #2
+
+                Notes:
+                * Audience question
                 </script>
             </section>
         </section>
@@ -1753,39 +1967,49 @@
             <section>
                 <h1>salz*</h1>
 
-                <p>Comes free with search tree</p>
+                <p class="fragment">Comes free with search tree</p>
 
-                <script class="tree" type="application/json">
-                    {
-                        "name": "S",
-                        "children": [
-                            {
-                                "name": "SA",
-                                "children": [
-                                    {
-                                        "name": "SAL",
-                                        "children": [
-                                            {
-                                                "name": "Salzburg",
-                                                "fill": "#ff8c00"
-                                            },
-                                            {
-                                                "name": "Salzach",
-                                                "fill": "#ff8c00"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "name": "…"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "…"
-                            }
-                        ]
-                    }
-                </script>
+                <div class="fragment">
+                    <script class="tree" type="application/json">
+                        {
+                            "name": "S",
+                            "children": [
+                                {
+                                    "name": "SA",
+                                    "children": [
+                                        {
+                                            "name": "SAL",
+                                            "children": [
+                                                {
+                                                    "name": "SALB"
+                                                },
+                                                {
+                                                    "name":  "SALZ",
+                                                    "children":  [
+                                                        {
+                                                            "name": "Salzburg",
+                                                            "fill": "#ff8c00"
+                                                        },
+                                                        {
+                                                            "name": "Salzach",
+                                                            "fill": "#ff8c00"
+                                                        }
+                                                    ]
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "SAR"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "SE"
+                                }
+                            ]
+                        }
+                    </script>
+                </div>
 
                 <aside class="notes">
                     How to get suffix search, ie. `*burg`?
@@ -1795,39 +2019,41 @@
             <section>
                 <h1>*burg</h1>
 
-                <p>Build index with reversed terms</p>
+                <p class="fragment">Build index with reversed terms</p>
 
-                <script class="tree" type="application/json">
-                    {
-                        "name": "G",
-                        "children": [
-                            {
-                                "name": "GR",
-                                "children": [
-                                    {
-                                        "name": "GRU",
-                                        "children": [
-                                            {
-                                                "name": "grubzlas",
-                                                "fill": "#ff8c00"
-                                            },
-                                            {
-                                                "name": "grubierf",
-                                                "fill": "#ff8c00"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "name": "…"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "…"
-                            }
-                        ]
-                    }
-                </script>
+                <div class="fragment">
+                    <script class="tree" type="application/json">
+                        {
+                            "name": "G",
+                            "children": [
+                                {
+                                    "name": "GR",
+                                    "children": [
+                                        {
+                                            "name": "GRU",
+                                            "children": [
+                                                {
+                                                    "name": "grubuenrok",
+                                                    "fill": "#ff8c00"
+                                                },
+                                                {
+                                                    "name": "grubzlas",
+                                                    "fill": "#ff8c00"
+                                                }
+                                            ]
+                                        },
+                                        {
+                                            "name": "…"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "…"
+                                }
+                            ]
+                        }
+                    </script>
+                </div>
 
                 <aside class="notes">
                     How to get infix search, ie. `sal*urg`?
@@ -1836,9 +2062,9 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # `sal*urg`
+                    # sal*urg
 
-                    Intersect results of `sal*` and `*urg`
+                    <!-- .element: class="fragment" -->Intersect results of `sal*` and `*urg`
 
                     Notes:
 
@@ -1951,6 +2177,7 @@
                     <!-- .element: class="fragment" --> `book`, `rock`, `spock`
 
                     Notes:
+                    How to find these alternatives in the index?
                 </script>
             </section>
 
@@ -1959,7 +2186,6 @@
                     # Find alternatives
 
                     * Compare query with vocabulary
-                    * Use index or query log
                     Notes:
                 </script>
             </section>
@@ -2026,9 +2252,10 @@
                 <script type="text/template">
                     # Levenshtein
 
-                    * Expensive: Cannot be precomputed
+                    * Expensive: Cannot be precomputed\*
                     * `num(query terms) × num(vocabulary terms)`
 
+                    \*Except with some highly complex finite state machines
                     Notes:
                 </script>
             </section>
@@ -2083,6 +2310,7 @@
                     </li>
 
                     Notes:
+                    How to check if corrections make sense?
                 </script>
             </section>
 
@@ -2095,6 +2323,7 @@
                     * <!-- .element: class="fragment" --> Most searched
 
                     Notes:
+                    If multiple alternatives with results, how to pick the best one?
                 </script>
             </section>
 
@@ -2206,218 +2435,6 @@
         </section>
 
 
-
-        <section id="homework_tf_idf_section">
-
-            <section id="homework_tf_idf" data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Homework
-
-                    Implement TF-IDF scoring
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    ```
-                    Enter query, empty to quit: salzburg
-                    Found 28 results, showing top 5
-
-                    Archbishopric_of_Salzburg.txt: 39629.857142857145
-                        salzburg: 39629.857142857145
-
-                    Herbert_von_Karajan.txt: 10808.142857142857
-                        salzburg: 10808.142857142857
-
-                    Wolfgang_Amadeus_Mozart.txt: 10808.142857142857
-                        salzburg: 10808.142857142857
-
-                    Alfons_Schuhbeck.txt: 3602.714285714286
-                        salzburg: 3602.714285714286
-
-                    Carl_Maria_von_Weber.txt: 3602.714285714286
-                        salzburg: 3602.714285714286
-                    ```
-                    <!-- .element: class="stretch" -->
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    ```
-                    Enter query, empty to quit: austria germany
-                    Found 1713 results, showing top 5
-
-                    Anschluss.txt: 3891.5421630618653
-                        austria: 3729.5704225352115
-                        germany: 161.97174052665383
-
-                    Austria.txt: 3794.359118745873
-                        austria: 3729.5704225352115
-                        germany: 64.78869621066153
-
-                    Germany.txt: 2686.44960062236
-                        austria: 710.3943661971831
-                        germany: 1976.0552344251766
-
-                    Treaty_of_Versailles.txt: 2650.6333143368884
-                        austria: 1775.9859154929577
-                        germany: 874.6473988439307
-
-                    Prussia.txt: 1858.6827548463548
-                        austria: 1243.1901408450703
-                        germany: 615.4926140012846
-                    ```
-                    <!-- .element: class="stretch" -->
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Homework
-
-                    * [Use the provided setup](https://gitlab.mediacube.at/information-retrieval/homework-2-tf-idf-scoring), make sure to read `README.md`
-                    * Implement TF-IDF scoring
-                        * This means **OR** search
-                    * Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
-                    * Ensure that the provided test cases run successfully (see README.md)
-                    * Use the provided CLI to manually test your application (see README.md)
-                        * Displays top 5 results
-                        * For each result show total score and per-term score
-                            * The sum of all term scores must equal the total score
-                    * Bonus points:
-                        * Implement TF normalization
-                        * Parallelize indexing
-                        * Surprise me
-
-                    Notes:
-                </script>
-            </section>
-        </section>
-
-        <section id="field_weights_section">
-            <section id="field_weights" data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Use document structure for ranking
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Document structure
-
-                    ![Document Structure](images/Document Structure.png)
-
-                    Notes:
-                    How can we exploit this information for ranking purposes?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # Field weights
-
-                ![Document Structure](images/Document Structure with Field Weights.png)
-
-                Notes:
-                How can we determine the field weights?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Index with Fields
-
-                    | Doc | Author | Title |
-                    |-----|-----------------|----------------------------------------------------------|
-                    | #1 | Arthur McAuthor | A book providing information about information retrieval |
-                    | #2 | Shakesbeer | A book about the search for King Arthur |
-
-                    ***
-
-                    | Term | Doc IDs |
-                    |-------------|-------------------------------|
-                    | arthur | #1:Author, #2:Title<!-- .element: class="fragment" --> |
-                    | book | #1:Title, #2:Title<!-- .element: class="fragment" --> |
-                    | information | #1:Title<!-- .element: class="fragment" --> |
-                    | mcauthor | #1:Author<!-- .element: class="fragment" --> |
-                    | shakesbeer | #2:Author<!-- .element: class="fragment" --> |
-                    | ... |
-
-                    Notes:
-                    Audience question
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Field weights
-
-                    | Term | Doc IDs |
-                    |-------------|-------------------------------|
-                    | <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">arthur</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Author</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
-                    | <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">book</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Title</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
-                    | ... |
-
-                    ***
-
-                    * `weight(author) = 10`
-                    * `weight(title) = 1`
-
-                    ***
-
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> `arthur book`?
-                        * \#1 &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="3">author + title = 10 + 1 = **11**</span></span>
-                        * \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-fl" data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
-
-                    Notes:
-                    * Audience question
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Field weights
-
-                    * Determining weights is hard
-                    * Use annotated corpus and machine learning
-
-                    Notes:
-                    What else can be done with field info? -> Field queries!
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # Field queries
-
-                | Term | Doc IDs |
-                |-------------|-------------------------------|
-                | arthur | #1:Author, #2:Title |
-                | shakesbeer | #2:Author |
-                | ... |
-
-                ***
-
-                * <!-- .element: class="fragment" --> `title:arthur`?
-                    * <!-- .element: class="fragment" --> #2
-                * <!-- .element: class="fragment" --> `author:shakesbeer`?
-                    * <!-- .element: class="fragment" --> #2
-
-                Notes:
-                * Audience question
-                </script>
-            </section>
-        </section>
-
         <section id="vector_space_model_section">
             <section id="vector_space_model" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
@@ -2438,6 +2455,7 @@
                     * queries and queries <!-- .element: class="fragment" -->
 
                     Notes:
+                    * Use case for queries-docs?
                     * Use case for doc-doc?
                     * Use case for query-query?
                 </script>
@@ -2461,14 +2479,14 @@
 
                     |             | #1 | #2 | #3 |
                     |-------------|----|----|----|
-                    | Book        | 10 | 3  |  0 |
-                    | Information | 5  | 2  |  1 |
+                    | Book        | 10 | 3  |  1 |
+                    | Information | 5  | 2  |  2 |
 
                     ***
 
                     * $\vec{V}(\\#1)$ = (10, 5) <!-- .element: class="fragment" -->
                     * $\vec{V}(\\#2)$ = (3, 2) <!-- .element: class="fragment" -->
-                    * $\vec{V}(\\#3)$ = (0, 1) <!-- .element: class="fragment" -->
+                    * $\vec{V}(\\#3)$ = (1, 2) <!-- .element: class="fragment" -->
 
                     Notes:
                 </script>
@@ -2478,11 +2496,12 @@
                 <script type="text/template">
                     * $\vec{V}(\\#1)$ = (10, 5)
                     * $\vec{V}(\\#2)$ = (3, 2)
+                    * $\vec{V}(\\#2)$ = (1, 2)
 
                     <p class="stretch">![Vectors](images/Vectors.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
 
-                    Notes: Audience question: Are the docs similar?
+                    Notes: Are the docs similar?
                 </script>
             </section>
 
@@ -2515,9 +2534,11 @@
                 & = \sqrt{7^2 + 3^2} \\
                 & = \sqrt{49 + 9} \\
                 & = \sqrt{58} \\
-                & \approx 7.62
+                & \approx 7.62 \\
+                \\
+                \textrm{d}(\#2, \#3) & = \sqrt{(3 - 1)^2 + (2 - 2)^2} \\
+                & \approx 2
                 \end{aligned} \]
-
                 <aside class="notes">
 
                 </aside>
@@ -2536,6 +2557,7 @@
                 <script type="text/template">
                     * $\vec{V}(\\#1)$ = (10, 5)
                     * $\vec{V}(\\#2)$ = (3, 2)
+                    * $\vec{V}(\\#2)$ = (1, 2)
 
                     <p class="stretch">![Vectors](images/Vectors.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
@@ -2608,12 +2630,14 @@
                 <h1>Cosine similarity</h1>
 
                 \[\begin{aligned}
-                \textrm{sim}(d_1, d_2) & = \frac{ \begin{pmatrix}10 \\ 5\end{pmatrix} \cdot \begin{pmatrix}3 \\
+                \textrm{sim}(\#1, \#2) & = \frac{ \begin{pmatrix}10 \\ 5\end{pmatrix} \cdot \begin{pmatrix}3 \\
                 2\end{pmatrix} }{ \left|\begin{pmatrix}10 \\ 5\end{pmatrix}\right| \left|\begin{pmatrix}3 \\
-                2\end{pmatrix}\right| } \\ \\
+                2\end{pmatrix}\right| } \\
                 & = \frac{30 + 10}{\sqrt{10^2 + 5^2} \sqrt{3^2 + 2^2}} \\
                 & = \frac{40}{\sqrt{125} \sqrt{13}} = \frac{40}{40.31} \\
-                & \approx 0.99
+                & \approx 0.99 \\
+                \\
+                \textrm{sim}(\#2, \#3) & \approx 0.875
                 \end{aligned}\]
             </section>
 
@@ -2622,6 +2646,7 @@
                     # Query vector
 
                     * "*book*"
+                    * Vocabulary: `[book, vector]`
                     * $\vec{V}(q) = \begin{pmatrix}1 \\\\ 0\end{pmatrix}$ <!-- .element: class="fragment" -->
 
                     Notes:
@@ -2823,8 +2848,7 @@
 
                     * \+ Single term queries are easy
                     * \- Uneven distribution
-                    * \- Heavy inter-node communication
-                    * \- Hard to update index
+                    * \- Index updates hit all servers
 
                     <!-- .element: style="list-style-type: none;" -->
 
@@ -2849,7 +2873,6 @@
                     # Document-partitioned index
 
                     * \+ Even distribution
-                    * \+ Little inter-node communication
                     * \+ Easy to update index
                     * \+ Completely independent partial indices
                     * \- Even single query terms are complex
