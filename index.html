@@ -1770,18 +1770,18 @@
 
                     `"information retrieval"`
 
-                    1. <!-- .element: class="fragment" --> Fetch postings for each query term:
-                        * <!-- .element: class="fragment" --> *information*: #1:[2, 3], #2:[5], #3:[2]
-                        * <!-- .element: class="fragment" --> *retriev*: #1:[1, 4], #2:[2]
-                    2. <!-- .element: class="fragment" --> Calculate term pair distances per document, eg. `retrieval - information`:
-                        * <!-- .element: class="fragment" --> _#1: retrieving more information about information retrieval_ &rarr; _retrieval_:[1, 4] - _information_:[2, 3]
-                            * <!-- .element: class="fragment" --> [**1**, <span style="color: lightgray;">4</span>] - [**2**, <span style="color: lightgray;">3</span>] = -1 != 1
-                            * <!-- .element: class="fragment" --> [**1**, <span style="color: lightgray;">4</span>] - [<span style="color: lightgray;">2</span>, **3**] = -2 != 1
-                            * <!-- .element: class="fragment" --> [<span style="color: lightgray;">1</span>, **4**] - [**2**, <span style="color: lightgray;">3</span>] = 2 != 1
-                            * <!-- .element: class="fragment" --> [<span style="color: lightgray;">1</span>, **4**] - [<span style="color: lightgray;">2</span>, **3**] = 1 &rarr; match
-                                * <!-- .element: class="fragment" --> #1: retrieving more information about *information retrieval*
-                        * <!-- .element: class="fragment" --> _searching and retrieving a book about the search for information_ &rarr; _retrieval_:[2] - _information_:[5]
-                            * <!-- .element: class="fragment" --> [**2**] - [**5**] = -3 != 1
+                    1. <!-- .element: class="fragment" data-fragment-index="1" --> Fetch postings for each query term:
+                        * <!-- .element: class="fragment" data-fragment-index="1" --> *information*: #1:[2, 3], #2:[5], #3:[2]
+                        * <!-- .element: class="fragment" data-fragment-index="1" --> *retriev*: #1:[1, 4], #2:[2]
+                    2. <!-- .element: class="fragment" data-fragment-index="2" --> Calculate term pair distances per document, eg. `retrieval - information`:
+                        * <!-- .element: class="fragment" data-fragment-index="3" --> _#1: <span>retrieving</span><!-- .element: class="highlight-fl" --> more <span>information</span><!-- .element: class="highlight-fl" --> about information retrieval_
+                            * <!-- .element: class="fragment" data-fragment-index="3" --> [<span>1</span><!-- .element: class="highlight-fl" -->, 4] - [<span>2</span><!-- .element: class="highlight-fl" -->, 3] = -1 != 1
+                        * <!-- .element: class="fragment" data-fragment-index="4" --> _#1: <span>retrieving</span><!-- .element: class="highlight-fl" --> more information about <span>information</span><!-- .element: class="highlight-fl" --> retrieval_
+                            * <!-- .element: class="fragment" data-fragment-index="4" --> [<span>1</span><!-- .element: class="highlight-fl" -->, 4] - [2, <span>3</span><!-- .element: class="highlight-fl" -->] = -2 != 1
+                        * <!-- .element: class="fragment" data-fragment-index="5" --> _#1: retrieving more <span>information</span><!-- .element: class="highlight-fl" --> about information <span>retrieval</span><!-- .element: class="highlight-fl" -->_
+                            * <!-- .element: class="fragment" data-fragment-index="5" --> [1, <span>4</span><!-- .element: class="highlight-fl" -->] - [<span>2</span><!-- .element: class="highlight-fl" -->, 3] = 2 != 1
+                        * <!-- .element: class="fragment" data-fragment-index="6" --> _#1: retrieving more information about <span>information</span><!-- .element: class="highlight-fl" --> <span>retrieval</span><!-- .element: class="highlight-fl" -->_
+                            * <!-- .element: class="fragment" data-fragment-index="6" --> [1, <span>4</span><!-- .element: class="highlight-fl" -->] - [2, <span>3</span><!-- .element: class="highlight-fl" -->] = 1 &rarr; match
 
                     Notes:
                     * Can this used proximity regardless of order, eg. match "retrieval information" as well?
