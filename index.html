@@ -119,18 +119,21 @@
         </section>
 
         <section id="motivation_section">
-            <section id="motivation" data-markdown>
+            <section id="motivation" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Motivation
                 </script>
             </section>
 
-            <section data-markdown>
+            <section data-markdown data-separator-notes="^Notes:">
                 # Information Retrieval
 
                 > Information retrieval (IR) is the activity of obtaining information system resources relevant to an information need from a collection.
 
                 > Web search engines are the most visible IR applications.
+
+                Notes:
+                What is the motivation for information retrieval? What are some use cases?
             </section>
 
             <section>
@@ -1332,20 +1335,6 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # TF pitfalls
-
-                    * <!-- .element: class="fragment" --> Not always true
-                    * <!-- .element: class="fragment" --> The Bible does not contain "_the bible_"
-                    * <!-- .element: class="fragment" --> Web spam
-                    * <!-- .element: class="fragment" --> Long documents have higher TF
-
-                    Notes:
-                    Audience question
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
                     # II: Inverse document frequency
 
                     * <!-- .element: class="fragment" --> Searching apple.com for `apple OR iphone`
@@ -1531,28 +1520,27 @@
         </section>
 
         <section id="tf_idf_issues_section">
-            <section id="tf_idf_issues" data-markdown data-separator-notes="^Notes:">
+            <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                # TF-IDF issues
+                # TF pitfalls
 
+                * <!-- .element: class="fragment" --> Not always true
+                * <!-- .element: class="fragment" --> The Bible does not contain "_the bible_"
+
+                Notes:
+                Audience question
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
                 $TF(\text{query}, \text{document})$
 
-                ## Term saturation
+                # Spam
 
-                $$\frac{TF(\text{cat}, \text{cat} \times 5)}{TF(\text{cat}, \text{cat} \times 10)} = \frac{TF(\text{cat}, \text{cat} \times 100)}{TF(\text{cat}, \text{cat} \times 200)}$$
+                $$TF(\text{money}, \text{money money money}) > TF(\text{money}, \text{Document about money})$$
 
-                Notes:
-                * Who can explain what the formula means and why this is an issue?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # TF-IDF issues
-
-                ## Multi-term queries
-
-                $$TF(\text{cat OR dog}, \text{cat cat}) = TF(\text{cat OR dog}, \text{cat dog})$$
+                Spam should be prevented.<!-- .element: class="fragment" -->
 
                 Notes:
                 * Who can explain what the formula means and why this is an issue?
@@ -1561,11 +1549,37 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                # TF-IDF issues
+                # Multi-term queries
 
-                ## Document length
+                $$TF(\text{cat OR dog}, \text{cat cat cat}) > TF(\text{cat OR dog}, \text{cat dog})$$
 
-                $$TF(\text{cat}, \text{cat}) = TF(\text{cat}, \text{cat dog mouse})$$
+                Documents which match all query terms should be ranked higher.<!-- .element: class="fragment" -->
+
+                Notes:
+                * Who can explain what the formula means and why this is an issue?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Document length
+
+                $$TF(\text{cat}, \text{cat}) < TF(\text{cat}, \text{cat dog mouse elephant cat})$$
+
+                Term frequency should be normalized with the document length.<!-- .element: class="fragment" -->
+
+                Notes:
+                * Who can explain what the formula means and why this is an issue?
+                </script>
+            </section>
+
+            <section id="tf_idf_issues" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Term saturation
+
+                $$\frac{TF(\text{cat}, \text{cat} \times 10)}{TF(\text{cat}, \text{cat} \times 5)} < \frac{TF(\text{cat}, \text{cat} \times 50000)}{TF(\text{cat}, \text{cat} \times 5000)}$$
+
+                The term frequency should not increase linearly.<!-- .element: class="fragment" -->
 
                 Notes:
                 * Who can explain what the formula means and why this is an issue?
