@@ -2102,11 +2102,11 @@
                 <script type="text/template">
                     # N-gram queries
 
-                    <!-- .element: class="fragment" --> `search`
+                    `corona`
 
-                    <!-- .element: class="fragment" --> &darr; (3-gram)
+                    &darr; (3-gram)
 
-                    <!-- .element: class="fragment" --> $`se, sea, ear, arc, rch, ch`$
+                    `[^co, cor, oro, ron, ona, na^]`
 
                     Notes:
                 </script>
@@ -2116,14 +2116,14 @@
                 <script type="text/template">
                     # N-gram index
 
-                    |   | Term | Doc IDs |
-                    |---|------|---------|
-                    |   | $se  | 1, 2, 3 |
-                    |   | arc  | 1       |
-                    |   | ch$  | 1, 8    |
-                    |   | ear  | 1, 7    |
-                    |   | rch  | 1       |
-                    |   | sea  | 1, 5, 9 |
+                    | Term | Doc IDs    |
+                    |------|------------|
+                    | $co  | #1, #3, #5 |
+                    | cor  | #1, #2     |
+                    | oro  | #1, #5     |
+                    | ron  | #1, #4     |
+                    | ona  | #1, #2, #4 |
+                    | na$  | #1, #2, #3 |
 
                     Notes:
                     * Can the original contents be reconstructed from the index?
@@ -2134,13 +2134,13 @@
                 <script type="text/template">
                     # N-gram queries
 
-                    <!-- .element: class="fragment" --> Expand query
+                    ## Expand query
 
-                    <!-- .element: class="fragment" --> `sea*`
+                    `cor*`
 
-                    <!-- .element: class="fragment" --> &darr;
+                    &darr;
 
-                    <!-- .element: class="fragment" --> `$se AND sea`
+                    `^co AND cor`
 
                     Notes:
                 </script>
@@ -2150,21 +2150,167 @@
                 <script type="text/template">
                     # N-gram queries
 
-                    `$se AND sea`
+                    `$co AND cor`
 
-                    |   | Term | Doc IDs |
-                    |---|------|---------|
-                    |   | $se <!-- .element: class="fragment highlight-fl" data-fragment-index="1" -->  | <span>1</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" -->, 2, 3 |
-                    |   | arc  | 1       |
-                    |   | ch$  | 1, 8    |
-                    |   | ear  | 1, 7    |
-                    |   | rch  | 1       |
-                    |   | sea <!-- .element: class="fragment highlight-fl" data-fragment-index="2" --> | <span>1</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" -->, 5, 9 |
+                    | Term | Doc IDs    |
+                    |------|------------|
+                    | <span>$co</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->  | <span>#1</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->, #3, #5 |
+                    | <span>cor</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->  | <span>#1</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->, #2     |
+                    | oro  | #1, #5     |
+                    | ron  | #1, #4     |
+                    | ona  | #1, #2, #4 |
+                    | na$  | #1, #2, #3 |
+
+                    &darr;<!-- .element: class="fragment" data-fragment-index="2" -->
+
+                    #1<!-- .element: class="fragment" data-fragment-index="2" -->
 
                     Notes:
+                    * Audience question
+                    * How can this lead to false positives?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # False N-Gram Positives
+
+                `cor*`
+
+                &darr;
+
+                `^co AND cor`
+
+                &darr;
+
+                <span><span>^co</span><!-- .element: class="highlight-fl" -->n<span>cor</span><!-- .element: class="highlight-fl" -->d^</span><!-- .element: class="fragment" -->
+
+                Notes:
                 </script>
             </section>
         </section>
+
+        <section id="fuzzy_search_section">
+            <section id="fuzzy_search" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Fuzzy search
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                \#1: `book`, \#2: `rock`, \#3: `spock`
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Doc IDs</th>
+                    </tr>
+                    </thead>
+                    <tbody class="fragment">
+                    <tr>
+                        <td>^bo</td>
+                        <td>#1</td>
+                    </tr>
+                    <tr>
+                        <td>boo</td>
+                        <td>#1</td>
+                    </tr>
+                    <tr>
+                        <td>ook</td>
+                        <td>#1</td>
+                    </tr>
+                    <tr>
+                        <td>ok^</td>
+                        <td>#1</td>
+                    </tr>
+                    <tr>
+                        <td>^ro</td>
+                        <td>#2</td>
+                    </tr>
+                    <tr>
+                        <td>roc</td>
+                        <td>#2</td>
+                    </tr>
+                    <tr>
+                        <td>^sp</td>
+                        <td>#3</td>
+                    </tr>
+                    <tr>
+                        <td>spo</td>
+                        <td>#3</td>
+                    </tr>
+                    <tr>
+                        <td>poc</td>
+                        <td>#3</td>
+                    </tr>
+                    <tr>
+                        <td>ock</td>
+                        <td>#2 ,#3</td>
+                    </tr>
+                    <tr>
+                        <td>ck^</td>
+                        <td>#2, #3</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                Notes:
+                Audience question: What does the index look like?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                `bock`
+
+                &darr;
+
+                `^bo OR boc OR ock OR ck^`
+
+                &darr;
+
+                | Term | Doc IDs |
+                |------|---------|
+                | ^bo<!-- .element: class="highlight-fl" -->  | #1<!-- .element: class="highlight-fl" -->      |
+                | boo  | #1      |
+                || …            |
+                | poc  | #3      |
+                | ock<!-- .element: class="highlight-fl" -->  | <!-- .element: class="highlight-fl" --> #2 ,#3  |
+                | ck^<!-- .element: class="highlight-fl" -->  | <!-- .element: class="highlight-fl" --> #2, #3  |
+
+                Notes:
+                Which document is the best match?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                | Term | Doc IDs |
+                |------|---------|
+                | ^bo<!-- .element: class="highlight-fl" -->  | #1<!-- .element: class="highlight-fl" -->      |
+                | boo  | #1      |
+                || …            |
+                | poc  | #3      |
+                | ock<!-- .element: class="highlight-fl" -->  | <!-- .element: class="highlight-fl" --> #2 ,#3  |
+                | ck^<!-- .element: class="highlight-fl" -->  | <!-- .element: class="highlight-fl" --> #2, #3  |
+
+                &darr;
+
+                * \#1: [<span>^bo</span><!-- .element: class="highlight-fl" -->, boc, ock, ck^] &rarr; 25%
+                * \#2: [^ro, roc, <span>ock</span><!-- .element: class="highlight-fl" -->, <span>ck^</span><!-- .element: class="highlight-fl" -->] &rarr; 50%
+                * \#3: [^sp, spo, poc, <span>ock</span><!-- .element: class="highlight-fl" -->, <span>ck^</span><!-- .element: class="highlight-fl" -->] &rarr; 40%
+
+                Notes:
+                </script>
+            </section>
+
+
+        </section>
+
 
         <section id="spelling_correction_section">
             <section id="spelling_correction" data-markdown data-separator-notes="^Notes:">
@@ -2217,7 +2363,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Levenshtein
+                    # 1.a Levenshtein
 
                     * Edit distance between two words
                     * Count inserts, deletes, replaces, swaps
@@ -2289,22 +2435,6 @@
                 <script type="text/template">
                     # 2. Evaluate alternatives
 
-                    * Isolated
-                    * Context
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Isolated
-
-                    * <!-- .element: class="fragment" --> `seach endine`?
-                    * <!-- .element: class="fragment" --> &rarr; `peach engine`
-                    * <!-- .element: class="fragment" --> &rarr; `search ending`
-                    * <!-- .element: class="fragment" --> &rarr; `search engine`
-
                     Notes:
                 </script>
             </section>
@@ -2313,7 +2443,7 @@
                 <script type="text/template">
                     # Context
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> Find alternatives for every misspelled query term &rarr; collations
+                    * <!-- .element: class="fragment" data-fragment-index="1" --> Find alternatives for every misspelled query term &rarr; *collations*
                     * <!-- .element: class="fragment" data-fragment-index="2" --> Search for collation and evaluate results
 
                     <hr class="fragment" data-fragment-index="3"/>
@@ -2328,14 +2458,14 @@
                     * <!-- .element: class="fragment" data-fragment-index="9" --> &rarr; `peach engine`? 0 results
                     * <!-- .element: class="fragment" data-fragment-index="10" --> &rarr; `peach ending`? 0 results
                     <li class="fragment" data-fragment-index="11">&rarr; `search ending`
-                        <!-- .element: class="fragment highlight-fl" data-fragment-index="13" --> ? 5 results
+                        <!-- .element: class="fragment highlight-current-fl" data-fragment-index="13" --> ? 5 results
                     </li>
                     <li class="fragment" data-fragment-index="12">&rarr; `search engine`
-                        <!-- .element: class="fragment highlight-fl" data-fragment-index="13" --> ? 10 results
+                        <!-- .element: class="fragment highlight-current-fl" data-fragment-index="13" --> ? 10 results
                     </li>
 
                     Notes:
-                    How to check if corrections make sense?
+                    Which correction is the best? Why? What metrics could be applied?
                 </script>
             </section>
 
@@ -2361,28 +2491,44 @@
 
                     Notes:
                     * How does this affect precision and recall?
+                    * What kind of spelling corrections does Google offer? What are the three typical scenarios?
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Did you mean
+
                     ![Did you mean](images/Did you mean.png)
 
+                    * Original query has decent results
+                    * There is a better alternative
+
                     Notes:
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Instead
+
                     ![Instead](images/Instead.png)
 
+                    * Original query has poor results
+                    * There is a better alternative
+
                     Notes:
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                    # Showing results for
+
                     ![Showing results for](images/Showing results for.png)
+
+                    * Original query has no results
+                    * There is an alternative
 
                     Notes:
                 </script>
@@ -2696,7 +2842,7 @@
                     <p class="stretch">![Query](images/Query Vector.svg)
                         <!-- .element: style="border: none; box-shadow: none;" --></p>
 
-                    Notes: Audience question: Which doc is a better match?
+                    Notes: Audience question: Which doc is most similar to the query?
                 </script>
             </section>
 
@@ -2729,8 +2875,8 @@
                 <script type="text/template">
                     # Scaling reasons
 
-                    * Query volume <!-- .element: class="fragment" -->
-                    * Index volume <!-- .element: class="fragment" -->
+                    * Queries per second / Traffic / Concurrency  <!-- .element: class="fragment" -->
+                    * Index size / Time per query <!-- .element: class="fragment" -->
                     * Resiliency <!-- .element: class="fragment" -->
 
                     Notes:
@@ -2767,7 +2913,7 @@
                     * \+ Easy
                     * \+ Little overhead (network, hardware)
                     * \- No fault-tolerance
-                    * \- No parallelization
+                    * \- No concurrency
                     * \- Scaling limited by hardware
 
                     <!-- .element: style="list-style-type: none;" -->
@@ -2793,7 +2939,7 @@
                     # Scaling out
 
                     * \+ Fault-tolerance, resiliency
-                    * \+ Parallelization
+                    * \+ Concurrency
                     * \+ "Unlimited" scaling
                     * \- Complex
                     * \- Overhead: Network, Monitoring
@@ -2838,7 +2984,7 @@
                     | Search      | #2         |
 
 
-                    Notes: Audience question: How to partition?
+                    Notes: Audience question: How to partition? There are two days, along the axes of the table.
                 </script>
             </section>
 
@@ -2939,18 +3085,23 @@
                 <textarea data-template>
                     # Performance improvement
 
+                    * 1 node: $n$ documents per index $\approx$ $m$ seconds per query
+                    * 2 nodes: $\frac{n}{2}$ documents per index $\approx$ $\frac{m}{2}$ seconds per query
+                    * …
+
                     $$\text{Distributed query time} \approx \frac{\text{Non-distributed query time}}{\text{Number of nodes}}$$<!--
                     .element: class="fragment" -->
 
                 </textarea>
             </section>
 
+
             <section data-markdown data-separator-notes="^Notes:">
                 <textarea data-template>
-                    # Further improvements
+                    # What's left to scale?
 
-                    * Handle more traffic
-                    * Handle failure
+                    * More traffic
+                    * Less downtimes
 
                     Notes:
                     How?
@@ -3039,7 +3190,8 @@
                     * Transactional: Find product <!-- .element: class="fragment" data-fragment-index="" -->
                     * Local: Find place <!-- .element: class="fragment" data-fragment-index="" -->
 
-                    Notes: Audience question
+                    Notes:
+                    What are the four most important types of web search queries?
                 </script>
             </section>
 
@@ -3074,7 +3226,6 @@
                     * "capitol of austria" <!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
-
                     Examples?
                 </script>
             </section>
@@ -3162,7 +3313,6 @@
                     * "fh salzburg" <!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
-
                     Examples?
                 </script>
             </section>
@@ -3195,8 +3345,7 @@
                         * Navigational or visit-in-person?<!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
-
-                    Audience question
+                    Which intents can be applied to the example queries?
                 </script>
             </section>
 
@@ -3285,9 +3434,9 @@
 
                     ## Page quality
 
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> **E**xpertise
-                    * <!-- .element: class="fragment" data-fragment-index="2" --> **A**uthoritativeness
-                    * <!-- .element: class="fragment" data-fragment-index="3" --> **T**rustworthiness
+                    * <!-- .element: class="fragment" -->**E**xpertise
+                    * <!-- .element: class="fragment" -->**A**uthoritativeness
+                    * <!-- .element: class="fragment" -->**T**rustworthiness
 
                     Notes:
                     * Come up with examples of websites that rank high on one of those scales.
@@ -3684,9 +3833,22 @@
 
                     * Rank pages with many in-links higher
                     * PageRank =~ In-degree
+                    * But harder to influence as it propagates
+                    * One in-link from high PageRank site worth more than many low PageRank in-link
                     * Probability that random surfer will end up on page
+
                 </script>
             </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # PageRank vs In-Degree
+
+                ![PageRank vs In-Degree](images/PageRank vs In-Degree.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle; width: 40%;" -->
+
+                </script>
+            </section>
+
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
@@ -3694,8 +3856,8 @@
 
                     1. Assume random surfer
                     2. Randomly walk web graph
-                    * No out-links &rarr; teleport
-                    * 15% chance that user opens random page
+                        * No out-links &rarr; teleport
+                        * 15% chance that user opens random page
                     3. Count how many times page is visited
 
                     $$\sum \text{pagerank} = 1$$
