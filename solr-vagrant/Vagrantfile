@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/bionic64"
+  config.vm.box = "ubuntu/focal64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -66,15 +66,17 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
     sudo apt update
     sudo apt install -y wget default-jre
-    wget http://mirror.klaus-uwe.me/apache/lucene/solr/8.5.2/solr-8.5.2.tgz
-    tar -zxf solr-8.5.2.tgz
-    chown -R vagrant:vagrant solr-8.5.2
+    SOLR_VERSION=8.8.1
+    wget http://mirror.klaus-uwe.me/apache/lucene/solr/${SOLR_VERSION}/solr-${SOLR_VERSION}.tgz
+    tar -zxf solr-${SOLR_VERSION}.tgz
+    chown -R vagrant:vagrant solr-${SOLR_VERSION}
     echo -e "vagrant hard nofile 65000\nvagrant hard nproc 65000" | sudo tee /etc/security/limits.d/solr.conf >/dev/null
   SHELL
 
   config.vm.provision "shell", privileged: false, run: "always", inline: <<-SHELL
     ulimit -n 65000
     ulimit -u 65000
-    ./solr-8.5.2/bin/solr -e techproducts
+    SOLR_VERSION=8.8.1
+    ./solr-${SOLR_VERSION}/bin/solr -e techproducts
   SHELL
 end
