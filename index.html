@@ -831,6 +831,8 @@
                         * Just once during start up, not for every query
                     * Query using implicit AND (`this text` &rarr; `this AND text`)
                     * Your application should be able to handle millions of files efficiently
+                        * Carefully think about what you can pre-calculate during indexing to save time while searching
+                    * Focus on correct implementation of the required algorithms and data structures
                     * Use the provided CLI to manually test your application (see `README.md`)
                     * Ensure that the provided test cases run successfully (see `README.md`)
 
@@ -1502,6 +1504,7 @@
 
                 * [Use the provided setup](https://gitlab.mediacube.at/information-retrieval/homework-2-tf-idf-scoring), make sure to read `README.md`
                 * Implement TF-IDF scoring
+                * Focus on correct implementation of the required algorithms and data structures
                 * This means **OR** search
                 * Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
                 * Ensure that the provided test cases run successfully (see README.md)
@@ -1509,7 +1512,7 @@
                 * Displays top 5 results
                 * For each result show total score and per-term score
                 * The sum of all term scores must equal the total score
-                * Depending on your tokenization results may differ.
+                * Depending on your tokenization results may differ
                 * Bonus points:
                     * Implement TF normalization
                     * Parallelize indexing
@@ -2118,12 +2121,12 @@
 
                     | Term | Doc IDs    |
                     |------|------------|
-                    | $co  | #1, #3, #5 |
+                    | ^co  | #1, #3, #5 |
                     | cor  | #1, #2     |
                     | oro  | #1, #5     |
                     | ron  | #1, #4     |
                     | ona  | #1, #2, #4 |
-                    | na$  | #1, #2, #3 |
+                    | na^  | #1, #2, #3 |
 
                     Notes:
                     * Can the original contents be reconstructed from the index?
@@ -2150,16 +2153,16 @@
                 <script type="text/template">
                     # N-gram queries
 
-                    `$co AND cor`
+                    `^co AND cor`
 
                     | Term | Doc IDs    |
                     |------|------------|
-                    | <span>$co</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->  | <span>#1</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->, #3, #5 |
+                    | <span>^co</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->  | <span>#1</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->, #3, #5 |
                     | <span>cor</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->  | <span>#1</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->, #2     |
                     | oro  | #1, #5     |
                     | ron  | #1, #4     |
                     | ona  | #1, #2, #4 |
-                    | na$  | #1, #2, #3 |
+                    | na^  | #1, #2, #3 |
 
                     &darr;<!-- .element: class="fragment" data-fragment-index="2" -->
 
@@ -2300,7 +2303,7 @@
 
                 &darr;
 
-                * \#1: [<span>^bo</span><!-- .element: class="highlight-fl" -->, boc, ock, ck^] &rarr; 25%
+                * \#1: [<span>^bo</span><!-- .element: class="highlight-fl" -->, boo, ook, ok^] &rarr; 25%
                 * \#2: [^ro, roc, <span>ock</span><!-- .element: class="highlight-fl" -->, <span>ck^</span><!-- .element: class="highlight-fl" -->] &rarr; 50%
                 * \#3: [^sp, spo, poc, <span>ock</span><!-- .element: class="highlight-fl" -->, <span>ck^</span><!-- .element: class="highlight-fl" -->] &rarr; 40%
 
@@ -2817,7 +2820,7 @@
                     # Query vector
 
                     * "*book*"
-                    * Vocabulary: `[book, vector]`
+                    * Vocabulary: `[book, information]`
                     * $\vec{V}(q) = \begin{pmatrix}1 \\\\ 0\end{pmatrix}$ <!-- .element: class="fragment" -->
 
                     Notes:
