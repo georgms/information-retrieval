@@ -826,13 +826,14 @@
                     # Homework
 
                     * Built **Inverted Index** from text files
-                    * [Use the provided setup](https://gitlab.mediacube.at/information-retrieval/homework-1-inverted-index), make sure to read `README.md`
+                    * [Use the provided setup](https://gitlab.mediacube.at/information-retrieval/homework-1-inverted-index), make sure to read [`README.md`](https://gitlab.mediacube.at/information-retrieval/homework-1-inverted-index/-/blob/master/README.md)
                     * Read `resources/*.txt`
                         * Just once during start up, not for every query
                     * Query using implicit AND (`this text` &rarr; `this AND text`)
                     * Your application should be able to handle millions of files efficiently
                         * Carefully think about what you can pre-calculate during indexing to save time while searching
-                    * Focus on correct implementation of the required algorithms and data structures
+                    * **Focus on correct implementation of the required algorithms and data structures**
+                      * Avoid long iterations, lookups should be fast.
                     * Use the provided CLI to manually test your application (see `README.md`)
                     * Ensure that the provided test cases run successfully (see `README.md`)
 
@@ -1502,17 +1503,15 @@
                 <script type="text/template">
                 # Homework
 
-                * [Use the provided setup](https://gitlab.mediacube.at/information-retrieval/homework-2-tf-idf-scoring), make sure to read `README.md`
                 * Implement TF-IDF scoring
-                * Focus on correct implementation of the required algorithms and data structures
                 * This means **OR** search
-                * Use [simple-wikipedia.zip](files/simple-wikipedia.zip)
-                * Ensure that the provided test cases run successfully (see README.md)
-                * Use the provided CLI to manually test your application (see README.md)
-                * Displays top 5 results
-                * For each result show total score and per-term score
-                * The sum of all term scores must equal the total score
-                * Depending on your tokenization results may differ
+                * [Use the provided setup](https://gitlab.mediacube.at/information-retrieval/homework-2-tf-idf-scoring), make sure to read [`README.md`](https://gitlab.mediacube.at/information-retrieval/homework-2-tf-idf-scoring/-/blob/master/README.md)
+                * Display top 5 results
+                    * For each result show total score and per-term score
+                    * The sum of all term scores must equal the total score
+                * Depending on your tokenization the exact scores may differ
+                * **Focus on correct implementation of the required algorithms and data structures**
+                    * Avoid long iterations, lookups should be fast.
                 * Bonus points:
                     * Implement TF normalization
                     * Parallelize indexing
