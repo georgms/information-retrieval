@@ -2986,7 +2986,7 @@
                     | Search      | #2         |
 
 
-                    Notes: Audience question: How to partition? There are two days, along the axes of the table.
+                    Notes: Audience question: How to partition? There are two ways, along the axes of the table.
                 </script>
             </section>
 
@@ -3079,7 +3079,7 @@
 
                     Notes:
 
-                    What is the performance improvement?
+                    What is the performance improvement? Assume a query takes 1s on a single node.
                 </script>
             </section>
 
@@ -3469,6 +3469,7 @@
                     * Misspellings <!-- .element: class="fragment" data-fragment-index="" -->
 
                     Notes:
+                    * How could you detect user intent?
                 </script>
             </section>
         </section>
@@ -3656,20 +3657,6 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Distributed indexes
-
-                    * <!-- .element: class="fragment" --> Document-partitioned
-                    * <!-- .element: class="fragment" --> Partition by Host or URL?
-                    * <!-- .element: class="fragment" --> `hash(URL)` is more uniform
-
-                    Notes:
-
-                    * `hash(URL)` or `host`?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
                     # Link graph
 
                     ![web graph](images/web graph.png)
@@ -3709,6 +3696,7 @@
                     * Search can be parallelized
                     * High-end hardware fails too
                     * Throughput > performance
+                    * Queries per second > Seconds per query
 
                     &darr;
 
@@ -3734,8 +3722,7 @@
                 <script type="text/template">
                     # Query time
 
-                    ![Google cluster](images/google-cluster.png)
-                    [Source](https://static.googleusercontent.com/media/research.google.com/de//archive/googlecluster-ieee.pdf) <!-- .element: style="font-size: smaller;" -->
+                    ![Google cluster](images/google-cluster.png)[Source](https://static.googleusercontent.com/media/research.google.com/de//archive/googlecluster-ieee.pdf) <!-- .element: style="font-size: smaller;" -->
 
                     * Index servers: Inverted Index, document-partitioned
                     * Document servers: Copy of entire internet
@@ -3748,7 +3735,7 @@
                     # Query time
 
                     1. Query index servers &rarr; doc IDs
-                    2. Intersect doc IDs &rarr; result set
+                    2. Merge doc IDs &rarr; result set
                     3. Fetch doc IDs from doc servers &rarr; (Title, URL, result snippet)
                     4. Generate search result page
 
@@ -3878,12 +3865,13 @@
                 <script type="text/template">
                     # Reasonable surfer
 
-                    * Clicks some links more often than others
-                    * Main content vs sidebar / footer
-                    * Anchor text related to query / user intent
-                    * Ads
+                    * Clicks some links more often than others<!-- .element: class="fragment" -->
+                    * Main content vs sidebar / footer<!-- .element: class="fragment" -->
+                    * Anchor text related to query / user intent<!-- .element: class="fragment" -->
+                    * Avoid ads<!-- .element: class="fragment" -->
 
                     Notes:
+                    How can the random surfer be improved to provide more realistic results?
                 </script>
             </section>
         </section>
