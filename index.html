@@ -4157,9 +4157,9 @@
                 <script type="text/template">
                     # Bayes for text classification
 
-                    Probability of document class if document contains term:<!-- .element: class="fragment" data-fragment-index="1" -->
+                    Probability that documents belongs to $class$ if document contains $term$:<!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    $$P(\text{class} | \text{term})$$<!-- .element: class="fragment" data-fragment-index="1" -->
+                    $$P(class | term)$$<!-- .element: class="fragment" data-fragment-index="1" -->
 
                     Probability of spam if mail contains $\text{viagra}$:<!-- .element: class="fragment" data-fragment-index="2" -->
 
@@ -4177,16 +4177,20 @@
                 </script>
             </section>
 
-            <section>
-                <h1>Bayes Theorem</h1>
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Bayes Theorem
 
-                \[\begin{aligned}
-                P(\text{spam} | \text{viagra}) &= \text{Probability of spam if mail contains "viagra"}\\
-                &= \frac{P(\text{spam}) \times P(\text{viagra} | \text{spam})}{P(\text{viagra})}\\
-                \end{aligned}\]
-                <aside class="notes">
-                    How to calculate these probabilities?
-                </aside>
+                <div>
+                \begin{aligned}
+                P(\text{spam} | term) &= \text{Probability of spam if mail contains } term\\\\
+                &= \frac{P(\text{spam}) \times P(term | \text{spam})}{P(term)}
+                \end{aligned}
+                </div>
+
+                Notes:
+                How to calculate these probabilities?
+                </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
@@ -4206,10 +4210,12 @@
 
                 <div>
                 \begin{aligned}
-                P(\text{viagra} | \text{spam}) &= \text{Probability of mail containing "viagra" if it is Spam}\\\\
-                    &= \frac{\text{Document frequency of "viagra" in Spam} + 1}{\text{Number of Spam mails} + 2}
+                P(term | \text{spam}) &= \text{Probability of mail containing }term\text{ if it is Spam}\\\\
+                    &= \frac{\text{Document frequency of }term\text{ in Spam} + 1}{\text{Number of Spam mails} + 2}
                 \end{aligned}
                 </div>
+
+                <br />
 
                 ## Laplace Smoothing
 
@@ -4225,8 +4231,8 @@
 
                 <div>
                     \begin{aligned}
-                    P(\text{viagra}) &= \text{Probability of mail containing "viagra"}\\\\
-                    &= \frac{\text{Document frequency of "viagra"} + 1}{\text{Total number of mails} + 2}
+                    P(term) &= \text{Probability of mail containing }term\\\\
+                    &= \frac{\text{Document frequency of }term + 1}{\text{Total number of mails} + 2}
                     \end{aligned}
                 </div>
 
@@ -4240,8 +4246,8 @@
 
                     <div>
                     \begin{aligned}
-                    P(\text{spam} | \text{\$content}) &= \prod_{\$term \in \$content} P(\text{\$term} | \text{spam})\\\\
-                    &= P(\text{\$term}_1 | \text{spam}) \times P(\text{\$term}_2 | \text{spam}) \times …\\\\
+                    P(\text{spam} | content) &= \prod_{term \in content} P(term | \text{spam})\\\\
+                    &= P(term_1 | \text{spam}) \times P(term_2 | \text{spam}) \times …\\\\
                     \end{aligned}
                     </div>
                 </script>
@@ -4251,9 +4257,9 @@
                 <script type="text/template">
                     # Spam or Ham?
 
-                    If $P(\text{spam} | \text{\$content}) > P(\text{ham} | \text{\$content})$ then mail is spam, so:
+                    If $P(\text{spam} | content) > P(\text{ham} | content)$ then mail is spam, so:
 
-                    $$\text{Spam}: \frac{P(\text{spam} | \text{\$content})}{P(\text{ham} | \text{\$content})} > 1$$
+                    $$\text{Spam}: \frac{P(\text{spam} | content)}{P(\text{ham} | content)} > 1$$
 
                     Notes:
                 </script>
