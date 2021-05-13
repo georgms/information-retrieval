@@ -3966,6 +3966,8 @@
                 <script type="text/template">
                     # Text Classification
 
+                    ## Supervised Learning
+
                     Notes:
                 </script>
             </section>
@@ -4058,19 +4060,18 @@
                 <script type="text/template">
                     # Class membership
 
-                    * Single / one-of
-                        * Spam<!-- .element: class="fragment" data-fragment-index="1" -->
-                    * Multiple / any-of
-                        * News topics<!-- .element: class="fragment" data-fragment-index="2" -->
+                    | Type | Example |
+                    |-|-|
+                    | Single / one-of | Spam<!-- .element: class="fragment" --> |
+                    | Multiple / any-of | Blog categories<!-- .element: class="fragment" --> |
 
                     # Classifiers
 
-                    * One class: Belongs to class or not
-                        * Spam<!-- .element: class="fragment" data-fragment-index="3" -->
-                    * Two class: Belongs to one / multiple of two classes
-                        * Positive or negative sentiment<!-- .element: class="fragment" data-fragment-index="4" -->
-                    * Multi class: Belongs to one / multiple of many classes
-                        * Language<!-- .element: class="fragment" data-fragment-index="5" -->
+                    | Type | Example |
+                    |-|-|
+                    | One class | Spam <!-- .element: class="fragment" --> |
+                    | Two class | Sentiment <!-- .element: class="fragment" --> |
+                    | Multi class | Blog categories  <!-- .element: class="fragment" --> |
 
                     Notes:
                     Examples?
@@ -4098,17 +4099,17 @@
                 <script type="text/template">
                     # Basic Probability Examples
 
-                    Probability that it will snow in winter:<!-- .element: class="fragment" -->
+                    Probability of snow if winter:<!-- .element: class="fragment" -->
 
                     $$P(\text{snow in winter} | \text{winter}) = \frac{\text{Days with snow in winter}}{\text{Days in winter}} = \frac{15}{90} =
                     16\%$$<!-- .element: class="fragment" -->
 
-                    Probability that it will snow in summer:<!-- .element: class="fragment" -->
+                    Probability of snow if summer:<!-- .element: class="fragment" -->
 
                     $$P(\text{snow in summer} | \text{summer}) = \frac{\text{Days with snow in summer}}{\text{Days in summer}} = \frac{0}{90} =
                     0\%$$<!-- .element: class="fragment" -->
 
-                    Probability that it's winter if it snows:<!-- .element: class="fragment" -->
+                    Probability of winter if it snows:<!-- .element: class="fragment" -->
 
                     $$P(\text{snow in winter} | \text{snow all year}) = \frac{\text{Days with snow in winter}}{\text{Days with snow all year}} =
                     \frac{15}{17} =
@@ -4152,31 +4153,36 @@
                 \end{aligned}\]
             </section>
 
-
             <section data-markdown data-separator-notes="^Notes:">
-                <textarea data-template>
+                <script type="text/template">
                     # Bayes for text classification
 
-                    Probability that document belongs to class:<!-- .element: class="fragment" data-fragment-index="1" -->
+                    Probability of document class if document contains term:<!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    $$P(\text{class} | \text{document})$$<!-- .element: class="fragment" data-fragment-index="1" -->
+                    $$P(\text{class} | \text{term})$$<!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    Probability that mail with $\text{\$content}$ is spam:<!-- .element: class="fragment" data-fragment-index="2" -->
+                    Probability of spam if mail contains $\text{viagra}$:<!-- .element: class="fragment" data-fragment-index="2" -->
 
-                    $$P(\text{spam} | \text{\$content})$$<!-- .element: class="fragment" data-fragment-index="2" -->
+                    $$P(\text{spam} | \text{viagra})$$<!-- .element: class="fragment" data-fragment-index="2" -->
+                </script>
+            </section>
 
-                    This probability is not known.<!-- .element: class="fragment" data-fragment-index="3" -->
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Example
 
-                    ($\text{\$content}$ can just be a bag of words) <!-- .element: class="fragment" data-fragment-index="3" -->
-                </textarea>
+                https://docs.google.com/spreadsheets/d/1Cim4llHxSKF-meYq8qZEZmVU8OUPMDiBvFj4WCNPv34/edit?usp=sharing
+
+                Notes:
+                </script>
             </section>
 
             <section>
                 <h1>Bayes Theorem</h1>
 
                 \[\begin{aligned}
-                P(\text{spam} | \text{\$content}) &= \text{Probability that mail with $\text{\$content}$ is spam}\\
-                &= \frac{P(\text{spam}) \times P(\text{\$content} | \text{spam})}{P(\text{\$content})}\\
+                P(\text{spam} | \text{viagra}) &= \text{Probability of spam if mail contains "viagra"}\\
+                &= \frac{P(\text{spam}) \times P(\text{viagra} | \text{spam})}{P(\text{viagra})}\\
                 \end{aligned}\]
                 <aside class="notes">
                     How to calculate these probabilities?
@@ -4185,80 +4191,76 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Training data
+                # Probability of Spam
 
-                    | Class | Content |
-                    |-|-|
-                    | ham | What you doing?how are you? |
-                    | ham | Ok lar... Joking wif u oni... |
-                    | ham | dun say so early hor... U c already then say... |
-                    | ham | MY NO. IN LUTON 0125698789 RING ME IF UR AROUND! H* |
-                    | ham | Siva is in hostel aha:-. |
-                    | ham | Cos i was out shopping wif darren jus now n i called him 2 ask wat present he wan lor. Then he started guessing who i was wif n he finally guessed darren lor. |
-                    | spam | FreeMsg: Txt: CALL to No: 86888 & claim your reward of 3 hours talk time to use from your phone now! ubscribe6GBP/ mnth inc 3hrs 16 stop?txtStop |
-                    | spam | Sunshine Quiz! Win a super Sony DVD recorder if you canname the capital of Australia? Text MQUIZ to 82277. B |
-                    | spam | URGENT! Your Mobile No 07808726822 was awarded a L2 000 Bonus Caller Prize on 02/09/03! This is our 2nd attempt to contact YOU! Call 0871-872-9758 BOX95QU |
-                    <!-- .element: style="font-size: smaller;" -->
+                $$P(\text{spam}) = \frac{\text{Number of spam mails}}{\text{Total number of mails}}$$<!-- .element: class="fragment" -->
+
+                Notes:
+                Audience question
                 </script>
-            </section>
-
-            <section>
-                <h1>Known:</h1>
-
-                <p>Based on training data.</p>
-
-                \[\begin{aligned}
-                P(\text{spam}) &= \frac{\text{Number of spam mails}}{\text{Total number of mails}} = \frac{3}{9}
-                \end{aligned}\]
-            </section>
-
-            <section>
-                <h1>Known:</h1>
-
-                <p>Based on training data.</p>
-
-                \[\begin{aligned}
-                P(\text{\$content} | \text{spam}) &= \prod_{\$term \in \$content} P(\text{\$term} | \text{spam})\\
-                &= P(\text{\$term}_1 | \text{spam}) \times P(\text{\$term}_2 | \text{spam}) \times …\\
-                \\
-                P(\text{\$term} | \text{spam}) &= \frac{\text{Document frequency of \$term in Spam} + 1}{\text{Unique words in Spam} + \text{Total unique words}}
-                \end{aligned}\]
-            </section>
-
-            <section>
-                <h1>Known:</h1>
-
-                <p>Based on training data.</p>
-
-                \[\begin{aligned}
-                P(\text{\$content}) &= \prod_{\$term \in \$content} P(\text{\$term})\\
-                &= P(\text{\$term}_1) \times P(\text{\$term}_2) \times …\\
-                \\
-                P(\text{\$term}) &= \frac{\text{Document frequency of \$term} + 1}{\text{Total unique words}}
-                \end{aligned}\]
-            </section>
-
-            <section>
-                \[\begin{aligned}
-                P(\text{spam} | \text{\$content}) &= \frac{P(\text{spam}) \times P(\text{\$content} | \text{spam})}{P(\text{\$content})}\\
-                \\
-                P(\text{ham} | \text{\$content}) &= \frac{P(\text{ham}) \times P(\text{\$content} | \text{ham})}{P(\text{\$content})}\\
-                \end{aligned}\]
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                # Probability of Spam per content
+
+                <div>
+                \begin{aligned}
+                P(\text{viagra} | \text{spam}) &= \text{Probability of mail containing "viagra" if it is Spam}\\\\
+                    &= \frac{\text{Document frequency of "viagra" in Spam} + 1}{\text{Number of Spam mails} + 2}
+                \end{aligned}
+                </div>
+
+                ## Laplace Smoothing
+
+                Constants are added so $0\% < \text{probability} <= 100\%$.
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Probability of content
+
+                <div>
+                    \begin{aligned}
+                    P(\text{viagra}) &= \text{Probability of mail containing "viagra"}\\\\
+                    &= \frac{\text{Document frequency of "viagra"} + 1}{\text{Total number of mails} + 2}
+                    \end{aligned}
+                </div>
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/markdown">
+                    # Probability of Spam if content
+
+                    <div>
+                    \begin{aligned}
+                    P(\text{spam} | \text{\$content}) &= \prod_{\$term \in \$content} P(\text{\$term} | \text{spam})\\\\
+                    &= P(\text{\$term}_1 | \text{spam}) \times P(\text{\$term}_2 | \text{spam}) \times …\\\\
+                    \end{aligned}
+                    </div>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                    # Spam or Ham?
+
                     If $P(\text{spam} | \text{\$content}) > P(\text{ham} | \text{\$content})$ then mail is spam, so:
 
-                    $$\text{Spam:} \frac{P(\text{spam} | \text{\$content})}{P(\text{ham} | \text{\$content})} = \frac{P(\text{spam}) \times
-                    P(\text{\$content} | \text{spam})}{P(\text{ham}) \times P(\text{\$content} | \text{ham})} > 1$$
+                    $$\text{Spam}: \frac{P(\text{spam} | \text{\$content})}{P(\text{ham} | \text{\$content})} > 1$$
 
                     Notes:
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
-                <textarea data-template>
+                <script type="text/template">
                     # Naive Bayes
 
                     * Naive = Assumes features are independent
@@ -4271,22 +4273,12 @@
                     Notes:
 
                     * Example for dependent features?
-                </textarea>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Example
-
-                    https://docs.google.com/spreadsheets/d/1Cim4llHxSKF-meYq8qZEZmVU8OUPMDiBvFj4WCNPv34/edit?usp=sharing
-
-                    Notes:
                 </script>
             </section>
         </section>
 
         <section id="feature_selection_section">
-            <section id="feature_selection"data-markdown data-separator-notes="^Notes:">
+            <section id="feature_selection" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                     # Feature Selection
 
