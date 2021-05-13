@@ -4184,9 +4184,15 @@
                 <div>
                 \begin{aligned}
                 P(\text{spam} | term) &= \text{Probability of spam if mail contains } term\\\\
-                &= \frac{P(\text{spam}) \times P(term | \text{spam})}{P(term)}
+                &= \frac{P(\text{spam}) \times P(term | \text{spam})}{P(\text{spam}) \times P(term | \text{spam}) + P(\text{ham}) \times P(term | \text{ham})}
                 \end{aligned}
                 </div>
+
+                <br />
+
+                ### Spam is one-of class membership so
+
+                $$P(\text{spam} | term) + P(\text{ham} | term) = 100\%$$
 
                 Notes:
                 How to calculate these probabilities?
@@ -4246,12 +4252,15 @@
 
                     <div>
                     \begin{aligned}
-                    P(\text{spam} | content) &= \prod_{term \in content} P(term | \text{spam})\\\\
-                    &= P(term_1 | \text{spam}) \times P(term_2 | \text{spam}) \times …\\\\
+                    P(\text{spam} | doc) &= \frac{P(\text{spam}) \times \prod_t P(t | \text{spam})}{P(\text{spam}) \times \prod_t P(t | \text{spam}) + P(\text{ham}) \times \prod_t P(t | \text{ham})}\\\\
+                    \\\\
+                    &= \frac{P(\text{spam}) \times P(term_1 | \text{spam}) \times P(term_2 | \text{spam}) \times …}{…}
                     \end{aligned}
                     </div>
 
-                    **Actual formulas are slightly more complex*
+                    <br />
+
+                    $$P(\text{spam} | doc) + P(\text{ham} | doc) = 100\%$$
                 </script>
             </section>
 
