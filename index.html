@@ -4178,51 +4178,36 @@
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # Bayes Theorem
-
-                <div>
-                \begin{aligned}
-                P(\text{spam} | term) &= \text{Probability of spam if mail contains } term\\\\
-                &= \frac{P(\text{spam}) \times P(term | \text{spam})}{P(\text{spam}) \times P(term | \text{spam}) + P(\text{ham}) \times P(term | \text{ham})}
-                \end{aligned}
-                </div>
-
-                <br />
-
-                ### Spam is one-of class membership so
-
-                $$P(\text{spam} | term) + P(\text{ham} | term) = 100\%$$
-
-                Notes:
-                How to calculate these probabilities?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/markdown">
-                    # Probability of Spam if content
+                    # Probability of Spam if document
+
+                    *I have this document, is it Spam?*
 
                     <div>
                     \begin{aligned}
-                    P(\text{spam} | doc) &= \frac{P(\text{spam}) \times \prod_t P(t | \text{spam})}{P(\text{spam}) \times \prod_t P(t | \text{spam}) + P(\text{ham}) \times \prod_t P(t | \text{ham})}\\\\
                     \\\\
-                    &= \frac{P(\text{spam}) \times P(term_1 | \text{spam}) \times P(term_2 | \text{spam}) \times …}{…}
+                    P(\text{spam} | doc) &= \frac{P(\text{spam}) \times P(doc | \text{spam})}{P(\text{spam}) \times P(doc | \text{spam}) + P(\text{ham}) \times P(doc | \text{ham})}\\\\
+                    \\\\
                     \end{aligned}
                     </div>
 
-                    <br />
+                    Spam is one-of class membership so
 
                     $$P(\text{spam} | doc) + P(\text{ham} | doc) = 100\%$$
                 </script>
             </section>
 
-
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                 # Probability of Spam
 
+                *What percentage of all mails is Spam?*
+
                 $$P(\text{spam}) = \frac{\text{Number of spam mails}}{\text{Total number of mails}}$$<!-- .element: class="fragment" -->
+
+                <br />
+
+                $$P(\text{spam}) + P(\text{ham}) = 100\%$$<!-- .element: class="fragment" -->
 
                 Notes:
                 Audience question
@@ -4230,14 +4215,31 @@
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/markdown">
+                    # Probability of document if Spam
+
+                    *Looking at Spam, what are the chances to see this document?*
+
+                    <div>
+                    \begin{aligned}
+                    \\\\
+                    P(doc | \text{spam}) &= \prod_{\text{term} \in \text{doc}} P(term | \text{spam}) = P(t_1 | \text{spam}) \times P(t_2 | \text{spam}) \times …
+                    \end{aligned}
+                    </div>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                # Probability of Spam per content
+                # Probability of term if Spam
+
+                *Looking at Spam, what are the chances to see this term?*
 
                 <div>
-                \begin{aligned}
-                P(term | \text{spam}) &= \text{Probability of mail containing }term\text{ if it is Spam}\\\\
-                    &= \frac{\text{Document frequency of }term\text{ in Spam}}{\text{Number of Spam mails}}
-                \end{aligned}
+                    \begin{aligned}
+                    \\\\
+                    P(term | \text{spam}) &= \frac{\text{Document frequency of }term\text{ in Spam}}{\text{Number of Spam mails}}
+                    \end{aligned}
                 </div>
 
                 <br />
@@ -4267,21 +4269,36 @@
                 </script>
             </section>
 
-
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                # Probability of content
+                # Probability of term
 
-                <div>
-                    \begin{aligned}
-                    P(term) &= \text{Probability of any mail containing }term\\\\
-                    &= \frac{\text{Document frequency of }term + 1}{\text{Total number of mails} + 2}
-                    \end{aligned}
-                </div>
+                *What is the percentage of mails containing this term?*
+
+                $$P(term) = \frac{\text{Document frequency of }term + 1}{\text{Total number of mails} + 2}$$
 
                 Notes:
                 </script>
             </section>
+
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Probability of spam if term
+
+                *I have this term, is it Spam?*
+
+                $$P(\text{spam} | term) = \frac{P(\text{spam}) \times P(term | \text{spam})}{P(\text{spam}) \times P(term | \text{spam}) + P(\text{ham}) \times P(term | \text{ham})}$$
+
+                <br />
+
+                $$P(\text{spam} | term) + P(\text{ham} | term) = 100\%$$
+
+                Notes:
+                How to calculate these probabilities?
+                </script>
+            </section>
+
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
