@@ -4553,6 +4553,8 @@
 
                 Window can be larger (recommended: 5).
 
+                Skipgram well suited for small data sets with rare words.
+
                 Notes:
                 </script>
             </section>
@@ -4569,12 +4571,16 @@
 
                 When Machine sees *the* or *brown* it should predict *quick*.
 
+                CBOW trains faster, more accurate for frequent words.
+
                 Notes:
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                # Word Embedding visualized
+
                 [Word Embedding Visual Inspector](https://ronxin.github.io/wevi/)
 
                 Notes:
@@ -4583,13 +4589,32 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
+                # Word Embedding play time
 
+                [Word Embedding notebook](/word-embedding/Word Embedding.ipynb)
 
                 Notes:
                 </script>
             </section>
 
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Word2Vec Alternatives
 
+                [fastText](https://fasttext.cc/)
+
+                * Uses n-grams instead of words
+                * Can match unknown words by matching n-grams
+                * Can also be used for text classification
+                * Pre-trained for many languages
+
+                [GloVe](https://nlp.stanford.edu/projects/glove/)
+
+                * Pre-trained for many languages
+
+                Notes:
+                </script>
+            </section>
         </section>
 
         <section id="vector_space_classification_section">
