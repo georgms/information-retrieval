@@ -4416,6 +4416,182 @@
             </section>
         </section>
 
+        <section id="word_embedding_section">
+            <section id="word_embedding" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Word Embedding
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Prediction
+
+                <!-- .element: class="stretch" -->![Swiftkey](images/swiftkey.png)
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Similarity
+
+                ![Word Embeddings](images/word embeddings.png)
+
+                $$\text{king} - \text{man} + \text{woman} \approx \text{queen}$$
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Word Embedding
+
+                * Use vectors to represent words
+                * Embed in multi-dimensional space
+                * Similar vectors &approx; Related words
+                * Related words &approx; Occur in similar contexts
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Words as vectors
+
+                * **Corpus**: *The quick brown fox jumps over the lazy dog.*
+                * **Vocabulary**: [quick, brown, fox, jump, lazy, dog].
+                * **Vector for** *brown* (one-hot encoding):
+
+                <div>
+
+                | Word  | Vector |
+                |-------|--------|
+                | quick | 0      |
+                | brown | 1      |
+                | fox   | 0      |
+                | jump  | 0      |
+                | lazy  | 0      |
+                | dog   | 0      |
+
+                </div><!-- .element: class="fragment" -->
+
+                Notes:
+                What does the vector for brown look like?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Vectors are unrelated
+
+                <p class="stretch">![brown quick vectors unrelated](images/brown quick vectors unrelated.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Embed word vectors
+
+                <p class="stretch">![brown quick vectors related](images/brown quick vectors related.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Train similarity
+
+                <div>
+                    \begin{aligned}
+                    sim(\text{quick}, \text{brown}) &> sim(\text{quick}, \text{dog})\\\\
+                    sim(\begin{pmatrix}1 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0\end{pmatrix}, \begin{pmatrix}0 \\\\ 1 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0\end{pmatrix}) &> sim(\begin{pmatrix}1 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0\end{pmatrix}, \begin{pmatrix}0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 0 \\\\ 1\end{pmatrix})
+                    \end{aligned}
+                </div>
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Training data
+
+                *The quick brown fox jumps over the lazy dog.*
+
+                Slide window over corpus:
+
+                1. <!-- .element: class="fragment" --> *<span class="highlight-fl">The quick</span> brown fox jumps over the lazy dog*: [*the* &rarr; *quick*]
+                2. <!-- .element: class="fragment" --> *The <span class="highlight-fl">quick brown</span> fox jumps over the lazy dog*: [*quick* &rarr; *brown*]
+                3. <!-- .element: class="fragment" --> *The quick <span class="highlight-fl">brown fox</span> jumps over the lazy dog*: [*brown* &rarr; *fox*]
+
+                <!-- .element: class="fragment" -->When Machine sees *brown* it should predict *fox*.
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Skipgram
+
+                Predict context from word.
+
+                1. *<span class="highlight-fl">The <u>quick</u> brown</span> brown fox jumps over the lazy dog*: [*quick* &rarr; *the*, *brown*]
+                2. *The <span class="highlight-fl">quick <u>brown</u> fox</span> jumps over the lazy dog*: [*brown* &rarr; *quick*, *fox*]
+                3.  *The quick <span class="highlight-fl">brown <u>fox</u> jumps</span> over the lazy dog*: [*fox* &rarr; *brown*, *jumps*]
+
+                When Machine sees *quick* it should predict *the* or *brown*.
+
+                Window can be larger (recommended: 5).
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Continuous Bag of Words (CBOW)
+
+                Predict word from context.
+
+                1. *<span class="highlight-fl"><u>The</u> quick <u>brown</u></span> brown fox jumps over the lazy dog*: [*the*, *brown* &rarr; *quick*]
+                2. *The <span class="highlight-fl"><u>quick</u> brown <u>fox</u></span> jumps over the lazy dog*: [*quick*, *fox* &rarr;  *brown*]
+                3.  *The quick <span class="highlight-fl"><u>brown</u> fox <u>jumps</u></span> over the lazy dog*: [*brown*, *jumps* &rarr; *fox*]
+
+                When Machine sees *the* or *brown* it should predict *quick*.
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                [Word Embedding Visual Inspector](https://ronxin.github.io/wevi/)
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+
+
+                Notes:
+                </script>
+            </section>
+
+
+        </section>
+
         <section id="vector_space_classification_section">
             <section id="vector_space_classification" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
