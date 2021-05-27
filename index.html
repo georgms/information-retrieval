@@ -4380,38 +4380,405 @@
             </section>
         </section>
 
+        <section id="fitting_section">
+            <section id="fitting" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Overfitting
+
+                ![Overfitting](images/Man Woman Classifier Overfitting.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Underfitting
+
+                ![Underfitting](images/Man Woman Classifier Underfitting.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+
+                Notes:
+                </script>
+            </section>
+
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Bias-Variance trade-off
+
+                How does classifier change per training set?
+
+                * High variance:
+                * Accurate, but inconsistent
+                * Overfitting, memorize noise
+                * High bias:
+                * Consistent, but inaccurate
+                * Underfitting, cannot learn true signal
+                </script>
+            </section>
+        </section>
 
         <section id="feature_selection_section">
             <section id="feature_selection" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Feature Selection
+                # Feature Selection
 
-                    Notes:
+                Notes:
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Why?
+                # Why?
 
-                    * Do not use all terms for training
-                    * Less terms = better training and runtime performance
-                    * Reduce noise
+                * Do not use all terms for training
+                * Less terms = better training and runtime performance
+                * Reduce noise
 
-                    Notes:
-                    Ideas?
+                Notes:
+                Ideas?
                 </script>
             </section>
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Text analysis
+                # Text analysis
 
-                    * Stopwords
-                    * Stemming
-                    * N-Grams, word sequences
+                * Stopwords
+                * Stemming
+                * N-Grams, word sequences
 
-                    Notes:
+                Notes:
+                </script>
+            </section>
+        </section>
+
+        <section id="vector_space_classification_section">
+            <section id="vector_space_classification" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Vector Space Classification
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Document as vector
+
+                <p class="stretch">![Vectors](images/Vectors.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                <p class="stretch">![Vector Space Classification](images/Vector Space Classification.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Rocchio Classification
+
+                Supports multiple classes
+
+                1. Compute center of mass / centroid for class
+                2. Assign documents to class of nearest centroid
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Rocchio Classification
+
+                <p class="stretch">![Rocchio](images/Rocchio.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                Notes:
+
+                What is the class of the new document?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # k Nearest Neighbor (kNN)
+
+                Supports multiple classes
+
+                * Assign document to class of the majority of the k nearest neighors
+                * $k = 1$: Closest neighbor
+                * Usually $k = 3$ or $k = 5$
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # k Nearest Neighbor (kNN)
+
+                <p class="stretch">![kNN](images/kNN.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                Notes:
+
+                What's the class?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Support Vector Machines (SVM)
+
+                Supports exactly two classes
+
+                * Separate documents into two classes
+                * By drawing a _line_ between the two classes
+
+                Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Which _line_?
+
+                <p class="stretch">![SVM Possibilities](images/SVM Possibilities.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                Notes:
+
+                Audience question. Which line and why?
+                </script>
+            </section>
+
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Hyperplane
+
+                * 1 dimensional: point
+                * 2 dimensional: line
+                * 3 dimensional: plane
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Which hyperplane?
+
+                Choose hyperplane with largest margin:
+
+                Larger margin
+
+                &darr;
+
+                More wiggle room for both classes
+
+                &darr;
+
+                More confident decision
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Hyperplane with largest margin
+
+                <p class="stretch">![SVM Solution](images/SVM Solution.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # SVM Outliers
+
+                <p class="stretch">![SVM Outliers](images/SVM Outliers Problem.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Outliers decrease margin
+
+                <p class="stretch">![SVM Outliers](images/SVM Outliers.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # SVM Outliers
+
+                * Outliers could be noise
+                * Ignore for greater margin
+                * Pay penalty for each outlier
+
+                Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # SVM Outliers
+
+                <p class="stretch">![SVM Outliers](images/SVM Outliers Solved.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Linearly inseparable data
+
+                <p class="stretch">![SVM not separable](images/SVM not separable.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+                Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # SVM Kernel Trick
+
+                Transform to higher dimension
+
+                <p class="stretch">![SVM Kernel Trick](images/SVM Kernel Trick.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+                Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Which classifier to use?
+
+                * Is the problem linear?
+                * Can a hyperplane separate the classes?
+
+                <p class="stretch">![Linear Non-Linear](images/Linear Non-Linear.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Classifier types
+
+                * Linear classifier: Separates classes with hyperplane
+                * Non-Linear classifier: Opposite
+                * Linear classifier is more robust
+                * But cannot solve non-linear problems
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Is classifier linear?
+
+                1. Classify new document
+                2. Do this many times
+                3. Is border between classes a hyperplane?
+                </script>
+            </section>
+
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Rocchio Classification: Linear?
+
+                <p class="stretch">![Rocchio](images/Rocchio.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Rocchio Classification: Linear
+
+                <p class="stretch">![Rocchio Linear](images/Rocchio Linear.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # kNN: Linear?
+
+                <p class="stretch">![kNN](images/kNN.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # kNN: Non-Linear
+
+                <p class="stretch">![kNN Non-Linear](images/kNN Non-Linear.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # SVM
+
+                <p class="stretch">![SVM Solution](images/SVM Solution.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                Linear? *Yes*<!-- .element: class="fragment" data-fragment-index="" -->
+                Notes:
+
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                <p class="stretch">![Rocchio Linear](images/Rocchio Linear.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                * Bias: *high*<!-- .element: class="fragment" data-fragment-index="" -->
+                * Variance: *low*<!-- .element: class="fragment" data-fragment-index="" -->
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                <p class="stretch">![kNN Non-Linear](images/kNN Non-Linear.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                * Bias: *low*<!-- .element: class="fragment" data-fragment-index="" -->
+                * Variance: *high*<!-- .element: class="fragment" data-fragment-index="" -->
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                <p class="stretch">![SVM Solution](images/SVM Solution.svg)
+                    <!-- .element: style="border: none; box-shadow: none;" --></p>
+
+                * Bias: *high*<!-- .element: class="fragment" data-fragment-index="" -->
+                * Variance: *low*<!-- .element: class="fragment" data-fragment-index="" -->
                 </script>
             </section>
         </section>
@@ -4613,372 +4980,6 @@
                 * Pre-trained for many languages
 
                 Notes:
-                </script>
-            </section>
-        </section>
-
-        <section id="vector_space_classification_section">
-            <section id="vector_space_classification" data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Vector Space Classification
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Document as vector
-
-                    <p class="stretch">![Vectors](images/Vectors.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    <p class="stretch">![Vector Space Classification](images/Vector Space Classification.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Rocchio Classification
-
-                    Supports multiple classes
-
-                    1. Compute center of mass / centroid for class
-                    2. Assign documents to class of nearest centroid
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Rocchio Classification
-
-                    <p class="stretch">![Rocchio](images/Rocchio.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-
-                    What is the class of the new document?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # k Nearest Neighbor (kNN)
-
-                    Supports multiple classes
-
-                    * Assign document to class of the majority of the k nearest neighors
-                    * $k = 1$: Closest neighbor
-                    * Usually $k = 3$ or $k = 5$
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # k Nearest Neighbor (kNN)
-
-                    <p class="stretch">![kNN](images/kNN.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-
-                    What's the class?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Support Vector Machines (SVM)
-
-                    Supports exactly two classes
-
-                    * Separate documents into two classes
-                    * By drawing a _line_ between the two classes
-
-                    Notes:
-
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Which _line_?
-
-                    <p class="stretch">![SVM Possibilities](images/SVM Possibilities.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-
-                    Audience question. Which line and why?
-                </script>
-            </section>
-
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Hyperplane
-
-                    * 1 dimensional: point
-                    * 2 dimensional: line
-                    * 3 dimensional: plane
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Which hyperplane?
-
-                    Choose hyperplane with largest margin:
-
-                    Larger margin
-
-                    &darr;
-
-                    More wiggle room for both classes
-
-                    &darr;
-
-                    More confident decision
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Hyperplane with largest margin
-
-                    <p class="stretch">![SVM Solution](images/SVM Solution.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # SVM Outliers
-
-                    <p class="stretch">![SVM Outliers](images/SVM Outliers Problem.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Outliers decrease margin
-
-                    <p class="stretch">![SVM Outliers](images/SVM Outliers.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # SVM Outliers
-
-                    * Outliers could be noise
-                    * Ignore for greater margin
-                    * Pay penalty for each outlier
-
-                    Notes:
-
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # SVM Outliers
-
-                    <p class="stretch">![SVM Outliers](images/SVM Outliers Solved.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Linearly inseparable data
-
-                    <p class="stretch">![SVM not separable](images/SVM not separable.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-                    Notes:
-
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # SVM Kernel Trick
-
-                    Transform to higher dimension
-
-                    <p class="stretch">![SVM Kernel Trick](images/SVM Kernel Trick.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-                    Notes:
-
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Which classifier to use?
-
-                    * Is the problem linear?
-                    * Can a hyperplane separate the classes?
-
-                    <p class="stretch">![Linear Non-Linear](images/Linear Non-Linear.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Classifier types
-
-                    * Linear classifier: Separates classes with hyperplane
-                    * Non-Linear classifier: Opposite
-                    * Linear classifier is more robust
-                    * But cannot solve non-linear problems
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Is classifier linear?
-
-                    1. Classify new document
-                    2. Do this many times
-                    3. Is border between classes a hyperplane?
-                </script>
-            </section>
-
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Rocchio Classification: Linear?
-
-                    <p class="stretch">![Rocchio](images/Rocchio.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Rocchio Classification: Linear
-
-                    <p class="stretch">![Rocchio Linear](images/Rocchio Linear.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # kNN: Linear?
-
-                    <p class="stretch">![kNN](images/kNN.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # kNN: Non-Linear
-
-                    <p class="stretch">![kNN Non-Linear](images/kNN Non-Linear.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # SVM
-
-                    <p class="stretch">![SVM Solution](images/SVM Solution.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    Linear? *Yes*<!-- .element: class="fragment" data-fragment-index="" -->
-                    Notes:
-
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Overfitting
-
-                    ![Overfitting](images/Man Woman Classifier Overfitting.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
-
-                    Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Underfitting
-
-                    ![Underfitting](images/Man Woman Classifier Underfitting.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
-
-                    Notes:
-                </script>
-            </section>
-
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    # Bias-Variance trade-off
-
-                    How does classifier change per training set?
-
-                    * High bias:
-                        * Consistent, but inaccurate
-                        * Underfitting, cannot learn true signal
-                    * High variance:
-                        * Accurate, but inconsistent
-                        * Overfitting, memorize noise
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    <p class="stretch">![Rocchio Linear](images/Rocchio Linear.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    * Bias: *high*<!-- .element: class="fragment" data-fragment-index="" -->
-                    * Variance: *low*<!-- .element: class="fragment" data-fragment-index="" -->
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    <p class="stretch">![kNN Non-Linear](images/kNN Non-Linear.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    * Bias: *low*<!-- .element: class="fragment" data-fragment-index="" -->
-                    * Variance: *high*<!-- .element: class="fragment" data-fragment-index="" -->
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                    <p class="stretch">![SVM Solution](images/SVM Solution.svg)
-                        <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-                    * Bias: *high*<!-- .element: class="fragment" data-fragment-index="" -->
-                    * Variance: *low*<!-- .element: class="fragment" data-fragment-index="" -->
                 </script>
             </section>
         </section>
