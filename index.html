@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -46,7 +46,7 @@
             <script type="text/template">
                 # Text Search 102
 
-                Georg M. Sorst, CTO FINDOLOGIC
+                Georg M. Sorst, Principal Engineer @ FINDOLOGIC
             </script>
         </section>
 
@@ -60,7 +60,7 @@
                     # Me
 
                     * Georg M. Sorst
-                    * CTO @ [FINDOLOGIC GmbH](https://findologic.com)
+                    * Principal Engineer @ [FINDOLOGIC GmbH](https://findologic.com)
                     * One of DACH's biggest search and navigation solution providers
                 </script>
             </section>
@@ -77,12 +77,11 @@
 
                     * Internship, thesis, full time
                     * Buzzwords:
-                        * Angular, Vue, Material Design, Typescript, Laravel, Kotlin
-                        * IntelliJ, WebStorm, PHPStorm, YouTrack
-                        * GitLab, GitHub, Travis, Jenkins
+                        * Vue, Vuetify, Material Design, Typescript, Laravel, Kotlin
+                        * IntelliJ, WebStorm, PHPStorm, YouTrack, GitHub
                         * Kubernetes, Ansible, Docker, Vagrant
                         * Solr
-                        * Wuzler
+                        * Wuzler, Dart, PlayStation
                 </script>
             </section>
 
@@ -90,13 +89,16 @@
                 <script type="text/template">
                     # Org
 
-                    * Please turn on your cameras. Otherwise it's so boring to talk into my computer.
-                    * I will pick random people to answer questions during the lecture. This helps up to stay awake.
-                    * Have a question? Too slow? Too fast? Let me know right away!
-                    * Break every ~45 minutes. Who will be my timekeeper?
-                    * I will record the lecture. Ok?
                     * Some coding homeworks during the semester.
                     * Final project: Find data set, build search.
+                    * Participation is relevant for your grade, and helps us learn better. Asking questions is also participation!
+                    * I will pick random people from the [Wheel of Names](https://wheelofnames.com/) to answer questions during the lecture. This helps up to stay awake.
+                    * Have a question? Too slow? Too fast? Let me know right away!
+                    * I will record the lecture. Ok?
+                    * Who will be my timekeeper? Time to [spin the Wheel](https://wheelofnames.com/).
+                    * When online:
+                        * Please turn on your cameras. Otherwise, I feel like I'm talking to my computer.
+                        * Break every ~45 minutes.
                 </script>
             </section>
         </section>
@@ -112,6 +114,8 @@
             2. I have a list of all names. It's not in alphabetical order and I cannot reorder it.
             2. You cannot say your name.
             3. You can only say *yes* or *no* when asked something.
+
+            What is the fastest way to match everyone's name to their face?
 
             Notes:
             * How long does it take if I just try every name on everyone?
@@ -137,15 +141,15 @@
             </section>
 
             <section>
-                <img class="stretch" data-src="images/Num websites.jpeg"/>
+                <img class="stretch" data-src="images/Num websites.jpeg" alt="Number of websites over time"/>
             </section>
 
             <section>
-                <img class="stretch" data-src="images/wikipedia.png"/>
+                <img class="stretch" data-src="images/wikipedia.png" alt="Number of english Wikipedia entries over time"/>
             </section>
 
             <section>
-                <img class="stretch" data-src="images/printed-internet.png"/>
+                <img class="stretch" data-src="images/printed-internet.png" alt="How long it takes to read the internet"/>
             </section>
 
             <section data-markdown>
@@ -224,7 +228,7 @@
                     All the documents <!-- .element: class="fragment" data-fragment-index="2" -->
 
                     ## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
-                    Like words, but maybe "FH Salzburg" and "A1" as well <!-- .element: class="fragment" data-fragment-index="3" -->
+                    <!-- .element: class="fragment" data-fragment-index="3" -->Like words, but maybe _FH Salzburg_ and _A1_ as well
                 </script>
             </section>
 
@@ -250,12 +254,12 @@
                     # Nomenclature
 
                     ## Information need <!-- .element: class="fragment" data-fragment-index="1" -->
-                    What the user is looking for <!-- .element: class="fragment" data-fragment-index="1" -->
+                    What the user is looking for: <!-- .element: class="fragment" data-fragment-index="1" -->
 
-                    _"I want to learn about information retrieval and search"_ <!-- .element: class="fragment" data-fragment-index="2" -->
+                    _I want to learn about information retrieval and search_ <!-- .element: class="fragment" data-fragment-index="2" -->
 
                     ## Query <!-- .element: class="fragment" data-fragment-index="3" -->
-                    How the user talks to the computer <!-- .element: class="fragment" data-fragment-index="3" -->
+                    How the user talks to the computer: <!-- .element: class="fragment" data-fragment-index="3" -->
 
                     `(information AND retrieval) OR search` <!-- .element: class="fragment" data-fragment-index="4" -->
 
@@ -375,7 +379,7 @@
                 # Complexity
 
                 * [Big &Omicron; notation](https://en.wikipedia.org/wiki/Big_O_notation)
-                * Describe time or space complexity of algorithms and data structures
+                * Describe time or memory complexity of algorithms and data structures
                 * Which inputs influence their runtime and memory requirements?
                 * Look at worst case
                 </script>
@@ -445,11 +449,16 @@
                 <script type="text/template">
                     # Grep disadvantages
 
-                    * Does *books* match *book*?
+                    * Does _books_ match _book_?
                         * <!-- .element: class="fragment" -->Cannot deal with singular / plural, *books* does not match *book*.
+                    * <!-- .element: class="fragment" --> _go_ vs _went_
+                    * <!-- .element: class="fragment" --> _running_ vs _run_
+                    * <!-- .element: class="fragment" --> _go_ vs _gong_
+
+                    Not user friendly!<!-- .element: class="fragment" -->
 
                     Notes:
-                    Audience question
+                    More examples?
                 </script>
             </section>
         </section>
@@ -901,6 +910,7 @@
                     * <!-- .element: class="fragment" --> _Jack's_  &leftrightarrow; _Jack_?
                     * <!-- .element: class="fragment" --> _MMT_ &leftrightarrow; _Multimediatechnology_?
                     * <!-- .element: class="fragment" --> _U.S.A._ &leftrightarrow; _USA_?
+                    * <!-- .element: class="fragment" --> _running_ &leftrightarrow; _  run_?
 
                     Notes:
                 </script>
@@ -910,7 +920,7 @@
                 <script type="text/template">
                     # Text analysis
 
-                    * Analyse docs and query
+                    * Analyze docs and query
                     * Add, remove, change terms
 
                     Notes:
@@ -924,7 +934,7 @@
                     ## Token <!-- .element: class="fragment" data-fragment-index="1" -->
                     * Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
                     * No analysis yet <!-- .element: class="fragment" data-fragment-index="1" -->
-                    * <!-- .element: class="fragment" data-fragment-index="1" --> _the_, _routers_
+                    * <!-- .element: class="fragment" data-fragment-index="1" --> _the_, _routers_, _the_
 
                     ## Type <!-- .element: class="fragment" data-fragment-index="2" -->
                     * Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -957,7 +967,7 @@
                     * [Default english stop words for Solr](https://github.com/apache/lucene-solr/blob/master/solr/example/files/conf/lang/stopwords_en.txt)
                     * Start with top terms in collection
                     * Can be domain-specific
-                    * Eg. *doctor*, *patient* in medical documents
+                        * Eg. *doctor*, *patient* in medical documents
 
                     Notes:
                     * What could be the problem with stop words?
@@ -979,13 +989,13 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Stop words in real life
+                    # Stopw ords in real life
 
                     * Index size not an issue anymore
-                    * Solr: Stop words are optional, but increase score
-                    * *The Police* will find *police car*, but rank *The Police* higher
-                    * No special handling when query consists only of stopwords
-                    * *To be or not to be* searches for `[to, be, or, not]`
+                    * Solr: Stop words are optional, but increase score if they are matched
+                        * *The Police* will find *police car*, but rank *The Police* higher
+                    * No special handling for stop words when query consists only of stop words
+                        * *To be or not to be* searches for `[to, be, or, not]`
 
                     Notes:
                 </script>
@@ -1028,7 +1038,7 @@
                     | SSES | SS | caresses &rarr; caress |
                     | IES | I |  ponies &rarr; poni, ties &rarr; ti |
                     | SS | SS  | caress &rarr; caress |
-                    | S | <empty> | cats &rarr; cat |
+                    | S | _empty_ | cats &rarr; cat |
 
                     … and so on
 
