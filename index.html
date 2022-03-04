@@ -44,7 +44,7 @@
     <div class="slides">
         <section data-markdown>
             <script type="text/template">
-                # Text Search 102
+                # Information Retrieval
 
                 Georg M. Sorst, Principal Engineer @ FINDOLOGIC
             </script>
@@ -964,7 +964,7 @@
                     * Add no meaning: *table* should find *a table* and * the table*
                     * Inflate index size
                     * Manually curated list
-                    * [Default english stop words for Solr](https://github.com/apache/lucene-solr/blob/master/solr/example/files/conf/lang/stopwords_en.txt)
+                    * [Default english stop words for Solr](https://github.com/apache/solr/blob/main/solr/server/solr/configsets/_default/conf/lang/stopwords_en.txt)
                     * Start with top terms in collection
                     * Can be domain-specific
                         * Eg. *doctor*, *patient* in medical documents
@@ -989,7 +989,7 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                    # Stopw ords in real life
+                    # Stop words in real life
 
                     * Index size not an issue anymore
                     * Solr: Stop words are optional, but increase score if they are matched
