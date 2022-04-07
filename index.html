@@ -1253,8 +1253,19 @@
                     * Augment with click-stream logs
 
                     Notes:
+                </script>
+            </section>
 
-                    * Audience participation
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                ![precision-recall-example](images/Precision Recall Example.svg)<!-- .element: height="500px" -->
+
+                Precision for _smartphone_? <span>50%</span><!-- .element: class="fragment" -->
+
+                Recall for _smartphone_? <span>50%</span><!-- .element: class="fragment" -->
+
+                Notes:
+                * Audience question
                 </script>
             </section>
 
@@ -1262,7 +1273,7 @@
                 <script type="text/template">
                     # Precision & Recall
 
-                    * <!-- .element: class="fragment" --> Will never be 100% both
+                    * <!-- .element: class="fragment" --> Will never be 100% both, so:
                     * <!-- .element: class="fragment" --> Rank results according to relevance
 
                     Notes:
@@ -1537,8 +1548,9 @@
                 <script type="text/template">
                 # TF pitfalls
 
-                * <!-- .element: class="fragment" --> Not always true
-                * <!-- .element: class="fragment" --> The Bible does not contain "_the bible_"
+                Not always true:<!-- .element: class="fragment" -->
+
+                $TF(\text{bible}, \text{"In the beginning God created the heaven and the earth."}) = 0$<!-- .element: class="fragment" -->
 
                 Notes:
                 Audience question
@@ -1547,11 +1559,9 @@
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
-                $TF(\text{query}, \text{document})$
-
                 # Spam
 
-                $$TF(\text{money}, \text{money money money}) > TF(\text{money}, \text{Document about money})$$
+                $$TF(\text{money}, \text{"money money money"}) > TF(\text{money}, \text{"Legit document about money"})$$
 
                 Spam should be prevented.<!-- .element: class="fragment" -->
 
@@ -1564,7 +1574,7 @@
                 <script type="text/template">
                 # Multi-term queries
 
-                $$TF(\text{cat OR dog}, \text{cat cat cat}) > TF(\text{cat OR dog}, \text{cat dog})$$
+                $$TF(\text{cat OR dog}, \text{"cat cat cat"}) > TF(\text{cat OR dog}, \text{"cat dog"})$$
 
                 Documents which match all query terms should be ranked higher.<!-- .element: class="fragment" -->
 
@@ -1577,22 +1587,9 @@
                 <script type="text/template">
                 # Document length
 
-                $$TF(\text{cat}, \text{cat}) < TF(\text{cat}, \text{cat dog mouse elephant cat})$$
+                $$TF(\text{cat}, \text{"cat"}) < TF(\text{cat}, \text{"cat dog mouse elephant cat"})$$
 
                 Term frequency should be normalized with the document length.<!-- .element: class="fragment" -->
-
-                Notes:
-                * Who can explain what the formula means and why this is an issue?
-                </script>
-            </section>
-
-            <section id="tf_idf_issues" data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # Term saturation
-
-                $$\frac{TF(\text{cat}, \text{cat} \times 10)}{TF(\text{cat}, \text{cat} \times 5)} < \frac{TF(\text{cat}, \text{cat} \times 50000)}{TF(\text{cat}, \text{cat} \times 5000)}$$
-
-                The term frequency should not increase linearly.<!-- .element: class="fragment" -->
 
                 Notes:
                 * Who can explain what the formula means and why this is an issue?
@@ -2206,6 +2203,8 @@
             <section id="fuzzy_search" data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
                 # Fuzzy search
+
+                Is _bock_ most similar to _book_, _rock_ or _spock_?
 
                 Notes:
                 </script>
