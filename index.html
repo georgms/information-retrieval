@@ -1371,6 +1371,7 @@
                     Notes:
                     * Why is it only relevant for OR search?
                     * Why is it stored per term?
+                    * What is the min and max IDF? Why?
                 </script>
             </section>
 
@@ -1742,9 +1743,9 @@
                 <script type="text/template">
                     # Phrase queries
 
+                    * <!-- .element: class="fragment" --> `fh salzburg` should not match `In Salzburg there is a University and in Vienna there is an FH`
                     * <!-- .element: class="fragment" --> Search for names and concepts: `"fh salzburg"`, `"mountain bike"`
                     * <!-- .element: class="fragment" --> Well accepted by users
-                    * <!-- .element: class="fragment" --> `"fh salzburg"` should not match `In Salzburg there is a University and in Vienna there is an FH`
                     * <!-- .element: class="fragment" --> Needs more advanced index with positional information
 
                     Notes:
