@@ -4089,10 +4089,84 @@
             </section>
         </section>
 
+        <section id="fitting_section">
+            <section id="fitting" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Overfitting
+
+                ![Overfitting](images/Man Woman Classifier Overfitting.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Underfitting
+
+                ![Underfitting](images/Man Woman Classifier Underfitting.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+
+                Notes:
+                </script>
+            </section>
+
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Bias-Variance trade-off
+
+                How does classifier change per training set?
+
+                |  | High Variance | High Bias |
+                |---|---|---|
+                | Accurate | x | - |
+                | Overfitting, memorize noise | x | - |
+                | Consistent | - | x |
+                | Underfitting, cannot learn signal | - | x |
+
+                </script>
+            </section>
+        </section>
+
+        <section id="feature_selection_section">
+            <section id="feature_selection" data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Feature Selection
+
+                Notes:
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Why?
+
+                * Do not use all terms for training
+                * Less terms = better training and runtime performance
+                * Reduce noise
+
+                Notes:
+                Ideas?
+                </script>
+            </section>
+
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Text analysis
+
+                * Stopwords (_and_, _or_ do not say anything about spamminess)
+                * Stemming (_viagra_, _viagras_ are equally spammy)
+                * N-Grams, word sequences
+
+                Notes:
+                </script>
+            </section>
+        </section>
+
         <section id="naive_bayes_section">
             <section data-markdown>
                 <textarea data-template>
-                    # Naive Bayes Classficiation
+                    # Naive Bayes Classification
                 </textarea>
             </section>
             <section id="naive_bayes" data-markdown data-separator-notes="^Notes:">
@@ -4193,6 +4267,8 @@
 
                     *I have this document, is it Spam?*
 
+                    (Using extended form of Bayes theorem because spam / ham is a binary variable)
+
                     <div>
                     \begin{aligned}
                     \\\\
@@ -4251,14 +4327,26 @@
                     P(term | \text{spam}) &= \frac{\text{Document frequency of }term\text{ in Spam}}{\text{Number of Spam mails}}
                     \end{aligned}
                 </div>
+                Notes:
+                </script>
+            </section>
 
-                <br />
+            <section data-markdown data-separator-notes="^Notes:">
+                <script type="text/template">
+                # Probability for unknown words
 
-                But $P(\text{viagra} | \text{spam}) \times P(\text{unknown spam word} | \text{spam}) = 0$ so…
+                $P(\text{unknown spam word} | \text{spam}) = \frac{0}{\text{Number of Spam mails}} = 0$
+
+                so
+
+                $P(doc | \text{spam}) = P(\text{viagra} | \text{spam}) \times P(\text{unknown spam word} | \text{spam}) \times \text{…} = 0$
+
+                But the probability should be $> 0%$.
 
                 Notes:
                 </script>
             </section>
+
 
             <section data-markdown data-separator-notes="^Notes:">
                 <script type="text/template">
@@ -4273,7 +4361,7 @@
 
                 <br />
 
-                Constants are added so $0\% < \text{probability} <= 100\%$.
+                Constants are added so $0\% < \text{probability} < 100\%$.
 
                 Notes:
                 </script>
@@ -4384,79 +4472,6 @@
                 * **Focus on correct implementation of the required formulas**
                 * Use the provided CLI to manually test your application (see `README.md`)
                 * Ensure that the provided test cases run successfully (see `README.md`)
-
-                Notes:
-                </script>
-            </section>
-        </section>
-
-        <section id="fitting_section">
-            <section id="fitting" data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # Overfitting
-
-                ![Overfitting](images/Man Woman Classifier Overfitting.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
-
-                Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # Underfitting
-
-                ![Underfitting](images/Man Woman Classifier Underfitting.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
-
-                Notes:
-                </script>
-            </section>
-
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # Bias-Variance trade-off
-
-                How does classifier change per training set?
-
-                * High variance:
-                * Accurate, but inconsistent
-                * Overfitting, memorize noise
-                * High bias:
-                * Consistent, but inaccurate
-                * Underfitting, cannot learn true signal
-                </script>
-            </section>
-        </section>
-
-        <section id="feature_selection_section">
-            <section id="feature_selection" data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # Feature Selection
-
-                Notes:
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # Why?
-
-                * Do not use all terms for training
-                * Less terms = better training and runtime performance
-                * Reduce noise
-
-                Notes:
-                Ideas?
-                </script>
-            </section>
-
-            <section data-markdown data-separator-notes="^Notes:">
-                <script type="text/template">
-                # Text analysis
-
-                * Stopwords
-                * Stemming
-                * N-Grams, word sequences
 
                 Notes:
                 </script>
@@ -4970,9 +4985,10 @@
 
                 [View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word%20Embedding.ipynb)
 
-                1. [Download Word Embedding notebook](word-embedding/Word Embedding.ipynb)
+                1. Download [Word Embedding Notebook](word-embedding/Word Embedding.ipynb) and [data.txt](word-embedding/data.txt)
                 2. Run Jupyter: `docker run -p 8888:8888 -e GRANT_SUDO=yes -u root jupyterhub/singleuser`
-                3. Upload Notebook
+                3. Open http://localhost:8888/lab with the token from the console
+                3. Upload Notebook and `data.txt`
 
                 Notes:
                 </script>
