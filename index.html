@@ -5141,6 +5141,7 @@
                     * Title match > Meta keyword match?
                     * Query "iphone": "iPhone cover" > "iPhone X"?
 
+                    <span class="fragment">Just rank by click!</span> <span class="fragment">But what about new items?</span>
                     Notes:
                 </script>
             </section>
@@ -5200,7 +5201,8 @@
                 <script type="text/template">
                 ![Regression Learning](images/Regression Learning.png)<!-- .element: style="border: none; box-shadow: none;" -->
 
-                [Source](https://de.wikipedia.org/wiki/Datei:WebCrawlerArchitecture.svg)
+                Ideal Rank vs. Actual Rank
+
                 Notes:
                 </script>
             </section>
@@ -5229,14 +5231,17 @@
                     | iphone | iPhone cover<!-- .element: class="fragment" data-fragment-index="1" --> | 1<!-- .element: class="fragment" data-fragment-index="2" -->    |         | 2<!-- .element: class="fragment" data-fragment-index="3" -->
                     | iphone | iPhone X<!-- .element: class="fragment" data-fragment-index="1" -->     | 2<!-- .element: class="fragment" data-fragment-index="2" -->    |         | 11<!-- .element: class="fragment" data-fragment-index="3" -->
                     | iphone | iPhone 8<!-- .element: class="fragment" data-fragment-index="1" -->     | 3<!-- .element: class="fragment" data-fragment-index="2" -->    |         | 5<!-- .element: class="fragment" data-fragment-index="3" -->
+                    | iphone | iPhone 13<!-- .element: class="fragment" data-fragment-index="1" -->     | 4<!-- .element: class="fragment" data-fragment-index="2" -->    |         | ? (just released)<!-- .element: class="fragment" data-fragment-index="3" -->
 
-                    Ideal ranking:<!-- .element: class="fragment" data-fragment-index="5" -->
+                    Or use manual relevance judgement<!-- .element: class="fragment" data-fragment-index="5" -->
 
-                    1. iPhone X<!-- .element: class="fragment" data-fragment-index="5" -->
-                    2. iPhone 8<!-- .element: class="fragment" data-fragment-index="5" -->
-                    3. iPhone cover<!-- .element: class="fragment" data-fragment-index="5" -->
+                    Ideal ranking:<!-- .element: class="fragment" data-fragment-index="6" -->
 
-                    Or use manual relevance judgement<!-- .element: class="fragment" data-fragment-index="6" -->
+                    1. iPhone X<!-- .element: class="fragment" data-fragment-index="6" -->
+                    2. iPhone 8<!-- .element: class="fragment" data-fragment-index="6" -->
+                    3. iPhone cover<!-- .element: class="fragment" data-fragment-index="6" -->
+
+                    <span class="fragment" data-fragment-index="7">How to rank _iPhone 13_?</span>
 
                     Notes:
 
@@ -5278,7 +5283,7 @@
             <section>
                 <h1>Calculate weights</h1>
 
-                <p>$$f(\text{query}, \text{document = features}, \text{feature weights}) = \text{ideal rank}$$</p>
+                <p>$$f(\text{query}, \text{document features}, \text{feature weights}) = \text{ideal rank}$$</p>
 
                 <div class="fragment">
                     <h3>Solve for <em>weights</em>:</h3>
@@ -5361,9 +5366,10 @@
                 <script type="text/template">
                     | Rank | Query | Title relevance | Age | More features … | Comment        |
                     |------|----------|-----------------|-----------------|-----------------|----------------|
-                    | 2    | *iphone*    | 0.2             | 0.3             | 1             | # iPhone 8     |
-                    | 3    | *iphone*    | 1.3             | 0.9             | 0             | # iPhone X     |
-                    | 1    | *iphone*    | 0.1             | 1.2             | 0             | # iPhone cover |
+                    | 2    | *iphone*    | 1.3             | 0.9             | 1             | # iPhone 8     |
+                    | 3    | *iphone*    | 1.3             | 0.3             | 0             | # iPhone X     |
+                    | 1    | *iphone*    | 1.3             | 1.2             | 0             | # iPhone cover |
+                    | ?    | *iphone*    | 1.3             | 0.1             | 0             | # iPhone 13 |
                     | 3    | *galaxy*    | 3.3             | 3.5             | 1             |                |
                     | 2    | *galaxy*    | 1.0             | 1.1             | 1             |                |
                     | 1    | *galaxy*    | 0.5             | 1.2             | 1             |                |
