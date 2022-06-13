@@ -12,5 +12,4 @@ package-lock.json
 .sass-cache
 css/reveal.min.css
 js/reveal.min.js
-/solr-vagrant/
-!/solr-vagrant/Vagrantfile
+/solr-vagrant/.vagrant

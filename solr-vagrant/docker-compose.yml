@@ -1,0 +1,14 @@
+services:
+  solr:
+    build:
+      context: .
+      dockerfile: solr.Dockerfile
+    ports:
+      - "8983:8983"
+    volumes:
+      - solrdata:/var/solr
+    command:
+      - solr-precreate
+      - gettingstarted
+volumes:
+  solrdata: { }
