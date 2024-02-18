@@ -192,8 +192,6 @@ Audience question
 * <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
 * <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 12GB = **24 billion string comparisons**
 
-
-
 Notes:
 How can this be improved?
 ---
