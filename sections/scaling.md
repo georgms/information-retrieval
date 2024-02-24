@@ -94,7 +94,7 @@ How can the index be partitioned? Think of the Inverted Index.
 ---
 # Term-partitioned index
 
-<p class="stretch">![Term-partitioned index](images/Term-partitioned index.png)
+<p class="stretch">![Term-partitioned index](../images/Term-partitioned index.png)
     <!-- .element: style="border: none; box-shadow: none;" --></p>
 
 Notes:
@@ -113,7 +113,7 @@ Notes:
 ---
 # Document-partitioned index
 
-<p class="stretch">![Document-partitioned index](images/Document-partitioned index.svg)
+<p class="stretch">![Document-partitioned index](../images/Document-partitioned index.svg)
     <!-- .element: style="border: none; box-shadow: none;" --></p>
 Notes:
 
@@ -140,7 +140,7 @@ Notes:
 ---
 # Distributed query
 
-<p class="stretch">![Document-partitioned query](images/Document-partitioned query.svg)
+<p class="stretch">![Document-partitioned query](../images/Document-partitioned query.svg)
     <!-- .element: style="border: none; box-shadow: none;" --></p>
 
 
@@ -167,7 +167,7 @@ How?
 ---
 # Sharding
 
-<p class="stretch">![sharding](images/Sharding.svg)
+<p class="stretch">![sharding](../images/Sharding.svg)
     <!-- .element: style="border: none; box-shadow: none;" --></p>
 
 Notes:

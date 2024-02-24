@@ -83,12 +83,12 @@ Notes:
 * $\vec{V}(\\#2)$ = (3, 2)
 * $\vec{V}(\\#2)$ = (1, 2)
 
-<p class="stretch">![Vectors](images/Vectors.svg)
+<p class="stretch">![Vectors](../images/Vectors.svg)
     <!-- .element: style="border: none; box-shadow: none;" --></p>
 
 Notes:
 ---
-<p class="stretch">![Vector Similarity](images/Vector Similarity.svg)
+<p class="stretch">![Vector Similarity](../images/Vector Similarity.svg)
     <!-- .element: style="border: none; box-shadow: none;" --></p>
 
 Notes:
@@ -151,7 +151,7 @@ $$\begin{aligned}
 Notes:
 What does the query vector look like?
 ---
-<p class="stretch">![Vectors](images/Vectors.svg)
+<p class="stretch">![Vectors](../images/Vectors.svg)
     <!-- .element: style="border: none; box-shadow: none;" --></p>
 
 Notes:
@@ -159,7 +159,7 @@ What does the query vector look like?
 ---
 # Query vector
 
-<p class="stretch">![Query](images/Query Vector.svg)
+<p class="stretch">![Query](../images/Query Vector.svg)
     <!-- .element: style="border: none; box-shadow: none;" --></p>
 
 Notes: Audience question: Which doc is most similar to the query?
