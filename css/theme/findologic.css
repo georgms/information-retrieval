@@ -13,6 +13,10 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
  * GLOBAL STYLES
  *********************************************/
 
+:root {
+  --fl-color: #ff8c00;
+}
+
 body {
   background-color: #fff;
 }
@@ -232,7 +236,7 @@ body {
  *********************************************/
 
 .reveal a {
-  color: #ff8c00;
+  color: var(--fl-color);
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -274,7 +278,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #ff8c00;
+  border-color: var(--fl-color);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55);
 }
 
@@ -283,19 +287,19 @@ body {
  *********************************************/
 
 .reveal .controls .navigate-left, .reveal .controls .navigate-left.enabled {
-  color: #ff8c00;
+  color: var(--fl-color);
 }
 
 .reveal .controls .navigate-right, .reveal .controls .navigate-right.enabled {
-  color: #ff8c00;
+  color: var(--fl-color);
 }
 
 .reveal .controls .navigate-up, .reveal .controls .navigate-up.enabled {
-  color: #ff8c00;
+  color: var(--fl-color);
 }
 
 .reveal .controls .navigate-down, .reveal .controls .navigate-down.enabled {
-  color: #ff8c00;
+  color: var(--fl-color);
 }
 
 .reveal .controls .navigate-left.enabled:hover {
@@ -323,7 +327,7 @@ body {
 }
 
 .reveal .progress span {
-  background: #ff8c00;
+  background: var(--fl-color);
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -335,9 +339,9 @@ body {
 }
 
 .reveal .slides section .fragment.highlight-fl.visible {
-  color: #ff8c00;
+  color: var(--fl-color);
 }
 
 .reveal .slides section .fragment.highlight-current-fl.current-fragment {
-  color: #ff8c00;
+  color: var(--fl-color);
 }

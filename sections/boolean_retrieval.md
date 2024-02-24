@@ -137,7 +137,7 @@ Audience question
 ```
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
-![...](images/grep.png) <!-- .element: class="fragment" data-fragment-index="2" -->
+![...](../images/grep.png) <!-- .element: class="fragment" data-fragment-index="2" -->
 
 Notes:
 Audience question
