@@ -1,7 +1,6 @@
 # Scaling
 
 Notes:
-Scaling reasons?
 ---
 # Scaling reasons
 
@@ -10,6 +9,7 @@ Scaling reasons?
 * Resiliency <!-- .element: class="fragment" -->
 
 Notes:
+Scaling reasons?
 ---
 # Scaling
 
@@ -94,8 +94,9 @@ How can the index be partitioned? Think of the Inverted Index.
 ---
 # Term-partitioned index
 
-<p class="stretch">![Term-partitioned index](../images/Term-partitioned index.png)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Term-partitioned index](../images/Term-partitioned_index.png)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
@@ -113,8 +114,10 @@ Notes:
 ---
 # Document-partitioned index
 
-<p class="stretch">![Document-partitioned index](../images/Document-partitioned index.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Document-partitioned index](../images/Document-partitioned_index.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
+
 Notes:
 
 (Dis-)Advantages of Term-partitioned index?
@@ -140,8 +143,9 @@ Notes:
 ---
 # Distributed query
 
-<p class="stretch">![Document-partitioned query](../images/Document-partitioned query.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Document-partitioned query](../images/Document-partitioned_query.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 
 Notes:
@@ -167,8 +171,9 @@ How?
 ---
 # Sharding
 
-<p class="stretch">![sharding](../images/Sharding.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![sharding](../images/Sharding.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---

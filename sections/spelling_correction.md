@@ -16,11 +16,11 @@ Notes:
 ---
 # 1. Find alternatives
 
-<!-- .element: class="fragment" --> `bock`
+&shy;<!-- .element: class="fragment" --> `bock`
 
-<!-- .element: class="fragment" --> &darr;
+&shy;<!-- .element: class="fragment" --> &darr;
 
-<!-- .element: class="fragment" --> `book`, `rock`, `spock`
+&shy;<!-- .element: class="fragment" --> `book`, `rock`, `spock`
 
 Notes:
 How to find these alternatives in the index?
@@ -39,33 +39,15 @@ Notes:
 ---
 # Levenshtein
 
-<table>
-    <tr>
-        <td>iformmetoin~</td>
-        <td></td>
-    </tr>
-    <tr>
-        <td><span class="fragment">1. Add **n**</span></td>
-        <td><span class="fragment">informmetoin</span></td>
-    </tr>
-    <tr>
-        <td><span class="fragment">2. Delete **m**</span></td>
-        <td><span class="fragment">informetoin</span></td>
-    </tr>
-    <tr>
-        <td><span class="fragment">3. Replace **e** with **a**</span></td>
-        <td><span class="fragment">informatoin</span></td>
-    </tr>
-    <tr>
-        <td><span class="fragment">4. Swap **o** and **i**</span></td>
-        <td><span>information</span></td>
-    </tr>
-</table>
+|                                                                      |                                                       |
+|----------------------------------------------------------------------|-------------------------------------------------------|
+| iformmetoin~                                                         |                                                       |
+| &shy;<!-- .element: class="fragment" --> 1. Add **n**                | &shy;<!-- .element: class="fragment" --> informmetoin |
+| &shy;<!-- .element: class="fragment" --> 2. Delete **m**             | &shy;<!-- .element: class="fragment" --> informetoin  |
+| &shy;<!-- .element: class="fragment" --> 3. Replace **e** with **a** | &shy;<!-- .element: class="fragment" --> informatoin  |
+| &shy;<!-- .element: class="fragment" --> 4. Swap **o** and **i**     | &shy;<!-- .element: class="fragment" --> information  |
 
-<div class="fragment">
-    <p>&darr;</p>
-    <p>Levenshtein distance = 4</p>
-</div>
+&shy;<!-- .element: class="fragment" --> Levenshtein distance = 4
 
 Notes:
 * Audience question
@@ -104,12 +86,10 @@ Notes:
 * &shy;<!-- .element: class="fragment" data-fragment-index="8" --> `seach endine`?
 * &shy;<!-- .element: class="fragment" data-fragment-index="9" --> &rarr; `peach engine`? 0 results
 * &shy;<!-- .element: class="fragment" data-fragment-index="10" --> &rarr; `peach ending`? 0 results
-<li class="fragment" data-fragment-index="11">&rarr; `search ending`
-    <!-- .element: class="fragment highlight-current-fl" data-fragment-index="13" --> ? 5 results
-</li>
-<li class="fragment" data-fragment-index="12">&rarr; `search engine`
-    <!-- .element: class="fragment highlight-current-fl" data-fragment-index="13" --> ? 10 results
-</li>
+* &shy;<!-- .element: class="fragment" data-fragment-index="11" -->&rarr; `search ending`
+    <!-- .element: class="fragment highlight-current-blue" data-fragment-index="13" --> ? 5 results
+* &shy;<!-- .element: class="fragment" data-fragment-index="12" -->&rarr; `search engine`
+    <!-- .element: class="fragment highlight-current-blue" data-fragment-index="13" --> ? 10 results
 
 Notes:
 Which correction is the best? Why? What metrics could be applied?

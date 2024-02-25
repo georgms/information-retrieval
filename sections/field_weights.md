@@ -54,8 +54,8 @@ Audience question
 ***
 
 * &shy;<!-- .element: class="fragment" data-fragment-index="1" --> `arthur book`?
-* \#1 &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="3">author + title = 10 + 1 = **11**</span></span>
-* \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-fl" data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
+* \#1 &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment" data-fragment-index="3"><span class="fragment highlight-current-blue" data-fragment-index="3">author + title = 10 + 1 = **11**</span></span>
+* \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-blue" data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
 
 Notes:
 * Audience question

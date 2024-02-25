@@ -42,17 +42,17 @@ Notes:
 * $\vec{V}(\\#2)$ = (3, 2)
 * $\vec{V}(\\#2)$ = (1, 2)
 
-TODO: Image in HTML tag is not rendered 
-
-<p class="stretch">![Vectors](../images/Vectors.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Vectors](../images/Vectors.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes: Are the docs similar?
 ---
 # Vector distance
 
-<p class="stretch">![Vector distance](../images/Vector_Distance.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Vector distance](../images/Vector_Distance.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
@@ -85,13 +85,15 @@ Notes:
 * $\vec{V}(\\#2)$ = (3, 2)
 * $\vec{V}(\\#2)$ = (1, 2)
 
-<p class="stretch">![Vectors](../images/Vectors.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Vectors](../images/Vectors.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
-<p class="stretch">![Vector Similarity](../images/Vector Similarity.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Vector Similarity](../images/Vector_Similarity.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
@@ -153,16 +155,17 @@ $$\begin{aligned}
 Notes:
 What does the query vector look like?
 ---
-<p class="stretch">![Vectors](../images/Vectors.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Vectors](../images/Vectors.svg)<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 What does the query vector look like?
 ---
 # Query vector
 
-<p class="stretch">![Query](../images/Query Vector.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Query](../images/Query_Vector.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes: Audience question: Which doc is most similar to the query?
 ---

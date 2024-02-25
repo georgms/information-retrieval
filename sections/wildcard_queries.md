@@ -30,47 +30,45 @@ Notes:
 
 <p class="fragment">Comes free with a search tree</p>
 
-<div class="fragment">
-    <script class="tree" type="application/json">
+&shy;<!-- .element: class="fragment" --> <script class="tree" type="application/json">
+{
+    "name": "S",
+    "children": [
         {
-            "name": "S",
+            "name": "SA",
             "children": [
                 {
-                    "name": "SA",
+                    "name": "SAL",
                     "children": [
                         {
-                            "name": "SAL",
-                            "children": [
-                                {
-                                    "name": "SALB"
-                                },
-                                {
-                                    "name":  "SALZ",
-                                    "children":  [
-                                        {
-                                            "name": "Salzburg",
-                                            "fill": "#ff8c00"
-                                        },
-                                        {
-                                            "name": "Salzach",
-                                            "fill": "#ff8c00"
-                                        }
-                                    ]
-                                }
-                            ]
+                            "name": "SALB"
                         },
                         {
-                            "name": "SAR"
+                            "name":  "SALZ",
+                            "children":  [
+                                {
+                                    "name": "Salzburg",
+                                    "fill": "#ff8c00"
+                                },
+                                {
+                                    "name": "Salzach",
+                                    "fill": "#ff8c00"
+                                }
+                            ]
                         }
                     ]
                 },
                 {
-                    "name": "SE"
+                    "name": "SAR"
                 }
             ]
+        },
+        {
+            "name": "SE"
         }
-    </script>
-</div>
+    ]
+}
+</script>
 
 Notes:
 How to get suffix search, i.e. `*burg`?
@@ -79,29 +77,23 @@ How to get suffix search, i.e. `*burg`?
 
 <p class="fragment">Build index with reversed terms</p>
 
-<div class="fragment">
-    <script class="tree" type="application/json">
+&shy;<!-- .element: class="fragment" --> <script class="tree" type="application/json">
+{
+    "name": "G",
+    "children": [
         {
-            "name": "G",
+            "name": "GR",
             "children": [
                 {
-                    "name": "GR",
+                    "name": "GRU",
                     "children": [
                         {
-                            "name": "GRU",
-                            "children": [
-                                {
-                                    "name": "grubuenrok",
-                                    "fill": "#ff8c00"
-                                },
-                                {
-                                    "name": "grubzlas",
-                                    "fill": "#ff8c00"
-                                }
-                            ]
+                            "name": "grubuenrok",
+                            "fill": "#ff8c00"
                         },
                         {
-                            "name": "…"
+                            "name": "grubzlas",
+                            "fill": "#ff8c00"
                         }
                     ]
                 },
@@ -109,18 +101,23 @@ How to get suffix search, i.e. `*burg`?
                     "name": "…"
                 }
             ]
+        },
+        {
+            "name": "…"
         }
-    </script>
-</div>
+    ]
+}
+</script>
 
 Notes:
 How to get infix search, i.e. `sal*urg`?
 ---
 # sal*urg
 
-<!-- .element: class="fragment" -->Intersect results of `sal*` and `*urg`
+&shy; <!-- .element: class="fragment" -->Intersect results of `sal*` and `*urg`
 
 Notes:
+Audience question
 ---
 # N-gram queries
 
@@ -162,14 +159,14 @@ Notes:
 
 `^co AND cor`
 
-| Term                                                                                             | Doc IDs                                                                                                 |
-|--------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| <span>^co</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" --> | <span>#1</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->, #3, #5 |
-| <span>cor</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" --> | <span>#1</span><!-- .element: class="fragment highlight-current-fl" data-fragment-index="1" -->, #2     |
-| oro                                                                                              | #1, #5                                                                                                  |
-| ron                                                                                              | #1, #4                                                                                                  |
-| ona                                                                                              | #1, #2, #4                                                                                              |
-| na^                                                                                              | #1, #2, #3                                                                                              |
+| Term                                                                                               | Doc IDs                                                                                                   |
+|----------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
+| <span>^co</span><!-- .element: class="fragment highlight-current-blue" data-fragment-index="1" --> | <span>#1</span><!-- .element: class="fragment highlight-current-blue" data-fragment-index="1" -->, #3, #5 |
+| <span>cor</span><!-- .element: class="fragment highlight-current-blue" data-fragment-index="1" --> | <span>#1</span><!-- .element: class="fragment highlight-current-blue" data-fragment-index="1" -->, #2     |
+| oro                                                                                                | #1, #5                                                                                                    |
+| ron                                                                                                | #1, #4                                                                                                    |
+| ona                                                                                                | #1, #2, #4                                                                                                |
+| na^                                                                                                | #1, #2, #3                                                                                                |
 
 &darr;<!-- .element: class="fragment" data-fragment-index="2" -->
 
