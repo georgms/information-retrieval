@@ -67,6 +67,31 @@ $overlayElementFgColor: 240, 240, 240;
       width: 100%;
     }
   }
+
+  .tree-render {
+    .node {
+      circle {
+        fill: none;
+        stroke: $linkColor;
+        stroke-width: 3px;
+      }
+
+      text {
+        font-family: $mainFont;
+        font-size: $mainFontSize;
+
+        &:not([class^="highlight-"]) {
+          color: $mainColor;
+        }
+      }
+    }
+
+    .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 2px;
+    }
+  }
 }
 
 

@@ -48,11 +48,11 @@ Notes:
                             "children":  [
                                 {
                                     "name": "Salzburg",
-                                    "fill": "#ff8c00"
+                                    "fill": "#1b91ff"
                                 },
                                 {
                                     "name": "Salzach",
-                                    "fill": "#ff8c00"
+                                    "fill": "#1b91ff"
                                 }
                             ]
                         }
@@ -89,11 +89,11 @@ How to get suffix search, i.e. `*burg`?
                     "children": [
                         {
                             "name": "grubuenrok",
-                            "fill": "#ff8c00"
+                            "fill": "#1b91ff"
                         },
                         {
                             "name": "grubzlas",
-                            "fill": "#ff8c00"
+                            "fill": "#1b91ff"
                         }
                     ]
                 },

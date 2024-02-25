@@ -45,8 +45,6 @@ Notes:
 
 Max two children per node (binary tree)
 
-TODO: Fix tree, looks weird
-
 <script class="tree" type="application/json">
         {
             "name": "<root>",

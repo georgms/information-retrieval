@@ -349,30 +349,30 @@
 						initialize: (function (container, options) {
 							let treeData = JSON.parse(container.text);
 
-							var i = 0;
+							let i = 0;
 
-							var tree = d3.layout.tree().size([options.height, options.width]);
+							const tree = d3.layout.tree().size([options.height, options.width]);
 
-							var depthCount = function (branch) {
+							const depthCount = function (branch) {
 								if (!branch.children) {
 									return 1;
 								}
 								return 1 + d3.max(branch.children.map(depthCount));
 							};
-							var maxDepth = depthCount(treeData);
-							var depthIncrement = options.height / (maxDepth - 1);
+							const maxDepth = depthCount(treeData);
+							const depthIncrement = options.height / (maxDepth - 1);
 
-							var diagonal = d3.svg.diagonal()
+							const diagonal = d3.svg.diagonal()
 									.projection(function (d) {
 										return [d.x, d.y];
 									});
 
-							var svg = d3.select(container.parentElement).insert("svg", function () {
+							const svg = d3.select(container.parentElement).insert("svg", function () {
 								return container;
 							})
-
 									.attr("width", options.width + options.margin.left + options.margin.right)
 									.attr("height", options.height + options.margin.top + options.margin.bottom)
+									.attr("class", "tree-render")
 									.append("g")
 									.attr("transform", "translate(" + options.margin.left + "," + options.margin.top + ")");
 
@@ -381,7 +381,7 @@
 							function update(root) {
 
 								// Compute the new tree layout.
-								var nodes = tree.nodes(root).reverse(),
+								const nodes = tree.nodes(root).reverse(),
 										links = tree.links(nodes);
 
 								nodes.forEach(function (d) {
@@ -390,13 +390,13 @@
 								});
 
 								// Declare the nodes…
-								var node = svg.selectAll("g.node")
+								const node = svg.selectAll("g.node")
 										.data(nodes, function (d) {
 											return d.id || (d.id = ++i);
 										});
 
 								// Enter the nodes.
-								var nodeEnter = node.enter().append("g")
+								const nodeEnter = node.enter().append("g")
 										.attr("class", "node")
 										.attr("transform", function (d) {
 											return "translate(" + d.x + "," + d.y + ")";
@@ -420,8 +420,8 @@
 											return d.fill ? d.fill : undefined;
 										});
 
-								// Declare the links…
-								var link = svg.selectAll("path.link")
+								// Declare the links …
+								const link = svg.selectAll("path.link")
 										.data(links, function (d) {
 											return d.target.id;
 										});
