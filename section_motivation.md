@@ -11,11 +11,11 @@
 Notes:
 What is the motivation for information retrieval? What are some use cases?
 ---
-![Number of websites over time](images/Num_websites.jpeg)
+&shy;<!-- .element: class="stretch" -->![Number of websites over time](images/Num_websites.jpeg)
 ---
-![Number of english Wikipedia entries over time](images/wikipedia.png)
+&shy;<!-- .element: class="stretch" -->![Number of english Wikipedia entries over time](images/wikipedia.png)
 ---
-![How long it takes to read the internet](images/printed-internet.png)
+&shy;<!-- .element: class="stretch" -->![How long it takes to read the internet](images/printed-internet.png)
 ---
 
 # Search is everywhere

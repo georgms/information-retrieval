@@ -59,6 +59,14 @@ $overlayElementFgColor: 240, 240, 240;
   code:not(.hljs) {
     background-color: #eee;
   }
+
+  .stretch {
+    img {
+      object-fit: contain;
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
 
 
