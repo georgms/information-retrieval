@@ -20,7 +20,7 @@ What are the two directions we can scale to?
 ---
 # Scaling up / Vertical
 
-![scaling up](../images/scaling up.png) <!-- .element: style="border: none; box-shadow: none;" -->
+![scaling up](../images/scaling_up.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
@@ -40,7 +40,7 @@ Notes:
 ---
 # Scaling out / Horizontal
 
-![scaling out](../images/scaling out.png) <!-- .element: style="border: none; box-shadow: none;" -->
+![scaling out](../images/scaling_out.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
@@ -60,7 +60,7 @@ Notes:
 ---
 # Distributed search
 
-![Distributed Search](../images/Distributed Search.png) <!-- .element: style="border: none; box-shadow: none;" -->
+![Distributed Search](../images/Distributed_Search.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---

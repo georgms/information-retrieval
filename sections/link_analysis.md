@@ -6,7 +6,7 @@ How to use link analysis to determine relevant pages?
 
 # Assumption
 
-![web graph](../images/web graph.png)
+![web graph](../images/web_graph.png)
 
 * In-link = endorsement
 * Similar to citation analysis
@@ -38,7 +38,7 @@ Notes:
 
 # PageRank vs In-Degree
 
-![PageRank vs In-Degree](../images/PageRank vs In-Degree.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle; width: 40%;" -->
+![PageRank vs In-Degree](../images/PageRank_vs_In-Degree.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle; width: 40%;" -->
 ---
 
 # Pagerank calculation

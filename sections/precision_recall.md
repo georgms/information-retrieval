@@ -4,13 +4,13 @@ Notes:
 ---
 # Precision
 
-* Are all results relevant?
+Are all results relevant?
 
 Notes:
 ---
 # Recall
 
-* Are all relevant documents in the results?
+Are all relevant documents in the results?
 
 Notes:
 ---
@@ -33,13 +33,11 @@ Notes:
 | apple smartphone     | ✓        | -          | -                    | -            |
 | smartphone accessory | -        | -          | ✓                    | ✓            |
 
-----
-
-* Augment with click-stream logs
+Augment with click-stream logs
 
 Notes:
 ---
-![precision-recall-example](../images/Precision Recall Example.svg)<!-- .element: height="500px" -->
+&shy;<!-- .element: class="stretch" -->![precision-recall-example](../images/Precision_Recall_Example.svg)
 
 Precision for _smartphone_? <span>50%</span><!-- .element: class="fragment" -->
 
@@ -50,9 +48,9 @@ Notes:
 ---
 # Precision & Recall
 
-* <!-- .element: class="fragment" --> Will never be 100% both, so:
-* <!-- .element: class="fragment" --> Rank results according to relevance
+* &shy;<!-- .element: class="fragment" --> Will never be 100% both, so:
+* &shy;<!-- .element: class="fragment" --> Rank results according to relevance
 
 Notes:
 * How to achieve 100% recall?
-* What could be criterias for ranking results?
+* What could be criteria for ranking results?

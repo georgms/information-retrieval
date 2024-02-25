@@ -8,7 +8,7 @@ Notes:
 * Huge amount of data <!-- .element: class="fragment" data-fragment-index="" -->
 * Frequent updates <!-- .element: class="fragment" data-fragment-index="" -->
 * Unstructured content <!-- .element: class="fragment" data-fragment-index="" -->
-* Un-indexable content (images, flash) <!-- .element: class="fragment" data-fragment-index="" -->
+* Un-indexable content (images, binary files, proprietary formats) <!-- .element: class="fragment" data-fragment-index="" -->
 
 Notes: Audience question
 ---
@@ -17,9 +17,9 @@ Notes: Audience question
 
 ## Page quality
 
-* <!-- .element: class="fragment" -->**E**xpertise
-* <!-- .element: class="fragment" -->**A**uthoritativeness
-* <!-- .element: class="fragment" -->**T**rustworthiness
+* &shy;<!-- .element: class="fragment" -->**E**xpertise
+* &shy;<!-- .element: class="fragment" -->**A**uthoritativeness
+* &shy;<!-- .element: class="fragment" -->**T**rustworthiness
 
 Notes:
 

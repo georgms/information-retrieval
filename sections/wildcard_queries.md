@@ -30,7 +30,6 @@ Notes:
 
 <p class="fragment">Comes free with a search tree</p>
 
-TODO: Fix tree not displayed
 <div class="fragment">
     <script class="tree" type="application/json">
         {
@@ -80,7 +79,6 @@ How to get suffix search, i.e. `*burg`?
 
 <p class="fragment">Build index with reversed terms</p>
 
-TODO: Fix tree not displayed
 <div class="fragment">
     <script class="tree" type="application/json">
         {

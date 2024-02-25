@@ -5,14 +5,14 @@ How can we exploit the document structure to improve ranking? Think of a typical
 ---
 # Document structure
 
-![Document Structure](../images/Document Structure.png)
+![Document Structure](../images/Document_Structure.png)
 
 Notes:
 How can we exploit this information for ranking purposes?
 ---
 # Field weights
 
-![Document Structure](../images/Document Structure with Field Weights.png)
+![Document Structure](../images/Document_Structure_with_Field_Weights.png)
 
 Notes:
 How can we determine the field weights?
@@ -40,11 +40,11 @@ Audience question
 ---
 # Field weights
 
-| Term                                                                                                                                                         | Doc IDs                                                                                                                                                                   |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">arthur</span></span> | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Author</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span> |
-| <span class="fragment highlight-current-fl" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="5">book</span></span>   | <span class="fragment highlight-current-fl" data-fragment-index="3">#1:Title</span>, <span class="fragment highlight-current-fl" data-fragment-index="5">#2:Title</span>  |
-| ...                                                                                                                                                          |
+| Term                                                                                                                                                             | Doc IDs                                                                                                                                                                       |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <span class="fragment highlight-current-blue" data-fragment-index="3"><span class="fragment highlight-current-blue" data-fragment-index="5">arthur</span></span> | <span class="fragment highlight-current-blue" data-fragment-index="3">#1:Author</span>, <span class="fragment highlight-current-blue" data-fragment-index="5">#2:Title</span> |
+| <span class="fragment highlight-current-blue" data-fragment-index="3"><span class="fragment highlight-current-blue" data-fragment-index="5">book</span></span>   | <span class="fragment highlight-current-blue" data-fragment-index="3">#1:Title</span>, <span class="fragment highlight-current-blue" data-fragment-index="5">#2:Title</span>  |
+| ...                                                                                                                                                              |
 
 ***
 
@@ -53,7 +53,7 @@ Audience question
 
 ***
 
-* <!-- .element: class="fragment" data-fragment-index="1" --> `arthur book`?
+* &shy;<!-- .element: class="fragment" data-fragment-index="1" --> `arthur book`?
 * \#1 &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment" data-fragment-index="3"><span class="fragment highlight-current-fl" data-fragment-index="3">author + title = 10 + 1 = **11**</span></span>
 * \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-fl" data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
 
@@ -78,10 +78,10 @@ What else can be done with field info? -> Field queries!
 
 ***
 
-* <!-- .element: class="fragment" --> `title:arthur`?
-    * <!-- .element: class="fragment" --> #2
-* <!-- .element: class="fragment" --> `author:shakesbeer`?
-    * <!-- .element: class="fragment" --> #2
+* &shy;<!-- .element: class="fragment" --> `title:arthur`?
+  * &shy;<!-- .element: class="fragment" --> #2
+* &shy;<!-- .element: class="fragment" --> `author:shakesbeer`?
+  * &shy;<!-- .element: class="fragment" --> #2
 
 Notes:
 * Audience question

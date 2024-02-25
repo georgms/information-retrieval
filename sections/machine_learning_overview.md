@@ -51,17 +51,17 @@ Computer has no concept of ear shapes, it just groups similar images together.
 
 # Reinforcement Learning
 
-![Super Mario](../images/super mario.webp)<!-- .element: height="500px" -->
+![Super Mario](../images/super_mario.webp)<!-- .element: height="500px" -->
 ---
 
 # Transfer Learning
 
 ###### I like this style
 
-![Starry Night](../images/starry night.jpeg)<!-- .element: height="200px" -->
+![Starry Night](../images/starry_night.jpeg)<!-- .element: height="200px" -->
 
 ###### Computer: Apply this style to a picture of a cat
 
-![Starry Cat](../images/starry cat.jpeg)<!-- .element: height="200px" -->
+![Starry Cat](../images/starry_cat.jpeg)<!-- .element: height="200px" -->
 
-<!-- .element: style="font-size: small; color: grey" -->Source: https://discuss.pixls.us/t/style-transfer-soon-in-gmic/10009
+<span>Source: https://discuss.pixls.us/t/style-transfer-soon-in-gmic/10009</span><!-- .element: style="font-size: small; color: grey" -->

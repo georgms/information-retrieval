@@ -34,9 +34,9 @@ Audience question
 ***
 
 * Document vector
-    * <!-- .element: class="fragment" --> \#1: `(1, 1, 1, 0)`
+    * &shy;<!-- .element: class="fragment" --> \#1: `(1, 1, 1, 0)`
 * Term vector
-    * <!-- .element: class="fragment" --> _Retrieval_: `(1, 0, 0)`
+    * &shy;<!-- .element: class="fragment" --> _Retrieval_: `(1, 0, 0)`
 
 Notes:
 Audience question
@@ -50,8 +50,8 @@ Replace every term in query with term vector
 * = 100 &or; 010 <!-- .element: class="fragment" -->
 * = 110 <!-- .element: class="fragment" -->
 * = \#1 and \#2 <!-- .element: class="fragment" -->
-    * <!-- .element: class="fragment" --> \#1: _a book about information retrieval_
-    * <!-- .element: class="fragment" --> \#2: _a book about the search for information_
+    * &shy;<!-- .element: class="fragment" --> \#1: _a book about information retrieval_
+    * &shy;<!-- .element: class="fragment" --> \#2: _a book about the search for information_
 
 Notes:
 Audience question
@@ -62,9 +62,9 @@ Audience question
 
 ## <!-- .element: class="fragment" data-fragment-index="2" -->Example
 
-* <!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
-* <!-- .element: class="fragment" data-fragment-index="2" -->grep: 2 query terms &times; 12GB = **24 billion string comparisons**
-* <!-- .element: class="fragment" data-fragment-index="3" -->Term-Document Matrix: 2 query terms &times; 1.2M distinct terms = **2.4M lookups**
+* &shy;<!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
+* &shy;<!-- .element: class="fragment" data-fragment-index="2" -->grep: 2 query terms &times; 12GB = **24 billion string comparisons**
+* &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Term-Document Matrix: 2 query terms &times; 1.2M distinct terms = **2.4M lookups**
 
 Notes:
 Audience question
@@ -75,18 +75,18 @@ num(distinct terms) &times; num(docs) bits<!-- .element: class="fragment" data-f
 
 ## <!-- .element: class="fragment" data-fragment-index="2" -->Example
 
-* <!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
-* <!-- .element: class="fragment" data-fragment-index="2" -->1.2M distinct terms &times; 6M articles = 7.200.000.000.000 cells = 7.2 terrabit = **900 gigabyte**
+* &shy;<!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
+* &shy;<!-- .element: class="fragment" data-fragment-index="2" -->1.2M distinct terms &times; 6M articles = 7.200.000.000.000 cells = 7.2 terrabit = **900 gigabyte**
 
 That's way too large! How can the size be decreased?<!-- .element: class="fragment" data-fragment-index="2" -->
 
 &darr;<!-- .element: class="fragment" data-fragment-index="4" -->
 
-<!-- .element: class="fragment" data-fragment-index="4" -->Matrix is very sparse, has mostly zeros
+&shy;<!-- .element: class="fragment" data-fragment-index="4" -->Matrix is very sparse, has mostly zeros
 
 Notes:
 Audience question
 ---
-<!-- .element: class="stretch" --> ![...](../images/buch-index.png)
+&shy;<!-- .element: class="stretch" --> ![...](../images/buch-index.png)
 
 Notes:

@@ -90,20 +90,20 @@ Notes:
 ---
 # Context
 
-* <!-- .element: class="fragment" data-fragment-index="1" --> Find alternatives for every misspelled query term &rarr; *collations*
-* <!-- .element: class="fragment" data-fragment-index="2" --> Search for collation and evaluate results
+* &shy;<!-- .element: class="fragment" data-fragment-index="1" --> Find alternatives for every misspelled query term &rarr; *collations*
+* &shy;<!-- .element: class="fragment" data-fragment-index="2" --> Search for collation and evaluate results
 
 <hr class="fragment" data-fragment-index="3"/>
 
-* <!-- .element: class="fragment" data-fragment-index="4" --> `seach endine`?
-* <!-- .element: class="fragment" data-fragment-index="5" --> `seach` &rarr; `peach, search`
-* <!-- .element: class="fragment" data-fragment-index="6" --> `endine` &rarr; `ending, engine`
+* &shy;<!-- .element: class="fragment" data-fragment-index="4" --> `seach endine`?
+* &shy;<!-- .element: class="fragment" data-fragment-index="5" --> `seach` &rarr; `peach, search`
+* &shy;<!-- .element: class="fragment" data-fragment-index="6" --> `endine` &rarr; `ending, engine`
 
 <hr class="fragment" data-fragment-index="7"/>
 
-* <!-- .element: class="fragment" data-fragment-index="8" --> `seach endine`?
-* <!-- .element: class="fragment" data-fragment-index="9" --> &rarr; `peach engine`? 0 results
-* <!-- .element: class="fragment" data-fragment-index="10" --> &rarr; `peach ending`? 0 results
+* &shy;<!-- .element: class="fragment" data-fragment-index="8" --> `seach endine`?
+* &shy;<!-- .element: class="fragment" data-fragment-index="9" --> &rarr; `peach engine`? 0 results
+* &shy;<!-- .element: class="fragment" data-fragment-index="10" --> &rarr; `peach ending`? 0 results
 <li class="fragment" data-fragment-index="11">&rarr; `search ending`
     <!-- .element: class="fragment highlight-current-fl" data-fragment-index="13" --> ? 5 results
 </li>
@@ -116,9 +116,9 @@ Which correction is the best? Why? What metrics could be applied?
 ---
 # Evaluate alternatives
 
-* <!-- .element: class="fragment" --> Most results
-* <!-- .element: class="fragment" --> Best results
-* <!-- .element: class="fragment" --> Most searched
+* &shy;<!-- .element: class="fragment" --> Most results
+* &shy;<!-- .element: class="fragment" --> Best results
+* &shy;<!-- .element: class="fragment" --> Most searched
 
 Notes:
 If multiple alternatives with results, how to pick the best one?
@@ -134,7 +134,7 @@ Notes:
 ---
 # Did you mean
 
-![Did you mean](../images/Did you mean.png)
+![Did you mean](../images/Did_you_mean.png)
 
 * Original query has decent results
 * There is a better alternative
@@ -152,7 +152,7 @@ Notes:
 ---
 # Showing results for
 
-![Showing results for](../images/Showing results for.png)
+![Showing results for](../images/Showing_results_for.png)
 
 * Original query has no results
 * There is an alternative

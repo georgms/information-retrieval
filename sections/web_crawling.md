@@ -75,7 +75,7 @@ Notes:
 
 # Link graph
 
-![web graph](../images/web graph.png)
+![web graph](../images/web_graph.png)
 
 Notes:
 

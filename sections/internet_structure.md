@@ -3,7 +3,7 @@
 
 # Internet structure
 
-![web graph](../images/web graph.png)
+![web graph](../images/web_graph.png)
 
 * Directed graph connected by hyperlinks
 * Not strongly connected
@@ -26,11 +26,11 @@ Notes:
 
 # Internet structure
 
-![web graph](../images/web graph.png)
+![web graph](../images/web_graph.png)
 
 * B
-* In-degree: *3* <!-- .element: class="fragment" data-fragment-index="" -->
-* Out-degree: *1* <!-- .element: class="fragment" data-fragment-index="" -->
+    * In-degree: *3* &shy;<!-- .element: class="fragment" data-fragment-index="" -->
+    * Out-degree: *1* &shy;<!-- .element: class="fragment" data-fragment-index="" -->
 
 Notes: Audience question
 ---

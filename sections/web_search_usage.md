@@ -41,11 +41,11 @@ Clear facts
 Notes:
 Examples?
 ---
-![know simple currency](../images/know simple currency.png)
+![know simple currency](../images/know_simple_currency.png)
 
 Notes:
 ---
-![know simple vienna](../images/know simple vienna.png)
+![know simple vienna](../images/know_simple_vienna.png)
 
 Notes:
 ---
@@ -73,15 +73,15 @@ Notes:
 
 Examples?
 ---
-![transactional iphone](../images/transactional iphone.png)
+![transactional iphone](../images/transactional_iphone.png)
 
 Notes:
 ---
-![transactional flight](../images/transactional flight.png)
+![transactional flight](../images/transactional_flight.png)
 
 Notes:
 ---
-![transactional sign up](../images/transactional sign up.png)
+![transactional sign up](../images/transactional_sign_up.png)
 
 Notes:
 ---
@@ -96,11 +96,11 @@ Notes:
 Notes:
 Examples?
 ---
-![local pizza](../images/local pizza.png)
+![local pizza](../images/local_pizza.png)
 
 Notes:
 ---
-![local bike repair](../images/local bike repair.png)
+![local bike repair](../images/local_bike_repair.png)
 
 Notes:
 ---
@@ -115,7 +115,7 @@ Notes:
 Notes:
 Which intents can be applied to the example queries?
 ---
-![intent libro](../images/intent libro.png)
+![intent libro](../images/intent_libro.png)
 
 Notes:
 ---

@@ -74,29 +74,29 @@ Audience question: What does the index look like?
 
 | Term                                       | Doc IDs                                        |
 |--------------------------------------------|------------------------------------------------|
-| ^bo<!-- .element: class="highlight-fl" --> | #1<!-- .element: class="highlight-fl" -->      |
+| ^bo<!-- .element: class="highlight-blue" --> | #1<!-- .element: class="highlight-blue" -->      |
 | boo                                        | #1                                             |
 |                                            | …                                              |
 | poc                                        | #3                                             |
-| ock<!-- .element: class="highlight-fl" --> | <!-- .element: class="highlight-fl" --> #2 ,#3 |
-| ck^<!-- .element: class="highlight-fl" --> | <!-- .element: class="highlight-fl" --> #2, #3 |
+| ock<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2 ,#3 |
+| ck^<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2, #3 |
 
 Notes:
 Which document is the best match?
 ---
 | Term                                       | Doc IDs                                        |
 |--------------------------------------------|------------------------------------------------|
-| ^bo<!-- .element: class="highlight-fl" --> | #1<!-- .element: class="highlight-fl" -->      |
+| ^bo<!-- .element: class="highlight-blue" --> | #1<!-- .element: class="highlight-blue" -->      |
 | boo                                        | #1                                             |
 |                                            | …                                              |
 | poc                                        | #3                                             |
-| ock<!-- .element: class="highlight-fl" --> | <!-- .element: class="highlight-fl" --> #2 ,#3 |
-| ck^<!-- .element: class="highlight-fl" --> | <!-- .element: class="highlight-fl" --> #2, #3 |
+| ock<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2 ,#3 |
+| ck^<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2, #3 |
 
 &darr;
 
-* \#1: [<span>^bo</span><!-- .element: class="highlight-fl" -->, boo, ook, ok^] &rarr; 25%
-* \#2: [^ro, roc, <span>ock</span><!-- .element: class="highlight-fl" -->, <span>ck^</span><!-- .element: class="highlight-fl" -->] &rarr; 50%
-* \#3: [^sp, spo, poc, <span>ock</span><!-- .element: class="highlight-fl" -->, <span>ck^</span><!-- .element: class="highlight-fl" -->] &rarr; 40%
+* \#1: [<span>^bo</span><!-- .element: class="highlight-blue" -->, boo, ook, ok^] &rarr; 25%
+* \#2: [^ro, roc, <span>ock</span><!-- .element: class="highlight-blue" -->, <span>ck^</span><!-- .element: class="highlight-blue" -->] &rarr; 50%
+* \#3: [^sp, spo, poc, <span>ock</span><!-- .element: class="highlight-blue" -->, <span>ck^</span><!-- .element: class="highlight-blue" -->] &rarr; 40%
 
 Notes:

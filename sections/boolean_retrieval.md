@@ -23,13 +23,16 @@ mmt AND NOT mma
 # Nomenclature
 
 ## Documents <!-- .element: class="fragment" data-fragment-index="1" -->
-Books, chapters, pages, web pages, news posts... <!-- .element: class="fragment" data-fragment-index="1" -->
+
+<span class="fragment" data-fragment-index="1">Books, chapters, pages, web pages, news posts...</span>
 
 ## Document collection, Corpus <!-- .element: class="fragment" data-fragment-index="2" -->
-All the documents <!-- .element: class="fragment" data-fragment-index="2" -->
+
+<span class="fragment" data-fragment-index="2">All the documents</span>
 
 ## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
-<!-- .element: class="fragment" data-fragment-index="3" -->Like words, but maybe _FH Salzburg_ and _A1_ as well
+
+<span class="fragment" data-fragment-index="3">Like words, but maybe _FH Salzburg_ and _A1_ as well</span>
 ---
 # Will it match?
 
@@ -37,9 +40,12 @@ All the documents <!-- .element: class="fragment" data-fragment-index="2" -->
 (information AND retrieval) OR search
 ```
 
-* <!-- .element: class="fragment" --> \#1: _a book about information retrieval_ <span>&rarr; Match</span><!-- .element: class="fragment" style="color: green;" -->
-* <!-- .element: class="fragment" --> \#2: _a book about the search for information_ <span>&rarr; Match</span><!-- .element: class="fragment" style="color: green;" -->
-* <!-- .element: class="fragment" --> \#3: _a book about information_ <span>&rarr; No Match</span><!-- .element: class="fragment" style="color: red;" -->
+* &shy;<!-- .element: class="fragment" --> \#1: _a book about information retrieval_ <span>&rarr;
+  Match</span><!-- .element: class="fragment" style="color: green;" -->
+* &shy;<!-- .element: class="fragment" --> \#2: _a book about the search for information_ <span>&rarr;
+  Match</span><!-- .element: class="fragment" style="color: green;" -->
+* &shy;   <!-- .element: class="fragment" --> \#3: _a book about information_ <span>&rarr; No
+  Match</span><!-- .element: class="fragment" style="color: red;" -->
 
 Notes:
 Audience question
@@ -62,10 +68,8 @@ See semantic search, voice etc.
 ---
 # Simple Boolean Retrieval Implementation
 
-1. Calculate result lists for every query term
-  * Grep
-2. Apply boolean operators
-  * Intersect, Union
+1. Calculate result lists for every query term: Grep
+2. Apply boolean operators: Intersect, Union
 ---
 # Grep
 
@@ -74,9 +78,9 @@ See semantic search, voice etc.
 
 Compare query term with document string, from first to last character
 
-1. <!-- .element: class="fragment fade-in-then-out" data-fragment-index="1" --><span>a␣bo</span><!-- .element: class="fragment highlight-fl" data-fragment-index="1" -->ok about information retrieval
-2. <!-- .element: class="fragment fade-in-then-out" data-fragment-index="2" -->a<span>␣boo</span><!-- .element: class="fragment highlight-fl" data-fragment-index="2" -->k about information retrieval
-3. <!-- .element: class="fragment" data-fragment-index="3" -->a <span>book</span><!-- .element: class="fragment highlight-fl" data-fragment-index="3" --> about information retrieval <span>&rarr; Match</span><!-- .element: class="fragment" style="color: green;" -->
+1. <!-- .element: class="fragment fade-in-then-out" data-fragment-index="1" --><span>a␣bo</span><!-- .element: class="fragment highlight-blue" data-fragment-index="1" -->ok about information retrieval
+2. <!-- .element: class="fragment fade-in-then-out" data-fragment-index="2" -->a<span>␣boo</span><!-- .element: class="fragment highlight-blue" data-fragment-index="2" -->k about information retrieval
+3. <!-- .element: class="fragment" data-fragment-index="3" -->a <span>book</span><!-- .element: class="fragment highlight-blue" data-fragment-index="3" --> about information retrieval <span>&rarr; Match</span><!-- .element: class="fragment" style="color: green;" -->
 
 Notes:
 Audience question
@@ -128,9 +132,9 @@ Audience question
 ---
 # Intersect / Union
 
-* <!-- .element: class="fragment" data-fragment-index="1" --> \#1: _a book about information retrieval_
-* <!-- .element: class="fragment" data-fragment-index="1" --> \#2: _a book about the search for information_
-* <!-- .element: class="fragment" data-fragment-index="1" --> \#3: _a book about retrieving information_
+* &shy;<!-- .element: class="fragment" data-fragment-index="1" --> \#1: _a book about information retrieval_
+* &shy;<!-- .element: class="fragment" data-fragment-index="1" --> \#2: _a book about the search for information_
+* &shy;<!-- .element: class="fragment" data-fragment-index="1" --> \#3: _a book about retrieving information_
 
 ```
 (information AND retrieval) OR search
@@ -153,11 +157,11 @@ Audience question
 
 *How many loops do you need?*
 
-| Big &Omicron; | Name | Example | Explanation |
-|-|-|-|-|
-| Ο(1) | Constant | Odd or even number? | No loop |
-| Ο(n) | Linear | Calculate array sum | Iterate over all values |
-| Ο(n²) | Quadratic | Find duplicates in unsorted array | Compare every value against every other value |
+| Big &Omicron; | Name      | Example                           | Explanation                                   |
+|---------------|-----------|-----------------------------------|-----------------------------------------------|
+| Ο(1)          | Constant  | Odd or even number?               | No loop                                       |
+| Ο(n)          | Linear    | Calculate array sum               | Iterate over all values                       |
+| Ο(n²)         | Quadratic | Find duplicates in unsorted array | Compare every value against every other value |
 ---
 # Complexity
 
@@ -189,19 +193,21 @@ Audience question
 
 ## <!-- .element: class="fragment" data-fragment-index="1" --> Example
 
-* <!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M distinct terms
-* <!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 12GB = **24 billion string comparisons**
+* &shy;<!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M
+  distinct terms
+* &shy;<!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 12GB = **24 billion string
+  comparisons**
 
 Notes:
 How can this be improved?
 ---
 # Grep disadvantages
 
-* Does _books_ match _book_?
-    * <!-- .element: class="fragment" -->Cannot deal with singular / plural, *books* does not match *book*.
-* <!-- .element: class="fragment" --> _go_ vs _went_
-* <!-- .element: class="fragment" --> _running_ vs _run_
-* <!-- .element: class="fragment" --> _go_ vs _gong_
+* &shy;<!-- .element: class="fragment" -->   Does _books_ match _book_?
+  * &shy;<!-- .element: class="fragment" -->Cannot deal with singular / plural, *books* does not match *book*.
+* &shy;<!-- .element: class="fragment" --> _go_ vs _went_
+* &shy;<!-- .element: class="fragment" --> _running_ vs _run_
+* &shy;<!-- .element: class="fragment" --> _go_ vs _gong_
 
 Not user friendly!<!-- .element: class="fragment" -->
 

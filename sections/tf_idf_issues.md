@@ -2,14 +2,16 @@
 
 Not always true:<!-- .element: class="fragment" -->
 
-$tf(\text{bible}, \text{"In the beginning God created the heaven and the earth."}) = 0$<!-- .element: class="fragment" -->
+$\text{tf}(\text{"bible"}, \text{"In the beginning God created the heaven and the earth."}) =
+0$<!-- .element: class="fragment" -->
 
 Notes:
 Audience question
 ---
 # Spam
 
-$$tf(\text{money}, \text{"money money money"}) > tf(\text{money}, \text{"Legit document about money"})$$
+$$\text{tf}(\text{"money"}, \text{"money money money"}) > \text{tf}(\text{"money"}, \text{"Legit document about
+money"})$$
 
 Spam should be prevented.<!-- .element: class="fragment" -->
 
@@ -18,7 +20,7 @@ Notes:
 ---
 # Multi-term queries
 
-$$TF(\text{cat OR dog}, \text{"cat cat cat"}) > TF(\text{cat OR dog}, \text{"cat dog"})$$
+$$\text{tf}(\text{"cat OR dog"}, \text{"cat cat cat"}) > \text{tf}(\text{"cat OR dog"}, \text{"cat dog"})$$
 
 Documents which match all query terms should be ranked higher.<!-- .element: class="fragment" -->
 
@@ -27,7 +29,7 @@ Notes:
 ---
 # Document length
 
-$$tf(\text{cat}, \text{"cat"}) < tf(\text{cat}, \text{"cat dog mouse elephant cat"})$$
+$$\text{tf}(\text{"cat"}, \text{"cat"}) < \text{tf}(\text{"cat"}, \text{"cat dog mouse elephant cat"})$$
 
 Term frequency should be normalized with the document length.<!-- .element: class="fragment" -->
 

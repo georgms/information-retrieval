@@ -56,7 +56,7 @@ Notes:
 
 # Supervised Learning Example
 
-![Man Woman Classifier](../images/Man Woman Classifier.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+![Man Woman Classifier](../images/Man_Woman_Classifier.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
 
 Notes:
 ---

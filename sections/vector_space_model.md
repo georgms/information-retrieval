@@ -42,6 +42,8 @@ Notes:
 * $\vec{V}(\\#2)$ = (3, 2)
 * $\vec{V}(\\#2)$ = (1, 2)
 
+TODO: Image in HTML tag is not rendered 
+
 <p class="stretch">![Vectors](../images/Vectors.svg)
     <!-- .element: style="border: none; box-shadow: none;" --></p>
 
@@ -49,7 +51,7 @@ Notes: Are the docs similar?
 ---
 # Vector distance
 
-<p class="stretch">![Vector distance](../images/Vector Distance.svg)
+<p class="stretch">![Vector distance](../images/Vector_Distance.svg)
     <!-- .element: style="border: none; box-shadow: none;" --></p>
 
 Notes:
@@ -76,8 +78,8 @@ $$\begin{aligned}
 Notes:
 ---
 * Documents look similar but vector distance is pretty big
-* <!-- .element: class="fragment" --> Vector distance does not consider document size
-* <!-- .element: class="fragment" --> Need a better measure that accounts for longer documents
+* &shy;<!-- .element: class="fragment" --> Vector distance does not consider document size
+* &shy;<!-- .element: class="fragment" --> Need a better measure that accounts for longer documents
 ---
 * $\vec{V}(\\#1)$ = (10, 5)
 * $\vec{V}(\\#2)$ = (3, 2)

@@ -12,7 +12,7 @@ Notes:
 
 # Similarity
 
-![Word Embeddings](../images/word embeddings.png)
+![Word Embeddings](../images/word_embeddings.png)
 
 $$\text{king} - \text{man} + \text{woman} \approx \text{queen}$$
 
@@ -84,11 +84,11 @@ Notes:
 
 Slide window over corpus:
 
-1. <!-- .element: class="fragment" data-fragment-index="1" --> *<span class="fragment highlight-fl" data-fragment-index="1">The quick</span> brown fox jumps over the lazy dog*
+1. <!-- .element: class="fragment" data-fragment-index="1" --> *<span class="fragment highlight-blue" data-fragment-index="1">The quick</span> brown fox jumps over the lazy dog*
     * [*the* &rarr; *quick*]
-2. <!-- .element: class="fragment" --> *The <span class="fragment highlight-fl" data-fragment-index="1">quick brown</span> fox jumps over the lazy dog*
+2. <!-- .element: class="fragment" --> *The <span class="fragment highlight-blue" data-fragment-index="1">quick brown</span> fox jumps over the lazy dog*
     * [*quick* &rarr; *brown*]
-3. <!-- .element: class="fragment" --> *The quick <span class="fragment highlight-fl" data-fragment-index="1">brown fox</span> jumps over the lazy dog*
+3. <!-- .element: class="fragment" --> *The quick <span class="fragment highlight-blue" data-fragment-index="1">brown fox</span> jumps over the lazy dog*
     * [*brown* &rarr; *fox*]
 
 <!-- .element: class="fragment" -->When Machine sees *brown* it should predict *fox*.
@@ -100,11 +100,11 @@ Notes:
 
 Predict context from word.
 
-1. *<span class="highlight-fl">The <u>quick</u> brown</span> brown fox jumps over the lazy dog*: [*quick* &rarr; *the*,
+1. *<span class="highlight-blue">The <u>quick</u> brown</span> brown fox jumps over the lazy dog*: [*quick* &rarr; *the*,
    *brown*]
-2. *The <span class="highlight-fl">quick <u>brown</u> fox</span> jumps over the lazy dog*: [*brown* &rarr; *quick*,
+2. *The <span class="highlight-blue">quick <u>brown</u> fox</span> jumps over the lazy dog*: [*brown* &rarr; *quick*,
    *fox*]
-3. *The quick <span class="highlight-fl">brown <u>fox</u> jumps</span> over the lazy dog*: [*fox* &rarr; *brown*,
+3. *The quick <span class="highlight-blue">brown <u>fox</u> jumps</span> over the lazy dog*: [*fox* &rarr; *brown*,
    *jumps*]
 
 When Machine sees *quick* it should predict *the* or *brown*.
@@ -120,11 +120,11 @@ Notes:
 
 Predict word from context.
 
-1. *<span class="highlight-fl"><u>The</u> quick <u>brown</u></span> brown fox jumps over the lazy dog*: [*the*,
+1. *<span class="highlight-blue"><u>The</u> quick <u>brown</u></span> brown fox jumps over the lazy dog*: [*the*,
    *brown* &rarr; *quick*]
-2. *The <span class="highlight-fl"><u>quick</u> brown <u>fox</u></span> jumps over the lazy dog*: [*quick*, *fox* &rarr;
+2. *The <span class="highlight-blue"><u>quick</u> brown <u>fox</u></span> jumps over the lazy dog*: [*quick*, *fox* &rarr;
    *brown*]
-3. *The quick <span class="highlight-fl"><u>brown</u> fox <u>jumps</u></span> over the lazy dog*: [*brown*,
+3. *The quick <span class="highlight-blue"><u>brown</u> fox <u>jumps</u></span> over the lazy dog*: [*brown*,
    *jumps* &rarr; *fox*]
 
 When Machine sees *the* or *brown* it should predict *quick*.

@@ -4,17 +4,20 @@ Notes:
 ---
 # Vocabulary structure
 
-* <!-- .element: class="fragment" --> Dictionary / Hash table
-* <!-- .element: class="fragment" --> Search tree
+* &shy;<!-- .element: class="fragment" --> Dictionary / Hash table
+* &shy;<!-- .element: class="fragment" --> Search tree
 
 Notes:
 * Suggestions?
 ---
 # Hash table
 
-![hash table](../images/hash-table.svg) <!-- .element: class="stretch" style="width: 50%;" -->
+TODO: Make it easier to include stretch images
 
-<!-- .element: style="font-size: small;" --> By Jorge Stolfi - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=6471238
+&shy;<!-- .element: class="stretch" -->![hash table](../images/hash-table.svg)<!-- .element: style="object-fit: contain; height: 100%; width: 100%;" -->
+
+&shy;<!-- .element: style="font-size: small;" --> By Jorge Stolfi - Own work, CC BY-SA
+3.0, https://commons.wikimedia.org/w/index.php?curid=6471238
 
 Notes:
 * What is the complexity of lookup / insert? Does it get slower with more entries?
@@ -31,9 +34,10 @@ Notes:
 ---
 # Hash table collision
 
-![hash table collision](../images/hash-table-collision.svg) <!-- .element: class="stretch" style="width: 60%;" -->
+&shy;<!-- .element: class="stretch" -->![hash table collision](../images/hash-table-collision.svg)<!-- .element: style="object-fit: contain; height: 100%; width: 100%;" -->
 
-<!-- .element: style="font-size: small;" --> By Jorge Stolfi - Own work, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=6472274
+&shy;<!-- .element: style="font-size: small;" --> By Jorge Stolfi - Own work, CC BY-SA
+3.0, https://commons.wikimedia.org/w/index.php?curid=6472274
 
 Extra lookup necessary when hashes collide. Worst case &Omicron;(n)
 
@@ -43,42 +47,44 @@ Notes:
 
 Max two children per node (binary tree)
 
+TODO: Fix tree, looks weird
+
 <script class="tree" type="application/json">
-    {
-        "name": "<root>",
-        "children": [
-            {
-                "name": "A-M",
-                "children": [
-                    {
-                        "name": "Austr",
-                        "children": [
-                            {
-                                "name": "Australia"
-                            },
-                            {
-                                "name": "Austria"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "China"
-                    }
-                ]
-            },
-            {
-                "name": "N-Z",
-                "children": [
-                    {
-                        "name": "Norway"
-                    },
-                    {
-                        "name": "Russia"
-                    }
-                ]
-            }
-        ]
-    }
+        {
+            "name": "<root>",
+            "children": [
+                {
+                    "name": "A-M",
+                    "children": [
+                        {
+                            "name": "Austr",
+                            "children": [
+                                {
+                                    "name": "Australia"
+                                },
+                                {
+                                    "name": "Austria"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "China"
+                        }
+                    ]
+                },
+                {
+                    "name": "N-Z",
+                    "children": [
+                        {
+                            "name": "Norway"
+                        },
+                        {
+                            "name": "Russia"
+                        }
+                    ]
+                }
+            ]
+        }
 </script>
 
 Notes: 
