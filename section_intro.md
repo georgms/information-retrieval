@@ -1,26 +1,20 @@
-# Information Retrieval
+# Information Retrieval 101
 
 Georg M. Sorst, Principal Engineer @ Nosto
+
 ---
 # Administrative
+
 ---
 # Me
 
 * Georg M. Sorst
 * Principal Engineer @ [Nosto](https://nosto.com) (formerly Findologic)
-* Leading E-Commerce recommendation & search provider 
+* Leading E-Commerce recommendation & search provider
+
 ---
 ![Über uns](images/ueber-uns.png)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
----
-# Career @ ![FINDOLOGIC](images/findologic.png)<!-- .element: class="stretch" style="height: 100px; border: none; box-shadow: none; vertical-align: middle;" -->
 
-* Internship, thesis, full time
-* Buzzwords:
-    * Vue, Vuetify, Material Design, Typescript, Laravel, Kotlin
-    * IntelliJ, WebStorm, PHPStorm, YouTrack, GitHub
-    * Kubernetes, Ansible, Docker, Vagrant
-    * Solr
-    * Wuzler, Dart, PlayStation
 ---
 # Org
 
@@ -31,6 +25,3 @@ Georg M. Sorst, Principal Engineer @ Nosto
 * Have a question? Too slow? Too fast? Let me know right away!
 * I will record the lecture. Ok?
 * Who will be my timekeeper? Time to [spin the Wheel](https://wheelofnames.com/).
-* When online:
-    * Please turn on your cameras. Otherwise, I feel like I'm talking to my computer.
-    * Break every ~45 minutes.
