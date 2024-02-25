@@ -120,23 +120,3 @@ length)<!-- .element: class="fragment" data-fragment-index="1" -->
   articles = 7.200.000.000.000 cells = 7.2 terrabit = **900 gigabyte**
 * &shy;<!-- .element: class="fragment" data-fragment-index="3" -->Inverted Index: 1.2M distinct terms &times; 10K
   postings per terms &times; 4 bytes per document ID = 48.000.000.000 bytes = **48 gigabyte**
-
----
-TODO: Intersect algorithm
-
-Notes:
----
-
-* Keep vocabulary in memory
-* Postings may be swapped out
-
-Notes:
----
-
-## Why?
-
-* Support ad-hoc retrieval
-* Support more operators, such as `NEAR`
-* Support ranked retrieval
-
-Notes:
