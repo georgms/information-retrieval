@@ -5,14 +5,14 @@ Notes:
 
 # Prediction
 
-&shy;<!-- .element: class="stretch" -->![Swiftkey](../images/swiftkey.png)
+&shy;<!-- .element: class="stretch" -->![Swiftkey](images/swiftkey.png)
 
 Notes:
 ---
 
 # Similarity
 
-![Word Embeddings](../images/word_embeddings.png)
+![Word Embeddings](images/word_embeddings.png)
 
 $$\text{king} - \text{man} + \text{woman} \approx \text{queen}$$
 
@@ -52,14 +52,14 @@ What does the vector for brown look like?
 
 # Vectors are unrelated
 
-&shy;<!-- .element: class="stretch" -->![brown quick vectors unrelated](../images/brown_quick_vectors_unrelated.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
+&shy;<!-- .element: class="stretch" -->![brown quick vectors unrelated](images/brown_quick_vectors_unrelated.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
 
 Notes:
 ---
 
 # Embed word vectors
 
-&shy;<!-- .element: class="stretch" -->![brown quick vectors related](../images/brown_quick_vectors_related.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
+&shy;<!-- .element: class="stretch" -->![brown quick vectors related](images/brown_quick_vectors_related.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
 
 Notes:
 ---
@@ -146,7 +146,7 @@ Notes:
 
 [View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word%20Embedding.ipynb)<!-- .element: target="_blank" -->
 
-1. Download [Word Embedding Notebook](../word-embedding/Word_Embedding.ipynb) and [data.txt](../word-embedding/data.txt)
+1. Download [Word Embedding Notebook](word-embedding/Word_Embedding.ipynb) and [data.txt](word-embedding/data.txt)
 2. Run Jupyter: `docker run -p 8888:8888 -e GRANT_SUDO=yes -u root jupyterhub/singleuser`
 3. Open http://localhost:8888/lab with the token from the console
 4. Upload Notebook and `data.txt`

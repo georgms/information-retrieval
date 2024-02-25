@@ -14,7 +14,7 @@ Notes:
 
 TODO: Make it easier to include stretch images
 
-&shy;<!-- .element: class="stretch" -->![hash table](../images/hash-table.svg)<!-- .element: style="object-fit: contain; height: 100%; width: 100%;" -->
+&shy;<!-- .element: class="stretch" -->![hash table](images/hash-table.svg)<!-- .element: style="object-fit: contain; height: 100%; width: 100%;" -->
 
 &shy;<!-- .element: style="font-size: small;" --> By Jorge Stolfi - Own work, CC BY-SA
 3.0, https://commons.wikimedia.org/w/index.php?curid=6471238
@@ -34,7 +34,7 @@ Notes:
 ---
 # Hash table collision
 
-&shy;<!-- .element: class="stretch" -->![hash table collision](../images/hash-table-collision.svg)<!-- .element: style="object-fit: contain; height: 100%; width: 100%;" -->
+&shy;<!-- .element: class="stretch" -->![hash table collision](images/hash-table-collision.svg)<!-- .element: style="object-fit: contain; height: 100%; width: 100%;" -->
 
 &shy;<!-- .element: style="font-size: small;" --> By Jorge Stolfi - Own work, CC BY-SA
 3.0, https://commons.wikimedia.org/w/index.php?curid=6472274

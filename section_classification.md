@@ -48,7 +48,7 @@ Notes:
 
 # Supervised learning
 
-![Supervised Learning](../images/Supervised_Learning.svg)
+![Supervised Learning](images/Supervised_Learning.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -56,7 +56,7 @@ Notes:
 
 # Supervised Learning Example
 
-![Man Woman Classifier](../images/Man_Woman_Classifier.svg)
+![Man Woman Classifier](images/Man_Woman_Classifier.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:

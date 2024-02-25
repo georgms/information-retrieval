@@ -5,14 +5,14 @@ How can we exploit the document structure to improve ranking? Think of a typical
 ---
 # Document structure
 
-![Document Structure](../images/Document_Structure.png)
+![Document Structure](images/Document_Structure.png)
 
 Notes:
 How can we exploit this information for ranking purposes?
 ---
 # Field weights
 
-![Document Structure](../images/Document_Structure_with_Field_Weights.png)
+![Document Structure](images/Document_Structure_with_Field_Weights.png)
 
 Notes:
 How can we determine the field weights?

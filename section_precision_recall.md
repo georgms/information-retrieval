@@ -14,7 +14,7 @@ Are all relevant documents in the results?
 
 Notes:
 ---
-![precision-recall](../images/precision-recall.png)
+![precision-recall](images/precision-recall.png)
 
 Notes:
 * Am Whiteboard machen?
@@ -37,7 +37,7 @@ Augment with click-stream logs
 
 Notes:
 ---
-&shy;<!-- .element: class="stretch" -->![precision-recall-example](../images/Precision_Recall_Example.svg)
+&shy;<!-- .element: class="stretch" -->![precision-recall-example](images/Precision_Recall_Example.svg)
 
 Precision for _smartphone_? <span>50%</span><!-- .element: class="fragment" -->
 

@@ -49,7 +49,7 @@ Notes:
 
 Notes:
 ---
-![K-Means](../images/K-Means.png)
+![K-Means](images/K-Means.png)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 © 2008 Cambridge University Press<!-- .element: style="font-size: x-small" -->

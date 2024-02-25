@@ -13,14 +13,14 @@ Scaling reasons?
 ---
 # Scaling
 
-![scaling](../images/scaling.png) <!-- .element: style="border: none; box-shadow: none;" -->
+![scaling](images/scaling.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 What are the two directions we can scale to?
 ---
 # Scaling up / Vertical
 
-![scaling up](../images/scaling_up.png) <!-- .element: style="border: none; box-shadow: none;" -->
+![scaling up](images/scaling_up.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
@@ -40,7 +40,7 @@ Notes:
 ---
 # Scaling out / Horizontal
 
-![scaling out](../images/scaling_out.png) <!-- .element: style="border: none; box-shadow: none;" -->
+![scaling out](images/scaling_out.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
@@ -60,7 +60,7 @@ Notes:
 ---
 # Distributed search
 
-![Distributed Search](../images/Distributed_Search.png) <!-- .element: style="border: none; box-shadow: none;" -->
+![Distributed Search](images/Distributed_Search.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
@@ -95,7 +95,7 @@ How can the index be partitioned? Think of the Inverted Index.
 # Term-partitioned index
 
 &shy;<!-- .element: class="stretch" -->
-![Term-partitioned index](../images/Term-partitioned_index.png)
+![Term-partitioned index](images/Term-partitioned_index.png)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -115,7 +115,7 @@ Notes:
 # Document-partitioned index
 
 &shy;<!-- .element: class="stretch" -->
-![Document-partitioned index](../images/Document-partitioned_index.svg)
+![Document-partitioned index](images/Document-partitioned_index.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -144,7 +144,7 @@ Notes:
 # Distributed query
 
 &shy;<!-- .element: class="stretch" -->
-![Document-partitioned query](../images/Document-partitioned_query.svg)
+![Document-partitioned query](images/Document-partitioned_query.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 
@@ -172,7 +172,7 @@ How?
 # Sharding
 
 &shy;<!-- .element: class="stretch" -->
-![sharding](../images/Sharding.svg)
+![sharding](images/Sharding.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:

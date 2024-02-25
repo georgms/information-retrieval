@@ -43,7 +43,7 @@ Notes:
 * $\vec{V}(\\#2)$ = (1, 2)
 
 &shy;<!-- .element: class="stretch" -->
-![Vectors](../images/Vectors.svg)
+![Vectors](images/Vectors.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes: Are the docs similar?
@@ -51,7 +51,7 @@ Notes: Are the docs similar?
 # Vector distance
 
 &shy;<!-- .element: class="stretch" -->
-![Vector distance](../images/Vector_Distance.svg)
+![Vector distance](images/Vector_Distance.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -86,13 +86,13 @@ Notes:
 * $\vec{V}(\\#2)$ = (1, 2)
 
 &shy;<!-- .element: class="stretch" -->
-![Vectors](../images/Vectors.svg)
+![Vectors](images/Vectors.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
 &shy;<!-- .element: class="stretch" -->
-![Vector Similarity](../images/Vector_Similarity.svg)
+![Vector Similarity](images/Vector_Similarity.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -156,7 +156,7 @@ Notes:
 What does the query vector look like?
 ---
 &shy;<!-- .element: class="stretch" -->
-![Vectors](../images/Vectors.svg)<!-- .element: style="border: none; box-shadow: none;" -->
+![Vectors](images/Vectors.svg)<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 What does the query vector look like?
@@ -164,7 +164,7 @@ What does the query vector look like?
 # Query vector
 
 &shy;<!-- .element: class="stretch" -->
-![Query](../images/Query_Vector.svg)
+![Query](images/Query_Vector.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes: Audience question: Which doc is most similar to the query?

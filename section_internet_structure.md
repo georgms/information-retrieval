@@ -3,7 +3,7 @@
 
 # Internet structure
 
-![web graph](../images/web_graph.png)
+![web graph](images/web_graph.png)
 
 * Directed graph connected by hyperlinks
 * Not strongly connected
@@ -26,7 +26,7 @@ Notes:
 
 # Internet structure
 
-![web graph](../images/web_graph.png)
+![web graph](images/web_graph.png)
 
 * B
     * In-degree: *3* &shy;<!-- .element: class="fragment" data-fragment-index="" -->
@@ -59,6 +59,6 @@ Number of web pages with in-degree *i* = $\frac{1}{i^{2.1}}$
 ---
 # Internet structure
 
-![bowtie](../images/bowtie.png)<!-- .element: class="stretch" -->
+![bowtie](images/bowtie.png)<!-- .element: class="stretch" -->
 
 Notes:

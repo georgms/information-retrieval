@@ -44,7 +44,7 @@ Audience question
 
 # Crawling
 
-![Web crawler architecture](../images/WebCrawlerArchitecture.svg)<!-- .element: style="padding: 25px;" class="stretch" -->
+![Web crawler architecture](images/WebCrawlerArchitecture.svg)<!-- .element: style="padding: 25px;" class="stretch" -->
 
 [Source](https://de.wikipedia.org/wiki/Datei:WebCrawlerArchitecture.svg)<!-- .element: target="_blank" -->
 
@@ -75,7 +75,7 @@ Notes:
 
 # Link graph
 
-![web graph](../images/web_graph.png)
+![web graph](images/web_graph.png)
 
 Notes:
 

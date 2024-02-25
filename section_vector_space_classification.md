@@ -4,11 +4,11 @@
 # Document as vector
 
 &shy;<!-- .element: class="stretch" -->
-![Vectors](../images/Vectors.svg)
+![Vectors](images/Vectors.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 ---
 &shy;<!-- .element: class="stretch" -->
-![Vector Space Classification](../images/Vector_Space_Classification.svg)
+![Vector Space Classification](images/Vector_Space_Classification.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # Rocchio Classification
@@ -23,7 +23,7 @@ Supports multiple classes
 # Rocchio Classification
 
 &shy;<!-- .element: class="stretch" -->
-![Rocchio](../images/Rocchio.svg)
+![Rocchio](images/Rocchio.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -44,7 +44,7 @@ Supports multiple classes
 # k Nearest Neighbor (kNN)
 
 &shy;<!-- .element: class="stretch" -->
-![kNN](../images/kNN.svg)
+![kNN](images/kNN.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -65,7 +65,7 @@ Notes:
 # Which _line_?
 
 &shy;<!-- .element: class="stretch" -->
-![SVM Possibilities](../images/SVM_Possibilities.svg)
+![SVM Possibilities](images/SVM_Possibilities.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -102,7 +102,7 @@ Notes:
 # Hyperplane with largest margin
 
 &shy;<!-- .element: class="stretch" -->
-![SVM Solution](../images/SVM_Solution.svg)
+![SVM Solution](images/SVM_Solution.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -111,7 +111,7 @@ Notes:
 # SVM Outliers
 
 &shy;<!-- .element: class="stretch" -->
-![SVM Outliers](../images/SVM_Outliers_Problem.svg)
+![SVM Outliers](images/SVM_Outliers_Problem.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -120,7 +120,7 @@ Notes:
 # Outliers decrease margin
 
 &shy;<!-- .element: class="stretch" -->
-![SVM Outliers](../images/SVM_Outliers.svg)
+![SVM Outliers](images/SVM_Outliers.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -138,7 +138,7 @@ Notes:
 # SVM Outliers
 
 &shy;<!-- .element: class="stretch" -->
-![SVM Outliers](../images/SVM_Outliers_Solved.svg)
+![SVM Outliers](images/SVM_Outliers_Solved.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -147,7 +147,7 @@ Notes:
 # Linearly inseparable data
 
 &shy;<!-- .element: class="stretch" -->
-![SVM not separable](../images/SVM_not_separable.svg)
+![SVM not separable](images/SVM_not_separable.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -157,7 +157,7 @@ Notes:
 Transform to higher dimension
 
 &shy;<!-- .element: class="stretch" -->
-![SVM Kernel Trick](../images/SVM_Kernel_Trick.svg)
+![SVM Kernel Trick](images/SVM_Kernel_Trick.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -168,7 +168,7 @@ Notes:
 * Can a hyperplane separate the classes?
 
 &shy;<!-- .element: class="stretch" -->
-![Linear Non-Linear](../images/Linear_Non-Linear.svg)
+![Linear Non-Linear](images/Linear_Non-Linear.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # Classifier types
@@ -192,38 +192,38 @@ Notes:
 # Rocchio Classification: Linear?
 
 &shy;<!-- .element: class="stretch" -->
-![Rocchio](../images/Rocchio.svg)
+![Rocchio](images/Rocchio.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # Rocchio Classification: Linear
 
 &shy;<!-- .element: class="stretch" -->
-![Rocchio Linear](../images/Rocchio_Linear.svg)
+![Rocchio Linear](images/Rocchio_Linear.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # kNN: Linear?
 
 &shy;<!-- .element: class="stretch" -->
-![kNN](../images/kNN.svg)
+![kNN](images/kNN.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # kNN: Non-Linear
 
 &shy;<!-- .element: class="stretch" -->
-![kNN Non-Linear](../images/kNN_Non-Linear.svg)
+![kNN Non-Linear](images/kNN_Non-Linear.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # SVM
 
 &shy;<!-- .element: class="stretch" -->
-![SVM Solution](../images/SVM_Solution.svg)
+![SVM Solution](images/SVM_Solution.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Linear? *Yes*<!-- .element: class="fragment" data-fragment-index="" -->
 Notes:
 ---
 &shy;<!-- .element: class="stretch" -->
-![Rocchio Linear](../images/Rocchio_Linear.svg)
+![Rocchio Linear](images/Rocchio_Linear.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 * Bias: *high*<!-- .element: class="fragment" data-fragment-index="" -->
@@ -231,7 +231,7 @@ Notes:
 
 ---
 &shy;<!-- .element: class="stretch" -->
-![kNN Non-Linear](../images/kNN_Non-Linear.svg)
+![kNN Non-Linear](images/kNN_Non-Linear.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 * Bias: *low*<!-- .element: class="fragment" data-fragment-index="" -->
@@ -239,7 +239,7 @@ Notes:
 
 ---
 &shy;<!-- .element: class="stretch" -->
-![SVM Solution](../images/SVM_Solution.svg)
+![SVM Solution](images/SVM_Solution.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 * Bias: *high*<!-- .element: class="fragment" data-fragment-index="" -->

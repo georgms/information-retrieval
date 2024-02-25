@@ -10,9 +10,9 @@ Georg M. Sorst, Principal Engineer @ Nosto
 * Principal Engineer @ [Nosto](https://nosto.com) (formerly Findologic)
 * Leading E-Commerce recommendation & search provider 
 ---
-![Über uns](../images/ueber-uns.png)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+![Über uns](images/ueber-uns.png)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
 ---
-# Career @ ![FINDOLOGIC](../images/findologic.png)<!-- .element: class="stretch" style="height: 100px; border: none; box-shadow: none; vertical-align: middle;" -->
+# Career @ ![FINDOLOGIC](images/findologic.png)<!-- .element: class="stretch" style="height: 100px; border: none; box-shadow: none; vertical-align: middle;" -->
 
 * Internship, thesis, full time
 * Buzzwords:

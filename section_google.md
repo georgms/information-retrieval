@@ -29,7 +29,7 @@ Notes:
 
 # Query time
 
-![Google cluster](../images/google-cluster.png)
+![Google cluster](images/google-cluster.png)
 
 [Source](https://static.googleusercontent.com/media/research.google.com/de//archive/googlecluster-ieee.pdf) <!-- .element: style="font-size: smaller;" target="_blank" -->
 

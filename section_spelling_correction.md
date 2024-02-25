@@ -6,7 +6,7 @@ Notes:
 ---
 # Spelling correction
 
-![iformmetoin](../images/iformmetoin.png) <!-- .element: class="fragment" style="border: none;" -->
+![iformmetoin](images/iformmetoin.png) <!-- .element: class="fragment" style="border: none;" -->
 
 1. <!-- .element: class="fragment" --> Find alternatives
 2. <!-- .element: class="fragment" --> Evaluate alternatives
@@ -114,7 +114,7 @@ Notes:
 ---
 # Did you mean
 
-![Did you mean](../images/Did_you_mean.png)
+![Did you mean](images/Did_you_mean.png)
 
 * Original query has decent results
 * There is a better alternative
@@ -123,7 +123,7 @@ Notes:
 ---
 # Instead
 
-![Instead](../images/Instead.png)
+![Instead](images/Instead.png)
 
 * Original query has poor results
 * There is a better alternative
@@ -132,7 +132,7 @@ Notes:
 ---
 # Showing results for
 
-![Showing results for](../images/Showing_results_for.png)
+![Showing results for](images/Showing_results_for.png)
 
 * Original query has no results
 * There is an alternative

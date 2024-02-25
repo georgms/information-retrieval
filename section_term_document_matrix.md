@@ -87,6 +87,6 @@ That's way too large! How can the size be decreased?<!-- .element: class="fragme
 Notes:
 Audience question
 ---
-&shy;<!-- .element: class="stretch" --> ![...](../images/buch-index.png)
+&shy;<!-- .element: class="stretch" --> ![...](images/buch-index.png)
 
 Notes:

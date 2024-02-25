@@ -94,7 +94,7 @@ Notes:
 Notes:
 Will increase relevance, but reduce precision
 ---
-![analysis](../images/analysis.png)
+![analysis](images/analysis.png)
 
 Notes:
 ---

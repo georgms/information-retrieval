@@ -1,10 +1,10 @@
 # Calculate Weights
 ---
-![Machine Learning Training Pipeline](../images/Machine_Learning_Training_Pipeline.png)<!-- .element: style="border: none; box-shadow: none;" -->
+![Machine Learning Training Pipeline](images/Machine_Learning_Training_Pipeline.png)<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
-![Regression Learning](../images/Regression_Learning.png)<!-- .element: style="border: none; box-shadow: none;" -->
+![Regression Learning](images/Regression_Learning.png)<!-- .element: style="border: none; box-shadow: none;" -->
 
 Ideal Rank vs. Actual Rank
 
