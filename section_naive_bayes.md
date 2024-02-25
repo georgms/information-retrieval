@@ -76,7 +76,7 @@ $$P(\text{spam} | \text{viagra})$$<!-- .element: class="fragment" data-fragment-
 
 # Example
 
-[Interactive Bayes Classificator](https://docs.google.com/spreadsheets/d/1Cim4llHxSKF-meYq8qZEZmVU8OUPMDiBvFj4WCNPv34/edit?usp=sharing)<!-- .element: target="_blank" -->
+[Interactive Bayes Classificator](https://docs.google.com/spreadsheets/d/1Cim4llHxSKF-meYq8qZEZmVU8OUPMDiBvFj4WCNPv34/edit?usp=sharing)
 
 Notes:
 ---

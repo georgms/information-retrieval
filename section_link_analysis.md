@@ -17,11 +17,11 @@ Notes:
 # Link info
 
 * Anchor text describes target page
-    * "[computer manufacturer](http://lenovo.com)<!-- .element: target="_blank"-->" &rarr; lenovo.com
+    * "[computer manufacturer](http://lenovo.com)" &rarr; lenovo.com
 * Also text surrounding links
-    * "Find funny cat pics [here](http://icanhascheezburger.com)<!-- .element: target="_blank"-->"
+    * "Find funny cat pics [here](http://icanhascheezburger.com)"
 * May also be abused
-    * "[evil empire](http://www.korea-dpr.com/)<!-- .element: target="_blank"-->"
+    * "[evil empire](http://www.korea-dpr.com/)"
 
 Notes:
 ---
@@ -51,7 +51,7 @@ Notes:
 
 $$\sum \text{pagerank} = 1$$
 ---
-[Pagerank visualization](https://d3og.com/emeeks/f448eef177b5fe94b1c0/)<!-- .element: target="_blank" -->
+[Pagerank visualization](https://d3og.com/emeeks/f448eef177b5fe94b1c0/)
 
 Notes:
 ---

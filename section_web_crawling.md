@@ -46,7 +46,7 @@ Audience question
 
 ![Web crawler architecture](images/WebCrawlerArchitecture.svg)<!-- .element: style="padding: 25px;" class="stretch" -->
 
-[Source](https://de.wikipedia.org/wiki/Datei:WebCrawlerArchitecture.svg)<!-- .element: target="_blank" -->
+[Source](https://de.wikipedia.org/wiki/Datei:WebCrawlerArchitecture.svg)
 
 Notes:
 

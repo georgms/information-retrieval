@@ -64,4 +64,4 @@ Computer has no concept of ear shapes, it just groups similar images together.
 
 ![Starry Cat](images/starry_cat.jpeg)<!-- .element: height="200px" -->
 
-&shy;<!-- .element: style="font-size: small; color: grey" --> Source: https://discuss.pixls.us/t/style-transfer-soon-in-gmic/10009<!-- .element: target="_blank" -->
+&shy;<!-- .element: style="font-size: small; color: grey" --> Source: https://discuss.pixls.us/t/style-transfer-soon-in-gmic/10009

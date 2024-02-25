@@ -137,14 +137,14 @@ Notes:
 
 # Word Embedding visualized
 
-[Word Embedding Visual Inspector](https://ronxin.github.io/wevi/)<!-- .element: target="_blank" -->
+[Word Embedding Visual Inspector](https://ronxin.github.io/wevi/)
 
 Notes:
 ---
 
 # Word Embedding play time
 
-[View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word%20Embedding.ipynb)<!-- .element: target="_blank" -->
+[View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word%20Embedding.ipynb)
 
 1. Download [Word Embedding Notebook](word-embedding/Word_Embedding.ipynb) and [data.txt](word-embedding/data.txt)
 2. Run Jupyter: `docker run -p 8888:8888 -e GRANT_SUDO=yes -u root jupyterhub/singleuser`
@@ -156,14 +156,14 @@ Notes:
 
 # Word2Vec Alternatives
 
-[fastText](https://fasttext.cc/)<!-- .element: target="_blank" -->
+[fastText](https://fasttext.cc/)
 
 * Uses n-grams instead of words
 * Can match unknown words by matching n-grams
 * Can also be used for text classification
 * Pre-trained for many languages
 
-[GloVe](https://nlp.stanford.edu/projects/glove/)<!-- .element: target="_blank" -->
+[GloVe](https://nlp.stanford.edu/projects/glove/)
 
 * Pre-trained for many languages
 
