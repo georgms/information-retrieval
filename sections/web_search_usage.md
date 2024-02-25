@@ -34,7 +34,7 @@ Examples?
 
 Clear facts
 
-* "how old is sebastian kurz" <!-- .element: class="fragment" data-fragment-index="" -->
+* "how old is arnold schwarzenegger" <!-- .element: class="fragment" data-fragment-index="" -->
 * "5 usd in eur" <!-- .element: class="fragment" data-fragment-index="" -->
 * "capitol of austria" <!-- .element: class="fragment" data-fragment-index="" -->
 
@@ -121,7 +121,7 @@ Notes:
 ---
 # But wait, there's more
 
-[Google Search Quality Evaluator Guidelines](https://www.google.com/insidesearch/howsearchworks/assets/searchqualityevaluatorguidelines.pdf)
+[Google Search Quality Evaluator Guidelines](https://www.google.com/insidesearch/howsearchworks/assets/searchqualityevaluatorguidelines.pdf)<!-- .element: target="_blank" -->
 
 Notes:
 ---

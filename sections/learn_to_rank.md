@@ -1,7 +1,5 @@
 # Calculate Weights
 ---
-TODO: Make it easier to create stretch images
-
 ![Machine Learning Training Pipeline](../images/Machine_Learning_Training_Pipeline.png)<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
@@ -30,18 +28,18 @@ Notes:
 |--------|-------------------------------------------------------------------------|-------------------------------------------------------------------------|-|------------------------------------------------------------------------------|
 | iphone | iPhone cover<!-- .element: class="fragment" data-fragment-index="1" --> | 1<!-- .element: class="fragment" data-fragment-index="2" -->            | | 2<!-- .element: class="fragment" data-fragment-index="3" -->                 |
 | iphone | iPhone X<!-- .element: class="fragment" data-fragment-index="1" -->     | 2<!-- .element: class="fragment" data-fragment-index="2" -->            | | 11<!-- .element: class="fragment" data-fragment-index="3" -->                |
-| iphone | iPhone 8<!-- .element: class="fragment" data-fragment-index="1" -->     | 3<!-- .element: class="fragment" data-fragment-index="2" -->            | | 5<!-- .element: class="fragment" data-fragment-index="3" -->                 |
-| iphone | iPhone 13<!-- .element: class="fragment" data-fragment-index="1" -->    | 4<!-- .element: class="fragment" data-fragment-index="2" -->            | | 0 (just released)<!-- .element: class="fragment" data-fragment-index="3" --> |
+| iphone | iPhone 13<!-- .element: class="fragment" data-fragment-index="1" -->    | 3<!-- .element: class="fragment" data-fragment-index="2" -->            | | 5<!-- .element: class="fragment" data-fragment-index="3" -->                 |
+| iphone | iPhone 15<!-- .element: class="fragment" data-fragment-index="1" -->    | 4<!-- .element: class="fragment" data-fragment-index="2" -->            | | 0 (just released)<!-- .element: class="fragment" data-fragment-index="3" --> |
 
 Or use manual relevance judgement<!-- .element: class="fragment" data-fragment-index="5" -->
 
 Ideal ranking:<!-- .element: class="fragment" data-fragment-index="6" -->
 
 1. iPhone X<!-- .element: class="fragment" data-fragment-index="6" -->
-2. iPhone 8<!-- .element: class="fragment" data-fragment-index="6" -->
+2. iPhone 13<!-- .element: class="fragment" data-fragment-index="6" -->
 3. iPhone cover<!-- .element: class="fragment" data-fragment-index="6" -->
 
-<span class="fragment" data-fragment-index="7">How to rank _iPhone 13_?</span>
+<span class="fragment" data-fragment-index="7">How to rank _iPhone 15_?</span>
 
 Notes:
 
@@ -81,7 +79,7 @@ $$f(\text{query}, \text{document features}, \text{feature weights}) = \text{idea
 <!-- .element: class="fragment" data-fragment-index="1" --> 
 
 $$\begin{aligned}
-&f(\text{iphone}, \text{iPhone 8}, \text{weights}) &= 2\\\\
+&f(\text{iphone}, \text{iPhone 13}, \text{weights}) &= 2\\\\
 &f(\text{iphone}, \text{iPhone X}, \text{weights}) &= 1\\\\
 &f(\text{iphone}, \text{iPhone cover}, \text{weights}) &= 3\\\\
 \end{aligned}$$
@@ -166,15 +164,15 @@ Query: *iphone x*
 Notes:
 ---
 
-| Rank | Query    | Title relevance | Age | More features … | Comment        |
-|------|----------|-----------------|-----|-----------------|----------------|
-| 2    | *iphone* | 1.3             | 0.9 | 1               | # iPhone 8     |
-| 3    | *iphone* | 1.3             | 0.3 | 0               | # iPhone X     |
-| 1    | *iphone* | 1.3             | 1.2 | 0               | # iPhone cover |
-| ?    | *iphone* | 1.3             | 0.1 | 0               | # iPhone 13    |
-| 3    | *galaxy* | 3.3             | 3.5 | 1               |                |
-| 2    | *galaxy* | 1.0             | 1.1 | 1               |                |
-| 1    | *galaxy* | 0.5             | 1.2 | 1               |                |
+| Rank | Query    | Title relevance | Age | More features … | Comment      |
+|------|----------|-----------------|-----|-----------------|--------------|
+| 2    | *iphone* | 1.3             | 0.9 | 1               | iPhone X     |
+| 3    | *iphone* | 1.3             | 0.3 | 0               | iPhone 13    |
+| 1    | *iphone* | 1.3             | 1.2 | 0               | iPhone cover |
+| ?    | *iphone* | 1.3             | 0.1 | 0               | iPhone 15    |
+| 3    | *galaxy* | 3.3             | 3.5 | 1               |              |
+| 2    | *galaxy* | 1.0             | 1.1 | 1               |              |
+| 1    | *galaxy* | 0.5             | 1.2 | 1               |              |
 
 Notes:
 ---

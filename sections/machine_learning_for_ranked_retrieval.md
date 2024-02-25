@@ -31,8 +31,8 @@ Notes:
 
 # From
 
-<p class="stretch">![Regular Search pipeline](../images/Search pipeline.jpg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+![Regular Search pipeline](../images/Search_pipeline.jpg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
@@ -40,7 +40,7 @@ Notes:
 
 # To
 
-<p class="stretch">![LTR Search pipeline](../images/LTR Search pipeline.jpg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+![LTR Search pipeline](../images/LTR_Search_pipeline.jpg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:

@@ -1,6 +1,6 @@
 # What would Google do?
 
-[Web search for a planet: The Google cluster architecture (2003)](https://static.googleusercontent.com/media/research.google.com/de//archive/googlecluster-ieee.pdf)
+[Web search for a planet: The Google cluster architecture (2003)](https://static.googleusercontent.com/media/research.google.com/de//archive/googlecluster-ieee.pdf)<!-- .element: target="_blank" -->
 ---
 
 # Basic assumptions
@@ -29,11 +29,9 @@ Notes:
 
 # Query time
 
-<p class="stretch">
 ![Google cluster](../images/google-cluster.png)
-</p>
 
-[Source](https://static.googleusercontent.com/media/research.google.com/de//archive/googlecluster-ieee.pdf) <!-- .element: style="font-size: smaller;" -->
+[Source](https://static.googleusercontent.com/media/research.google.com/de//archive/googlecluster-ieee.pdf) <!-- .element: style="font-size: smaller;" target="_blank" -->
 
 * Index servers: Inverted Index, document-partitioned
 * Document servers: Copy of entire internet

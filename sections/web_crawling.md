@@ -46,7 +46,7 @@ Audience question
 
 ![Web crawler architecture](../images/WebCrawlerArchitecture.svg)<!-- .element: style="padding: 25px;" class="stretch" -->
 
-[Source](https://de.wikipedia.org/wiki/Datei:WebCrawlerArchitecture.svg)
+[Source](https://de.wikipedia.org/wiki/Datei:WebCrawlerArchitecture.svg)<!-- .element: target="_blank" -->
 
 Notes:
 
@@ -86,6 +86,6 @@ Notes:
 * Connectivity servers / indices
 * Store web graph, in- and out-links
 * Support graph queries: in- / out-links, in- / out-degree, traversal
-* Used for link analysis etc.
+* Used for link analysis, etc.
 
 Notes:

@@ -48,15 +48,16 @@ Notes:
 
 # Supervised learning
 
-<p class="stretch">![Supervised Learning](../images/Supervised Learning.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+![Supervised Learning](../images/Supervised_Learning.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
 
 # Supervised Learning Example
 
-![Man Woman Classifier](../images/Man_Woman_Classifier.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
+![Man Woman Classifier](../images/Man_Woman_Classifier.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---

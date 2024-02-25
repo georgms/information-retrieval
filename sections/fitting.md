@@ -1,8 +1,6 @@
 # Overfitting
 
-<p class="stretch">
-![Overfitting](../images/Man Woman Classifier Overfitting.svg)<!-- .element: style="border: none; box-shadow: none; " -->
-</p>
+![Overfitting](../images/Man_Woman_Classifier_Overfitting.svg)<!-- .element: style="border: none; box-shadow: none; " -->
 
 Notes:
 
@@ -10,9 +8,7 @@ Notes:
 
 # Underfitting
 
-<p class="stretch">
-![Underfitting](../images/Man Woman Classifier Underfitting.svg)<!-- .element: style="border: none; box-shadow: none;" -->
-</p>
+![Underfitting](../images/Man_Woman_Classifier_Underfitting.svg)<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 

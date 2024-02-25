@@ -17,11 +17,11 @@ Notes:
 # Link info
 
 * Anchor text describes target page
-    * "[computer manufacturer](http://lenovo.com)" &rarr; lenovo.com
+    * "[computer manufacturer](http://lenovo.com)<!-- .element: target="_blank"-->" &rarr; lenovo.com
 * Also text surrounding links
-    * "Find funny cat pics [here](http://icanhascheezburger.com)"
+    * "Find funny cat pics [here](http://icanhascheezburger.com)<!-- .element: target="_blank"-->"
 * May also be abused
-    * "[evil empire](http://www.korea-dpr.com/)"
+    * "[evil empire](http://www.korea-dpr.com/)<!-- .element: target="_blank"-->"
 
 Notes:
 ---

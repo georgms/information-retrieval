@@ -49,10 +49,10 @@ Notes:
 
 Notes:
 ---
-<p class="stretch">![K-Means](../images/K-Means.png)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+![K-Means](../images/K-Means.png)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
-<span style="font-size: x-small">© 2008 Cambridge University Press</span>
+© 2008 Cambridge University Press<!-- .element: style="font-size: x-small" -->
 
 Notes:
 ---

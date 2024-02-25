@@ -37,13 +37,9 @@ Notes: Audience question
 
 # Internet structure
 
-Number of web pages with in-degree *i* =
+Number of web pages with in-degree *i* = $\frac{1}{i^{2.1}}$
 
-$$\frac{1}{i^{2.1}}$$
-
-Notes:
----
-<div class="plot stretch" id="myplot2">
+<div class="plot" id="in-degree-plot">
     <!--
      {
       "width": "800",

@@ -5,7 +5,7 @@ Notes:
 
 # Prediction
 
-<!-- .element: class="stretch" -->![Swiftkey](../images/swiftkey.png)
+&shy;<!-- .element: class="stretch" -->![Swiftkey](../images/swiftkey.png)
 
 Notes:
 ---
@@ -35,8 +35,6 @@ Notes:
 * **Vocabulary**: [quick, brown, fox, jump, lazy, dog].
 * **Vector for** *brown* (one-hot encoding):
 
-<div>
-
 | Word  | Vector |
 |-------|--------|
 | quick | 0      |
@@ -46,7 +44,7 @@ Notes:
 | lazy  | 0      |
 | dog   | 0      |
 
-</div><!-- .element: class="fragment" -->
+<!-- .element: class="fragment" -->
 
 Notes:
 What does the vector for brown look like?
@@ -54,14 +52,14 @@ What does the vector for brown look like?
 
 # Vectors are unrelated
 
-<p class="stretch">![brown quick vectors unrelated](../images/brown quick vectors unrelated.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
+&shy;<!-- .element: class="stretch" -->![brown quick vectors unrelated](../images/brown_quick_vectors_unrelated.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
 
 Notes:
 ---
 
 # Embed word vectors
 
-<p class="stretch">![brown quick vectors related](../images/brown quick vectors related.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
+&shy;<!-- .element: class="stretch" -->![brown quick vectors related](../images/brown_quick_vectors_related.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
 
 Notes:
 ---
@@ -84,14 +82,17 @@ Notes:
 
 Slide window over corpus:
 
-1. <!-- .element: class="fragment" data-fragment-index="1" --> *<span class="fragment highlight-blue" data-fragment-index="1">The quick</span> brown fox jumps over the lazy dog*
+1. &shy;<!-- .element: class="fragment" data-fragment-index="1" -->
+   *<span class="fragment highlight-blue" data-fragment-index="1">The quick</span> brown fox jumps over the lazy dog*
     * [*the* &rarr; *quick*]
-2. <!-- .element: class="fragment" --> *The <span class="fragment highlight-blue" data-fragment-index="1">quick brown</span> fox jumps over the lazy dog*
+2. &shy;<!-- .element: class="fragment" --> *The <span class="fragment highlight-blue" data-fragment-index="1">quick
+   brown</span> fox jumps over the lazy dog*
     * [*quick* &rarr; *brown*]
-3. <!-- .element: class="fragment" --> *The quick <span class="fragment highlight-blue" data-fragment-index="1">brown fox</span> jumps over the lazy dog*
+3. &shy;<!-- .element: class="fragment" --> *The quick <span class="fragment highlight-blue" data-fragment-index="1">
+   brown fox</span> jumps over the lazy dog*
     * [*brown* &rarr; *fox*]
 
-<!-- .element: class="fragment" -->When Machine sees *brown* it should predict *fox*.
+&shy;<!-- .element: class="fragment" -->When Machine sees *brown* it should predict *fox*.
 
 Notes:
 ---
@@ -145,7 +146,7 @@ Notes:
 
 [View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word%20Embedding.ipynb)<!-- .element: target="_blank" -->
 
-1. Download [Word Embedding Notebook](../word-embedding/Word Embedding.ipynb) and [data.txt](../word-embedding/data.txt)
+1. Download [Word Embedding Notebook](../word-embedding/Word_Embedding.ipynb) and [data.txt](../word-embedding/data.txt)
 2. Run Jupyter: `docker run -p 8888:8888 -e GRANT_SUDO=yes -u root jupyterhub/singleuser`
 3. Open http://localhost:8888/lab with the token from the console
 4. Upload Notebook and `data.txt`

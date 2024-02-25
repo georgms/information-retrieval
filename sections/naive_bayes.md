@@ -87,7 +87,7 @@ Notes:
 
 (Using the extended form of Bayes theorem because spam / ham is a binary variable)
 
-$$
+$$\begin{aligned}
 P(\text{spam} | doc) &= \frac{P(\text{spam}) \times P(doc | \text{spam})}{P(\text{spam}) \times P(doc | \text{spam}) + P(\text{ham}) \times P(doc | \text{ham})}\\\\
 \end{aligned}$$
 

@@ -3,11 +3,13 @@
 
 # Document as vector
 
-<p class="stretch">![Vectors](../images/Vectors.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Vectors](../images/Vectors.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 ---
-<p class="stretch">![Vector Space Classification](../images/Vector Space Classification.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Vector Space Classification](../images/Vector_Space_Classification.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # Rocchio Classification
 
@@ -20,8 +22,9 @@ Supports multiple classes
 
 # Rocchio Classification
 
-<p class="stretch">![Rocchio](../images/Rocchio.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Rocchio](../images/Rocchio.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
@@ -40,8 +43,9 @@ Supports multiple classes
 
 # k Nearest Neighbor (kNN)
 
-<p class="stretch">![kNN](../images/kNN.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![kNN](../images/kNN.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
@@ -60,8 +64,9 @@ Notes:
 
 # Which _line_?
 
-<p class="stretch">![SVM Possibilities](../images/SVM Possibilities.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![SVM Possibilities](../images/SVM_Possibilities.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
@@ -96,24 +101,27 @@ Notes:
 
 # Hyperplane with largest margin
 
-<p class="stretch">![SVM Solution](../images/SVM Solution.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![SVM Solution](../images/SVM_Solution.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
 
 # SVM Outliers
 
-<p class="stretch">![SVM Outliers](../images/SVM Outliers Problem.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![SVM Outliers](../images/SVM_Outliers_Problem.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
 
 # Outliers decrease margin
 
-<p class="stretch">![SVM Outliers](../images/SVM Outliers.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![SVM Outliers](../images/SVM_Outliers.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
@@ -129,24 +137,29 @@ Notes:
 
 # SVM Outliers
 
-<p class="stretch">![SVM Outliers](../images/SVM Outliers Solved.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![SVM Outliers](../images/SVM_Outliers_Solved.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 ---
 
 # Linearly inseparable data
 
-<p class="stretch">![SVM not separable](../images/SVM not separable.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![SVM not separable](../images/SVM_not_separable.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
+
 Notes:
 ---
 # SVM Kernel Trick
 
 Transform to higher dimension
 
-<p class="stretch">![SVM Kernel Trick](../images/SVM Kernel Trick.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![SVM Kernel Trick](../images/SVM_Kernel_Trick.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
+
 Notes:
 ---
 # Which classifier to use?
@@ -154,8 +167,9 @@ Notes:
 * Is the problem linear?
 * Can a hyperplane separate the classes?
 
-<p class="stretch">![Linear Non-Linear](../images/Linear Non-Linear.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Linear Non-Linear](../images/Linear_Non-Linear.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # Classifier types
 
@@ -177,48 +191,56 @@ Notes:
 
 # Rocchio Classification: Linear?
 
-<p class="stretch">![Rocchio](../images/Rocchio.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Rocchio](../images/Rocchio.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # Rocchio Classification: Linear
 
-<p class="stretch">![Rocchio Linear](../images/Rocchio Linear.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Rocchio Linear](../images/Rocchio_Linear.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # kNN: Linear?
 
-<p class="stretch">![kNN](../images/kNN.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![kNN](../images/kNN.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # kNN: Non-Linear
 
-<p class="stretch">![kNN Non-Linear](../images/kNN Non-Linear.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![kNN Non-Linear](../images/kNN_Non-Linear.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 ---
 # SVM
 
-<p class="stretch">![SVM Solution](../images/SVM Solution.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![SVM Solution](../images/SVM_Solution.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 Linear? *Yes*<!-- .element: class="fragment" data-fragment-index="" -->
 Notes:
 ---
-<p class="stretch">![Rocchio Linear](../images/Rocchio Linear.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![Rocchio Linear](../images/Rocchio_Linear.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 * Bias: *high*<!-- .element: class="fragment" data-fragment-index="" -->
 * Variance: *low*<!-- .element: class="fragment" data-fragment-index="" -->
 
 ---
-<p class="stretch">![kNN Non-Linear](../images/kNN Non-Linear.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![kNN Non-Linear](../images/kNN_Non-Linear.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 * Bias: *low*<!-- .element: class="fragment" data-fragment-index="" -->
 * Variance: *high*<!-- .element: class="fragment" data-fragment-index="" -->
 
 ---
-<p class="stretch">![SVM Solution](../images/SVM Solution.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+&shy;<!-- .element: class="stretch" -->
+![SVM Solution](../images/SVM_Solution.svg)
+<!-- .element: style="border: none; box-shadow: none;" -->
 
 * Bias: *high*<!-- .element: class="fragment" data-fragment-index="" -->
 * Variance: *low*<!-- .element: class="fragment" data-fragment-index="" -->

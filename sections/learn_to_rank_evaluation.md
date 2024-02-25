@@ -7,10 +7,7 @@ Notes:
 
 Discounted Cumulative Gain
 
-TODO: Use Latex
-
-<p class="">![DCG](../images/dcg.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+$$DCG_p = \sum_{i=1}^{p} \frac{2^{rel_i}-1}{log_2(i+1)}$$
 
 | $rel_i$ | $2^{rel_i}-1$ | $log_2(i+1)$ | $=$ |
 |---------|---------------|--------------|-----|
@@ -28,10 +25,7 @@ Notes:
 
 Ideal Discounted Cumulative Gain
 
-TODO: Use Latex
-
-<p class="">![iDCG](../images/idcg.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
+$$iDCG_p = \sum_{i=1}^{|REL|} \frac{2^{rel_i}-1}{log_2(i+1)}$$
 
 | $rel_i$ | $2^{rel_i}-1$ | $log_2(i+1)$ | $=$ |
 |---------|---------------|--------------|-----|
@@ -47,12 +41,9 @@ Notes:
 
 Normalized Discounted Cumulative Gain
 
-TODO: Use Latex
+$$nDCG_p = \frac{DCG_p}{iDCG_p}$$
 
-<p class="">![nDCG](../images/ndcg.svg)
-    <!-- .element: style="border: none; box-shadow: none;" --></p>
-
-$7.9 \div 9.4 = 0.8$
+$$7.9 \div 9.4 = 0.8$$
 
 Perfect ranking: $1.0$<!-- .element: class="fragment" data-fragment-index="" -->
 
