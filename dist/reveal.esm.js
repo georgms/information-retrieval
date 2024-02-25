@@ -1,5 +1,5 @@
 /*!
-* reveal.js 5.0.3
+* reveal.js 5.0.4
 * https://revealjs.com
 * MIT licensed
 *

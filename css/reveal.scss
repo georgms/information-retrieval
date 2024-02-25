@@ -192,15 +192,15 @@ html.reveal-full-page {
 	opacity: 1;
 	visibility: inherit;
 }
-	.reveal .fragment.highlight-red.visible {
-		color: #ff2c2d
-	}
-	.reveal .fragment.highlight-green.visible {
-		color: #17ff2e;
-	}
-	.reveal .fragment.highlight-blue.visible {
-		color: #1b91ff;
-	}
+.reveal .fragment.highlight-red.visible {
+	color: #ff2c2d
+}
+.reveal .fragment.highlight-green.visible {
+	color: #17ff2e;
+}
+.reveal .fragment.highlight-blue.visible {
+	color: #1b91ff;
+}
 
 .reveal .fragment.highlight-current-red.current-fragment {
 	color: #ff2c2d
@@ -211,7 +211,6 @@ html.reveal-full-page {
 .reveal .fragment.highlight-current-blue.current-fragment {
 	color: #1b91ff;
 }
-
 
 /*********************************************
  * DEFAULT ELEMENT STYLES

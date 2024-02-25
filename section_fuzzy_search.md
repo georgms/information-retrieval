@@ -81,8 +81,9 @@ Audience question: What does the index look like?
 | ock<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2 ,#3 |
 | ck^<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2, #3 |
 
-Notes:
 Which document is the best match?
+
+Notes:
 ---
 
 | Term                                         | Doc IDs                                          |
@@ -95,8 +96,6 @@ Which document is the best match?
 | ck^<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2, #3 |
 
 &darr;
-
-TODO: Add highlight without fragment
 
 * \#1: [<span>^bo</span><!-- .element: class="highlight-blue" -->, boo, ook, ok^] &rarr; 25%
 * \#2: [^ro, roc, <span>ock</span><!-- .element: class="highlight-blue" -->, <span>ck^</span><!-- .element: class="highlight-blue" -->] &rarr; 50%
