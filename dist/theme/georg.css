@@ -17,6 +17,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
 .reveal .highlight-blue:not(.fragment) {
   color: #1b91ff;
 }
+.reveal code:not(.hljs) {
+  background-color: #eee;
+}
 
 /*********************************************
  * GLOBAL STYLES

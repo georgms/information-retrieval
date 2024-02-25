@@ -4,8 +4,6 @@ Notes:
 ---
 # Phrase queries
 
-TODO: Inline code is not very distinguishable from regular texts. Use a different color or font.
-
 * &shy;<!-- .element: class="fragment" --> `fh salzburg` should not
   match `In Salzburg there is a University and in Vienna there is an FH`
 * &shy;<!-- .element: class="fragment" --> Search for names and concepts: `"fh salzburg"`, `"mountain bike"`

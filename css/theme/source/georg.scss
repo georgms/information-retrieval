@@ -55,6 +55,10 @@ $overlayElementFgColor: 240, 240, 240;
   .highlight-blue:not(.fragment) {
     color: #1b91ff;
   }
+
+  code:not(.hljs) {
+    background-color: #eee;
+  }
 }
 
 
