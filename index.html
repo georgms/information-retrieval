@@ -1,488 +1,440 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-    <title>Information Retrieval</title>
-
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/findologic.css">
-
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
-
-    <style>
-        .node circle {
-            fill: none;
-            stroke: #ff8c0099;
-            stroke-width: 3px;
-        }
-
-        .node text {
-            font: 1em sans-serif;
-        }
-
-        .link {
-            fill: none;
-            stroke: #ccc;
-            stroke-width: 2px;
-        }
-    </style>
-
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
-    </script>
-</head>
-<body>
-<div class="reveal">
-    <div class="slides">
-        <section data-markdown>
-            <script type="text/template">
-                # Information Retrieval
-
-                Georg M. Sorst, Principal Engineer @ Nosto
-            </script>
-        </section>
-
-        <section id="admin"
-                 data-markdown="sections/admin.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="getting_to_know_you"
-                 data-markdown="sections/getting_to_know_you.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="motivation"
-                 data-markdown="sections/motivation.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="boolean_retrieval"
-                 data-markdown="sections/boolean_retrieval.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="term_document_matrix"
-                 data-markdown="sections/term_document_matrix.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="inverted_index"
-                 data-markdown="sections/inverted_index.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="homework_inverted_index"
-                 data-markdown="sections/homework_inverted_index.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="tokenization"
-                 data-markdown="sections/tokenization.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="stop_words"
-                 data-markdown="sections/stop_words.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="stemming"
-                 data-markdown="sections/stemming.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="tokenization_example"
-                 data-markdown="sections/tokenization_example.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="precision_recall"
-                 data-markdown="sections/precision_recall.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="ranked_retrieval"
-                 data-markdown="sections/ranked_retrieval.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="homework_tf_idf"
-                 data-markdown="sections/homework_tf_idf.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="tf_idf_issues"
-                 data-markdown="sections/tf_idf_issues.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="field_weights"
-                 data-markdown="sections/field_weights.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="phrase_queries"
-                 data-markdown="sections/phrase_queries.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="vocabulary_structure"
-                 data-markdown="sections/vocabulary_structure.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="wildcard_queries"
-                 data-markdown="sections/wildcard_queries.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="fuzzy_search"
-                 data-markdown="sections/fuzzy_search.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-
-        <section id="spelling_correction"
-                 data-markdown="sections/spelling_correction.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="phonetic_correction"
-                 data-markdown="sections/phonetic_correction.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="vector_space_model"
-                 data-markdown="sections/vector_space_model.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="scaling"
-                 data-markdown="sections/scaling.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="web_search_usage"
-                 data-markdown="sections/web_search_usage.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="web_search_challenges"
-                 data-markdown="sections/web_search_challenges.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="internet_structure"
-                 data-markdown="sections/internet_structure.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="web_crawling"
-                 data-markdown="sections/web_crawling.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="google"
-                 data-markdown="sections/google.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="web_spam"
-                 data-markdown="sections/web_spam.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="link_analysis"
-                 data-markdown="sections/link_analysis.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="machine_learning_overview"
-                 data-markdown="sections/machine_learning_overview.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="classification"
-                 data-markdown="sections/classification.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="fitting"
-                 data-markdown="sections/fitting.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="feature_selection"
-                 data-markdown="sections/feature_selection.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="naive_bayes"
-                 data-markdown="sections/naive_bayes.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="homework_naive_bayes"
-                 data-markdown="sections/homework_naive_bayes.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="vector_space_classification"
-                 data-markdown="sections/vector_space_classification.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="word_embedding"
-                 data-markdown="sections/word_embedding.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="clustering"
-                 data-markdown="sections/clustering.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="machine_learning"
-                 data-markdown="sections/machine_learning.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="learn_to_rank"
-                 data-markdown="sections/learn_to_rank.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="learn_to_rank_evaluation"
-                 data-markdown="sections/learn_to_rank_evaluation.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="personalization"
-                 data-markdown="sections/personalization.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-
-        <section id="closing"
-                 data-markdown="sections/closing.md"
-                 data-separator="^\n\n\n"
-                 data-separator-vertical="^---$">
-        </section>
-    </div>
-</div>
-
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.js"></script>
-
-<script>
-    // More info about config & dependencies:
-    // - https://github.com/hakimel/reveal.js#configuration
-    // - https://github.com/hakimel/reveal.js#dependencies
-    Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-        width: 1600,
-        height: 900,
-
-        transition: 'slide', // none/fade/slide/convex/concave/zoom
-
-        anything: [
-            {
-                className: "chart",
-                initialize: (function (container, options) {
-                    container.chart = new Chart(container.getContext("2d"), options);
-                    Chart.defaults.global.defaultFontColor = "black";
-                    Chart.defaults.global.defaultFontSize = 50;
-                })
-            },
-            {
-                className: "plot",
-                defaults: {grid: true},
-                initialize: (function (container, options) {
-                    options.target = "#" + container.id;
-                    functionPlot(options);
-                })
-            },
-            {
-                className: "tree",
-                defaults: {
-                    width: 1500,
-                    height: 500,
-                    margin: {
-                        top: 50,
-                        bottom: 50,
-                        left: 50,
-                        right: 50
-                    },
-                    font: "normal 20px Arial"
-                },
-                initialize: (function (container, options) {
-                    let treeData = JSON.parse(container.text);
-
-                    var i = 0;
-
-                    var tree = d3.layout.tree().size([options.height, options.width]);
-
-                    var depthCount = function (branch) {
-                        if (!branch.children) {
-                            return 1;
-                        }
-                        return 1 + d3.max(branch.children.map(depthCount));
-                    };
-                    var maxDepth = depthCount(treeData);
-                    var depthIncrement = options.height / (maxDepth - 1);
-
-                    var diagonal = d3.svg.diagonal()
-                        .projection(function (d) {
-                            return [d.x, d.y];
-                        });
-
-                    var svg = d3.select(container.parentElement).insert("svg", function () {
-                        return container;
-                    })
-
-                        .attr("width", options.width + options.margin.left + options.margin.right)
-                        .attr("height", options.height + options.margin.top + options.margin.bottom)
-                        .append("g")
-                        .attr("transform", "translate(" + options.margin.left + "," + options.margin.top + ")");
-
-                    update(treeData);
-
-                    function update(root) {
-
-                        // Compute the new tree layout.
-                        var nodes = tree.nodes(root).reverse(),
-                            links = tree.links(nodes);
-
-                        nodes.forEach(function (d) {
-                            d.x *= 3;
-                            d.y = d.depth * depthIncrement;
-                        });
-
-                        // Declare the nodes…
-                        var node = svg.selectAll("g.node")
-                            .data(nodes, function (d) {
-                                return d.id || (d.id = ++i);
-                            });
-
-                        // Enter the nodes.
-                        var nodeEnter = node.enter().append("g")
-                            .attr("class", "node")
-                            .attr("transform", function (d) {
-                                return "translate(" + d.x + "," + d.y + ")";
-                            });
-
-                        nodeEnter.append("circle")
-                            .attr("r", 10)
-                            .style("fill", "#fff");
-
-                        nodeEnter.append("text")
-                            .attr("y", function (d) {
-                                return d.children || d._children ? -30 : 30;
-                            })
-                            .attr("dy", ".35em")
-                            .attr("text-anchor", "middle")
-                            .text(function (d) {
-                                return d.name;
-                            })
-                            .style("fill-opacity", 1)
-                            .style("fill", function (d) {
-                                return d.fill ? d.fill : undefined;
-                            });
-
-                        // Declare the links…
-                        var link = svg.selectAll("path.link")
-                            .data(links, function (d) {
-                                return d.target.id;
-                            });
-
-                        // Enter the links.
-                        link.enter().insert("path", "g")
-                            .attr("class", "link")
-                            .attr("d", diagonal);
-
-                    }
-                })
-            }
-        ],
-        math: {
-            mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js',
-            config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
-        },
-        dependencies: [
-            {src: 'plugin/markdown/marked.js'},
-            {src: 'plugin/markdown/markdown.js'},
-            {src: 'plugin/notes/notes.js', async: true},
-            {
-                src: 'plugin/highlight/highlight.js', async: true, callback: function () {
-                    hljs.initHighlightingOnLoad();
-                }
-            },
-            {src: 'plugin/zoom-js/zoom.js', async: true},
-            {src: 'node_modules/socket.io.js', async: true},
-            {src: 'plugin/notes-server/client.js', async: true},
-            {src: 'js/Chart.min.js'},
-            {src: 'js/d3.min.js'},
-            {src: 'js/function-plot.js'},
-            {src: 'plugin/anything/anything.js'},
-            {src: 'plugin/math/math.js', async: true},
-            {src: 'plugin/reveal.js-menu-1.2.0/menu.js'},
-        ]
-    });
-</script>
-</body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/white.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section id="intro"
+						 data-markdown="section_intro.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="getting_to_know_you"
+						 data-markdown="section_getting_to_know_you.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="motivation"
+						 data-markdown="section_motivation.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="boolean_retrieval"
+						 data-markdown="section_boolean_retrieval.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="term_document_matrix"
+						 data-markdown="section_term_document_matrix.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="inverted_index"
+						 data-markdown="section_inverted_index.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="homework_inverted_index"
+						 data-markdown="section_homework_inverted_index.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="tokenization"
+						 data-markdown="section_tokenization.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="stop_words"
+						 data-markdown="section_stop_words.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="stemming"
+						 data-markdown="section_stemming.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="tokenization_example"
+						 data-markdown="section_tokenization_example.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="precision_recall"
+						 data-markdown="section_precision_recall.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="ranked_retrieval"
+						 data-markdown="section_ranked_retrieval.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="homework_tf_idf"
+						 data-markdown="section_homework_tf_idf.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="tf_idf_issues"
+						 data-markdown="section_tf_idf_issues.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="field_weights"
+						 data-markdown="section_field_weights.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="phrase_queries"
+						 data-markdown="section_phrase_queries.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="vocabulary_structure"
+						 data-markdown="section_vocabulary_structure.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="wildcard_queries"
+						 data-markdown="section_wildcard_queries.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="fuzzy_search"
+						 data-markdown="section_fuzzy_search.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+
+				<section id="spelling_correction"
+						 data-markdown="section_spelling_correction.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="phonetic_correction"
+						 data-markdown="section_phonetic_correction.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="vector_space_model"
+						 data-markdown="section_vector_space_model.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="scaling"
+						 data-markdown="section_scaling.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="web_search_usage"
+						 data-markdown="section_web_search_usage.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="web_search_challenges"
+						 data-markdown="section_web_search_challenges.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="internet_structure"
+						 data-markdown="section_internet_structure.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="web_crawling"
+						 data-markdown="section_web_crawling.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="google"
+						 data-markdown="section_google.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="web_spam"
+						 data-markdown="section_web_spam.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="link_analysis"
+						 data-markdown="section_link_analysis.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="machine_learning_overview"
+						 data-markdown="section_machine_learning_overview.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="classification"
+						 data-markdown="section_classification.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="fitting"
+						 data-markdown="section_fitting.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="feature_selection"
+						 data-markdown="section_feature_selection.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="naive_bayes"
+						 data-markdown="section_naive_bayes.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="homework_naive_bayes"
+						 data-markdown="section_homework_naive_bayes.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="vector_space_classification"
+						 data-markdown="section_vector_space_classification.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="word_embedding"
+						 data-markdown="section_word_embedding.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="clustering"
+						 data-markdown="section_clustering.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="machine_learning"
+						 data-markdown="section_machine_learning_for_ranked_retrieval.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="learn_to_rank"
+						 data-markdown="section_learn_to_rank.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="learn_to_rank_evaluation"
+						 data-markdown="section_learn_to_rank_evaluation.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="personalization"
+						 data-markdown="section_personalization.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+
+				<section id="closing"
+						 data-markdown="section_closing.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^---$">
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
+		<!-- Anything plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@4.2.5/anything/plugin.js"></script>
+		<script src="js/Chart.min.js"></script>
+		<script src="js/d3.min.js"></script>
+		<script src="js/function-plot.js"></script>
+		<!-- Chart plugin -->
+		<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@4.2.5/chart/plugin.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				width: 1600,
+				height: 1200,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath, RevealAnything, RevealChart ],
+
+				anything: [
+					{
+						className: "chart",
+						initialize: (function (container, options) {
+							container.chart = new Chart(container.getContext("2d"), options);
+							Chart.defaults.global.defaultFontColor = "black";
+							Chart.defaults.global.defaultFontSize = 50;
+						})
+					},
+					{
+						className: "plot",
+						defaults: {grid: true},
+						initialize: (function (container, options) {
+							options.target = "#" + container.id;
+							functionPlot(options);
+						})
+					},
+					{
+						className: "tree",
+						defaults: {
+							width: 1500,
+							height: 500,
+							margin: {
+								top: 50,
+								bottom: 50,
+								left: 50,
+								right: 50
+							},
+							font: "normal 20px Arial"
+						},
+						initialize: (function (container, options) {
+							let treeData = JSON.parse(container.text);
+
+							var i = 0;
+
+							var tree = d3.layout.tree().size([options.height, options.width]);
+
+							var depthCount = function (branch) {
+								if (!branch.children) {
+									return 1;
+								}
+								return 1 + d3.max(branch.children.map(depthCount));
+							};
+							var maxDepth = depthCount(treeData);
+							var depthIncrement = options.height / (maxDepth - 1);
+
+							var diagonal = d3.svg.diagonal()
+									.projection(function (d) {
+										return [d.x, d.y];
+									});
+
+							var svg = d3.select(container.parentElement).insert("svg", function () {
+								return container;
+							})
+
+									.attr("width", options.width + options.margin.left + options.margin.right)
+									.attr("height", options.height + options.margin.top + options.margin.bottom)
+									.append("g")
+									.attr("transform", "translate(" + options.margin.left + "," + options.margin.top + ")");
+
+							update(treeData);
+
+							function update(root) {
+
+								// Compute the new tree layout.
+								var nodes = tree.nodes(root).reverse(),
+										links = tree.links(nodes);
+
+								nodes.forEach(function (d) {
+									d.x *= 3;
+									d.y = d.depth * depthIncrement;
+								});
+
+								// Declare the nodes…
+								var node = svg.selectAll("g.node")
+										.data(nodes, function (d) {
+											return d.id || (d.id = ++i);
+										});
+
+								// Enter the nodes.
+								var nodeEnter = node.enter().append("g")
+										.attr("class", "node")
+										.attr("transform", function (d) {
+											return "translate(" + d.x + "," + d.y + ")";
+										});
+
+								nodeEnter.append("circle")
+										.attr("r", 10)
+										.style("fill", "#fff");
+
+								nodeEnter.append("text")
+										.attr("y", function (d) {
+											return d.children || d._children ? -30 : 30;
+										})
+										.attr("dy", ".35em")
+										.attr("text-anchor", "middle")
+										.text(function (d) {
+											return d.name;
+										})
+										.style("fill-opacity", 1)
+										.style("fill", function (d) {
+											return d.fill ? d.fill : undefined;
+										});
+
+								// Declare the links…
+								var link = svg.selectAll("path.link")
+										.data(links, function (d) {
+											return d.target.id;
+										});
+
+								// Enter the links.
+								link.enter().insert("path", "g")
+										.attr("class", "link")
+										.attr("d", diagonal);
+
+							}
+						})
+					}
+				],
+			});
+		</script>
+	</body>
 </html>
