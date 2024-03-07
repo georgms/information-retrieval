@@ -2,6 +2,7 @@
 
 Notes:
 ---
+
 # Tokenization
 
 > a book about information retrieval <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -20,6 +21,7 @@ Notes:
 
 Notes:
 ---
+
 # Challenge
 
 Inverted index can only find exact tokens
@@ -31,21 +33,26 @@ Inverted index can only find exact tokens
 | retrieval   | #1         |
 | search      | #2         |
 
- _e-book_ will return no results!
+_e-book_ will return no results!
 
 Notes:
 ---
+
+<!-- .slide: class="audience-question" -->
+
 # Challenge
 
-* &shy;<!-- .element: class="fragment" --> How can _books_ find _book_?
-* &shy;<!-- .element: class="fragment" --> _wi-fi_ &leftrightarrow; _wifi_?
+* How can _books_ find _book_?
+* _wi-fi_ &leftrightarrow; _wifi_?
 * &shy;<!-- .element: class="fragment" --> _Jack's_ &leftrightarrow; _Jack_?
 * &shy;<!-- .element: class="fragment" --> _MMT_ &leftrightarrow; _Multimediatechnology_?
 * &shy;<!-- .element: class="fragment" --> _U.S.A._ &leftrightarrow; _USA_?
 * &shy;<!-- .element: class="fragment" --> _running_ &leftrightarrow; _run_?
 
 Notes:
+What are other examples?
 ---
+
 # Text analysis
 
 * Analyze docs and query
@@ -53,6 +60,7 @@ Notes:
 
 Notes:
 ---
+
 # Nomenclature
 
 <dl>
