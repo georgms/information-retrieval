@@ -1,21 +1,27 @@
 # Information Retrieval 101
 
-Georg M. Sorst, Principal Engineer @ Nosto
+Georg M. Sorst, Principal
+Engineer @ [![Nosto](images/nosto.svg)<!-- .element: style="height: 1em; margin: 0; vertical-align: middle;" -->](https://nosto.com)<!-- .element: target="_blank" -->
 
 ---
+
 # Administrative
 
 ---
+
 # Me
 
 * Georg M. Sorst
-* Principal Engineer @ [Nosto](https://nosto.com) (formerly Findologic)
+* Principal
+  Engineer @ [![Nosto](images/nosto.svg)<!-- .element: style="height: 1em; margin: 0; vertical-align: middle;" -->](https://nosto.com)<!-- .element: target="_blank" --> (
+  formerly [![Findologic](images/findologic.svg)<!-- .element: style="height: 1em; margin: 0; vertical-align: middle;" -->](https://findologic.com)<!-- .element: target="_blank" -->)
 * Leading E-Commerce recommendation & search provider
 
 ---
 ![Über uns](images/ueber-uns.png)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
 
 ---
+
 # Org
 
 * Some coding homework during the semester.
