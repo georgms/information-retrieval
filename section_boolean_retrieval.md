@@ -19,20 +19,24 @@ mmt AND NOT mma
 ```
 (information AND retrieval) OR search
 ```
+
 ---
+
 # Nomenclature
 
 <dl>
   <dt>Documents</dt><!-- .element: class="fragment" data-fragment-index="1" -->
   <dd>Books, chapters, pages, web pages, news posts...</dd><!-- .element: class="fragment" data-fragment-index="1" -->
-  
+
   <dt>Document collection, Corpus</dt><!-- .element: class="fragment" data-fragment-index="2" -->
   <dd>All the documents</dd><!-- .element: class="fragment" data-fragment-index="2" -->
-  
+
   <dt>Terms</dt><!-- .element: class="fragment" data-fragment-index="3" -->
   <dd>Like words, but maybe <em>FH Salzburg</em> and <em>A1</em> as well</dd><!-- .element: class="fragment" data-fragment-index="3" -->
 </dl>
 ---
+<!-- .slide: class="audience-question" -->
+
 # Will it match?
 
 ```
@@ -49,42 +53,49 @@ mmt AND NOT mma
 Notes:
 Audience question
 ---
+
 # Nomenclature
 
 <dl>
   <dt>Information need</dt><!-- .element: class="fragment" data-fragment-index="1" -->
   <dd>What the user is looking for:<p><em>I want to learn about information retrieval and search</em></p></dd><!-- .element: class="fragment" data-fragment-index="1" -->
-  
+
   <dt>Query</dt><!-- .element: class="fragment" data-fragment-index="2" -->
   <dd>How the user talks to the computer:<p><code>(information AND retrieval) OR search</code></p></dd><!-- .element: class="fragment" data-fragment-index="2" -->
 </dl>
 
+&shy;<!-- .element: class="fragment" --> Voice assistants, ChatGPT bridge the gap between *information need* and *query*
+
 Notes:
-If no special syntax for query is required than it is easier to express information need.
-See semantic search, voice etc.
 ---
+
 # Simple Boolean Retrieval Implementation
 
 1. Calculate result lists for every query term: Grep
 2. Apply boolean operators: Intersect, Union
+
 ---
+
 # Grep
 
-* Query term : *book*
-* Document string: *a book about information retrieval*
+<!-- .slide: class="audience-question" -->
 
-Compare query term with document string, from first to last character
+* Query: *book*
+* Document: *a book about information retrieval*
+
+Compare query with document, from first to last character
 
 1. <!-- .element: class="fragment fade-in-then-out" data-fragment-index="1" --><span>a␣bo</span><!-- .element: class="fragment highlight-blue" data-fragment-index="1" -->ok about information retrieval
 2. <!-- .element: class="fragment fade-in-then-out" data-fragment-index="2" -->a<span>␣boo</span><!-- .element: class="fragment highlight-blue" data-fragment-index="2" -->k about information retrieval
 3. <!-- .element: class="fragment" data-fragment-index="3" -->a <span>book</span><!-- .element: class="fragment highlight-blue" data-fragment-index="3" --> about information retrieval <span>&rarr; Match</span><!-- .element: class="fragment" style="color: green;" -->
 
 Notes:
-Audience question
+What are some issues with grep?
 ---
-# Generate result lists
 
-## For every query term…
+# Calculate result lists
+
+## Generate a list of terms from the query
 
 ```
 (information AND retrieval) OR search
@@ -96,7 +107,7 @@ Audience question
 2. *retrieval*
 3. *search*
 
-## …in every document
+## Grep every term in every document
 
 1. *a book about information retrieval*
 2. *a book about the search for information*
@@ -104,9 +115,12 @@ Audience question
 
 Notes:
 ---
+<!-- .slide: class="audience-question" -->
+
 # Generate result lists
 
-**Query term: *information*** &rarr; <span>[#1, #2, #3]</span><!-- .element: class="fragment" data-fragment-index="1" -->
+**Query term: *information***
+&rarr; <span>[#1, #2, #3]</span><!-- .element: class="fragment" data-fragment-index="1" -->
 
 * #1 *a book about information retrieval*
 * #2 *a book about the search for information*
@@ -127,15 +141,20 @@ Notes:
 Notes:
 Audience question
 ---
+
+<!-- .slide: class="audience-question" --> 
+
 # Intersect / Union
 
 * &shy;<!-- .element: class="fragment" data-fragment-index="1" --> \#1: _a book about information retrieval_
+
 * &shy;<!-- .element: class="fragment" data-fragment-index="1" --> \#2: _a book about the search for information_
 * &shy;<!-- .element: class="fragment" data-fragment-index="1" --> \#3: _a book about retrieving information_
 
 ```
 (information AND retrieval) OR search
 ```
+
 <!-- .element: class="fragment" data-fragment-index="1" -->
 
 ![...](images/grep.png) <!-- .element: class="fragment" data-fragment-index="2" -->
@@ -143,13 +162,16 @@ Audience question
 Notes:
 Audience question
 ---
+
 # Complexity
 
 * [Big &Omicron; notation](https://en.wikipedia.org/wiki/Big_O_notation)
 * Describe time or memory complexity of algorithms and data structures
 * Which inputs influence their runtime and memory requirements?
 * Look at worst case
+
 ---
+
 # Time complexity examples
 
 *How many loops do you need?*
@@ -159,36 +181,41 @@ Audience question
 | Ο(1)          | Constant  | Odd or even number?               | No loop                                       |
 | Ο(n)          | Linear    | Calculate array sum               | Iterate over all values                       |
 | Ο(n²)         | Quadratic | Find duplicates in unsorted array | Compare every value against every other value |
+
 ---
+
+<!-- .slide: class="audience-question" -->
+
 # Complexity
 
 ## Grep
 
 Search every query term as a string in every document: <!-- .element: class="fragment" -->
 
-&Omicron;(num query terms &times; total length of all documents) <!-- .element: class="fragment" -->
+$$O(\text{num query terms} \times \text{total length of all documents})$$<!-- .element: class="fragment" -->
 
 ## Union
 
 Merge result lists (without duplicates): <!-- .element: class="fragment" -->
 
-&Omicron;(number of results) <!-- .element: class="fragment" -->
+$$O(\text{number of results})$$<!-- .element: class="fragment" -->
 
 ## Intersect
 
-Compare every result from one list with every result from the other: <!-- .element: class="fragment" -->
+Compare the first result list with every other: <!-- .element: class="fragment" -->
 
-&Omicron;(number of results) <!-- .element: class="fragment" -->
+$$O(\text{num query terms} \times \text{num results per query term})$$<!-- .element: class="fragment" -->
 
 Notes:
 Audience question
 ---
+
 # Grep complexity
 
-* &Omicron;(num query terms &times; total length of all documents)
+* $O(\text{num query terms} \times \text{total length of all documents})$
 * Can take reaaally long
 
-## <!-- .element: class="fragment" data-fragment-index="1" --> Example
+#### <!-- .element: class="fragment" data-fragment-index="1" --> Example
 
 * &shy;<!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M
   distinct terms
@@ -198,10 +225,11 @@ Audience question
 Notes:
 How can this be improved?
 ---
+
 # Grep disadvantages
 
 * &shy;<!-- .element: class="fragment" -->   Does _books_ match _book_?
-  * &shy;<!-- .element: class="fragment" -->Cannot deal with singular / plural, *books* does not match *book*.
+    * &shy;<!-- .element: class="fragment" -->Cannot deal with singular / plural, *books* does not match *book*.
 * &shy;<!-- .element: class="fragment" --> _go_ vs _went_
 * &shy;<!-- .element: class="fragment" --> _running_ vs _run_
 * &shy;<!-- .element: class="fragment" --> _go_ vs _gong_
