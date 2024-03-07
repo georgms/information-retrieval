@@ -6,17 +6,19 @@ Notes:
 ---
 
 * Same information as Term-document Matrix, but
-* Store only 1s = Term occurences
-* Terms &rarr; List of docs
+* Do not store 0s
+* Store list of matching documents per term
 
 Notes:
 ---
+
+<!-- .slide: class="audience-question" -->
 
 * \#1: _a book about information retrieval_
 * \#2: _a book about the search for information_
 * \#3: _a book about information_
 
-***
+&darr;
 
 | Term        | Doc IDs                                        |
 |-------------|------------------------------------------------|
@@ -33,13 +35,13 @@ Notes: Audience question
 <dl>
   <dt>Vocabulary / Dictionary / Lexicon</dt><!-- .element: class="fragment" data-fragment-index="1" -->
   <dd>List of terms</dd><!-- .element: class="fragment" data-fragment-index="1" -->
-  
+
   <dt>Posting</dt><!-- .element: class="fragment" data-fragment-index="2" -->
   <dd>Document which term occurs in</dd><!-- .element: class="fragment" data-fragment-index="2" -->
-  
+
   <dt>Postings list</dt><!-- .element: class="fragment" data-fragment-index="3" -->
   <dd>All documents which term occurs in</dd><!-- .element: class="fragment" data-fragment-index="3" -->
-  
+
   <dt>Postings</dt><!-- .element: class="fragment" data-fragment-index="4" -->
   <dd>All postings lists</dd><!-- .element: class="fragment" data-fragment-index="4" -->
 </dl>
@@ -56,6 +58,8 @@ Notes:
 Notes:
 ---
 
+<!-- .slide: class="audience-question" -->
+
 # Query time
 
 1. Look up each query term in vocabulary
@@ -68,14 +72,16 @@ Notes:
 Why can only exact terms be found?
 ---
 
-| Term                                                                                               | Doc IDs    |
-|----------------------------------------------------------------------------------------------------|------------|
-| Book                                                                                               | #1, #2, #3 |
-| <span>Information</span><!-- .element: class="fragment highlight-blue" data-fragment-index="2" --> | #1, #2, #3 |
-| Retrieval                                                                                          | #1         |
-| <span>Search</span><!-- .element: class="fragment highlight-blue" data-fragment-index="3" -->      | #2         |
+<!-- .slide: class="audience-question" -->
 
-***
+| Term                                                                                               | Doc IDs                                                                               |
+|----------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
+| Book                                                                                               | #1, #2, #3                                                                            |
+| <span>Information</span><!-- .element: class="fragment highlight-blue" data-fragment-index="2" --> | #1, #2, #3 <!-- .element: class="fragment highlight-blue" data-fragment-index="2" --> |
+| Retrieval                                                                                          | #1                                                                                    |
+| <span>Search</span><!-- .element: class="fragment highlight-blue" data-fragment-index="3" -->      | #2 <!-- .element: class="fragment highlight-blue" data-fragment-index="3" -->         |
+
+&darr;
 
 &shy;<!-- .element: class="fragment" data-fragment-index="1" -->**Query**:
 <span>Information</span><!-- .element: class="fragment highlight-blue" data-fragment-index="2" -->
@@ -92,9 +98,10 @@ Audience question
 
 # Time complexity
 
-&Omicron;(num query terms &times; num distinct terms)<!-- .element: class="fragment" data-fragment-index="1" -->
+$$O(\text{num query terms} \times \text{num distinct
+terms})$$<!-- .element: class="fragment" data-fragment-index="1" -->
 
-## <!-- .element: class="fragment" data-fragment-index="1" -->Example
+#### <!-- .element: class="fragment" data-fragment-index="1" -->Example
 
 * &shy;<!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M
   distinct terms
@@ -105,12 +112,14 @@ Audience question
 
 ---
 
+<!-- .slide: class="audience-question" -->
+
 ## Size
 
-&Omicron;(num distinct terms &times; average postings list
-length)<!-- .element: class="fragment" data-fragment-index="1" -->
+$$O(\text{num distinct terms} \times \text{average postings list length} \times \text{bytes per document
+ID})$$<!-- .element: class="fragment" data-fragment-index="1" -->
 
-## <!-- .element: class="fragment" data-fragment-index="2" -->Example
+#### <!-- .element: class="fragment" data-fragment-index="2" -->Example
 
 * &shy;<!-- .element: class="fragment" data-fragment-index="2" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M
   distinct terms
