@@ -25,6 +25,7 @@ Engineer @ [![Nosto](images/nosto.svg)<!-- .element: style="height: 1em; margin:
 
 * Some coding homework during the semester.
 * Final project: Find data set, build search.
+* Exam optional.
 * Participation is relevant for your grade, and helps us learn better. Asking questions is also participation!
 * I will pick random people from the [Wheel of Names](https://wheelofnames.com/) to answer questions during the lecture.
   This helps up stay awake.
