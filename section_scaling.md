@@ -179,20 +179,31 @@ Notes:
 ---
 # Sharding nomenclature
 
-## Shard <!-- .element: class="fragment" data-fragment-index="1" -->
-
-* Slice of document collection <!-- .element: class="fragment" data-fragment-index="1" -->
-
-## Master / Leader / Primary <!-- .element: class="fragment" data-fragment-index="2" -->
-
-* Distribute requests to Replicas <!-- .element: class="fragment" data-fragment-index="2" -->
-* Distribute requests to other Masters <!-- .element: class="fragment" data-fragment-index="2" -->
-
-## Replica <!-- .element: class="fragment" data-fragment-index="3" -->
-
-* Contains all documents of shard <!-- .element: class="fragment" data-fragment-index="3" -->
-* Will actually handle queries <!-- .element: class="fragment" data-fragment-index="3" -->
-* Can become Master <!-- .element: class="fragment" data-fragment-index="3" -->
+<dl>
+  <dt>Shard</dt><!-- .element: class="fragment" data-fragment-index="1" -->
+  <dd>
+    <ul>
+      <li>Slice of document collection</li>
+    </ul> 
+</dd><!-- .element: class="fragment" data-fragment-index="1" -->
+  
+  <dt>Master / Leader / Primary</dt><!-- .element: class="fragment" data-fragment-index="2" -->
+  <dd>
+    <ul>
+      <li>Distribute requests to Replicas</li>
+      <li>Distribute requests to other Masters</li>
+    </ul>
+  </dd><!-- .element: class="fragment" data-fragment-index="2" -->
+  
+  <dt>Replica</dt><!-- .element: class="fragment" data-fragment-index="3" -->
+  <dd>
+    <ul>
+      <li>Contains all documents of shard</li>
+      <li>Will actually handle queries</li>
+      <li>Can become Master</li>
+    </ul>
+  </dd><!-- .element: class="fragment" data-fragment-index="3" -->
+</dl>
 
 Notes:
 ---

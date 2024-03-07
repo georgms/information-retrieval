@@ -13,13 +13,13 @@ Notes:
 
 # Nomenclature
 
-## In-links / Out-links
-
-Incoming / Outgoing links
-
-## In-degree / Out-degree
-
-Number of incoming / outgoing links
+<dl>
+  <dt>In-links / Out-links</dt>
+  <dd>Incoming / Outgoing links</dd>
+  
+  <dt>In-degree / Out-degree</dt>
+  <dd>Number of incoming / outgoing links</dd>
+</dl>
 
 Notes:
 ---

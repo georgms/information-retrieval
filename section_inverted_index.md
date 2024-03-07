@@ -30,21 +30,19 @@ Notes: Audience question
 
 # Nomenclature
 
-## Vocabulary / Dictionary / Lexicon <!-- .element: class="fragment" data-fragment-index="1" -->
-
-List of terms <!-- .element: class="fragment" data-fragment-index="1" -->
-
-## Posting <!-- .element: class="fragment" data-fragment-index="2" -->
-
-Document which term occurs in <!-- .element: class="fragment" data-fragment-index="2" -->
-
-## Postings list <!-- .element: class="fragment" data-fragment-index="3" -->
-
-All documents which term occurs in <!-- .element: class="fragment" data-fragment-index="3" -->
-
-## Postings <!-- .element: class="fragment" data-fragment-index="4" -->
-
-All postings lists <!-- .element: class="fragment" data-fragment-index="4" -->
+<dl>
+  <dt>Vocabulary / Dictionary / Lexicon</dt><!-- .element: class="fragment" data-fragment-index="1" -->
+  <dd>List of terms</dd><!-- .element: class="fragment" data-fragment-index="1" -->
+  
+  <dt>Posting</dt><!-- .element: class="fragment" data-fragment-index="2" -->
+  <dd>Document which term occurs in</dd><!-- .element: class="fragment" data-fragment-index="2" -->
+  
+  <dt>Postings list</dt><!-- .element: class="fragment" data-fragment-index="3" -->
+  <dd>All documents which term occurs in</dd><!-- .element: class="fragment" data-fragment-index="3" -->
+  
+  <dt>Postings</dt><!-- .element: class="fragment" data-fragment-index="4" -->
+  <dd>All postings lists</dd><!-- .element: class="fragment" data-fragment-index="4" -->
+</dl>
 
 Notes:
 ---

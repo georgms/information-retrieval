@@ -55,15 +55,27 @@ Notes:
 ---
 # Nomenclature
 
-## Token <!-- .element: class="fragment" data-fragment-index="1" -->
-* Character sequence, meaningful semantic unit <!-- .element: class="fragment" data-fragment-index="1" -->
-* No analysis yet <!-- .element: class="fragment" data-fragment-index="1" -->
-* &shy;<!-- .element: class="fragment" data-fragment-index="1" --> _the_, _routers_, _the_
-
-## Type <!-- .element: class="fragment" data-fragment-index="2" -->
-* Distinct tokens, same token counts only once <!-- .element: class="fragment" data-fragment-index="2" -->
-* &shy;<!-- .element: class="fragment" data-fragment-index="2" --> _the_, _routers_
-
-## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
-* Index tokens <!-- .element: class="fragment" data-fragment-index="3" -->
-* &shy;<!-- .element: class="fragment" data-fragment-index="3" --> _router_
+<dl>
+    <dt>Token</dt><!-- .element: class="fragment" data-fragment-index="1" -->
+    <dd>
+        <ul>
+            <li>Character sequence, meaningful semantic unit</li>
+            <li>No analysis yet</li>
+            <li><em>the</em>, <em>routers</em>, <em>the</em></li>
+        </ul>
+    </dd><!-- .element: class="fragment" data-fragment-index="1" -->
+    <dt>Type</dt><!-- .element: class="fragment" data-fragment-index="2" -->
+    <dd>
+        <ul>
+            <li>Distinct tokens, same token counts only once</li>
+            <li><em>the</em>, <em>routers</em></li>
+        </ul>
+    </dd><!-- .element: class="fragment" data-fragment-index="2" -->
+    <dt>Terms</dt><!-- .element: class="fragment" data-fragment-index="3" -->
+    <dd>
+        <ul>
+            <li>Index tokens</li>
+            <li><em>router</em></li>
+        </ul>
+    </dd><!-- .element: class="fragment" data-fragment-index="3" -->
+</dl>

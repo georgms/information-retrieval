@@ -64,13 +64,14 @@ Notes:
 
 # Nomenclature
 
-## Learning Method
+<dl>
+  <dt>Learning Method</dt>
+  <dd>Computes classifier</dd>
 
-Computes classifier
+  <dt>Classifier</dt>
+  <dd>Determines class of document</dd>
+</dl>
 
-## Classifier
-
-Determines class of document
 ---
 
 # Class membership

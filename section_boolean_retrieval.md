@@ -22,17 +22,16 @@ mmt AND NOT mma
 ---
 # Nomenclature
 
-## Documents <!-- .element: class="fragment" data-fragment-index="1" -->
-
-<span class="fragment" data-fragment-index="1">Books, chapters, pages, web pages, news posts...</span>
-
-## Document collection, Corpus <!-- .element: class="fragment" data-fragment-index="2" -->
-
-<span class="fragment" data-fragment-index="2">All the documents</span>
-
-## Terms <!-- .element: class="fragment" data-fragment-index="3" -->
-
-<span class="fragment" data-fragment-index="3">Like words, but maybe _FH Salzburg_ and _A1_ as well</span>
+<dl>
+  <dt>Documents</dt><!-- .element: class="fragment" data-fragment-index="1" -->
+  <dd>Books, chapters, pages, web pages, news posts...</dd><!-- .element: class="fragment" data-fragment-index="1" -->
+  
+  <dt>Document collection, Corpus</dt><!-- .element: class="fragment" data-fragment-index="2" -->
+  <dd>All the documents</dd><!-- .element: class="fragment" data-fragment-index="2" -->
+  
+  <dt>Terms</dt><!-- .element: class="fragment" data-fragment-index="3" -->
+  <dd>Like words, but maybe <em>FH Salzburg</em> and <em>A1</em> as well</dd><!-- .element: class="fragment" data-fragment-index="3" -->
+</dl>
 ---
 # Will it match?
 
@@ -52,15 +51,13 @@ Audience question
 ---
 # Nomenclature
 
-## Information need <!-- .element: class="fragment" data-fragment-index="1" -->
-What the user is looking for: <!-- .element: class="fragment" data-fragment-index="1" -->
-
-_I want to learn about information retrieval and search_ <!-- .element: class="fragment" data-fragment-index="2" -->
-
-## Query <!-- .element: class="fragment" data-fragment-index="3" -->
-How the user talks to the computer: <!-- .element: class="fragment" data-fragment-index="3" -->
-
-`(information AND retrieval) OR search` <!-- .element: class="fragment" data-fragment-index="4" -->
+<dl>
+  <dt>Information need</dt><!-- .element: class="fragment" data-fragment-index="1" -->
+  <dd>What the user is looking for:<p><em>I want to learn about information retrieval and search</em></p></dd><!-- .element: class="fragment" data-fragment-index="1" -->
+  
+  <dt>Query</dt><!-- .element: class="fragment" data-fragment-index="2" -->
+  <dd>How the user talks to the computer:<p><code>(information AND retrieval) OR search</code></p></dd><!-- .element: class="fragment" data-fragment-index="2" -->
+</dl>
 
 Notes:
 If no special syntax for query is required than it is easier to express information need.
