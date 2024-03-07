@@ -1,11 +1,11 @@
-# Tokenization Example
+# Analysis Example
 
 Notes:
 ---
 <table class="stretch">
     <tr>
         <th style="border-right: 1px solid rgb(34, 34, 34);"></th>
-        <th colspan="7" style="border-right: 1px solid rgb(34, 34, 34);">Index</th>
+        <th colspan="7" style="border-right: 1px solid rgb(34, 34, 34);">Document</th>
         <th colspan="2">Query</th>
     </tr>
     <tr>
@@ -98,6 +98,8 @@ Will increase relevance, but reduce precision
 
 Notes:
 ---
+
+<!-- .slide: class="audience-question" -->
 
 # Outcome
 
