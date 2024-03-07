@@ -16,8 +16,6 @@ Notes:
 
 Implemented in Snowball Stemming DSL
 
-## Step 1 of 5
-
 | Match | Replace | Example                            |
 |-------|---------|------------------------------------|
 | SSES  | SS      | caresses &rarr; caress             |
@@ -26,6 +24,8 @@ Implemented in Snowball Stemming DSL
 | S     | _empty_ | cats &rarr; cat                    |
 
 … and so on
+
+Purely algorithmitc, no linguistic knowledge. But usually good enough.
 
 Notes:
 ---
