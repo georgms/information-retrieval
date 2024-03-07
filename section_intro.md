@@ -18,8 +18,7 @@ Engineer @ [![Nosto](images/nosto.svg)<!-- .element: style="height: 1em; margin:
 * Leading E-Commerce recommendation & search provider
 
 ---
-![Über uns](images/ueber-uns.png)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle;" -->
-
+![Meetup](images/meetup.jpg)
 ---
 
 # Org
