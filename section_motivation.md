@@ -41,5 +41,5 @@ What is the motivation for information retrieval? What are some use cases?
 
 * Understand fundamental search data structures and algorithms
 * BYOG (Build your own Google)
-* Use Solr to build search-enabled applications
+* Use Elasticsearch to build search-enabled applications
 * Further topics: Clustering, word embeddings, text classification, …                 

@@ -38,7 +38,7 @@ Notes:
 ---
 # Meanwhile, in the real world...
 
-* Solr default is now [Okapi BM25](https://en.wikipedia.org/wiki/Okapi_BM25)
+* Elasticsearch default is now [Okapi BM25](https://en.wikipedia.org/wiki/Okapi_BM25)
 * Also based on TF-IDF
 * Much less descriptive:
 
