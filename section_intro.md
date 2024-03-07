@@ -31,3 +31,9 @@ Engineer @ [![Nosto](images/nosto.svg)<!-- .element: style="height: 1em; margin:
   This helps up stay awake.
 * Have a question? Too slow? Too fast? Let me know right away!
 * Who will be my timekeeper? Time to [spin the Wheel](https://wheelofnames.com/).
+
+---
+
+<!-- .slide: class="audience-question" -->
+
+&larr; These slides contain small comprehension questions for you. I will pick a random person to answer the question.

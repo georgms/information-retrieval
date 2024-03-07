@@ -42,6 +42,9 @@ section.has-dark-background, section.has-dark-background h1, section.has-dark-ba
   stroke: #ccc;
   stroke-width: 2px;
 }
+.reveal section.audience-question {
+  border-left: 5px solid #1b91ff;
+}
 
 /*********************************************
  * GLOBAL STYLES
