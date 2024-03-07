@@ -1,15 +1,18 @@
 # Getting to know you
 
-I want to learn your names and how you look like.
+I want to learn your names and how you look like. Let's play a game!
 
-## Let's play a game – rules:
+#### Rules
 
-1. You know your names.
-2. I have a list of all names. It's not in alphabetical order and I cannot reorder it.
-2. You cannot say your name.
-3. You can only say *yes* or *no* when asked something.
+1. I have a list of all your names.
+2. You know your names.
+3. You cannot say your name.
+4. You can only say *yes* or *no* when asked something.
+5. You can follow my orders silently.
 
-What is the fastest way to match everyone's name to their face?
+Now I need to *search* for every name in the group and retrieve the person and their face.
+
+What is the fastest way for me to match everyone's name to their face?
 
 Notes:
 
