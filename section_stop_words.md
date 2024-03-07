@@ -19,16 +19,16 @@ Notes:
 
 ---
 
+<!-- .slide: class="audience-question" -->
+
 # Stop words, but...
 
-* *The Police* will find *police car*
-* *The President of Austria* will find *President of the United States visits Austria*
-* *To be or not to be* will find everything / nothing
+* &shy;<!-- .element: class="fragment" -->*The Police* will find *police car*
+* &shy;<!-- .element: class="fragment" -->*The President of Austria* will find *President of the United States visits Austria*
+* &shy;<!-- .element: class="fragment" -->*To be or not to be* will find everything / nothing
 
 Notes:
-
-* How to handle this better?
-
+What are some examples where stop words are relevant?
 ---
 
 # Stop words in real life
