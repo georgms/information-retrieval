@@ -1,10 +1,14 @@
 # Wildcard queries
 
-*Apple i**
+`apple i*`
 
 Notes:
+
 ---
+
 # Wildcard queries
+
+<!-- .slide: class="audience-question" -->
 
 Expand query:
 
@@ -24,101 +28,119 @@ Expand query:
 `iphone OR ipad`
 
 Notes:
+
 * How to get prefix queries, i.e. `salz*`? Think of the search tree.
----
-<h1>salz*</h1>
 
-<p class="fragment">Comes free with a search tree</p>
+---
+
+# salz
+
+<!-- .slide: class="audience-question" -->
+
+&shy; <!-- .element: class="fragment" --> Comes free with a search tree
 
 &shy;<!-- .element: class="fragment" --> <script class="tree" type="application/json">
 {
-    "name": "S",
-    "children": [
-        {
-            "name": "SA",
-            "children": [
-                {
-                    "name": "SAL",
-                    "children": [
-                        {
-                            "name": "SALB"
-                        },
-                        {
-                            "name":  "SALZ",
-                            "children":  [
-                                {
-                                    "name": "Salzburg",
-                                    "fill": "#1b91ff"
-                                },
-                                {
-                                    "name": "Salzach",
-                                    "fill": "#1b91ff"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "name": "SAR"
-                }
-            ]
-        },
-        {
-            "name": "SE"
-        }
-    ]
+"name": "S",
+"children": [
+{
+"name": "SA",
+"children": [
+{
+"name": "SAL",
+"children": [
+{
+"name": "SALB"
+},
+{
+"name":  "SALZ",
+"children":  [
+{
+"name": "Salzburg",
+"fill": "#1b91ff"
+},
+{
+"name": "Salzach",
+"fill": "#1b91ff"
+}
+]
+}
+]
+},
+{
+"name": "SAR"
+}
+]
+},
+{
+"name": "SE"
+}
+]
 }
 </script>
 
 Notes:
-How to get suffix search, i.e. `*burg`?
----
-<h1>*burg</h1>
 
-<p class="fragment">Build index with reversed terms</p>
+* How to get suffix search, i.e. `*burg`?
+
+---
+
+# *burg
+
+<!-- .slide: class="audience-question" -->
+
+&shy; <!-- .element: class="fragment" --> Build index with reversed terms
 
 &shy;<!-- .element: class="fragment" --> <script class="tree" type="application/json">
 {
-    "name": "G",
-    "children": [
-        {
-            "name": "GR",
-            "children": [
-                {
-                    "name": "GRU",
-                    "children": [
-                        {
-                            "name": "grubuenrok",
-                            "fill": "#1b91ff"
-                        },
-                        {
-                            "name": "grubzlas",
-                            "fill": "#1b91ff"
-                        }
-                    ]
-                },
-                {
-                    "name": "…"
-                }
-            ]
-        },
-        {
-            "name": "…"
-        }
-    ]
+"name": "G",
+"children": [
+{
+"name": "GR",
+"children": [
+{
+"name": "GRU",
+"children": [
+{
+"name": "grubuenrok",
+"fill": "#1b91ff"
+},
+{
+"name": "grubzlas",
+"fill": "#1b91ff"
+}
+]
+},
+{
+"name": "…"
+}
+]
+},
+{
+"name": "…"
+}
+]
 }
 </script>
 
 Notes:
-How to get infix search, i.e. `sal*urg`?
+
+* How to get infix search, i.e. `sal*urg`?
+
 ---
+
 # sal*urg
+
+<!-- .slide: class="audience-question" -->
 
 &shy; <!-- .element: class="fragment" -->Intersect results of `sal*` and `*urg`
 
 Notes:
-Audience question
+
+* Audience question
+
 ---
+
 # N-gram queries
 
 `corona`
@@ -128,7 +150,11 @@ Audience question
 `[^co, cor, oro, ron, ona, na^]`
 
 Notes:
+
 ---
+
+<!-- .slide: class="audience-question" -->
+
 # N-gram index
 
 | Term | Doc IDs    |
@@ -141,8 +167,11 @@ Notes:
 | na^  | #1, #2, #3 |
 
 Notes:
+
 * Can the original contents be reconstructed from the index?
+
 ---
+
 # N-gram queries
 
 ## Expand query
@@ -154,7 +183,9 @@ Notes:
 `^co AND cor`
 
 Notes:
+
 ---
+
 # N-gram queries
 
 `^co AND cor`
@@ -173,9 +204,12 @@ Notes:
 #1<!-- .element: class="fragment" data-fragment-index="2" -->
 
 Notes:
+
 * Audience question
 * How can this lead to false positives?
+
 ---
+
 # False N-Gram Positives
 
 `cor*`

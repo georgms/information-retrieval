@@ -2,14 +2,18 @@
 
 Notes:
 ---
+
 # Vocabulary structure
 
 * &shy;<!-- .element: class="fragment" --> Dictionary / Hash table
 * &shy;<!-- .element: class="fragment" --> Search tree
 
 Notes:
+
 * Suggestions?
+
 ---
+
 # Hash table
 
 &shy;<!-- .element: class="stretch" -->![hash table](images/hash-table.svg)
@@ -18,8 +22,11 @@ Notes:
 3.0, https://commons.wikimedia.org/w/index.php?curid=6471238
 
 Notes:
+
 * What is the complexity of lookup / insert? Does it get slower with more entries?
+
 ---
+
 # Hash table
 
 * \+ Fast lookup: &Omicron;(1): Calculate hash, follow pointer
@@ -30,6 +37,7 @@ Notes:
 
 Notes:
 ---
+
 # Hash table collision
 
 &shy;<!-- .element: class="stretch" -->![hash table collision](images/hash-table-collision.svg)
@@ -83,9 +91,10 @@ Max two children per node (binary tree)
         }
 </script>
 
-Notes: 
+Notes:
 What is the lookup / insert complexity? Does it get slower with more entries? How much? Ο(log n)
 ---
+
 # Search Tree
 
 * \+ Fast lookup: &Omicron;(log n): Average height of the tree
@@ -98,6 +107,5 @@ What is the lookup / insert complexity? Does it get slower with more entries? Ho
 
 * Different types of trees used depending on the use case
 * E.g., Binary Tree (in-memory), B-Tree (on disk)
-
 
 Notes:
