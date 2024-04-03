@@ -1,22 +1,37 @@
 # Use document structure for ranking
 
+<!-- .slide: class="audience-question" -->
+
 Notes:
+
 How can we exploit the document structure to improve ranking? Think of a typical Wikipedia article.
+
 ---
+
 # Document structure
+
+<!-- .slide: class="audience-question" -->
 
 ![Document Structure](images/Document_Structure.png)
 
 Notes:
 How can we exploit this information for ranking purposes?
 ---
+
 # Field weights
+
+<!-- .slide: class="audience-question" -->
 
 ![Document Structure](images/Document_Structure_with_Field_Weights.png)
 
 Notes:
+
 How can we determine the field weights?
+
 ---
+
+<!-- .slide: class="audience-question" -->
+
 # Index with Fields
 
 | Doc | Author          | Title                                                    |
@@ -36,9 +51,14 @@ How can we determine the field weights?
 | ...         |
 
 Notes:
+
 Audience question
+
 ---
+
 # Field weights
+
+<!-- .slide: class="audience-question" -->
 
 | Term                                                                                                                                                             | Doc IDs                                                                                                                                                                       |
 |------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -48,27 +68,42 @@ Audience question
 
 ***
 
-* `weight(author) = 10`
-* `weight(title) = 1`
+$$\begin{aligned}
+\text{weight}(\text{author}) & = 10\\\\
+\text{weight}(\text{title}) & = 1
+\end{aligned}$$
 
 ***
 
-* &shy;<!-- .element: class="fragment" data-fragment-index="1" --> `arthur book`?
-* \#1 &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment" data-fragment-index="3"><span class="fragment highlight-current-blue" data-fragment-index="3">author + title = 10 + 1 = **11**</span></span>
-* \#2 &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-blue" data-fragment-index="5">title + title = 1 + 1 = **2**</span></span>
+&shy;<!-- .element: class="fragment" data-fragment-index="1" --> `arthur book`?
+
+* \#1
+  &rarr; <!-- .element: class="fragment" data-fragment-index="2" --> <span class="fragment" data-fragment-index="3"><span class="fragment highlight-current-blue" data-fragment-index="3">
+  author + title = 10 + 1 = **11**</span></span>
+* \#2
+  &rarr; <!-- .element: class="fragment" data-fragment-index="4" --> <span class="fragment" data-fragment-index="5"><span class="fragment highlight-current-blue" data-fragment-index="5">
+  title + title = 1 + 1 = **2**</span></span>
 
 Notes:
-* Audience question
+
+Audience question
+
 ---
+
 # Field weights
 
 * Determining weights is hard
 * Use annotated corpus and machine learning
 
 Notes:
+
+
 What else can be done with field info? -> Field queries!
 ---
+
 # Field queries
+
+<!-- .slide: class="audience-question" -->
 
 | Term       | Doc IDs             |
 |------------|---------------------|
@@ -79,9 +114,10 @@ What else can be done with field info? -> Field queries!
 ***
 
 * &shy;<!-- .element: class="fragment" --> `title:arthur`?
-  * &shy;<!-- .element: class="fragment" --> #2
+    * &shy;<!-- .element: class="fragment" --> #2
 * &shy;<!-- .element: class="fragment" --> `author:shakesbeer`?
-  * &shy;<!-- .element: class="fragment" --> #2
+    * &shy;<!-- .element: class="fragment" --> #2
 
 Notes:
-* Audience question
+
+Audience question
