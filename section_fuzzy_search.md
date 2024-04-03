@@ -3,6 +3,7 @@
 Is _bock_ most similar to _book_, _rock_ or _spock_?
 
 Notes:
+
 ---
 \#1: `book`, \#2: `rock`, \#3: `spock`
 
@@ -62,15 +63,15 @@ Notes:
 </table>
 
 Notes:
-Audience question: What does the index look like?
+
 ---
 `bock`
 
 &darr;
 
-`^bo OR boc OR ock OR ck^`
+`^bo OR boc OR ock OR ck^`<!-- .element: class="fragment" -->
 
-&darr;
+&darr;<!-- .element: class="fragment" -->
 
 | Term                                         | Doc IDs                                          |
 |----------------------------------------------|--------------------------------------------------|
@@ -80,10 +81,12 @@ Audience question: What does the index look like?
 | poc                                          | #3                                               |
 | ock<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2 ,#3 |
 | ck^<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2, #3 |
+<!-- .element: class="fragment" -->
 
 Which document is the best match?
 
 Notes:
+
 ---
 
 | Term                                         | Doc IDs                                          |
@@ -97,8 +100,10 @@ Notes:
 
 &darr;
 
-* \#1: [<span>^bo</span><!-- .element: class="highlight-blue" -->, boo, ook, ok^] &rarr; 25%
-* \#2: [^ro, roc, <span>ock</span><!-- .element: class="highlight-blue" -->, <span>ck^</span><!-- .element: class="highlight-blue" -->] &rarr; 50%
-* \#3: [^sp, spo, poc, <span>ock</span><!-- .element: class="highlight-blue" -->, <span>ck^</span><!-- .element: class="highlight-blue" -->] &rarr; 40%
+1. [<span>^bo</span><!-- .element: class="highlight-blue" -->, boo, ook, ok^] &rarr; 25%
+2. [^ro, roc, <span>ock</span><!-- .element: class="highlight-blue" -->, <span>ck^</span><!-- .element: class="highlight-blue" -->]
+   &rarr; 50%
+3. [^sp, spo, poc, <span>ock</span><!-- .element: class="highlight-blue" -->, <span>ck^</span><!-- .element: class="highlight-blue" -->]
+   &rarr; 40%
 
 Notes:
