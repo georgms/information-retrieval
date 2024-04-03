@@ -1,8 +1,18 @@
 # Phrase queries
 
-Notes:
+<!-- .slide: class="audience-question" -->
+
+`fh salzburg` should not match
+
+> In Salzburg there is a University and in Vienna there is an FH
+
+How?
+
 ---
+
 # Phrase queries
+
+<!-- .slide: class="audience-question" -->
 
 * &shy;<!-- .element: class="fragment" --> `fh salzburg` should not
   match `In Salzburg there is a University and in Vienna there is an FH`
@@ -11,10 +21,15 @@ Notes:
 * &shy;<!-- .element: class="fragment" --> Needs more advanced index with positional information
 
 Notes:
+
 * How could we implement this?
 * Can the current index handle this?
+
 ---
+
 # Positional index
+
+<!-- .slide: class="audience-question" -->
 
 * \#1: _retrieving more information about information retrieval_
 * \#2: _searching and retrieving a book about the search for information_
@@ -29,9 +44,15 @@ Notes:
 | retriev                      | #1:[1, 4], #2:[2]         <!-- .element: class="fragment" --> |
 | search                       | #2:[1, 4]         <!-- .element: class="fragment" -->         |
 
-Notes: Audience question
+Notes:
+
+* Audience question
+
 ---
+
 # Intersection algorithm
+
+<!-- .slide: class="audience-question" -->
 
 `"information retrieval"`
 
@@ -65,17 +86,28 @@ Notes: Audience question
       &shy;<!-- .element: class="fragment" data-fragment-index="6" --> [1, <span>4</span><!-- .element: class="highlight-blue" -->] - [2, <span>3</span><!-- .element: class="highlight-blue" -->] =
       1 &rarr; match
 
+Expensive calculation
+
 Notes:
+
 * Can this use proximity regardless of order, e.g., match "retrieval information" as well?
 * Can this support phrase gaps, i.e. `information … retrieval`?
+
 ---
+
 # Positional index
+
+<!-- .slide: class="audience-question" -->
 
 Supports phrase gaps: `"dwayne johnson"~2` matches *dwayne the rock johnson*
 
 Notes:
-* The most common case is to search for two consecutive words. The intersection algorithm is a bit expensive. Can we speed this up?
+
+* The most common case is to search for two consecutive words. The intersection algorithm is a bit expensive. Can we
+  speed this up?
+
 ---
+
 # Biword index
 
 * Speed up common phrase queries
@@ -87,11 +119,14 @@ Notes:
 
 &darr;
 
-
 | Term        | Doc IDs |
 |-------------|---------|
 | study at    | #1      |
 | at fh       | #1      |
 | fh salzburg | #1      |
+
+***  
+
+&shy; <!-- .element: class="fragment" --> `fh salzburg` &rarr; \#1
 
 Notes:
