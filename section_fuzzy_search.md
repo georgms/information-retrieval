@@ -1,10 +1,117 @@
 # Fuzzy search
 
-Is _bock_ most similar to _book_, _rock_ or _spock_?
+Find documents with words similar to _bock_
+
+e.g. _book_, _rock_, _spock_.
+
+&darr;
+
+`bock~`
 
 Notes:
 
 ---
+
+# Levenshtein
+
+* Edit distance between two words
+* Count inserts, deletes, replaces, transpositions / swaps
+
+Notes:
+
+---
+
+<!-- .slide: class="audience-question" -->
+
+# Levenshtein example
+
+| Operation                                                            | Result                                                |
+|----------------------------------------------------------------------|-------------------------------------------------------|
+| 0. Start                                                             | iformmetoin~                                          |
+| &shy;<!-- .element: class="fragment" --> 1. Add **n**                | &shy;<!-- .element: class="fragment" --> informmetoin |
+| &shy;<!-- .element: class="fragment" --> 2. Delete **m**             | &shy;<!-- .element: class="fragment" --> informetoin  |
+| &shy;<!-- .element: class="fragment" --> 3. Replace **e** with **a** | &shy;<!-- .element: class="fragment" --> informatoin  |
+| &shy;<!-- .element: class="fragment" --> 4. Swap **o** and **i**     | &shy;<!-- .element: class="fragment" --> information  |
+| &shy;<!-- .element: class="fragment" --> The End                     |                                                       |
+
+&shy;<!-- .element: class="fragment" --> Levenshtein distance = 4
+
+Notes:
+
+* Audience question
+* How can this be used to find similar terms?
+
+---
+
+<!-- .slide: class="audience-question" -->
+
+`bock~`
+
+&darr;
+
+| Term        | Doc IDs | Levenshtein distance (not in index) |
+|-------------|---------|-------------------------------------|
+| book        | #1      | 1                                   |
+| information | #2      | >2                                  |
+| rock        | #3      | 1                                   |
+| retrieval   | #4      | >2                                  |
+| spock       | #5      | 2                                   |
+
+&darr;
+
+(consider only terms with Levenshtein distance <2)
+
+&darr;
+
+`book OR rock OR spock`
+
+&darr;
+
+#1, #3, #5
+
+Notes:
+
+* What is the complexity?
+
+---
+
+# Levenshtein complexity
+
+<!-- .slide: class="audience-question" -->
+
+* Expensive: Cannot be precomputed\*
+* Compare every query term with every vocabular term
+* `num(query terms) × num(vocabulary terms)`
+
+\*Except with some highly complex finite state machines
+
+Notes:
+
+---
+
+# Levenshtein improvements
+
+* Weighted (keyboard distance)
+* Maximum allowed Levenshtein distance based on query term length
+    * E.g. 0-2 must match exactly; 3-5 one edit allowed; >5 two edits allowed
+    * Otherwise `e~` would match everything
+
+Notes:
+
+---
+
+# N-Grams
+
+<!-- .slide: class="audience-question" -->
+
+Notes:
+
+* How can this be used for fuzzy search?
+
+---
+
+# N-Gram index
+
 \#1: `book`, \#2: `rock`, \#3: `spock`
 
 <table>
@@ -69,9 +176,9 @@ Notes:
 
 &darr;
 
-`^bo OR boc OR ock OR ck^`<!-- .element: class="fragment" -->
+`^bo OR boc OR ock OR ck^`
 
-&darr;<!-- .element: class="fragment" -->
+&darr;
 
 | Term                                         | Doc IDs                                          |
 |----------------------------------------------|--------------------------------------------------|
@@ -81,7 +188,6 @@ Notes:
 | poc                                          | #3                                               |
 | ock<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2 ,#3 |
 | ck^<!-- .element: class="highlight-blue" --> | <!-- .element: class="highlight-blue" --> #2, #3 |
-<!-- .element: class="fragment" -->
 
 Which document is the best match?
 

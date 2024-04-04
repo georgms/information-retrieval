@@ -27,6 +27,10 @@ Expand query:
 
 `iphone OR ipad`
 
+&darr;
+
+ #2, #3, #4
+
 Notes:
 
 * How to get prefix queries, i.e. `salz*`? Think of the search tree.
@@ -145,7 +149,9 @@ Notes:
 
 `corona`
 
-&darr; (3-gram)
+(3-gram)
+
+&darr;
 
 `[^co, cor, oro, ron, ona, na^]`
 

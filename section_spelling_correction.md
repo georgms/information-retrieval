@@ -4,6 +4,7 @@
 
 Notes:
 ---
+
 # Spelling correction
 
 ![iformmetoin](images/iformmetoin.png) <!-- .element: class="fragment" style="border: none;" -->
@@ -13,66 +14,35 @@ Notes:
 3. <!-- .element: class="fragment" --> Return alternative results
 
 Notes:
+
 ---
+
 # 1. Find alternatives
 
-&shy;<!-- .element: class="fragment" --> `bock`
+`bock~`
 
-&shy;<!-- .element: class="fragment" --> &darr;
+(Levenshtein, N-Gram)
 
-&shy;<!-- .element: class="fragment" --> `book`, `rock`, `spock`
+&darr;
 
-Notes:
-How to find these alternatives in the index?
----
-# Find alternatives
-
-* Compare query with vocabulary
-Notes:
----
-# 1.a Levenshtein
-
-* Edit distance between two words
-* Count inserts, deletes, replaces, swaps
+`book`, `rock`, `spock`
 
 Notes:
+
 ---
-# Levenshtein
 
-|                                                                      |                                                       |
-|----------------------------------------------------------------------|-------------------------------------------------------|
-| iformmetoin~                                                         |                                                       |
-| &shy;<!-- .element: class="fragment" --> 1. Add **n**                | &shy;<!-- .element: class="fragment" --> informmetoin |
-| &shy;<!-- .element: class="fragment" --> 2. Delete **m**             | &shy;<!-- .element: class="fragment" --> informetoin  |
-| &shy;<!-- .element: class="fragment" --> 3. Replace **e** with **a** | &shy;<!-- .element: class="fragment" --> informatoin  |
-| &shy;<!-- .element: class="fragment" --> 4. Swap **o** and **i**     | &shy;<!-- .element: class="fragment" --> information  |
-
-&shy;<!-- .element: class="fragment" --> Levenshtein distance = 4
-
-Notes:
-* Audience question
----
-# Levenshtein
-
-* Weighted (keyboard distance)
-
-Notes:
----
-# Levenshtein
-
-* Expensive: Cannot be precomputed\*
-* `num(query terms) × num(vocabulary terms)`
-
-\*Except with some highly complex finite state machines
-Notes:
----
 # 2. Evaluate alternatives
 
 Notes:
+
 ---
+
 # Context
 
-* &shy;<!-- .element: class="fragment" data-fragment-index="1" --> Find alternatives for every misspelled query term &rarr; *collations*
+<!-- .slide: class="audience-question" -->
+
+* &shy;<!-- .element: class="fragment" data-fragment-index="1" --> Find alternatives for every misspelled query term
+  &rarr; *collations*
 * &shy;<!-- .element: class="fragment" data-fragment-index="2" --> Search for collation and evaluate results
 
 <hr class="fragment" data-fragment-index="3"/>
@@ -92,26 +62,35 @@ Notes:
     <!-- .element: class="fragment highlight-current-blue" data-fragment-index="13" --> ? 10 results
 
 Notes:
-Which correction is the best? Why? What metrics could be applied?
+
+* Which correction is the best? Why? What metrics could be applied?
+
 ---
+
 # Evaluate alternatives
 
-* &shy;<!-- .element: class="fragment" --> Most results
-* &shy;<!-- .element: class="fragment" --> Best results
-* &shy;<!-- .element: class="fragment" --> Most searched
+* Most results
+* Best results
+* Most searched
 
 Notes:
-If multiple alternatives with results, how to pick the best one?
+
 ---
+
 # 3. Return alternative results
+
+<!-- .slide: class="audience-question" -->
 
 * Feedback
 * Transparency
 
 Notes:
+
 * How does this affect precision and recall?
 * What kind of spelling corrections does Google offer? What are the three typical scenarios?
+
 ---
+
 # Did you mean
 
 ![Did you mean](images/Did_you_mean.png)
@@ -120,7 +99,9 @@ Notes:
 * There is a better alternative
 
 Notes:
+
 ---
+
 # Instead
 
 ![Instead](images/Instead.png)
@@ -129,7 +110,9 @@ Notes:
 * There is a better alternative
 
 Notes:
+
 ---
+
 # Showing results for
 
 ![Showing results for](images/Showing_results_for.png)
