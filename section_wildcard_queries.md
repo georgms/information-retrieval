@@ -37,7 +37,7 @@ Notes:
 
 ---
 
-# salz
+# salz*
 
 <!-- .slide: class="audience-question" -->
 
