@@ -10,7 +10,7 @@ What can be some issues with term frequency as a relevance indicator?
 
 ![book book](images/book_book.png)
 
-$$\text{tf}(\text{book}) = 4$$
+$$\text{tf} (\text{book}) = 4$$
 
 ![book library](images/book_library.png)
 

@@ -1,6 +1,7 @@
 # Ranked retrieval
 
 Notes:
+
 ---
 
 # Idea I
