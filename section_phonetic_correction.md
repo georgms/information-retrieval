@@ -44,6 +44,8 @@ Notes:
 
 # Precision and recall?
 
+<!-- .slide: class="audience-question" -->
+
 * &shy;<!-- .element: class="fragment" data-fragment-index="1" --> Recall up
 * &shy;<!-- .element: class="fragment" data-fragment-index="1" --> Precision down
 
