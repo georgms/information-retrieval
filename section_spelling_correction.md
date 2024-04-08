@@ -3,9 +3,12 @@
 *Palystation, Xboy, Wiii*
 
 Notes:
+
 ---
 
 # Spelling correction
+
+<!-- .slide: class="audience-question" -->
 
 ![iformmetoin](images/iformmetoin.png) <!-- .element: class="fragment" style="border: none;" -->
 
@@ -14,6 +17,8 @@ Notes:
 3. <!-- .element: class="fragment" --> Return alternative results
 
 Notes:
+
+* How can we find alternatives?
 
 ---
 
@@ -33,13 +38,15 @@ Notes:
 
 # 2. Evaluate alternatives
 
+<!-- .slide: class="audience-question" -->
+
 Notes:
+
+* How can we evaluate alternatives? Which metrics could be applied?
 
 ---
 
 # Context
-
-<!-- .slide: class="audience-question" -->
 
 * &shy;<!-- .element: class="fragment" data-fragment-index="1" --> Find alternatives for every misspelled query term
   &rarr; *collations*
@@ -63,8 +70,6 @@ Notes:
 
 Notes:
 
-* Which correction is the best? Why? What metrics could be applied?
-
 ---
 
 # Evaluate alternatives
@@ -87,7 +92,7 @@ Notes:
 Notes:
 
 * How does this affect precision and recall?
-* What kind of spelling corrections does Google offer? What are the three typical scenarios?
+* What kind of spelling corrections does Google offer? What are the typical scenarios?
 
 ---
 
@@ -121,3 +126,12 @@ Notes:
 * There is an alternative
 
 Notes:
+
+---
+
+# Show results with
+
+![Show results with](images/show_results_with.png)
+
+* No good results including all search terms
+* Selectively remove some of the search terms
