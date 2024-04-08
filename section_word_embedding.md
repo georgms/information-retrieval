@@ -1,32 +1,22 @@
-# Word Embedding
-
-Notes:
----
-
-# Prediction
-
-&shy;<!-- .element: class="stretch" -->![Swiftkey](images/swiftkey.png)
-
-Notes:
----
-
-# Similarity
+# Word Embeddings
 
 ![Word Embeddings](images/word_embeddings.png)
 
 $$\text{king} - \text{man} + \text{woman} \approx \text{queen}$$
 
 Notes:
+
 ---
 
-# Word Embedding
+# Word Embeddings
 
-* Use vectors to represent words
-* Embed in multi-dimensional space
+* Represent words with multidimensional vectors 
+* Train
 
-$$\text{Similar vectors} \approx \text{Related words} \approx \text{Occur in similar contexts}$$
+Similar vectors ≈ Related words ≈ Occur in similar contexts
 
 Notes:
+
 ---
 
 # Words as vectors
@@ -55,6 +45,7 @@ What does the vector for brown look like?
 &shy;<!-- .element: class="stretch" -->![brown quick vectors unrelated](images/brown_quick_vectors_unrelated.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
 
 Notes:
+
 ---
 
 # Embed word vectors
@@ -62,6 +53,7 @@ Notes:
 &shy;<!-- .element: class="stretch" -->![brown quick vectors related](images/brown_quick_vectors_related.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
 
 Notes:
+
 ---
 
 # Train similarity
@@ -74,6 +66,7 @@ Notes:
 </div>
 
 Notes:
+
 ---
 
 # Training data
@@ -95,13 +88,15 @@ Slide window over corpus:
 &shy;<!-- .element: class="fragment" -->When Machine sees *brown* it should predict *fox*.
 
 Notes:
+
 ---
 
 # Skipgram
 
 Predict context from word.
 
-1. *<span class="highlight-blue">The <u>quick</u> brown</span> brown fox jumps over the lazy dog*: [*quick* &rarr; *the*,
+1. *<span class="highlight-blue">The <u>quick</u> brown</span> brown fox jumps over the lazy dog*: [*quick* &rarr;
+   *the*,
    *brown*]
 2. *The <span class="highlight-blue">quick <u>brown</u> fox</span> jumps over the lazy dog*: [*brown* &rarr; *quick*,
    *fox*]
@@ -115,6 +110,7 @@ Window can be larger (recommended: 5).
 Skipgram well suited for small data sets with rare words.
 
 Notes:
+
 ---
 
 # Continuous Bag of Words (CBOW)
@@ -123,7 +119,8 @@ Predict word from context.
 
 1. *<span class="highlight-blue"><u>The</u> quick <u>brown</u></span> brown fox jumps over the lazy dog*: [*the*,
    *brown* &rarr; *quick*]
-2. *The <span class="highlight-blue"><u>quick</u> brown <u>fox</u></span> jumps over the lazy dog*: [*quick*, *fox* &rarr;
+2. *The <span class="highlight-blue"><u>quick</u> brown <u>fox</u></span> jumps over the lazy dog*: [*quick*,
+   *fox* &rarr;
    *brown*]
 3. *The quick <span class="highlight-blue"><u>brown</u> fox <u>jumps</u></span> over the lazy dog*: [*brown*,
    *jumps* &rarr; *fox*]
@@ -133,6 +130,7 @@ When Machine sees *the* or *brown* it should predict *quick*.
 CBOW trains faster, more accurate for frequent words.
 
 Notes:
+
 ---
 
 # Word Embedding visualized
@@ -140,11 +138,12 @@ Notes:
 [Word Embedding Visual Inspector](https://ronxin.github.io/wevi/)
 
 Notes:
+
 ---
 
 # Word Embedding play time
 
-[View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word%20Embedding.ipynb)
+[View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word_Embedding.ipynb)
 
 1. Download [Word Embedding Notebook](word-embedding/Word_Embedding.ipynb) and [data.txt](word-embedding/data.txt)
 2. Run Jupyter: `docker run -p 8888:8888 -e GRANT_SUDO=yes -u root jupyterhub/singleuser`
@@ -152,6 +151,7 @@ Notes:
 4. Upload Notebook and `data.txt`
 
 Notes:
+
 ---
 
 # Word2Vec Alternatives
