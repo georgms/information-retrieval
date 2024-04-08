@@ -1,31 +1,47 @@
 # Scaling
 
 Notes:
+
 ---
+
 # Scaling reasons
+
+<!-- .slide: class="audience-question" -->
 
 * Queries per second / Traffic / Concurrency  <!-- .element: class="fragment" -->
 * Index size / Time per query <!-- .element: class="fragment" -->
 * Resiliency <!-- .element: class="fragment" -->
 
 Notes:
-Scaling reasons?
+
+* Scaling reasons?
+
 ---
+
 # Scaling
+
+<!-- .slide: class="audience-question" -->
 
 ![scaling](images/scaling.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
-What are the two directions we can scale to?
+
+* What are the two directions we can scale to?
+
 ---
+
 # Scaling up / Vertical
+
+<!-- .slide: class="audience-question" -->
 
 ![scaling up](images/scaling_up.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
-(Dis-)Advantages of Scaling up?
+* (Dis-)Advantages of Scaling up?
+
 ---
+
 # Scaling up
 
 * \+ Easy
@@ -37,15 +53,21 @@ Notes:
 <!-- .element: style="list-style-type: none;" -->
 
 Notes:
+
 ---
+
 # Scaling out / Horizontal
+
+<!-- .slide: class="audience-question" -->
 
 ![scaling out](images/scaling_out.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
 
-(Dis-)Advantages of Scaling out?
+* (Dis-)Advantages of Scaling out?
+
 ---
+
 # Scaling out
 
 * \+ Fault-tolerance, resiliency
@@ -58,21 +80,27 @@ Notes:
 
 Notes:
 ---
+
 # Distributed search
 
 ![Distributed Search](images/Distributed_Search.png) <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
+
 ---
+
 # Distributed search
 
 * Partitioned index
 * Distributed queries
 
 Notes:
+
 ---
+
 # Non-Partitioned index
 
+<!-- .slide: class="audience-question" -->
 
 | Term        | Doc IDs    |
 |-------------|------------|
@@ -81,18 +109,26 @@ Notes:
 | Retrieval   | #1         |
 | Search      | #2         |
 
+Notes:
 
-Notes: Audience question: How to partition? There are two ways along the axes of the table.
+* How to partition? There are two ways along the axes of the table.
+
 ---
+
 # Partitioned index
 
 * By term
 * By doc
 
 Notes:
-How can the index be partitioned? Think of the Inverted Index.
+
+* How can the index be partitioned? Think of the Inverted Index.
+
 ---
+
 # Term-partitioned index
+
+<!-- .slide: class="audience-question" -->
 
 &shy;<!-- .element: class="stretch" -->
 ![Term-partitioned index](images/Term-partitioned_index.png)
@@ -100,8 +136,10 @@ How can the index be partitioned? Think of the Inverted Index.
 
 Notes:
 
-(Dis-)Advantages of Term-partitioned index?
+* (Dis-)Advantages of Term-partitioned index?
+
 ---
+
 # Term-partitioned index
 
 * \+ Single term queries are easy
@@ -111,7 +149,9 @@ Notes:
 <!-- .element: style="list-style-type: none;" -->
 
 Notes:
+
 ---
+
 # Document-partitioned index
 
 &shy;<!-- .element: class="stretch" -->
@@ -120,8 +160,10 @@ Notes:
 
 Notes:
 
-(Dis-)Advantages of Term-partitioned index?
+* (Dis-)Advantages of Term-partitioned index?
+
 ---
+
 # Document-partitioned index
 
 * \+ Even distribution
@@ -132,16 +174,26 @@ Notes:
 <!-- .element: style="list-style-type: none;" -->
 
 Notes:
+
 ---
+
 # Document-partitioned index
+
+<!-- .slide: class="audience-question" -->
 
 * Number of nodes is fixed
 * $\text{node}(\text{doc}) = \text{id}(\text{doc}) \, \% \, \text{num}(\text{nodes})$
 * $\text{node}(\text{#4}) = 4 \, \% \, 3 = 1$
 
 Notes:
+
+* How to search with document-partitioned index?
+
 ---
+
 # Distributed query
+
+<!-- .slide: class="audience-question" -->
 
 &shy;<!-- .element: class="stretch" -->
 ![Document-partitioned query](images/Document-partitioned_query.svg)
@@ -150,8 +202,10 @@ Notes:
 
 Notes:
 
-What is the performance improvement? Assume a query takes 1s on a single node.
+* What is the performance improvement? Assume a query takes 1s on a single node.
+
 ---
+
 # Performance improvement
 
 * 1 node: $n$ documents per index $\approx$ $m$ seconds per query
@@ -160,23 +214,37 @@ What is the performance improvement? Assume a query takes 1s on a single node.
 
 $$\text{Distributed query time} \approx \frac{\text{Non-distributed query time}}{\text{Number of nodes}}$$<!--
 .element: class="fragment" -->
+
 ---
+
 # What's left to scale?
+
+<!-- .slide: class="audience-question" -->
 
 * More traffic
 * Less downtimes
 
 Notes:
-How?
+
+* How?
+
 ---
+
 # Sharding
+
+<!-- .slide: class="audience-question" -->
 
 &shy;<!-- .element: class="stretch" -->
 ![sharding](images/Sharding.svg)
 <!-- .element: style="border: none; box-shadow: none;" -->
 
 Notes:
+
+* Benefits of more shards?
+* Benefits of more replicas?
+
 ---
+
 # Sharding nomenclature
 
 <dl>
@@ -186,7 +254,7 @@ Notes:
       <li>Slice of document collection</li>
     </ul> 
 </dd><!-- .element: class="fragment" data-fragment-index="1" -->
-  
+
   <dt>Master / Leader / Primary</dt><!-- .element: class="fragment" data-fragment-index="2" -->
   <dd>
     <ul>
@@ -194,7 +262,7 @@ Notes:
       <li>Distribute requests to other Masters</li>
     </ul>
   </dd><!-- .element: class="fragment" data-fragment-index="2" -->
-  
+
   <dt>Replica</dt><!-- .element: class="fragment" data-fragment-index="3" -->
   <dd>
     <ul>
@@ -206,7 +274,9 @@ Notes:
 </dl>
 
 Notes:
+
 ---
+
 # More shards
 
 * More docs
@@ -215,7 +285,9 @@ Notes:
     * $\text{Shards} \times 2 \approx \text{Index} \div 2 \approx \text{Performance} \times 2$
 
 Notes:
+
 ---
+
 # More Replicas
 
 * Better resiliency
