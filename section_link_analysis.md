@@ -1,7 +1,11 @@
 # Link analysis
 
+<!-- .slide: class="audience-question" -->
+
 Notes:
-How to use link analysis to determine relevant pages?
+
+* How to use link analysis to determine relevant pages?
+
 ---
 
 # Assumption
@@ -12,6 +16,7 @@ How to use link analysis to determine relevant pages?
 * Similar to citation analysis
 
 Notes:
+
 ---
 
 # Link info
@@ -24,6 +29,7 @@ Notes:
     * "[evil empire](http://www.korea-dpr.com/)"
 
 Notes:
+
 ---
 
 # PageRank
@@ -39,6 +45,7 @@ Notes:
 # PageRank vs In-Degree
 
 ![PageRank vs In-Degree](images/PageRank_vs_In-Degree.svg)<!-- .element: class="stretch" style="border: none; box-shadow: none; vertical-align: middle; width: 40%;" -->
+
 ---
 
 # Pagerank calculation
@@ -50,13 +57,18 @@ Notes:
 3. Count how many times a page is visited
 
 $$\sum \text{pagerank} = 1$$
+
 ---
+
 [Pagerank visualization](https://d3og.com/emeeks/f448eef177b5fe94b1c0/)
 
 Notes:
+
 ---
 
 # Reasonable surfer
+
+<!-- .slide: class="audience-question" -->
 
 * Clicks some links more often than others<!-- .element: class="fragment" -->
 * Main content vs sidebar / footer<!-- .element: class="fragment" -->
@@ -64,4 +76,5 @@ Notes:
 * Avoid ads<!-- .element: class="fragment" -->
 
 Notes:
-How can the random surfer be improved to provide more realistic results?
+
+* How can the random surfer be improved to provide more realistic results?

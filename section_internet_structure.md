@@ -1,4 +1,5 @@
 # Internet Structure
+
 ---
 
 # Internet structure
@@ -9,6 +10,7 @@
 * Not strongly connected
 
 Notes:
+
 ---
 
 # Nomenclature
@@ -16,15 +18,18 @@ Notes:
 <dl>
   <dt>In-links / Out-links</dt>
   <dd>Incoming / Outgoing links</dd>
-  
+
   <dt>In-degree / Out-degree</dt>
   <dd>Number of incoming / outgoing links</dd>
 </dl>
 
 Notes:
+
 ---
 
 # Internet structure
+
+<!-- .slide: class="audience-question" -->
 
 ![web graph](images/web_graph.png)
 
@@ -32,7 +37,10 @@ Notes:
     * In-degree: *3* &shy;<!-- .element: class="fragment" data-fragment-index="" -->
     * Out-degree: *1* &shy;<!-- .element: class="fragment" data-fragment-index="" -->
 
-Notes: Audience question
+Notes:
+
+* What is the in-degree / out-degree?
+
 ---
 
 # Internet structure
@@ -56,7 +64,9 @@ Number of web pages with in-degree *i* = $\frac{1}{i^{2.1}}$
     }
     -->
 </div>
+
 ---
+
 # Internet structure
 
 ![bowtie](images/bowtie.png)<!-- .element: class="stretch" -->

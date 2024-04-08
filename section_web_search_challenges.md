@@ -1,19 +1,28 @@
 # Web search challenges
 
 Notes:
+
 ---
 
 # Technical challenges
 
+<!-- .slide: class="audience-question" -->
+
 * Huge amount of data <!-- .element: class="fragment" data-fragment-index="" -->
 * Frequent updates <!-- .element: class="fragment" data-fragment-index="" -->
 * Unstructured content <!-- .element: class="fragment" data-fragment-index="" -->
-* Un-indexable content (images, binary files, proprietary formats) <!-- .element: class="fragment" data-fragment-index="" -->
+* Un-indexable content (images, binary files, proprietary
+  formats) <!-- .element: class="fragment" data-fragment-index="" -->
 
-Notes: Audience question
+Notes:
+
+* What can be the technical challenges?
+
 ---
 
 # Quality challenges
+
+<!-- .slide: class="audience-question" -->
 
 ## Page quality
 
@@ -29,6 +38,8 @@ Notes:
 
 # Quality challenges
 
+<!-- .slide: class="audience-question" -->
+
 ## Page quality
 
 * Spam <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -41,6 +52,8 @@ Notes:
 ---
 
 # Quality challenges
+
+<!-- .slide: class="audience-question" -->
 
 ## Result quality
 

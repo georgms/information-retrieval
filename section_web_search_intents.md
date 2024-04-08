@@ -1,8 +1,12 @@
 # Web search usage
 
 Notes:
+
 ---
+
 # User intents
+
+<!-- .slide: class="audience-question" -->
 
 Change search result page depending on intent
 
@@ -12,9 +16,14 @@ Change search result page depending on intent
 * Local: Find place <!-- .element: class="fragment" data-fragment-index="" -->
 
 Notes:
-What are the four most important types of web search queries?
+
+* What are the four most important types of web search queries?
+
 ---
+
 # Informational queries
+
+<!-- .slide: class="audience-question" -->
 
 ## Know
 
@@ -26,9 +35,13 @@ Majority of search traffic
 
 Notes:
 
-Examples?
+* Examples?
+
 ---
+
 # Informational queries
+
+<!-- .slide: class="audience-question" -->
 
 ## Know simple
 
@@ -39,17 +52,26 @@ Clear facts
 * "capitol of austria" <!-- .element: class="fragment" data-fragment-index="" -->
 
 Notes:
-Examples?
+
+* Examples?
+
 ---
+
 ![know simple currency](images/know_simple_currency.png)
 
 Notes:
+
 ---
+
 ![know simple vienna](images/know_simple_vienna.png)
 
 Notes:
+
 ---
+
 # Navigational queries
+
+<!-- .slide: class="audience-question" -->
 
 ## Go
 
@@ -59,9 +81,13 @@ Notes:
 
 Notes:
 
-Examples?
+* Examples?
+
 ---
+
 # Transactional queries
+
+<!-- .slide: class="audience-question" -->
 
 ## Do
 
@@ -71,21 +97,31 @@ Examples?
 
 Notes:
 
-Examples?
+* Examples?
+
 ---
+
 ![transactional iphone](images/transactional_iphone.png)
 
 Notes:
+
 ---
+
 ![transactional flight](images/transactional_flight.png)
 
 Notes:
+
 ---
+
 ![transactional sign up](images/transactional_sign_up.png)
 
 Notes:
+
 ---
+
 # Local queries
+
+<!-- .slide: class="audience-question" -->
 
 ## Visit-in-person
 
@@ -94,59 +130,47 @@ Notes:
 * "fh salzburg" <!-- .element: class="fragment" data-fragment-index="" -->
 
 Notes:
-Examples?
+
+* Examples?
+
 ---
+
 ![local pizza](images/local_pizza.png)
 
 Notes:
+
 ---
+
 ![local bike repair](images/local_bike_repair.png)
 
 Notes:
+
 ---
+
 # Interpretation
 
+<!-- .slide: class="audience-question" -->
+
 * Often subjective
-* "iphone"<!-- .element: class="fragment" data-fragment-index="" -->
-    * Informational or transactional?<!-- .element: class="fragment" data-fragment-index="" -->
-* "libro"<!-- .element: class="fragment" data-fragment-index="" -->
-    * Navigational or visit-in-person?<!-- .element: class="fragment" data-fragment-index="" -->
+* "iphone"<!-- .element: class="fragment" -->
+    * Informational or transactional?<!-- .element: class="fragment" -->
+* "libro"<!-- .element: class="fragment" -->
+    * Navigational or visit-in-person?<!-- .element: class="fragment" -->
 
 Notes:
-Which intents can be applied to the example queries?
+
+* Which intents can be applied to the example queries?
+
 ---
+
 ![intent libro](images/intent_libro.png)
 
 Notes:
+
 ---
+
 # But wait, there's more
 
 [Google Search Quality Evaluator Guidelines](https://www.google.com/insidesearch/howsearchworks/assets/searchqualityevaluatorguidelines.pdf)
-
-Notes:
----
-# Web search users
-
-* Not professionals
-* Do not know the whole internet
-* Do not know query syntax
-* Want quick results
-
-Notes:
----
-# Query syntax
-
-* 2-3 query terms
-* No boolean operators
-* No wildcards
-* Maybe phrases
-
-Notes:
----
-# Conclusion
-
-* Don't require query syntax
-* High precision on first result page
-* Keep result page lightweight
 
 Notes:

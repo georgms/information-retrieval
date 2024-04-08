@@ -1,6 +1,7 @@
 # What would Google do?
 
 [Web search for a planet: The Google cluster architecture (2003)](https://static.googleusercontent.com/media/research.google.com/de//archive/googlecluster-ieee.pdf)
+
 ---
 
 # Basic assumptions
@@ -25,6 +26,7 @@
 * 10s query parallelized on 10 nodes takes 1s
 
 Notes:
+
 ---
 
 # Query time

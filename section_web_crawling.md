@@ -6,6 +6,8 @@ Notes:
 
 # Web crawler requirements
 
+<!-- .slide: class="audience-question" -->
+
 ### Robustness <!-- .element: class="fragment" data-fragment-index="1" -->
 
 Handle malicious and faulty pages <!-- .element: class="fragment" data-fragment-index="1" -->
@@ -15,11 +17,14 @@ Handle malicious and faulty pages <!-- .element: class="fragment" data-fragment-
 Rate limit <!-- .element: class="fragment" data-fragment-index="2" -->
 
 Notes:
-Audience question
+
+* Audience question
 
 ---
 
 # Web crawler requirements
+
+<!-- .slide: class="audience-question" -->
 
 ### Distributed <!-- .element: class="fragment" data-fragment-index="1" -->
 
@@ -38,7 +43,8 @@ Keep index up-to-date <!-- .element: class="fragment" data-fragment-index="3" --
 Data formats, protocols <!-- .element: class="fragment" data-fragment-index="4" -->
 
 Notes:
-Audience question
+
+* Audience question
 
 ---
 

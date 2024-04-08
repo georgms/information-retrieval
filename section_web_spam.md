@@ -1,9 +1,12 @@
 # Web spam
 
 Notes:
+
 ---
 
 # Types of web spam
+
+<!-- .slide: class="audience-question" -->
 
 * Keyword spam (exploits TF metric)<!-- .element: class="fragment" data-fragment-index="" -->
 * Cloaking (show different page for human / crawler)<!-- .element: class="fragment" data-fragment-index="" -->
@@ -11,7 +14,8 @@ Notes:
 
 Notes:
 
-Audience question
+* Audience question
+
 ---
 
 # Counter-web spam
