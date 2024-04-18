@@ -10,8 +10,9 @@ Notes:
 
 # Word Embeddings
 
-* Represent words with multidimensional vectors 
-* Train
+* Represent words with one-hot vectors 
+* Train neural network to predict next word
+* Use large text corpus like Wikipedia
 
 Similar vectors ≈ Related words ≈ Occur in similar contexts
 
@@ -22,37 +23,22 @@ Notes:
 # Words as vectors
 
 * **Corpus**: *The quick brown fox jumps over the lazy dog.*
-* **Vocabulary**: [quick, brown, fox, jump, lazy, dog].
+* **Vocabulary**: [brown, dog, fox, jump, lazy, quick].
 * **Vector for** *brown* (one-hot encoding):
 
 | Word  | Vector |
 |-------|--------|
-| quick | 0      |
 | brown | 1      |
+| dog   | 0      |
 | fox   | 0      |
 | jump  | 0      |
 | lazy  | 0      |
-| dog   | 0      |
+| quick | 0      |
 
 <!-- .element: class="fragment" -->
 
 Notes:
 What does the vector for brown look like?
----
-
-# Vectors are unrelated
-
-&shy;<!-- .element: class="stretch" -->![brown quick vectors unrelated](images/brown_quick_vectors_unrelated.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
-
-Notes:
-
----
-
-# Embed word vectors
-
-&shy;<!-- .element: class="stretch" -->![brown quick vectors related](images/brown_quick_vectors_related.svg)<!-- .element: style="border: none; box-shadow: none" --></p>
-
-Notes:
 
 ---
 
