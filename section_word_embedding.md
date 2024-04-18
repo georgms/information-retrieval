@@ -10,7 +10,7 @@ Notes:
 
 # Word Embeddings
 
-* Represent words with one-hot vectors 
+* Represent words with one-hot vectors
 * Train neural network to predict next word
 * Use large text corpus like Wikipedia
 
@@ -131,10 +131,16 @@ Notes:
 
 [View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word_Embedding.ipynb)
 
-1. Download [Word Embedding Notebook](word-embedding/Word_Embedding.ipynb) and [data.txt](word-embedding/data.txt)
-2. Run Jupyter: `docker run -p 8888:8888 -e GRANT_SUDO=yes -u root jupyterhub/singleuser`
-3. Open http://localhost:8888/lab with the token from the console
-4. Upload Notebook and `data.txt`
+1. Download [Word Embedding Notebook](word-embedding/Word_Embedding.ipynb)
+   and [data.txt](https://gitlab.mediacube.at/information-retrieval/homework/tf-idf-scoring/-/blob/main/simple-wikipedia.zip?ref_type=heads)
+2. `unzip -q simple-wikipedia.zip`
+3. Run Jupyter:
+
+```shell
+docker run -p 8888:8888 -e GRANT_SUDO=yes -u root -v "$PWD:/home/jovyan" jupyterhub/singleuser`
+```
+
+4. Open http://localhost:8888/lab with the token from the console
 
 Notes:
 
