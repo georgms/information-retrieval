@@ -137,7 +137,7 @@ Notes:
 3. Run Jupyter:
 
 ```shell
-docker run -p 8888:8888 -e GRANT_SUDO=yes -u root -v "$PWD:/home/jovyan" jupyterhub/singleuser`
+docker run -p 8888:8888 -e GRANT_SUDO=yes -u root -v "$PWD:/home/jovyan/work" jupyterhub/singleuser`
 ```
 
 4. Open http://localhost:8888/lab with the token from the console
