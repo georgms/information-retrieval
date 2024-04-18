@@ -37,6 +37,8 @@ Notes:
 
 # Document vector
 
+<!-- .slide: class="audience-question" -->
+
 |             | #1 | #2 | #3 |
 |-------------|----|----|----|
 | Book        | 10 | 3  | 1  |
@@ -49,6 +51,8 @@ Notes:
 * $\vec{V}(\\#3) = (1, 2)$ <!-- .element: class="fragment" -->
 
 Notes:
+
+* What are the document vectors for #1, #2, #3?
 
 ---
 
@@ -161,6 +165,8 @@ $$\begin{aligned}
 
 # Cosine similarity
 
+<!-- .slide: class="audience-question" -->
+
 $$\textrm{sim}(d_1, d_2) = \frac{ \vec{V}(d_1) }{ |\vec{V}(d_1)|} \cdot \frac{\vec{V}(d_2) }{ |\vec{V}(d_2)| } =
 \frac{ \vec{V}(d_1) \vec{V}(d_2) }{ |\vec{V}(d_1)| |\vec{V}(d_2)| }$$
 
@@ -193,8 +199,8 @@ $$\begin{aligned}
 
 <!-- .slide: class="audience-question" -->
 
-* "*book*"
 * Vocabulary: `[book, information]`
+* Query: `book`
 * $\vec{V}(q) = \begin{pmatrix}1 \\\\ 0\end{pmatrix}$ <!-- .element: class="fragment" -->
 
 Notes:
@@ -210,7 +216,7 @@ Notes:
 
 Notes:
 
-* What does the query vector look like?
+* Where to draw the query vector?
 
 ---
 
@@ -239,3 +245,30 @@ $$sim(\\#2, q) = \frac{ \begin{pmatrix}3 \\\\ 2\end{pmatrix} \cdot \begin{pmatri
 0.83$$ <!-- .element: class="fragment" -->
 
 Notes:
+
+---
+
+# Issues
+
+Words are represented as one-hot vectors:
+
+$$\vec{V}(\text{book}) = \begin{pmatrix}0 \\\\ 0 \\\\ 0 \\\\ ... \\\\ 1 \\\\ 0\end{pmatrix}$$
+
+* One vector component is 1, all others are 0.
+* This takes up a lot of space.
+
+---
+
+# Issues
+
+Semantically similar words have completely different vectors.
+
+&shy;<!-- .element: class="stretch" -->![unrelated vector](images/cat_dog_vectors_unrelated.svg)
+
+---
+
+# Approach
+
+Calculate similar vectors for semantically related words.
+
+&shy;<!-- .element: class="stretch" -->![unrelated vector](images/cat_dog_vectors_related.svg)
