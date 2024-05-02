@@ -132,12 +132,12 @@ Notes:
 [View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word_Embedding.ipynb)
 
 1. Download [Word Embedding Notebook](word-embedding/Word_Embedding.ipynb)
-   and [data.txt](https://gitlab.mediacube.at/information-retrieval/homework/tf-idf-scoring/-/blob/main/simple-wikipedia.zip?ref_type=heads)
+   and [simple-wikipedia.zip](https://gitlab.mediacube.at/information-retrieval/homework/tf-idf-scoring/-/blob/main/simple-wikipedia.zip?ref_type=heads)
 2. `unzip -q simple-wikipedia.zip`
 3. Run Jupyter:
 
 ```shell
-docker run -p 8888:8888 -e GRANT_SUDO=yes -u root -v "$PWD:/home/jovyan/work" jupyterhub/singleuser`
+docker run -p 8888:8888 -e GRANT_SUDO=yes -u root -v "$PWD:/home/jovyan/work" jupyterhub/singleuser
 ```
 
 4. Open http://localhost:8888/lab with the token from the console
@@ -148,15 +148,17 @@ Notes:
 
 # Word2Vec Alternatives
 
+[GloVe](https://nlp.stanford.edu/projects/glove/)
+
+* More suitable for document-level tasks
+* E.g. document-document similarity, topic modeling.
+* Pre-trained for many languages
+
 [fastText](https://fasttext.cc/)
 
 * Uses n-grams instead of words
 * Can match unknown words by matching n-grams
 * Can also be used for text classification
-* Pre-trained for many languages
-
-[GloVe](https://nlp.stanford.edu/projects/glove/)
-
 * Pre-trained for many languages
 
 Notes:
