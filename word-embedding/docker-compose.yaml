@@ -1,0 +1,12 @@
+services:
+  jupyterhub:
+    image: jupyterhub/singleuser
+    ports:
+      - "8888:8888"
+    environment:
+      - GRANT_SUDO=yes
+    user: root
+    volumes:
+      - source: .
+        target: /home/jovyan/work
+        type: bind

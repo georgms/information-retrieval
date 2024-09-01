@@ -1,0 +1,104 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(./fonts/source-sans-pro/source-sans-pro.css);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+$headingColor: #222;
+
+$mainFontSize: 42px;
+$mainFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingFont: 'Source Sans Pro', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.0em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+$overlayElementBgColor: 0, 0, 0;
+$overlayElementFgColor: 240, 240, 240;
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+.reveal {
+  .highlight-red:not(.fragment) {
+    color: #ff2c2d
+  }
+
+  .highlight-green:not(.fragment) {
+    color: #17ff2e;
+  }
+
+  .highlight-blue:not(.fragment) {
+    color: #1b91ff;
+  }
+
+  code:not(.hljs) {
+    background-color: #eee;
+  }
+
+  .stretch {
+    img {
+      object-fit: contain;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .tree-render {
+    .node {
+      circle {
+        fill: none;
+        stroke: $linkColor;
+        stroke-width: 3px;
+      }
+
+      text {
+        font-family: $mainFont;
+        font-size: $mainFontSize;
+
+        &:not([class^="highlight-"]) {
+          color: $mainColor;
+        }
+      }
+    }
+
+    .link {
+      fill: none;
+      stroke: #ccc;
+      stroke-width: 2px;
+    }
+  }
+
+  section.audience-question {
+    border-left: 5px solid #1b91ff;
+  }
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
