@@ -1,20 +1,21 @@
 # Getting to know you
 
-I want to learn your names and how you look like. Let's play a game!
+I want to get to know you. Let's play a game!
 
-#### Rules
+I have a list of your names but no photos. How can I match your names to your faces?
 
-1. I have a list of all your names.
-2. You know your names.
-3. You cannot say your name.
-4. You can only say *yes* or *no* when asked something.
-5. You can follow my orders silently.
+I will _search_ for every name in the list!
+---
+# Rules
 
-Now I need to *search* for every name in the group and retrieve the person and their face.
+1. You know your names.
+2. You cannot say your name.
+3. You can only say *yes* or *no* when asked something.
+4. You can follow my orders silently.
 
 What is the fastest way for me to match everyone's name to their face?
 
 Notes:
 
 * How long does it take if I just try every name on everyone?
-* What's the fastest to learn all your names?
+* What's the fastest way to learn all your names?
