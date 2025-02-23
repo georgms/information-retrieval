@@ -14,6 +14,8 @@ What is the motivation for information retrieval? What are some use cases?
 &shy;<!-- .element: class="stretch" -->![Number of websites over time](images/Num_websites.jpeg)
 ---
 &shy;<!-- .element: class="stretch" -->![Number of english Wikipedia entries over time](images/wikipedia.png)
+
+By Mikael Häggström 
 ---
 &shy;<!-- .element: class="stretch" -->![How long it takes to read the internet](images/printed-internet.png)
 ---
