@@ -1,7 +1,6 @@
 # Information Retrieval 101
 
-Georg M. Sorst, Principal
-Engineer @ [![Nosto](images/nosto.svg)<!-- .element: style="height: 1em; margin: 0; vertical-align: middle;" -->](https://nosto.com)<!-- .element: target="_blank" -->
+Georg M. Sorst, Head of Search Engineering @ [![Nosto](images/nosto.svg)<!-- .element: style="height: 1em; margin: 0; vertical-align: middle;" -->](https://nosto.com)<!-- .element: target="_blank" -->
 
 ---
 
@@ -36,4 +35,6 @@ Engineer @ [![Nosto](images/nosto.svg)<!-- .element: style="height: 1em; margin:
 
 <!-- .slide: class="audience-question" -->
 
-&larr; These slides contain small comprehension questions for you. I will pick a random person to answer the question.
+&larr; These slides contain small comprehension questions for you.
+
+I will pick a random person to answer the question.
