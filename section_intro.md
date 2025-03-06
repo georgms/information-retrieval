@@ -20,14 +20,20 @@ Georg M. Sorst, Head of Search Engineering @ [![Nosto](images/nosto.svg)<!-- .el
 ![Meetup](images/meetup.jpg)
 ---
 
-# Org
+# Grading
 
-* Some coding homework during the semester.
+* Final grade: 3x Final project, 2x participation, 1x homework
 * Final project: Find data set, build search.
-* Exam optional.
-* Participation is relevant for your grade, and helps us learn better. Asking questions is also participation!
-* I will pick random people from the [Wheel of Names](https://wheelofnames.com/) to answer questions during the lecture.
-  This helps up stay awake.
+* Participation helps us learn better together.
+* Asking questions is also participation!
+* Some coding homework during the semester.
+* Exam optional
+
+---
+
+# During the lecture
+
+* To help us stay awake I will pick random people from the [Wheel of Names](https://wheelofnames.com/) to answer questions during the lecture.
 * Have a question? Too slow? Too fast? Let me know right away!
 * Who will be my timekeeper? Time to [spin the Wheel](https://wheelofnames.com/).
 
