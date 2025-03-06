@@ -1,0 +1,48 @@
+POST docs/_delete_by_query
+
+{
+    "query": {
+        "match_all": {}
+    }
+}
+
+###
+
+POST docs/_doc/1
+
+{
+    "text": "a book about information retrieval"
+}
+
+###
+
+POST docs/_doc/2
+
+{
+    "text": "a book about the search for information"
+}
+
+###
+
+POST docs/_doc/3
+
+{
+    "text": "a book about information"
+}
+
+###
+
+POST books/_refresh
+
+###
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "(information AND retrieval) OR search"
+        }
+    }
+}
