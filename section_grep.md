@@ -136,41 +136,23 @@ Audience question
 
 <!-- .slide: class="audience-question" -->
 
-# Complexity
-
-## Grep
+# Grep Complexity
 
 Search every query term as a string in every document: <!-- .element: class="fragment" -->
 
 $$O(\text{num query terms} \times \text{total length of all documents})$$<!-- .element: class="fragment" -->
 
-## Union
-
-Merge result lists (without duplicates): <!-- .element: class="fragment" -->
-
-$$O(\text{number of results})$$<!-- .element: class="fragment" -->
-
-## Intersect
-
-Compare the first result list with every other: <!-- .element: class="fragment" -->
-
-$$O(\text{num query terms} \times \text{num results per query term})$$<!-- .element: class="fragment" -->
+Can take reaaally long<!-- .element: class="fragment" -->
 
 Notes:
 Audience question
 ---
 
-# Grep complexity
+# Grep complexity example
 
-* $O(\text{num query terms} \times \text{total length of all documents})$
-* Can take reaaally long
-
-#### <!-- .element: class="fragment" data-fragment-index="1" --> Example
-
-* &shy;<!-- .element: class="fragment" data-fragment-index="1" -->*English Wikipedia*: 6M articles, 12B characters, 1.2M
+* *English Wikipedia*: 6M articles, 12B characters, 1.2M
   distinct terms
-* &shy;<!-- .element: class="fragment" data-fragment-index="1" -->grep: 2 query terms &times; 12GB = **24 billion string
-  comparisons**
+* grep: 2 query terms &times; 12GB = **24 billion string comparisons**
 
 Notes:
 How can this be improved?
