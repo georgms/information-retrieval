@@ -1,0 +1,54 @@
+### Delete all documents for a fresh start.
+
+POST docs/_delete_by_query
+
+{
+    "query": {
+        "match_all": {}
+    }
+}
+
+### Create document with ID 1 and the given text.
+# If no ID is provided Elasticsearch automatically generates an ID.
+# Explicitly providing an ID makes it easier to update documents. */
+
+POST docs/_doc/1
+
+{
+    "text": "a book about information retrieval"
+}
+
+### Create document with ID 2 and the given text.
+
+POST docs/_doc/2
+
+{
+    "text": "a book about the search for information"
+}
+
+### Creaste document with ID 3 and the given text.
+
+POST docs/_doc/3
+
+{
+    "text": "a book about information"
+}
+
+### Force a refresh to make all documents visible.
+# Recently added documents are not immediately visible.
+
+GET docs/_refresh
+
+### Find matching documents.
+# Alternatively, search for this query string in Analytics -> Discover.
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "(information AND retrieval) OR search"
+        }
+    }
+}

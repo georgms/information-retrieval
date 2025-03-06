@@ -52,6 +52,16 @@ mmt AND NOT mma
 
 Notes:
 Audience question
+
+---
+
+# Interactive example
+
+Make sure that the [Elastic Stack](elasticsearch-intro/README.md) is running.
+
+Then <a class="es-console" href="elasticsearch-intro/boolean-retrieval.http">try boolean retrieval in the Elasticsearch
+console</a>.
+
 ---
 
 # Nomenclature
