@@ -59,7 +59,7 @@ Audience question
 
 Make sure that the [Elastic Stack](elasticsearch-intro/README.md) is running.
 
-Then <a class="es-console" href="elasticsearch-intro/boolean-retrieval.http">try boolean retrieval in the Elasticsearch
+Then <a class="es-console" href="es-consoles/boolean-retrieval.http">try boolean retrieval in the Elasticsearch
 console</a>.
 
 ---

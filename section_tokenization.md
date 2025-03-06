@@ -35,6 +35,8 @@ Inverted index can only find exact tokens
 
 _e-book_ will return no results!
 
+<a class="es-console" href="es-consoles/whitespace-only.http">Try in Elasticsearch</a>.
+
 Notes:
 ---
 
@@ -58,6 +60,8 @@ What are other examples?
 * Analyze docs and query
 * Add, remove, change terms
 
+<a class="es-console" href="es-consoles/english-analyzer.http">Try improved tokenization in Elasticsearch</a>.
+
 Notes:
 ---
 
@@ -72,18 +76,11 @@ Notes:
             <li><em>the</em>, <em>routers</em>, <em>the</em></li>
         </ul>
     </dd><!-- .element: class="fragment" data-fragment-index="1" -->
-    <dt>Type</dt><!-- .element: class="fragment" data-fragment-index="2" -->
-    <dd>
-        <ul>
-            <li>Distinct tokens, same token counts only once</li>
-            <li><em>the</em>, <em>routers</em></li>
-        </ul>
-    </dd><!-- .element: class="fragment" data-fragment-index="2" -->
-    <dt>Terms</dt><!-- .element: class="fragment" data-fragment-index="3" -->
+    <dt>Term</dt><!-- .element: class="fragment" data-fragment-index="2" -->
     <dd>
         <ul>
             <li>Index tokens</li>
             <li><em>router</em></li>
         </ul>
-    </dd><!-- .element: class="fragment" data-fragment-index="3" -->
+    </dd><!-- .element: class="fragment" data-fragment-index="2" -->
 </dl>

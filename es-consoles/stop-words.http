@@ -1,0 +1,89 @@
+### Delete the old index for a clean start.
+
+DELETE docs
+
+### Split document texts only by whitespace.
+
+PUT docs
+
+{
+    "mappings": {
+        "properties": {
+            "text": {
+                "type": "text",
+                "analyzer": "english"
+            }
+        }
+    }
+}
+
+### Create a document.
+
+POST docs/_doc/1?refresh=true
+
+{
+    "text": "a book about information retrieval"
+}
+
+### Search with stop words.
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "the book for"
+        }
+    }
+}
+
+### Create stop words edge case.
+
+POST docs/_doc/2?refresh=true
+
+{
+    "text": "To be or not to be"
+}
+
+### Search stop words edge case.
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "to be or not to be"
+        }
+    }
+}
+
+### Create decoy document.
+
+POST docs/_doc/3?refresh=true
+
+{
+    "text": "A police car appeared in the distance."
+}
+
+### Create relevant document.
+
+POST docs/_doc/4?refresh=true
+
+{
+    "text": "The Police debuted in 1979."
+}
+
+### Trigger stop words behavior.
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "the police"
+        }
+    }
+}

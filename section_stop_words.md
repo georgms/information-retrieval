@@ -23,8 +23,7 @@ Notes:
 
 # Stop words, but...
 
-* &shy;<!-- .element: class="fragment" -->*The Police* will find *police car*
-* &shy;<!-- .element: class="fragment" -->*The President of Austria* will find *President of the United States visits Austria*
+* &shy;<!-- .element: class="fragment" -->*The Police* (the band) will find *police car*
 * &shy;<!-- .element: class="fragment" -->*To be or not to be* will find everything / nothing
 
 Notes:
@@ -39,4 +38,7 @@ What are some examples where stop words are relevant?
 * No special handling for stop words when the query consists only of stop words
     * *To be or not to be* searches for `[to, be, or, not]`
 
+<a class="es-console" href="es-consoles/stop-words.http">Try stop words in Elasticsearch</a>.
+
 Notes:
+

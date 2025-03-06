@@ -1,0 +1,74 @@
+### Delete the old index for a clean start.
+
+DELETE docs
+
+### Split document texts only by whitespace.
+
+PUT docs
+
+{
+    "mappings": {
+        "properties": {
+            "text": {
+                "type": "text",
+                "analyzer": "english"
+                // See https://www.elastic.co/guide/en/elasticsearch/reference/current/analysis-analyzers.html for analyzer reference
+            }
+        }
+    }
+}
+
+### Create a document.
+
+POST docs/_doc/1?refresh=true
+
+{
+    "text": "a book about information retrieval"
+}
+
+### Create another document.
+
+POST docs/_doc/2?refresh=true
+
+{
+    "text": "\"Information Retrieval\": Also available as e-book!"
+}
+
+### Find matching documents with dash.
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "e-book"
+        }
+    }
+}
+
+### Find matching documents with plural.
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "books"
+        }
+    }
+}
+
+### Find matching documents with capitalization.
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "Book"
+        }
+    }
+}
