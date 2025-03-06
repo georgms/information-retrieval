@@ -257,6 +257,7 @@
 <script src="js/Chart.min.js"></script>
 <script src="js/d3.min.js"></script>
 <script src="js/function-plot.js"></script>
+<script src="js/lz-string.min.js"></script>
 <!-- Chart plugin -->
 <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@4.2.5/chart/plugin.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
@@ -389,6 +390,16 @@
                             .attr("d", diagonal);
 
                     }
+                })
+            },
+            {
+                className: "es-console",
+                initialize: (async function (container, options) {
+                    const response = await fetch(container.href);
+                    const contents = await response.text();
+
+                    container.href = "http://localhost:5601/app/dev_tools#/console/shell?load_from=data:text/plain," + LZString.compressToBase64(contents);
+                    container.target = "_blank";
                 })
             }
         ],
