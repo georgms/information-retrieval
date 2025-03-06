@@ -398,7 +398,7 @@
                     const response = await fetch(container.href);
                     const contents = await response.text();
 
-                    container.href = "http://localhost:5601/app/dev_tools#/console/shell?load_from=data:text/plain," + LZString.compressToBase64(contents);
+                    container.href = "http://localhost:5601/app/dev_tools#/console/shell?load_from=data:text/plain," + LZString.compressToEncodedURIComponent(contents);
                     container.target = "_blank";
                 })
             }
