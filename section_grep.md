@@ -26,7 +26,6 @@ What are some issues with grep?
 
 ```
 unzip files/simple-wikipedia.zip
-
 cd corpus
 
 # Search for "information" in a single document:
@@ -48,7 +47,7 @@ How often is "information" found in Information.txt when searching with a text e
 
 # Calculate result lists
 
-## Generate a list of terms from the query
+### Generate a list of terms from the query
 
 ```
 (information AND retrieval) OR search
@@ -56,11 +55,11 @@ How often is "information" found in Information.txt when searching with a text e
 
 &darr;
 
-1. *information*
-2. *retrieval*
-3. *search*
+```
+[information, retrieval, search]
+```
 
-## Grep every term in every document
+### Grep every term in every document
 
 1. *a book about information retrieval*
 2. *a book about the search for information*
