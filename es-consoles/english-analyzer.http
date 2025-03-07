@@ -72,3 +72,12 @@ POST docs/_search
         }
     }
 }
+
+### Analyze the tokenization
+
+POST /_analyze
+
+{
+  "analyzer" : "english",
+  "text" : "\"Information Retrieval\": Also available as e-book!"
+}
