@@ -11,8 +11,7 @@ Georg M. Sorst, Head of Search Engineering @ [![Nosto](images/nosto.svg)<!-- .el
 # Me
 
 * Georg M. Sorst
-* Principal
-  Engineer @ [![Nosto](images/nosto.svg)<!-- .element: style="height: 1em; margin: 0; vertical-align: middle;" -->](https://nosto.com)<!-- .element: target="_blank" --> (
+* Head of Search Engineering @ [![Nosto](images/nosto.svg)<!-- .element: style="height: 1em; margin: 0; vertical-align: middle;" -->](https://nosto.com)<!-- .element: target="_blank" --> (
   formerly [![Findologic](images/findologic.svg)<!-- .element: style="height: 1em; margin: 0; vertical-align: middle;" -->](https://findologic.com)<!-- .element: target="_blank" -->)
 * Leading E-Commerce recommendation & search provider
 
