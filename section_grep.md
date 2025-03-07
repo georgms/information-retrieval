@@ -37,6 +37,9 @@ grep --recursive "information" .
 
 # Measure the time it takes and discard the output:
 time grep --recursive "information" . >/dev/null
+
+# Count number of matching files
+grep --files-with-matches "information" . | wc -l
 ```
 
 Notes:
