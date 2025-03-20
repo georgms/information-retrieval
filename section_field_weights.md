@@ -121,3 +121,9 @@ What else can be done with field info? -> Field queries!
 Notes:
 
 Audience question
+
+---
+
+# Try it out
+
+<a class="es-console" href="es-consoles/field-weights-queries.http">Try field weights and field queries in Elasticsearch</a>.

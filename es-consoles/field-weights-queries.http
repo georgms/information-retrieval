@@ -1,0 +1,80 @@
+### Delete the old index for a clean start
+
+DELETE docs
+
+### Setup a basic index with different fields
+
+PUT docs
+
+{
+  "mappings": {
+    "properties": {
+      "author": {
+        "type": "text"
+      },
+      "title": {
+        "type": "text"
+      }
+    }
+  }
+}
+
+### Create example document
+
+POST docs/_doc/1?refresh=true
+
+{
+  "author": "Arthur McAuthor",
+  "title": "A book providing information about information retrieval"
+}
+
+### Create example document
+
+POST docs/_doc/2?refresh=true
+
+{
+  "author": "Shakesbeer",
+  "title": "A book about the search for King Arthur"
+}
+
+### Search with different fields weights
+
+POST docs/_search
+
+{
+  "query": {
+    "multi_match": {
+      "query": "arthur book",
+      "fields": [
+        "author^10",
+        "title^1"
+      ]
+    }
+  }
+}
+
+### Search specific field
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["title"],
+            "query": "arthur"
+        }
+    }
+}
+
+### Search specific field
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["author"],
+            "query": "shakesbeer"
+        }
+    }
+}
