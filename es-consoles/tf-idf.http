@@ -1,0 +1,67 @@
+### Delete the old index for a clean start
+
+DELETE docs
+
+### Set up basic index
+
+PUT docs
+
+{
+  "mappings": {
+    "properties": {
+      "text": {
+        "type": "text"
+      }
+    }
+  }
+}
+
+### Document with high TF for "wifi"
+
+POST docs/_doc/1?refresh=true
+
+{
+  "text": "wifi wifi wifi router"
+}
+
+### Document with medium TF
+
+POST docs/_doc/2?refresh=true
+
+{
+  "text": "wifi router internet connection"
+}
+
+### Document that does not match all query terms
+
+POST docs/_doc/3?refresh=true
+
+{
+  "text": "router connection"
+}
+
+### Show results
+
+POST docs/_search
+
+{
+  "query": {
+    "match": {
+      "text": "wifi router"
+    }
+  }
+}
+
+### Explain results
+
+POST docs/_search
+
+{
+  "explain": true,
+  "query": {
+    "match": {
+      "text": "wifi router"
+    }
+  }
+}
+

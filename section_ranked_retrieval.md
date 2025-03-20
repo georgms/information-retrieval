@@ -164,3 +164,9 @@ information retrieval search
 1 &times; 1.5 + 0 &times; 3 + 0 &times; 3 = 1.5 <!-- .element: class="fragment" -->
 
 Notes:
+
+---
+
+# Try it out
+
+<a class="es-console" href="es-consoles/tf-idf.http">Try TF-IDF ranking in Elasticsearch</a>.
