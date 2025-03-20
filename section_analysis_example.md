@@ -68,22 +68,23 @@ Notes:
         <td><span class="fragment" data-fragment-index="13">router</span></td>
     </tr>
     <tr>
-        <td style="border-right: 1px solid rgb(34, 34, 34);">Synonyms<br>wifi &rarr; wireless<br>(Index
+        <td style="border-right: 1px solid rgb(34, 34, 34);">Synonyms<br>wifi ↔ wireless<br>(Query
             only)
         </td>
         <td></td>
         <td><span class="fragment" data-fragment-index="8">wi-fi</span></td>
         <td><span class="fragment" data-fragment-index="8">wi</span></td>
         <td><span class="fragment" data-fragment-index="8">fi</span></td>
-        <td><span class="fragment" data-fragment-index="8">wifi</span></td>
         <td><span class="fragment" data-fragment-index="8">
-            <span class="fragment highlight-blue" data-fragment-index="15">wireless</span>
+            <span class="fragment highlight-blue" data-fragment-index="15">wifi</span>
         </span></td>
+        <td><span class="fragment" data-fragment-index="8"></span></td>
         <td style="border-right: 1px solid rgb(34, 34, 34);"><span class="fragment" data-fragment-index="8">
             <span class="fragment highlight-blue" data-fragment-index="15">router</span>
         </span></td>
+        <td><span class="fragment" data-fragment-index="14">wireless</span></td>
         <td><span class="fragment" data-fragment-index="14">
-            <span class="fragment highlight-blue" data-fragment-index="15">wireless</span>
+            <span class="fragment highlight-blue" data-fragment-index="15">wifi</span>
         </span></td>
         <td><span class="fragment" data-fragment-index="14">
             <span class="fragment highlight-blue" data-fragment-index="15">router</span>
@@ -93,10 +94,6 @@ Notes:
 
 Notes:
 Will increase relevance, but reduce precision
----
-![analysis](images/analysis.png)
-
-Notes:
 ---
 
 <!-- .slide: class="audience-question" -->

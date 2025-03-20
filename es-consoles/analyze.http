@@ -1,0 +1,98 @@
+### Delete the old index for a clean start
+
+DELETE docs
+
+### Set up complex analysis chains
+
+PUT docs
+
+{
+  "settings": {
+    "analysis": {
+      "filter": {
+        "english_stop": {
+          "type": "stop",
+          "stopwords": "_english_"
+        },
+        "synonym_filter": {
+          "type": "synonym",
+          "synonyms": [
+            "wifi, wireless"
+          ]
+        },
+        "my_word_delimiter": {
+          "type": "word_delimiter",
+          "catenate_all": true,
+          "preserve_original": true
+        }
+      },
+      "analyzer": {
+        "index_analyzer": {
+          "tokenizer": "whitespace",
+          "filter": [
+            "lowercase",
+            "my_word_delimiter",
+            "english_stop",
+            "porter_stem"
+          ]
+        },
+        "search_analyzer": {
+          "tokenizer": "whitespace",
+          "filter": [
+            "lowercase",
+            "english_stop",
+            "porter_stem",
+            "synonym_filter"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "text": {
+        "type": "text",
+        "analyzer": "index_analyzer",
+        "search_analyzer": "search_analyzer"
+      }
+    }
+  }
+}
+
+### Explain the index-time analysis
+
+POST docs/_analyze
+
+{
+  "analyzer": "index_analyzer",
+  "text": "A Wi-Fi Router"
+}
+
+### Explain the query-time analyis
+
+POST docs/_analyze
+
+{
+  "analyzer": "search_analyzer",
+  "text": "wireless routers"
+}
+
+### Create an example document
+
+POST docs/_doc/1?refresh=true
+
+{
+  "text": "A Wi-Fi Router"
+}
+
+### Find the document
+
+POST docs/_search
+
+{
+  "query": {
+    "match": {
+      "text": "wireless routers"
+    }
+  }
+}
