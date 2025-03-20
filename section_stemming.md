@@ -38,3 +38,6 @@ Notes:
 * Benefits of lemmatization over stemming doubtful
 
 Notes:
+
+---
+<a class="es-console" href="es-consoles/stop-words.http">Try stemming in Elasticsearch</a>.

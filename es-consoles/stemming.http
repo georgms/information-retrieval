@@ -1,0 +1,102 @@
+### Delete the old index for a clean start.
+
+DELETE docs
+
+### Split document texts only by whitespace.
+
+PUT docs
+
+{
+    "mappings": {
+        "properties": {
+            "text_standard": {
+                "type": "text",
+                "analyzer": "standard"
+            },
+            "text": {
+                "type": "text",
+                "analyzer": "english"
+            }
+        }
+    }
+}
+
+### Create a document.
+
+POST docs/_doc/1?refresh=true
+
+{
+    "text_standard": "They visited several houses and bought one",
+    "text": "They visited several houses and bought one"
+}
+
+### Search without stemming
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text_standard"],
+            "query": "house visit",
+            "default_operator": "AND"
+        }
+    }
+}
+
+### Search with stemming
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "house",
+            "default_operator": "AND"
+        }
+    }
+}
+
+### Unrelated stems
+
+POST docs/_doc/2?refresh=true
+
+{
+    "text": "organic coffee"
+}
+
+### Search stopwords edge case.
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "coffee organ"
+        }
+    }
+}
+
+### Create document with inflection
+
+POST docs/_doc/3?refresh=true
+
+{
+    "text": "I saw a saw"
+}
+
+### Search lemma
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text"],
+            "query": "see"
+        }
+    }
+}
+
