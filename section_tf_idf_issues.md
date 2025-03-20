@@ -67,7 +67,7 @@ Notes:
 * Also based on TF-IDF
 * Much less descriptive:
 
-$${\displaystyle {\text{score}}(D,Q)=\sum_{i=1}^{n}{\text{IDF}}(q_i)\cdot {\frac {TF(q_i,D)\cdot (k_1+1)}{TF(q_i,D)
+$${\displaystyle {\text{score}}(D,Q)=\sum_{i=1}^{n}{log(1+\frac {N-DF(D)+0.5}{(DF(D)+0.5})}\cdot {\frac {TF(q_i,D)}{TF(q_i,D)
 +k_1\cdot \left(1-b+b\cdot {\frac {|D|}{\text{avgdl}}}\right)}}}$$ <!-- .element: class="fragment" -->
 
 Notes:
