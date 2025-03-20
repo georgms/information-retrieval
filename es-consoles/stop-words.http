@@ -64,7 +64,7 @@ POST docs/_search
 POST docs/_doc/3?refresh=true
 
 {
-    "text": "A police car appeared in the distance."
+    "text": "A police car is here."
 }
 
 ### Create relevant document.

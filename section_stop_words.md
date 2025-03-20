@@ -30,15 +30,8 @@ Notes:
 What are some examples where stop words are relevant?
 ---
 
-# Stop words in real life
-
-* Index size is not an issue anymore
-* Elasticsearch: Stop words are optional, but increase score if they are matched
-    * *The Police* will find *police car*, but rank *The Police* higher
-* No special handling for stop words when the query consists only of stop words
-    * *To be or not to be* searches for `[to, be, or, not]`
+# Stop words example
 
 <a class="es-console" href="es-consoles/stop-words.http">Try stop words in Elasticsearch</a>.
 
 Notes:
-
