@@ -37,11 +37,11 @@ How to evaluate?
 
 ----
 
-| Information Need     | iPhone X | Galaxy S10 | Cover for Galaxy S10 | Battery Pack |
-|----------------------|----------|------------|----------------------|--------------|
-| smartphone           | ✓        | ✓          | -                    | -            |
-| apple smartphone     | ✓        | -          | -                    | -            |
-| smartphone accessory | -        | -          | ✓                    | ✓            |
+| Product &rarr;<br/>&darr; Query | iPhone X | Galaxy S10 | Cover for Galaxy S10 | Battery Pack |
+|---------------------------------|----------|------------|----------------------|--------------|
+| smartphone                      | ✓        | ✓          | -                    | -            |
+| apple smartphone                | ✓        | -          | -                    | -            |
+| smartphone accessory            | -        | -          | ✓                    | ✓            |
 
 Augment with click-stream logs
 
