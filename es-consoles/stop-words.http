@@ -9,6 +9,10 @@ PUT docs
 {
     "mappings": {
         "properties": {
+            "text_standard": {
+                "type": "text",
+                "analyzer": "standard"
+            },
             "text": {
                 "type": "text",
                 "analyzer": "english"
@@ -22,10 +26,25 @@ PUT docs
 POST docs/_doc/1?refresh=true
 
 {
+    "text_standard": "a book about information retrieval",
     "text": "a book about information retrieval"
 }
 
-### Search with stop words.
+### Search with stopwords.
+
+POST docs/_search
+
+{
+    "query": {
+        "query_string": {
+            "fields": ["text_standard"],
+            "query": "the book of information retrieval",
+            "default_operator": "AND"
+        }
+    }
+}
+
+### Search without stopwords.
 
 POST docs/_search
 
@@ -33,12 +52,13 @@ POST docs/_search
     "query": {
         "query_string": {
             "fields": ["text"],
-            "query": "the book for"
+            "query": "the book of information retrieval",
+            "default_operator": "AND"
         }
     }
 }
 
-### Create stop words edge case.
+### Create stopwords edge case.
 
 POST docs/_doc/2?refresh=true
 
@@ -46,7 +66,7 @@ POST docs/_doc/2?refresh=true
     "text": "To be or not to be"
 }
 
-### Search stop words edge case.
+### Search stopwords edge case.
 
 POST docs/_search
 
@@ -75,7 +95,7 @@ POST docs/_doc/4?refresh=true
     "text": "The Police debuted in 1979."
 }
 
-### Trigger stop words behavior.
+### Trigger stopwords behavior.
 
 POST docs/_search
 
@@ -83,7 +103,8 @@ POST docs/_search
     "query": {
         "query_string": {
             "fields": ["text"],
-            "query": "the police"
+            "query": "the police",
+            "default_operator": "AND"
         }
     }
 }
