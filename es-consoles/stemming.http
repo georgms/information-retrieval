@@ -52,7 +52,7 @@ POST docs/_search
     "query": {
         "query_string": {
             "fields": ["text"],
-            "query": "house",
+            "query": "house visit",
             "default_operator": "AND"
         }
     }
