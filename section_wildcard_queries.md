@@ -235,3 +235,9 @@ Notes:
 <span style="color: var(--fl-color);">^co</span>n<span style="color: var(--fl-color);">cor</span>d
 
 Notes:
+
+---
+
+# Try it out
+
+<a class="es-console" href="es-consoles/ngrams.http">Try n-grams in Elasticsearch</a>.

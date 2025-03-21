@@ -1,0 +1,74 @@
+### Delete the index for a fresh start
+
+DELETE docs
+
+### Create index with n-gram analyzer (min_gram: 3, max_gram: 3)
+
+PUT docs
+
+{
+  "settings": {
+    "analysis": {
+      "tokenizer": {
+        "ngram_tokenizer": {
+          "type": "ngram",
+          "min_gram": 3,
+          "max_gram": 3
+        }
+      },
+      "analyzer": {
+        "ngram_analyzer": {
+          "tokenizer": "ngram_tokenizer",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "text": {
+        "type": "text",
+        "analyzer": "ngram_analyzer"
+      }
+    }
+  }
+}
+
+### Index document 1: corona
+
+POST docs/_doc/1?refresh=true
+
+{
+  "text": "corona"
+}
+
+### Index document 2: concord
+
+POST docs/_doc/2?refresh=true
+
+{
+  "text": "concord"
+}
+
+###
+
+POST docs/_analyze
+
+{
+  "analyzer": "ngram_analyzer",
+  "text": "corona"
+}
+
+### Search for "cor"
+
+POST docs/_search
+
+{
+  "query": {
+    "match": {
+      "text": "cor"
+    }
+  }
+}
