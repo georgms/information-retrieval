@@ -40,4 +40,4 @@ Notes:
 Notes:
 
 ---
-<a class="es-console" href="es-consoles/stop-words.http">Try stemming in Elasticsearch</a>.
+<a class="es-console" href="es-consoles/stemming.http">Try stemming in Elasticsearch</a>.
