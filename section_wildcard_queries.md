@@ -37,6 +37,12 @@ Notes:
 
 ---
 
+# Try it out
+
+<a class="es-console" href="es-consoles/wildcard-queries.http">Try wildcard queries in Elasticsearch</a>.
+
+---
+
 # salz*
 
 <!-- .slide: class="audience-question" -->

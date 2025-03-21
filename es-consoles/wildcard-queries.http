@@ -1,0 +1,68 @@
+###
+
+DELETE docs
+
+###
+
+PUT docs
+
+{
+  "mappings": {
+    "properties": {
+      "product": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword"
+          }
+        }
+      }
+    }
+  }
+}
+
+###
+
+POST docs/_doc/1?refresh=true
+
+{
+  "product": "Samsung Galaxy"
+}
+
+###
+
+POST docs/_doc/2?refresh=true
+
+{
+  "product": "Apple iPhone"
+}
+
+###
+
+POST docs/_doc/3?refresh=true
+
+{
+  "product": "Apple iPad"
+}
+
+###
+
+POST docs/_doc/4?refresh=true
+
+{
+  "product": "Lumia"
+}
+
+###
+
+POST docs/_search
+
+{
+  "query": {
+    "wildcard": {
+      "product": {
+        "value": "i*"
+      }
+    }
+  }
+}
