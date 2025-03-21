@@ -1,0 +1,72 @@
+### Delete the index for a fresh start
+
+DELETE docs
+
+### Create index with default analyzer
+
+PUT docs
+
+{
+  "mappings": {
+    "properties": {
+      "word": {
+        "type": "text"
+      }
+    }
+  }
+}
+
+### Index document 1: book
+
+POST docs/_doc/1?refresh=true
+
+{
+  "word": "book"
+}
+
+### Index document 2: information
+
+POST docs/_doc/2?refresh=true
+
+{
+  "word": "information"
+}
+
+### Index document 3: rock
+
+POST docs/_doc/3?refresh=true
+
+{
+  "word": "rock"
+}
+
+### Index document 4: retrieval
+
+POST docs/_doc/4?refresh=true
+
+{
+  "word": "retrieval"
+}
+
+### Index document 5: spock
+
+POST docs/_doc/5?refresh=true
+
+{
+  "word": "spock"
+}
+
+### Run fuzzy search query for "bock"
+
+POST docs/_search
+
+{
+  "query": {
+    "fuzzy": {
+      "word": {
+        "value": "bock",
+        "fuzziness": "AUTO"
+      }
+    }
+  }
+}

@@ -100,6 +100,12 @@ Notes:
 
 ---
 
+# Try it out
+
+<a class="es-console" href="es-consoles/fuzzy.http">Try fuzzy search in Elasticsearch</a>.
+
+---
+
 # N-Grams
 
 <!-- .slide: class="audience-question" -->
