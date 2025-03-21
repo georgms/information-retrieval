@@ -130,3 +130,9 @@ Notes:
 &shy; <!-- .element: class="fragment" --> `fh salzburg` &rarr; \#1
 
 Notes:
+
+---
+
+# Try it out
+
+<a class="es-console" href="es-consoles/phrase-queries.http">Try phrase queries in Elasticsearch</a>.

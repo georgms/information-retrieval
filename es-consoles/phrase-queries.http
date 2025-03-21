@@ -1,0 +1,77 @@
+### Delete the old index for a clean start
+
+DELETE docs
+
+### Setup a basic English index
+
+PUT docs
+
+{
+  "mappings": {
+    "properties": {
+      "text": {
+        "type": "text",
+        "analyzer": "english"
+      }
+    }
+  }
+}
+
+### Create example document
+
+POST docs/_doc/1?refresh=true
+
+{
+  "text": "retrieving more information about information retrieval"
+}
+
+### Create example document
+
+POST docs/_doc/2?refresh=true
+
+{
+  "text": "searching and retrieving a book about the search for information"
+}
+
+### Create example document
+
+POST docs/_doc/3?refresh=true
+
+{
+  "text": "a book about information"
+}
+
+### Search for phrase
+
+POST docs/_search
+
+{
+  "query": {
+    "match_phrase": {
+      "text": "information retrieval"
+    }
+  }
+}
+
+### Create example document for slop
+
+POST docs/_doc/4?refresh=true
+
+{
+  "text": "dwayne the rock johnson"
+}
+
+### Searfch with slop
+
+POST docs/_search
+
+{
+  "query": {
+    "match_phrase": {
+      "text": {
+        "query": "dwayne johnson",
+        "slop": 2
+      }
+    }
+  }
+}
