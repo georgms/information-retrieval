@@ -55,6 +55,12 @@ Notes:
 
 ---
 
+# Try it out
+
+[Phonetic search requires extra Elasticsearch plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/current/analysis-phonetic.html) so no example this time.
+
+---
+
 # Soundex alternatives
 
 * Daitch–Mokotoff Soundex
