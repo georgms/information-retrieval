@@ -40,4 +40,7 @@ Notes:
 Notes:
 
 ---
+
+# Try it out
+
 <a class="es-console" href="es-consoles/stemming.http">Try stemming in Elasticsearch</a>.
