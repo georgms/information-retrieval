@@ -48,18 +48,21 @@ LLM
 | a book about the search for information | [2.4, 0.3, 3.5] | 0.56              |
 | a book about retrieving information     | [0.1, 2.0, 1.1] | 0.58              |
 
----
+Notes:
 
-# Performance
+---
 
 <!-- .slide: class="audience-question" -->
 
-* $O(n)$ performance for brute force cosine similarity
-* Naive Cosine Similarity does not scale.
-* Must scale for millions of documents.
+# Performance
+
+* &shy;<!-- .element: class="fragment" --> $O(n)$ performance for brute force cosine similarity
+* &shy;<!-- .element: class="fragment" --> Naive Cosine Similarity does not scale.
+* &shy;<!-- .element: class="fragment" --> Must scale for millions of documents.
 
 Notes:
-* What is the complexity for brute force cosine similarity? 
+
+* What is the complexity for brute force cosine similarity?
 
 ---
 
@@ -91,15 +94,20 @@ Source: [pinecone.io](https://www.pinecone.io/learn/series/faiss/hnsw/)
 
 ---
 
-# Relevance
+<!-- .slide: class="audience-question" -->
+
+# Recall / Precision
 
 <!-- .slide: class="audience-question" -->
 
-* For keyword search, only documents that contain query terms are returned.
-* For vector search, _every_ document vector is more or less similar to every query vector.
+|                | Precision                                         | Recall                                         |
+|----------------|---------------------------------------------------|------------------------------------------------|
+| Keyword Search | Only documents containing query terms are matched | Conceptually similar documents are not matched |
+| Vector Search  | All documents are matched (more or less similar)  | Conceptually similar documents are matched     |
 
 Notes:
-* Why is every document vector more or less similar?
+
+* Why is every document matched?
 
 ---
 
@@ -116,6 +124,7 @@ LLM
 | a book about information retrieval      | [1.3, 2.7, 1.1] | 0.12              |
 | a book about the search for information | [2.4, 0.3, 3.5] | 0.05              |
 | a book about retrieving information     | [0.1, 2.0, 1.1] | 0.37              |
+| a book about cats and dogs              | [2.9, 2.1, 1.5] | 0.89              |
 
 ---
 
