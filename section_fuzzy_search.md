@@ -63,11 +63,11 @@ Notes:
 
 &darr;
 
-`book OR rock OR spock`
+`book OR rock`
 
 &darr;
 
-#1, #3, #5
+#1, #3
 
 Notes:
 
