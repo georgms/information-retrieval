@@ -26,9 +26,10 @@ Notes:
 
 ## Page quality
 
+* &shy;<!-- .element: class="fragment" -->**E**xperience
 * &shy;<!-- .element: class="fragment" -->**E**xpertise
 * &shy;<!-- .element: class="fragment" -->**A**uthoritativeness
-* &shy;<!-- .element: class="fragment" -->**T**rustworthiness
+* &shy;<!-- .element: class="fragment" -->**T**rust
 
 Notes:
 
