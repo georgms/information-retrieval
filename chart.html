@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>D3 Vector Plot</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+<svg width="500" height="500"></svg>
+<script>
+    const vectors = [
+        { x: 2, y: 3, label: 'cat' },
+        { x: 3, y: 2, label: 'dog' },
+        { x: -4, y: -1, label: 'telephone' },
+    ];
+
+    const width = 500, height = 500;
+    const svg = d3.select("svg");
+    const scale = 40; // 1 unit = 40px
+
+    const origin = { x: width / 2, y: height / 2 };
+
+    // Axes
+    svg.append("line").attr("x1", 0).attr("y1", origin.y).attr("x2", width).attr("y2", origin.y).attr("stroke", "black");
+    svg.append("line").attr("x1", origin.x).attr("y1", 0).attr("x2", origin.x).attr("y2", height).attr("stroke", "black");
+
+    // Draw vectors
+    vectors.forEach(vec => {
+        const x1 = origin.x;
+        const y1 = origin.y;
+        const x2 = origin.x + vec.x * scale;
+        const y2 = origin.y - vec.y * scale;
+
+        svg.append("line")
+            .attr("x1", x1).attr("y1", y1)
+            .attr("x2", x2).attr("y2", y2)
+            .attr("stroke", "orange")
+            .attr("stroke-width", 2)
+            .attr("marker-end", "url(#arrow)");
+
+        svg.append("text")
+            .attr("x", x2 + 5)
+            .attr("y", y2 - 5)
+            .text(vec.label)
+            .style("font", "14px sans-serif");
+    });
+
+    // Define arrowhead
+    svg.append("defs").append("marker")
+        .attr("id", "arrow")
+        .attr("viewBox", "0 -5 10 10")
+        .attr("refX", 10)
+        .attr("refY", 0)
+        .attr("markerWidth", 6)
+        .attr("markerHeight", 6)
+        .attr("orient", "auto")
+        .append("path")
+        .attr("d", "M0,-5L10,0L0,5")
+        .attr("fill", "orange");
+</script>
+</body>
+</html>
