@@ -57,7 +57,7 @@ Audience question
 
 # Interactive example
 
-Make sure that the [Elastic Stack](elasticsearch-intro/README.md) is running.
+Make sure that the [Elastic Stack](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/local-development-installation-quickstart) is running.
 
 Then <a class="es-console" href="es-consoles/boolean-retrieval.http">try boolean retrieval in the Elasticsearch
 console</a>.
