@@ -11,3 +11,4 @@ node_modules/
 .sass-cache
 start-local.sh
 elastic-start-local/
+corpus/
