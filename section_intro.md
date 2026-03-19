@@ -32,6 +32,7 @@ Georg M. Sorst, Head of Search Engineering @ [![Nosto](images/nosto.svg)<!-- .el
 
 # During the lecture
 
+* Please close your laptop for maximum attention (unless we're doing an interactive task).
 * To help us stay awake I will pick random people from the [Wheel of Names](https://wheelofnames.com/) to answer questions during the lecture.
 * Have a question? Too slow? Too fast? Let me know right away!
 * Who will be my timekeeper? Time to [spin the Wheel](https://wheelofnames.com/).
@@ -43,3 +44,10 @@ Georg M. Sorst, Head of Search Engineering @ [![Nosto](images/nosto.svg)<!-- .el
 &larr; These slides contain small comprehension questions for you.
 
 I will pick a random person to answer the question.
+
+---
+
+# Setup
+
+1. Install [Elasticsearch for local development](https://www.elastic.co/docs/deploy-manage/deploy/self-managed/local-development-installation-quickstart).
+2. Clone [lecture repository](https://github.com/georgms/information-retrieval).
