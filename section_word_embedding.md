@@ -132,7 +132,7 @@ Notes:
 [View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word_Embedding.ipynb)
 
 1. Download [Word Embedding Notebook](word-embedding/Word_Embedding.ipynb)
-   and [simple-wikipedia.zip](https://gitlab.mediacube.at/information-retrieval/homework/tf-idf-scoring/-/blob/main/simple-wikipedia.zip?ref_type=heads)
+   and [simple-wikipedia.zip](https://gitlab.ct.fh-salzburg.ac.at/information-retrieval/homework/tf-idf-scoring/-/blob/main/simple-wikipedia.zip?ref_type=heads)
 2. `unzip -q simple-wikipedia.zip`
 3. Run Jupyter:
 

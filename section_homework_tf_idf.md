@@ -59,7 +59,7 @@ Notes:
 
 * Implement TF-IDF scoring
 * This means **OR** search
-* [Use the provided setup](https://gitlab.mediacube.at/information-retrieval/homework-2-tf-idf-scoring), make sure to read [`README.md`](https://gitlab.mediacube.at/information-retrieval/homework-2-tf-idf-scoring/-/blob/master/README.md)
+* [Use the provided setup](https://gitlab.ct.fh-salzburg.ac.at/information-retrieval/homework/tf-idf-scoring), make sure to read the included README.
 * Display top 5 results
     * For each result show total score and per-term score
     * The sum of all term scores must equal the total score

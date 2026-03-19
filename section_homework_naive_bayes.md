@@ -27,8 +27,8 @@ Notes:
 # Homework
 
 * Build a Spam Classifier using Naive Bayes
-* [Use the provided setup](https://gitlab.mediacube.at/information-retrieval/homework-naive_bayes), make sure to
-  read [`README.md`](https://gitlab.mediacube.at/information-retrieval/homework-naive_bayes/-/blob/master/README.md)
+* [Use the provided setup](https://gitlab.ct.fh-salzburg.ac.at/information-retrieval/homework-naive_bayes), make sure to
+  read the included README.
 * Use `data.txt` for training
 * Implement the required probability calculation formulas
 * Carefully think about what you can pre-calculate during start-up to save time when classifying

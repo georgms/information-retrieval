@@ -40,7 +40,7 @@ Notes:
 # Homework
 
 * Build **Inverted Index** from text files
-* [Use the provided setup](https://gitlab.mediacube.at/information-retrieval/homework-1-inverted-index), make sure to read [`README.md`](https://gitlab.mediacube.at/information-retrieval/homework-1-inverted-index/-/blob/master/README.md)
+* [Use the provided setup](https://gitlab.ct.fh-salzburg.ac.at/information-retrieval/homework/inverted-index), make sure to read the included README.
 * Read `resources/*.txt`
     * Just once during start up, not for every query
 * Query using implicit AND (`this text` &rarr; `this AND text`)
