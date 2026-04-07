@@ -61,7 +61,7 @@ POST docs/_doc/4?refresh=true
   "text": "dwayne the rock johnson"
 }
 
-### Searfch with slop
+### Search with slop
 
 POST docs/_search
 
