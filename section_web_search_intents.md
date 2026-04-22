@@ -93,7 +93,7 @@ Notes:
 
 * "buy iphone 7" <!-- .element: class="fragment" data-fragment-index="" -->
 * "flight to salzburg" <!-- .element: class="fragment" data-fragment-index="" -->
-* "viagra" <!-- .element: class="fragment" data-fragment-index="" -->
+* "sign up for newsletter" <!-- .element: class="fragment" data-fragment-index="" -->
 
 Notes:
 
@@ -151,7 +151,8 @@ Notes:
 
 <!-- .slide: class="audience-question" -->
 
-* Often subjective
+Often ambiguous and subjective
+
 * "iphone"<!-- .element: class="fragment" -->
     * Informational or transactional?<!-- .element: class="fragment" -->
 * "libro"<!-- .element: class="fragment" -->
@@ -159,6 +160,7 @@ Notes:
 
 Notes:
 
+* Name examples of ambiguous queries.
 * Which intents can be applied to the example queries?
 
 ---
