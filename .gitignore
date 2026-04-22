@@ -12,3 +12,4 @@ node_modules/
 start-local.sh
 elastic-start-local/
 corpus/
+/elasticsearch-intro/.ipynb_checkpoints/Elasticsearch-checkpoint.ipynb
