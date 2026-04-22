@@ -221,8 +221,8 @@ $$\text{Distributed query time} \approx \frac{\text{Non-distributed query time}}
 
 <!-- .slide: class="audience-question" -->
 
-* More traffic
-* Less downtimes
+* More traffic <!-- .element: class="fragment" -->
+* Less downtimes <!-- .element: class="fragment" -->
 
 Notes:
 
