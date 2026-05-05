@@ -68,7 +68,11 @@ Notes:
 
 Notes:
 
-* Are the docs similar?
+* How to calculate similarity between docs (vectors)?
+
+---
+
+# Document (vector) similarity
 
 ---
 
@@ -107,9 +111,11 @@ Notes:
 
 ---
 
-* Documents look similar but vector distance is pretty big
-* &shy;<!-- .element: class="fragment" --> Vector distance does not consider document size
-* &shy;<!-- .element: class="fragment" --> Need a better measure that accounts for longer documents
+Documents look similar but vector distance is pretty big
+
+&shy;<!-- .element: class="fragment" --> Vector distance does not consider document size 
+
+&shy;<!-- .element: class="fragment" --> Need a better measure that accounts for longer documents
 
 ---
 
@@ -124,6 +130,8 @@ Notes:
 Notes:
 
 ---
+
+# Angle between vectors
 
 &shy;<!-- .element: class="stretch" -->
 ![Vector Similarity](images/Vector_Similarity.svg)

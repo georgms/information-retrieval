@@ -71,7 +71,7 @@ Slide window over corpus:
    brown fox</span> jumps over the lazy dog*
     * [*brown* &rarr; *fox*]
 
-&shy;<!-- .element: class="fragment" -->When Machine sees *brown* it should predict *fox*.
+&shy;<!-- .element: class="fragment" -->When machine sees *brown* it should predict *fox*.
 
 Notes:
 
@@ -89,7 +89,7 @@ Predict context from word.
 3. *The quick <span class="highlight-blue">brown <u>fox</u> jumps</span> over the lazy dog*: [*fox* &rarr; *brown*,
    *jumps*]
 
-When Machine sees *quick* it should predict *the* or *brown*.
+When machine sees *quick* it should predict *the* or *brown*.
 
 Window can be larger (recommended: 5).
 
@@ -111,7 +111,7 @@ Predict word from context.
 3. *The quick <span class="highlight-blue"><u>brown</u> fox <u>jumps</u></span> over the lazy dog*: [*brown*,
    *jumps* &rarr; *fox*]
 
-When Machine sees *the* or *brown* it should predict *quick*.
+When machine sees *the* or *brown* it should predict *quick*.
 
 CBOW trains faster, more accurate for frequent words.
 

@@ -12,6 +12,7 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="dist/plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
     <base target="_blank">
 </head>
 <body>
@@ -265,6 +266,7 @@
 <script src="dist/plugin/highlight.js"></script>
 <script src="dist/plugin/math.js"></script>
 <!-- Anything plugin -->
+<script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@4.2.5/anything/plugin.js"></script>
 <script src="js/Chart.min.js"></script>
 <script src="js/d3.min.js"></script>
@@ -293,6 +295,21 @@
                     container.chart = new Chart(container.getContext("2d"), options);
                     Chart.defaults.global.defaultFontColor = "black";
                     Chart.defaults.global.defaultFontSize = 50;
+                })
+            },
+            {
+                className: "jsxgraph",
+                initialize: (function (container, options) {
+                    const script = container.querySelector('script');
+                    const code = script ? script.innerHTML : null;
+                    container.board = JXG.JSXGraph.initBoard(container, options);
+                    if (code) {
+                        try {
+                            (new Function('board', 'JXG', code))(container.board, JXG);
+                        } catch (e) {
+                            console.error("Error executing JSXGraph script:", e);
+                        }
+                    }
                 })
             },
             {
