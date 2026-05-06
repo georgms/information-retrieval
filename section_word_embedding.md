@@ -1,3 +1,5 @@
+<!-- .slide: class="audience-question" -->
+
 # Word Embeddings
 
 ![Word Embeddings](images/word_embeddings.png)
@@ -6,7 +8,12 @@ $$\text{king} - \text{man} + \text{woman} \approx \text{queen}$$
 
 Notes:
 
+* What does the equation suggest about the meaning stored in word vectors?
+* Which word would you expect to be closest to `king - man + woman`?
+
 ---
+
+<!-- .slide: class="audience-question" -->
 
 # Word Embeddings
 
@@ -18,7 +25,12 @@ Similar vectors ≈ Related words ≈ Occur in similar contexts
 
 Notes:
 
+* Why do we need a large text corpus to train word embeddings?
+* What should similar vectors tell us about two words?
+
 ---
+
+<!-- .slide: class="audience-question" -->
 
 # Words as vectors
 
@@ -38,9 +50,13 @@ Notes:
 <!-- .element: class="fragment" -->
 
 Notes:
-What does the vector for brown look like?
+
+* What does the vector for *brown* look like?
+* How many dimensions does this one-hot vector have?
 
 ---
+
+<!-- .slide: class="audience-question" -->
 
 # Train similarity
 
@@ -53,7 +69,12 @@ What does the vector for brown look like?
 
 Notes:
 
+* In one-hot encoding, are *quick* and *brown* automatically more similar than *quick* and *dog*?
+* What do we need to train so that related words get closer vectors?
+
 ---
+
+<!-- .slide: class="audience-question" -->
 
 # Training data
 
@@ -75,7 +96,12 @@ Slide window over corpus:
 
 Notes:
 
+* What input-output pair do we get from the phrase *brown fox*?
+* What changes when we slide the window one word to the right?
+
 ---
+
+<!-- .slide: class="audience-question" -->
 
 # Skipgram
 
@@ -97,7 +123,13 @@ Skipgram well suited for small data sets with rare words.
 
 Notes:
 
+* In skipgram, do we predict the center word or its surrounding context?
+* Why can a larger window give the model broader context?
+* When is skipgram especially useful?
+
 ---
+
+<!-- .slide: class="audience-question" -->
 
 # Continuous Bag of Words (CBOW)
 
@@ -117,13 +149,22 @@ CBOW trains faster, more accurate for frequent words.
 
 Notes:
 
+* In CBOW, do we predict the center word or the surrounding context?
+* What is the main difference between CBOW and skipgram?
+* For which words is CBOW often more accurate?
+
 ---
+
+<!-- .slide: class="audience-question" -->
 
 # Word Embedding visualized
 
 [Word Embedding Visual Inspector](https://ronxin.github.io/wevi/)
 
 Notes:
+
+* What would you expect to happen to words that appear in similar contexts during training?
+* In a visualization, what does it mean if two words are close together?
 
 ---
 
@@ -146,6 +187,8 @@ Notes:
 
 ---
 
+<!-- .slide: class="audience-question" -->
+
 # Word2Vec Alternatives
 
 [GloVe](https://nlp.stanford.edu/projects/glove/)
@@ -162,3 +205,6 @@ Notes:
 * Pre-trained for many languages
 
 Notes:
+
+* Which alternative can still represent unknown words using n-grams?
+* Which alternative is described as more suitable for document-level tasks?
