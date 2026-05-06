@@ -14,7 +14,20 @@ $$\vec{V}(\text{book}) = \begin{pmatrix}0 \\\\ 0 \\\\ 0 \\\\ ... \\\\ 1 \\\\ 0\e
 
 Semantically similar words have completely different vectors.
 
-&shy;<!-- .element: class="stretch" -->![unrelated vector](images/cat_dog_vectors_unrelated.svg)
+<div class="jsxgraph" style="width: 1000px; height: 600px; margin: auto;">
+  <!--
+  {
+    "boundingbox": [-0.1, 2, 2, -0.1],
+    "axis": true,
+    "grid": false
+  }
+  -->
+  <script type="text/template">
+    board.create('arrow', [[0,0],[1,0]], { name: 'cat', withLabel: true, strokeColor: 'orange', label: { position: 'rt', autoPosition: true }});
+    board.create('arrow', [[0,0],[0,1]], { name: 'dog', withLabel: true, strokeColor: 'orange', label: { position: 'rt', autoPosition: true } });
+  </script>
+</div>
+
 
 ---
 
