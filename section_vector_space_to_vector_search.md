@@ -98,17 +98,29 @@ Map the vectors across these two dimensions.
   </script>
 </div>
 
-&shy;<!-- .element: class="fragment" --> Two clusters emerge – _pets_ and _information_. 
+&shy;<!-- .element: class="fragment" --> Two clusters emerge – _pets_ and _information_.
 
 ---
 
-Apply the decomposition to terms (search queries):
+<!-- .slide: class="audience-question" -->
+
+_Search_ for terms
+
+Notes:
+
+* How to search for terms?
+
+---
+
+Apply SVD but reduce document dimensions to 2:
 
 | Term        |  Dim 1 |  Dim 2 |
 |-------------|-------:|-------:|
 | cats        | -1.263 |  1.803 |
 | dog         | -0.777 |  0.944 |
 | information | -2.348 | -0.900 |
+
+Only works for known terms.<!-- .element: class="fragment" -->
 
 ---
 
@@ -130,7 +142,7 @@ Let's try to map the vectors across only two dimensions.
     board.create('arrow', [[0,0],[-1.964,-1.305]], { name: '5.', withLabel: true, label: { position: 'lft', autoPosition: true } });
     board.create('arrow', [[0,0],[-2.694,-0.866]], { name: '6.', withLabel: true, label: { position: 'lft', autoPosition: true } });
     board.create('arrow', [[0,0],[-1.263,1.803]], { name: 'cats', withLabel: true, strokeColor: 'green', label: { position: 'lft', autoPosition: true } });
-    board.create('arrow', [[0,0],[-0.777,0.944]], { name: 'dog', withLabel: true, strokeColor: 'green', label: { position: 'lft', autoPosition: true } });
+    board.create('arrow', [[0,0],[-0.777,0.944]], { name: 'dog', withLabel: true, strokeColor: 'orange', label: { position: 'lft', autoPosition: true } });
     board.create('arrow', [[0,0],[-2.348,-0.900]], { name: 'information', withLabel: true, strokeColor: 'purple', label: { position: 'lft', autoPosition: true } });
   </script>
 </div>
