@@ -111,6 +111,10 @@ Notes:
 
 ---
 
+# All documents are similar
+
+More or less:
+
 `cats and dogs`
 
 &darr;
