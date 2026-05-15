@@ -265,6 +265,7 @@
 <script src="dist/plugin/markdown.js"></script>
 <script src="dist/plugin/highlight.js"></script>
 <script src="dist/plugin/math.js"></script>
+<script src="plugin/mermaid/mermaid.js"></script>
 <!-- Anything plugin -->
 <script src="js/jsxgraph/jsxgraphcore.js"></script>
 <script src="plugin/reveal.js-plugins-4.6.0/anything/plugin.js"></script>
@@ -284,12 +285,12 @@
         height: 1200,
 
         // Learn about plugins: https://revealjs.com/plugins/
-        plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath, RevealAnything, RevealChart],
         plugins: [
             RevealMarkdown,
             RevealHighlight,
             RevealNotes,
             RevealMath,
+            RevealMermaid,
             window.RevealAnything,
             window.RevealChart
         ].filter(Boolean),
