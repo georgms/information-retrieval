@@ -1,4 +1,5 @@
-This repository contains the slides for an information retrieval lecture at university.
+This repository contains the slides for an information retrieval lecture at a university targeted at information
+technology students in their third year of their bachelor studies.
 
 # Structure
 
