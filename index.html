@@ -12,7 +12,7 @@
 
     <!-- Theme used for syntax highlighted code -->
     <link rel="stylesheet" href="dist/plugin/highlight/monokai.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css">
+    <link rel="stylesheet" href="js/jsxgraph/jsxgraph.css">
     <base target="_blank">
 </head>
 <body>
@@ -266,15 +266,13 @@
 <script src="dist/plugin/highlight.js"></script>
 <script src="dist/plugin/math.js"></script>
 <!-- Anything plugin -->
-<script src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@4.2.5/anything/plugin.js"></script>
+<script src="js/jsxgraph/jsxgraphcore.js"></script>
+<script src="plugin/reveal.js-plugins-4.6.0/anything/plugin.js"></script>
 <script src="js/Chart.min.js"></script>
+<script src="plugin/reveal.js-plugins-4.6.0/chart/plugin.js"></script>
 <script src="js/d3.min.js"></script>
 <script src="js/function-plot.js"></script>
 <script src="js/lz-string.min.js"></script>
-<!-- Chart plugin -->
-<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@4.2.5/chart/plugin.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.2.0/chart.min.js"></script>
 <script>
     // More info about initialization & config:
     // - https://revealjs.com/initialization/
@@ -287,6 +285,14 @@
 
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath, RevealAnything, RevealChart],
+        plugins: [
+            RevealMarkdown,
+            RevealHighlight,
+            RevealNotes,
+            RevealMath,
+            window.RevealAnything,
+            window.RevealChart
+        ].filter(Boolean),
 
         anything: [
             {
