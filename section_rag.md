@@ -2,12 +2,13 @@
 
 ---
 
-# Why?
+# LLM Issues
 
 ![ChatGPT hallucination](images/hallucination.png)
 
 * &shy;<!-- .element: class="fragment" --> LLMs hallucinate.
 * &shy;<!-- .element: class="fragment" --> LLM knowledge can be stale.
+* &shy;<!-- .element: class="fragment" --> No access to external / sensitive knowledge.
 * &shy;<!-- .element: class="fragment" --> Updating model weights is expensive.
 * &shy;<!-- .element: class="fragment" --> Internal model knowledge has no source citation.
 
@@ -18,20 +19,45 @@ Notes:
 
 ---
 
+# Regular LLM
+
+<div class="mermaid">
+    <pre>
+        flowchart TD
+            Prompt --> LLM-- Generation -->Response
+    </pre>
+</div>
+
+---
+
+# Retrieval Augmented Generation (RAG)
+
+<!-- .slide: class="audience-question" -->
+
+<div class="mermaid">
+    <pre>
+        flowchart TD
+            Prompt-- Retrieval -->Database --> Documents-- Augmentation -->Prompt
+            Prompt --> LLM
+            LLM-- Generation -->Response
+    </pre>
+</div>
+
+Notes:
+
+* What can an external search index provide that model weights cannot easily provide?
+* What kind of information is easier to update: an index or model weights?
+* Why are source documents useful for users?
+
+---
+
 <!-- .slide: class="audience-question" -->
 
 # Why Retrieval?
 
-What can an external search index provide that model weights cannot easily provide?
-
 * &shy;<!-- .element: class="fragment" --> Fresh information
 * &shy;<!-- .element: class="fragment" --> Private information
-* &shy;<!-- .element: class="fragment" --> Source documents
-
-Notes:
-
-* What kind of information is easier to update: an index or model weights?
-* Why are source documents useful for users?
+* &shy;<!-- .element: class="fragment" --> Source documents / citations
 
 ---
 
@@ -68,12 +94,87 @@ Notes:
 
 ---
 
+# System prompt
+
+```text
+System:
+You are a helpful assistant.
+Answer the user's question using only the provided context.
+If the context does not contain enough information, say that you do not know.
+Do not invent facts.
+Cite the source ids for claims you make.
+
+Context:
+[doc_1]
+Title: {{document_1_title}}
+Source: {{document_1_url_or_id}}
+Content:
+{{document_1_text}}
+
+[doc_2]
+Title: {{document_2_title}}
+Source: {{document_2_url_or_id}}
+Content:
+{{document_2_text}}
+
+[doc_3]
+Title: {{document_3_title}}
+Source: {{document_3_url_or_id}}
+Content:
+{{document_3_text}}
+
+User question:
+{{user_question}}
+
+Answer:
+```
+<!-- .element: class="stretch" -->
+
+---
+
+```text
+System:
+You are a helpful assistant.
+Answer the user's question using only the provided context.
+If the context does not contain enough information, say that you do not know.
+Do not invent facts.
+Cite the source ids for claims you make.
+
+Context:
+[doc_1]
+Title: Neural Search and Hybrid Retrieval Are Becoming Standard
+Source: https://example.com/search-industry-report-2026
+Content:
+Modern information retrieval systems increasingly combine keyword search with dense vector retrieval. Keyword search remains strong for exact terms, names, identifiers, and rare phrases. Vector search improves recall for semantic matches where users and documents use different wording. Many production systems now use hybrid retrieval followed by reranking to combine both strengths.
+
+[doc_2]
+Title: Reranking Improves Search Result Quality
+Source: https://example.com/reranking-overview
+Content:
+A common retrieval architecture uses a fast first-stage retriever to collect candidate documents, then applies a more expensive reranker to reorder the top results. Cross-encoder rerankers and LLM-based rerankers can improve relevance because they compare the query and document text together. The tradeoff is higher latency and compute cost.
+
+[doc_3]
+Title: Retrieval Augmented Generation in Search Applications
+Source: https://example.com/rag-search-applications
+Content:
+Retrieval augmented generation is a growing pattern in search applications. Instead of returning only a ranked list of documents, systems retrieve relevant passages and use a language model to generate a summarized answer with citations. Important challenges include grounding, source attribution, freshness, privacy, and evaluating whether the generated answer is faithful to the retrieved evidence.
+
+User question:
+What are the latest trends in information retrieval?
+
+Answer:
+```
+<!-- .element: class="stretch" -->
+
+
+---
+
 # Parametric vs. Non-Parametric Memory
 
-| Memory               | Stored in      | Updated by        | Example                    |
-|----------------------|----------------|-------------------|----------------------------|
-| Parametric memory    | Model weights  | Training          | General language knowledge |
-| Non-parametric memory | Search index   | Re-indexing files | Lecture slides, intranet   |
+| Memory                | Stored in     | Updated by        | Example                            |
+|-----------------------|---------------|-------------------|------------------------------------|
+| Parametric memory     | Model weights | Training          | General language knowledge         |
+| Non-parametric memory | Search index  | Re-indexing files | Websites, intranet                 |
 
 RAG combines both.<!-- .element: class="fragment" -->
 
@@ -84,9 +185,13 @@ Notes:
 
 ---
 
-<!-- .slide: class="audience-question" -->
-
 # Is RAG Search?
+
+---
+
+![Google RAG](images/Google%20RAG.png)
+
+---
 
 RAG uses search to answer a question, but the final user interface may look like chat.
 
@@ -95,6 +200,8 @@ RAG uses search to answer a question, but the final user interface may look like
 | Ranked list of documents  | Generated answer                |
 | User reads documents      | LLM reads retrieved snippets    |
 | Snippets explain matches  | Citations explain answer source |
+
+Or a hybrid of Search UI and RAG UI.<!-- .element: class="fragment" -->
 
 Notes:
 
@@ -107,11 +214,21 @@ Notes:
 
 Index time:
 
-`Documents` &rarr; `Chunks` &rarr; `Embeddings` &rarr; `Search Index`
+<div class="mermaid">
+    <pre>
+        flowchart LR
+            Documents --> Chunks --> Embeddings --> SearchIndex[Search Index]
+    </pre>
+</div>
 
 Query time:
 
-`Question` &rarr; `Retrieve` &rarr; `Rerank` &rarr; `Prompt` &rarr; `Answer`
+<div class="mermaid">
+    <pre>
+        flowchart LR
+            Question --> Retrieve --> Rerank --> Prompt --> Answer
+    </pre>
+</div>
 
 Notes:
 
@@ -124,12 +241,12 @@ Notes:
 
 RAG reuses many parts of this lecture:
 
-| RAG problem          | IR concept                       |
-|----------------------|----------------------------------|
-| Prepare documents    | Tokenization, fields, structure  |
-| Find candidates      | Inverted index, BM25, vector search |
-| Scale search         | ANN, HNSW, sharding              |
-| Improve result order | Ranking, reranking, hybrid search |
+| RAG problem          | IR concept                              |
+|----------------------|-----------------------------------------|
+| Prepare documents    | Tokenization, fields, structure         |
+| Find candidates      | Inverted index, BM25, vector search     |
+| Scale search         | ANN, HNSW, sharding                     |
+| Improve result order | Ranking, reranking, hybrid search       |
 | Measure quality      | Precision, recall, relevance judgements |
 
 Notes:
@@ -145,11 +262,11 @@ Notes:
 
 Query: `How do I submit the TF-IDF homework?`
 
-| Retrieval type | What it may find well                         |
-|----------------|------------------------------------------------|
-| Keyword search | Pages containing `TF-IDF` and `homework`       |
-| Vector search  | Pages about assignment submission              |
-| Hybrid search  | Both exact terms and semantic meaning          |
+| Retrieval type | What it may find well                    |
+|----------------|------------------------------------------|
+| Keyword search | Pages containing `TF-IDF` and `homework` |
+| Vector search  | Pages about assignment submission        |
+| Hybrid search  | Both exact terms and semantic meaning    |
 
 Notes:
 
@@ -178,10 +295,10 @@ Notes:
 
 LLMs and search systems work better with focused pieces of text.
 
-| Chunk size | Advantage                  | Risk                       |
-|------------|----------------------------|----------------------------|
-| Small      | Precise retrieval          | Missing surrounding context |
-| Large      | More context per chunk     | More irrelevant text        |
+| Chunk size | Advantage              | Risk                        |
+|------------|------------------------|-----------------------------|
+| Small      | Precise retrieval      | Missing surrounding context |
+| Large      | More context per chunk | More irrelevant text        |
 
 Use overlap to keep context across chunk boundaries.<!-- .element: class="fragment" -->
 
@@ -398,11 +515,11 @@ Notes:
 
 Retrieval quality still matters.
 
-| Retrieval behavior | RAG effect                         |
-|--------------------|------------------------------------|
-| Low recall         | Answer misses important facts      |
+| Retrieval behavior | RAG effect                          |
+|--------------------|-------------------------------------|
+| Low recall         | Answer misses important facts       |
 | Low precision      | Prompt contains distracting context |
-| Good ranking       | Best evidence appears early        |
+| Good ranking       | Best evidence appears early         |
 
 Notes:
 
@@ -440,11 +557,11 @@ Notes:
 
 Evaluate RAG in layers:
 
-| Layer      | Question                                  | Possible metric                  |
-|------------|-------------------------------------------|----------------------------------|
-| Retrieval  | Did we retrieve the right chunks?         | Recall@k, precision@k            |
-| Generation | Is the answer correct and grounded?       | Human judgement, automated checks |
-| Product    | Did users solve their task?               | Clicks, feedback, A/B tests      |
+| Layer      | Question                            | Possible metric                   |
+|------------|-------------------------------------|-----------------------------------|
+| Retrieval  | Did we retrieve the right chunks?   | Recall@k, precision@k             |
+| Generation | Is the answer correct and grounded? | Human judgement, automated checks |
+| Product    | Did users solve their task?         | Clicks, feedback, A/B tests       |
 
 Notes:
 
@@ -474,11 +591,11 @@ Notes:
 
 RAG is not always the right tool.
 
-* No external knowledge is needed.
-* The task is pure writing or transformation.
-* Source documents are low quality.
-* Answers must be exact and deterministic.
-* Latency or cost budget is too small.
+* &shy;<!-- .element: class="fragment" --> No external knowledge is needed.
+* &shy;<!-- .element: class="fragment" --> The task is pure writing or transformation.
+* &shy;<!-- .element: class="fragment" --> Source documents are low quality.
+* &shy;<!-- .element: class="fragment" --> Answers must be exact and deterministic.
+* &shy;<!-- .element: class="fragment" --> Latency or cost budget is too small.
 
 Notes:
 
