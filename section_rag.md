@@ -208,24 +208,37 @@ Notes:
 Document:
 
 ```text
-Course Projects
+Course Handbook
 
-The project counts for 30% of the final grade.
-Groups of two students are allowed.
-The deadline for the project is June 10.
-Submit the project via GitLab.
-The written exam counts for 70% of the final grade.
+1. Exam
+The written exam is closed book. Students must bring photo ID.
+The exam takes 90 minutes.
+
+2. Homework
+Homework is submitted individually through Moodle.
+Late homework is not accepted.
+
+3. Project
+The final project is done in groups of two.
+The proposal is due on May 15.
+The final report is due on June 10.
+Submit the final report via GitLab.
+Late project submissions lose 10% per day.
+
+4. Office hours
+Office hours are on Mondays from 14:00 to 15:00.
 ```
 
 Question:
 
-`Where do I submit the project?`
+`Where do I submit the final project report?`
 
 Notes:
 
 * Should this whole document be one search result?
 * Which exact text should be sent to the LLM?
 * What could go wrong if we split after every sentence?
+* What could go wrong if we do not split at all?
 
 ---
 
@@ -233,21 +246,30 @@ Notes:
 
 # Choose the Chunks
 
-Possible chunks:
+Too large:
 
-1. `The project counts for 30% of the final grade.`
-2. `Groups of two students are allowed.`
-3. `The deadline for the project is June 10.`
-4. `Submit the project via GitLab.`
-5. `The written exam counts for 70% of the final grade.`
+`[the whole course handbook]`
 
-Which chunks should retrieval return?
+Too small:
+
+`Submit the final report via GitLab.`
+
+Better:
+
+```text
+3. Project
+The final project is done in groups of two.
+The proposal is due on May 15.
+The final report is due on June 10.
+Submit the final report via GitLab.
+Late project submissions lose 10% per day.
+```
 
 Notes:
 
-* Which chunk directly answers the question?
-* Which nearby chunk might still be useful?
-* What information is lost if chunk 4 does not mention "project"?
+* Why is the whole handbook distracting?
+* Why may the one-sentence chunk be hard to retrieve?
+* Why is the project section a useful compromise?
 
 ---
 
@@ -264,31 +286,9 @@ Use overlap to keep context across chunk boundaries.<!-- .element: class="fragme
 
 Notes:
 
-* Why not put a whole book into one index document?
+* Why not put a whole handbook into one index document?
 * What can go wrong if chunks are too small?
-
----
-
-<!-- .slide: class="audience-question" -->
-
-# Chunk Boundary
-
-Document:
-
-`The exam is written. The deadline for the project is June 10. Submit it via GitLab.`
-
-Bad chunk:
-
-`The deadline for the project is June 10.`
-
-Better chunk:
-
-`The deadline for the project is June 10. Submit it via GitLab.`
-
-Notes:
-
-* Which chunk can answer "Where do I submit the project?"
-* What information is lost in the bad chunk?
+* What makes a section boundary useful for chunking?
 
 ---
 
