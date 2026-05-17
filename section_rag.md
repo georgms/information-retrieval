@@ -47,13 +47,19 @@ The answer depends on what is already in the prompt and model weights.
 <div class="mermaid">
     <pre>
         flowchart TD
+            Prompt-- Retrieval -->Documents
+            Updates[Dynamic updates] --> Database
+            Documents --> MatchingDocuments[Matching Documents]
+            MatchingDocuments-- Augmentation -->Prompt
+            Weights-- Generation -->Response
+            Training[Static training data] --> LLM
+            Prompt --> Weights
             subgraph LLM
                 Weights
             end
-            Prompt-- Retrieval -->Database --> Documents-- Augmentation -->Prompt
-            Prompt --> Weights
-            Weights-- Generation -->Response
-            Training[Static training data] --> LLM
+            subgraph Database
+                Documents
+            end
     </pre>
 </div>
 
