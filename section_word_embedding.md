@@ -17,6 +17,8 @@ Notes:
 
 # Word Embeddings
 
+[word2vec (Google, 2013)](https://papers.nips.cc/paper/2013/file/9aa42b31882ec039965f3c4923ce901b-Paper.pdf)
+
 * Represent words with one-hot vectors
 * Train neural network to predict next word
 * Use large text corpus like Wikipedia

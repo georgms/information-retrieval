@@ -14,6 +14,8 @@ Notes:
 
 # BERT
 
+[Google, 2018](https://arxiv.org/abs/1810.04805v2)
+
 Bidirectional Encoder Representations from Transformers
 
 &shy; <!-- .element: class="stretch" --> ![bert](images/bert.png)  

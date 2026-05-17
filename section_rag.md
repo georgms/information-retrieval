@@ -65,7 +65,9 @@ Notes:
 
 ---
 
-# RAG
+# Retrieval Augmented Generation (RAG)
+
+[Facebook, 2021](https://arxiv.org/abs/2005.11401)
 
 Retrieval Augmented Generation:
 
