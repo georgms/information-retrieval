@@ -174,16 +174,16 @@ Notes:
 
 [View Word Embedding Notebook](https://github.com/georgms/information-retrieval/blob/gh-pages/word-embedding/Word_Embedding.ipynb)
 
-1. Download [Word Embedding Notebook](word-embedding/Word_Embedding.ipynb)
-   and [simple-wikipedia.zip](https://gitlab.ct.fh-salzburg.ac.at/information-retrieval/homework/tf-idf-scoring/-/blob/main/simple-wikipedia.zip?ref_type=heads)
-2. `unzip -q simple-wikipedia.zip`
-3. Run Jupyter:
+1. Download [simple-wikipedia.zip](https://gitlab.ct.fh-salzburg.ac.at/information-retrieval/homework/tf-idf-scoring/-/blob/main/simple-wikipedia.zip?ref_type=heads)
+2. In this repository, navigate to the [word-embedding](word-embedding) directory
+3. `unzip -q simple-wikipedia.zip`
+4. Run Jupyter:
 
 ```shell
-docker run -p 8888:8888 -e GRANT_SUDO=yes -u root -v "$PWD:/home/jovyan/work" jupyterhub/singleuser
+docker compose up
 ```
 
-4. Open http://localhost:8888/lab with the token from the console
+5. Open http://localhost:8888/lab.
 
 Notes:
 

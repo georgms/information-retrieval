@@ -1,12 +1,32 @@
 services:
-  jupyterhub:
-    image: jupyterhub/singleuser
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command:
+      - start-notebook.py
+      - --IdentityProvider.token=''
     ports:
       - "8888:8888"
     environment:
       - GRANT_SUDO=yes
+      - CHOWN_HOME=yes
+      - CHOWN_HOME_OPTS=-R
+      - SENTENCE_TRANSFORMERS_HOME=/home/jovyan/.cache/sentence-transformers
+      - HF_HOME=/home/jovyan/.cache/huggingface
+      - HUGGINGFACE_HUB_CACHE=/home/jovyan/.cache/huggingface/hub
     user: root
     volumes:
       - source: .
         target: /home/jovyan/work
         type: bind
+      - source: pip
+        target: /opt/conda/lib/python3.13/site-packages
+        type: volume
+      - source: cache
+        target: /home/jovyan/.cache
+        type: volume
+
+volumes:
+  pip:
+  cache:
